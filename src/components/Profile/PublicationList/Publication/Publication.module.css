@@ -3,12 +3,10 @@
   margin-bottom: 20px;
   padding: 20px;
 
+  text-align: center;
+  
   border: 1px solid #858585;
   border-radius: 10px;
-}
-
-.userPublication {
-  display: flex;
 }
 
 .avatarContainer {
@@ -21,10 +19,33 @@
 }
 
 .userName {
-  margin: 0;
+  margin: 0 0 10px;
 
-  text-align: center;
   font-size: 16px;
+}
+
+.likes {
+  font-size: 14px;
+}
+
+.likeBtn {
+  padding: 5px 10px;
+
+  background: #b4fffb;
+  border: 1px solid #858585;
+  border-radius: 10px;
+
+  transition: all 0.15s linear;
+  cursor: pointer;
+}
+
+.likeBtn:hover {
+  background-color: #54d0e6;
+}
+
+.likesCounter {
+  margin-left: 5px;
+  font-weight: 600;
 }
 
 .userText {
