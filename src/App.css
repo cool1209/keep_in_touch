@@ -1,0 +1,12 @@
+.App {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 80px 1fr 50px;
+  gap: 5px;
+  grid-template-areas: 
+    "header header"
+    "sidebar content"
+    "footer footer";
+
+  height: 100vh;
+}

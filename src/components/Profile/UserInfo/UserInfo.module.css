@@ -1,0 +1,48 @@
+.user {
+}
+
+.images {
+  position: relative;
+
+  margin-bottom: 50px;
+
+  border-radius: 10px;
+}
+
+.wallpaper {
+  height: 350px;
+  object-fit: cover;
+
+  border-radius: 8px 8px 0 0;
+}
+
+.avatarContainer {
+  position: absolute;
+  /* left: 50%; */
+  left: 40px;
+  bottom: -40px;
+
+  /* transform: translateX(-50%); */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 200px;
+  height: 200px;
+
+  background-color: #fff;
+  border: 4px double #000;
+  border-radius: 50%;
+}
+
+.avatar {
+  width: 185px;
+  height: 185px;
+  border-radius: 50%;
+}
+
+.description {
+  padding: 10px 20px 0;
+  width: 50%;
+}

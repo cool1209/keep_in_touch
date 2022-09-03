@@ -1,0 +1,6 @@
+.navbar {
+  grid-area: sidebar;
+  
+  background: #b4fffb;
+  border-radius: 10px;
+}
