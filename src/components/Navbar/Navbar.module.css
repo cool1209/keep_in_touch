@@ -1,6 +1,26 @@
 .navbar {
   grid-area: sidebar;
+
+  padding: 20px;
   
   background: var(--color-navbar-bg);
   border-radius: 10px;
+}
+
+.link {
+  display: block;
+
+  margin-bottom: 15px;
+
+  text-decoration: none;
+
+  transition: color var(--duration-element-animation) linear;
+}
+
+.link:hover {
+  color: var(--color-red);
+}
+
+.isActive {
+  color: var(--color-red);
 }

@@ -1,4 +1,4 @@
-import React, { startTransition } from 'react';
+import React from 'react';
 import styles from './Messages.module.css';
 import userAva from './user-ava.jpg';
 
