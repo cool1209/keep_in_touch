@@ -1,0 +1,76 @@
+.wrapper {
+  height: 100%;
+}
+
+.title {
+  margin: 0 0 20px 0;
+
+  font-size: 18px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) 1fr;
+  grid-template-rows: 100%;
+  grid-template-areas:
+    'dialogs messages'
+  ;
+
+  height: 90%;
+}
+
+.dialogList,
+.messageList {
+  margin: 0;
+  padding: 0 20px;
+  list-style: none;
+}
+
+.dialogList {
+  grid-area: dialogs;
+
+  border-right: 2px solid var(--color-grey);
+}
+
+.dialog {
+  margin-bottom: 10px;
+  padding: 10px;
+
+  border: 1px solid var(--color-grey);
+  border-radius: 10px;
+}
+
+.messageList {
+  grid-area: messages;
+  flex-grow: 1;
+}
+
+.message {
+  display: flex;
+
+  margin-bottom: 10px;
+  padding: 10px;
+
+  border: 1px dashed var(--color-grey);
+  border-radius: 10px;
+}
+
+.user {
+  margin-right: 10px;
+}
+
+.userAva {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+}
+
+.userName {
+  margin: 0;
+
+  text-align: center;
+  font-size: 12px;
+}
