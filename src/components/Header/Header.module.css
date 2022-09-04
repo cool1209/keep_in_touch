@@ -4,7 +4,7 @@
   grid-area: header;
 
   padding: 0 25px;
-  background-color: #54d0e6;
+  background-color: var(--color-header-bg);
 }
 
 .logo {

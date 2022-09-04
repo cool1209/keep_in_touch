@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './Publication.module.css';
-import userAva from './../../../../user-ava.jpg';
+import userAva from './../../user-ava.jpg';
 
-const Publication = ({ message, likes }) => {
+const Publication = ({ publication, likes }) => {
   return (
     <article className={styles.userPublication}>
       <div>
@@ -25,7 +25,7 @@ const Publication = ({ message, likes }) => {
       </div>
       
       <div className={styles.userText}>
-        {message}
+        {publication}
       </div>
     </article>
   );

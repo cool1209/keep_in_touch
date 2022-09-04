@@ -19,10 +19,10 @@ const PublicationList = () => {
         All publications:
       </h2>
 
-      <Publication message={message1} likes={likes1} />
-      <Publication message={message2} likes={likes2} />
-      <Publication message={message3} likes={likes3} />
-      <Publication message={message4} likes={likes4} />
+      <Publication publication={message1} likes={likes1} />
+      <Publication publication={message2} likes={likes2} />
+      <Publication publication={message3} likes={likes3} />
+      <Publication publication={message4} likes={likes4} />
     </section>
   );
 };

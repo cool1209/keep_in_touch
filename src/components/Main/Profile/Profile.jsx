@@ -6,14 +6,14 @@ import UserInfo from './UserInfo/UserInfo';
 
 const Profile = () => {
   return (
-    <main className={styles.profile}>
+    <section className={styles.profile}>
       <UserInfo />
       
       <div className={styles.publications}>
         <MyPublication />
         <PublicationList />
       </div>
-    </main>
+    </section>
   );
 };
 

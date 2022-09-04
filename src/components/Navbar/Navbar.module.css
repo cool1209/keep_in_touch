@@ -1,6 +1,6 @@
 .navbar {
   grid-area: sidebar;
   
-  background: #b4fffb;
+  background: var(--color-navbar-bg);
   border-radius: 10px;
 }

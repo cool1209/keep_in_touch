@@ -5,7 +5,7 @@
   gap: 5px;
   grid-template-areas: 
     "header header"
-    "sidebar content"
+    "sidebar main"
     "footer footer";
 
   height: 100vh;

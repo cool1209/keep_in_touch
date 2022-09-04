@@ -5,7 +5,7 @@
 
   text-align: center;
   
-  border: 1px solid #858585;
+  border: 1px solid var(--color-publication-bg);
   border-radius: 10px;
 }
 
@@ -31,16 +31,16 @@
 .likeBtn {
   padding: 5px 10px;
 
-  background: #b4fffb;
-  border: 1px solid #858585;
+  background: var(--color-button);
+  border: 1px solid var(--color-button-border);
   border-radius: 10px;
 
-  transition: all 0.15s linear;
+  transition: all var(--duration-element-animation) linear;
   cursor: pointer;
 }
 
 .likeBtn:hover {
-  background-color: #54d0e6;
+  background-color: var(--color-button-behavior);
 }
 
 .likesCounter {

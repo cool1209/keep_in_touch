@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './UserInfo.module.css';
-import userAva from './../../../user-ava.jpg';
+import userAva from './../user-ava.jpg';
 
 const UserInfo = () => {
   return (
