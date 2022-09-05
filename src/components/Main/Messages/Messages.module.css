@@ -34,12 +34,32 @@
   border-right: 2px solid var(--color-grey);
 }
 
-.dialog {
+.dialog {  
   margin-bottom: 10px;
   padding: 10px;
 
+  background-color: var(--color-button);
   border: 1px solid var(--color-grey);
   border-radius: 10px;
+
+  transition: background-color var(--duration-element-animation) linear;
+}
+
+.dialog:hover {
+  background-color: var(--color-button-behavior);
+}
+
+.dialogAva {
+  margin-right: 8px;
+  height: 30px;
+  width: 30px;
+
+  border-radius: 50%;
+}
+
+.dialog a {
+  display: flex;
+  align-items: center;
 }
 
 .messageList {

@@ -8,8 +8,8 @@ export const PageNavLink = ({ to, linkName }) => (
     to={to}
     className={({ isActive }) => classNames(
       styles.link,
-      { [styles.activeLink]: isActive 
-    })}
+      { [styles.activeLink]: isActive }
+    )}
   >
     {linkName}
   </NavLink>

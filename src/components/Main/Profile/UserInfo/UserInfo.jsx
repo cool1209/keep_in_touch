@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './UserInfo.module.css';
-import userAva from './../user-ava.jpg';
 
 const UserInfo = () => {
   return (
@@ -16,15 +15,19 @@ const UserInfo = () => {
 
         <div className={styles.avatarContainer}>
           <img
-            src={userAva}
+            src={'https://bit.ly/3Qh9rbl'}
             alt='User avatar'
             className={styles.avatar}
           />
         </div>
       </div>
 
+      <h2 className={styles.userName}>
+        Ironman
+      </h2>
+
       <div className={styles.description}>
-      Iron Man is a superhero appearing in American comic books published by Marvel Comics. The character was co-created by writer and editor Stan Lee, developed by scripter Larry Lieber, and designed by artists Don Heck and Jack Kirby. The character made his first appearance in Tales of Suspense. Also in 1963, the character founded the Avengers alongside Thor, Ant-Man, Wasp and the Hulk.
+        Iron Man is a superhero appearing in American comic books published by Marvel Comics. The character was co-created by writer and editor Stan Lee, developed by scripter Larry Lieber, and designed by artists Don Heck and Jack Kirby. The character made his first appearance in Tales of Suspense. Also in 1963, the character founded the Avengers alongside Thor, Ant-Man, Wasp and the Hulk.
       </div>
     </section>
   );

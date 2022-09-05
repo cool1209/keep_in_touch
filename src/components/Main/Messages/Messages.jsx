@@ -1,6 +1,37 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styles from './Messages.module.css';
-import userAva from './user-ava.jpg';
+
+const DialogItem = ({ name, id, avatar }) => {
+  const path = `/messages/${id}`;
+
+  return (
+    <li className={styles.dialog}>
+      <NavLink to={path}>
+        <img src={avatar} alt='User avatar' className={styles.dialogAva}/>
+        {name}
+      </NavLink>
+    </li>
+  );
+}
+
+const MessagesItem = ({ avatar, name, message, id }) => {
+  return (
+    <li className={styles.message}>
+      <div className={styles.user}>
+        <img src={avatar} alt='User avatar' className={styles.userAva}/>
+
+        <p className={styles.userName}>
+          {name}
+        </p>
+      </div>
+
+      <div className={styles.userMessage}>
+        {message}
+      </div>
+    </li>
+  );
+}
 
 const Messages = () => {
   return (
@@ -8,61 +39,52 @@ const Messages = () => {
       <h2 className={styles.title}>Messages:</h2>
       <div className={styles.container}>
         <ul className={styles.dialogList}>
-          <li className={styles.dialog}>
-            Spiderman
-          </li>
+          <DialogItem
+            name={'Spiderman'}
+            id={2}
+            avatar={'https://bit.ly/3Rm5F1M'}
+          />
 
-          <li className={styles.dialog}>
-            Hulk
-          </li>
+          <DialogItem
+            name={'Hulk'}
+            id={3}
+            avatar={'https://bit.ly/3BdHZHq'}
+          />
 
-          <li className={styles.dialog}>
-            Natasha
-          </li>
+          <DialogItem
+            name={'Natasha'}
+            id={4}
+            avatar={'https://bit.ly/3Ri2Z5x'}
+          />
+
+          <DialogItem
+            name={'Tor'}
+            id={5}
+            avatar={'https://bit.ly/3RVuVMv'}
+          />
         </ul>
 
         <ul className={styles.messageList}>
-          <li className={styles.message}>
-            <div className={styles.user}>
-              <img src={userAva} alt='User avatar' className={styles.userAva}/>
+          <MessagesItem
+            avatar={'https://bit.ly/3Rm5F1M'}
+            name={'Spiderman'}
+            message={'Hello man, how are you?'}
+            id={1} 
+          />
 
-              <p className={styles.userName}>
-                ironman
-              </p>
-            </div>
+          <MessagesItem
+            avatar={'https://bit.ly/3Qh9rbl'}
+            name={'ironman'}
+            message={'I am five, what about you?'}
+            id={2} 
+          />
 
-            <div className={styles.userMessage}>
-              Hello man, how are you?
-            </div>
-          </li>
-
-          <li className={styles.message}>
-            <div className={styles.user}>
-              <img src={userAva} alt='User avatar' className={styles.userAva}/>
-
-              <p className={styles.userName}>
-                ironman
-              </p>
-            </div>
-
-            <div className={styles.userMessage}>
-              I'm five, what about you?
-            </div>
-          </li>
-
-          <li className={styles.message}>
-            <div className={styles.user}>
-              <img src={userAva} alt='User avatar' className={styles.userAva}/>
-
-              <p className={styles.userName}>
-                ironman
-              </p>
-            </div>
-
-            <div className={styles.userMessage}>
-              Not bad too
-            </div>
-          </li>
+          <MessagesItem
+            avatar={'https://bit.ly/3Rm5F1M'}
+            name={'Spiderman'}
+            message={'Not bad too'}
+            id={3} 
+          />
         </ul>
       </div>
     </section>

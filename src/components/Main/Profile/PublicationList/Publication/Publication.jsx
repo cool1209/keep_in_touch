@@ -1,21 +1,20 @@
 import React from 'react';
 import styles from './Publication.module.css';
-import userAva from './../../user-ava.jpg';
 
-const Publication = ({ publication, likes }) => {
+const Publication = ({ name, publication, likes }) => {
   return (
     <article className={styles.userPublication}>
       <div>
         <div className={styles.avatarContainer}>
           <img 
-            src={userAva}
+            src={'https://bit.ly/3Qh9rbl'}
             alt='User avatar'
             className={styles.avatar}
           />
         </div>
 
         <h3 className={styles.userName}>
-          Iron man
+          {name}
         </h3>
 
         <div className={styles.likes}>

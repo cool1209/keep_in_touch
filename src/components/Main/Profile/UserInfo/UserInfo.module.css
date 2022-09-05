@@ -16,10 +16,10 @@
 .avatarContainer {
   position: absolute;
   /* left: 50%; */
-  left: 40px;
+  left: 50%;
   bottom: -40px;
 
-  /* transform: translateX(-50%); */
+  transform: translateX(-50%);
 
   display: flex;
   justify-content: center;
@@ -37,6 +37,10 @@
   width: 185px;
   height: 185px;
   border-radius: 50%;
+}
+
+.userName {
+  padding-left: 20px;
 }
 
 .description {
