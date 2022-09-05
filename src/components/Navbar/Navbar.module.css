@@ -12,8 +12,6 @@
 
   margin-bottom: 15px;
 
-  text-decoration: none;
-
   transition: color var(--duration-element-animation) linear;
 }
 
