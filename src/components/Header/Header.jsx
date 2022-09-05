@@ -1,13 +1,14 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import logo from './../../logo.png';
 import styles from './Header.module.css';
 
 const Header = () => {
   return (
     <header className={styles.header}>
-      <a href='/'>
+      <NavLink to='/'>
         <img src={logo} alt="Keep in touch logo" className={styles.logo}/>
-      </a>
+      </NavLink>
 
       <h1 className={styles.title}>
         Keep in touch

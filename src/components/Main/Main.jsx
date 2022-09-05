@@ -9,11 +9,13 @@ import News from './News/News';
 import Music from './Music/Music';
 import Settings from './Settings/Settings';
 import styles from './Main.module.css';
+import HomePage from './HomePage/HomePage';
 
 const Main = () => {
   return (
     <main className={styles.main}>
       <Routes>
+        <Route path='/' element={<HomePage/>} />
         <Route path='/profile' element={<Profile/>} />
         <Route path='/messages' element={<Messages/>} />
         <Route path='/news' element={<News/>} />
