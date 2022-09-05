@@ -19,6 +19,6 @@
   color: var(--color-red);
 }
 
-.isActive {
+.activeLink {
   color: var(--color-red);
 }

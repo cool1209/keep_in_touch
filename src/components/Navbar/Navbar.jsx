@@ -1,45 +1,29 @@
+import classNames from 'classnames';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Navbar.module.css';
+
+export const PageNavLink = ({ to, linkName }) => (
+  <NavLink 
+    to={to}
+    className={({ isActive }) => classNames(
+      styles.link,
+      { [styles.activeLink]: isActive 
+    })}
+  >
+    {linkName}
+  </NavLink>
+);
 
 const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <nav>
-        <NavLink 
-          to='/profile'
-          className={styles.link}
-        >
-          Profile
-        </NavLink>
-
-        <NavLink 
-          to='/messages' 
-          className={styles.link}
-        >
-          Messages
-        </NavLink>
-
-        <NavLink 
-          to='/news' 
-          className={styles.link}
-        >
-          News
-        </NavLink>
-
-        <NavLink 
-          to='/music' 
-          className={styles.link}
-        >
-          Music
-        </NavLink>
-
-        <NavLink 
-          to='/settings' 
-          className={styles.link}
-        >
-          Settings
-        </NavLink>
+        <PageNavLink to='/profile' linkName='Profile'/>
+        <PageNavLink to='/messages' linkName='Messages'/>
+        <PageNavLink to='/news' linkName='News'/>
+        <PageNavLink to='/music' linkName='Music'/>
+        <PageNavLink to='/settings' linkName='Settings'/>
       </nav>
     </nav>
   );
