@@ -34,6 +34,65 @@ const MessagesItem = ({ avatar, name, message, id }) => {
 }
 
 const Messages = () => {
+
+  const dialogsData = [
+    {
+      id: 1,
+      name: 'Ironman',
+      avatar: 'https://bit.ly/3Qh9rbl',
+    },
+    {
+      id: 2,
+      name: 'Spiderman',
+      avatar: 'https://bit.ly/3Rm5F1M'
+    },
+    {
+      id: 3,
+      name: 'Hulk',
+      avatar: 'https://bit.ly/3BdHZHq'
+    },
+    {
+      id: 4,
+      name: 'Natasha',
+      avatar: 'https://bit.ly/3Ri2Z5x'
+    },
+    {
+      id: 5,
+      name: 'Tor',
+      avatar: 'https://bit.ly/3RVuVMv'
+    }
+  ];
+
+  const messagesData = [
+    {
+      userId: 1,
+      messages: [
+        {
+          id: 1,
+          messageUser: 'Spiderman',
+          messageAva: 'https://bit.ly/3Rm5F1M',
+          message: 'Hello man, how are you?',
+        },
+        {
+          id: 2,
+          messageUser: 'Ironman',
+          messageAva: 'https://bit.ly/3Qh9rbl',
+          message: 'I am five, what about you?',
+        },
+        {
+          id: 3,
+          messageUser: 'Spiderman',
+          messageAva: 'https://bit.ly/3Rm5F1M',
+          message: 'Not bad too',
+        },
+      ]
+    },
+    {
+      userId: 2,
+      messages: []
+    },
+  ];
+
   return (
     <section className={styles.wrapper}>
       <h2 className={styles.title}>Messages:</h2>
