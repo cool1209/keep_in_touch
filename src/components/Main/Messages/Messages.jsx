@@ -38,6 +38,7 @@ const Messages = () => {
   const dialogsData = [
     {
       id: 1,
+      userId: 1,
       name: 'Ironman',
       avatar: 'https://bit.ly/3Qh9rbl',
     },

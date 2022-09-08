@@ -1,9 +1,28 @@
 import React from 'react';
+import styles from './Music.module.css';
 
 const Music = () => {
   return (
-    <div>
-      Music page under development...
+    <div className={styles.wrapper}>
+      <h1>
+        Music page under development...
+      </h1>
+
+      <div>
+        <h3>
+          To Do:
+        </h3>
+        
+        <ol className={styles.todo}>
+          <li>
+            Add to search music
+          </li>
+
+          <li>
+            Add user's music list
+          </li>
+        </ol>
+      </div>
     </div>
   );
 };
