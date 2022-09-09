@@ -1,37 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import styles from './Messages.module.css';
-
-const DialogItem = ({ name, id, avatar }) => {
-  const path = `/messages/${id}`;
-
-  return (
-    <li className={styles.dialog}>
-      <NavLink to={path}>
-        <img src={avatar} alt='User avatar' className={styles.dialogAva}/>
-        {name}
-      </NavLink>
-    </li>
-  );
-}
-
-const MessagesItem = ({ avatar, name, message, id }) => {
-  return (
-    <li className={styles.message}>
-      <div className={styles.user}>
-        <img src={avatar} alt='User avatar' className={styles.userAva}/>
-
-        <p className={styles.userName}>
-          {name}
-        </p>
-      </div>
-
-      <div className={styles.userMessage}>
-        {message}
-      </div>
-    </li>
-  );
-}
+import DialogItem from './DialogItem/DialogItem';
+import MessagesItem from './MessagesItem/MessagesItem';
 
 const Messages = () => {
 

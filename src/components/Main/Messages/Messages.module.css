@@ -34,63 +34,7 @@
   border-right: 2px solid var(--color-grey);
 }
 
-.dialog {  
-  margin-bottom: 10px;
-  padding: 10px;
-
-  background-color: var(--color-button);
-  border: 1px solid var(--color-grey);
-  border-radius: 10px;
-
-  transition: background-color var(--duration-element-animation) linear;
-}
-
-.dialog:hover {
-  background-color: var(--color-button-behavior);
-}
-
-.dialogAva {
-  margin-right: 8px;
-  height: 30px;
-  width: 30px;
-
-  border-radius: 50%;
-}
-
-.dialog a {
-  display: flex;
-  align-items: center;
-}
-
 .messageList {
   grid-area: messages;
   flex-grow: 1;
-}
-
-.message {
-  display: flex;
-
-  margin-bottom: 10px;
-  padding: 10px;
-
-  border: 1px dashed var(--color-grey);
-  border-radius: 10px;
-}
-
-.user {
-  margin-right: 10px;
-}
-
-.userAva {
-  width: 50px;
-  height: 50px;
-
-  border-radius: 50%;
-}
-
-.userName {
-  margin: 0;
-
-  text-align: center;
-  font-size: 12px;
 }
