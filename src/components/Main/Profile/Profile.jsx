@@ -4,14 +4,14 @@ import MyPublication from './MyPublication/MyPublication';
 import PublicationList from './PublicationList/PublicationList';
 import UserInfo from './UserInfo/UserInfo';
 
-const Profile = () => {
+const Profile = ({ users, publications }) => {
   return (
     <section className={styles.profile}>
-      <UserInfo />
+      <UserInfo users={users} />
       
       <div className={styles.publications}>
         <MyPublication />
-        <PublicationList />
+        <PublicationList publications={publications} />
       </div>
     </section>
   );

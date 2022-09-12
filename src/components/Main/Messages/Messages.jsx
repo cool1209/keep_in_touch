@@ -3,118 +3,31 @@ import styles from './Messages.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import MessagesItem from './MessagesItem/MessagesItem';
 
-const Messages = () => {
-
-  const dialogsData = [
-    {
-      id: 1,
-      userId: 1,
-      name: 'Ironman',
-      avatar: 'https://bit.ly/3Qh9rbl',
-    },
-    {
-      id: 2,
-      name: 'Spiderman',
-      avatar: 'https://bit.ly/3Rm5F1M'
-    },
-    {
-      id: 3,
-      name: 'Hulk',
-      avatar: 'https://bit.ly/3BdHZHq'
-    },
-    {
-      id: 4,
-      name: 'Natasha',
-      avatar: 'https://bit.ly/3Ri2Z5x'
-    },
-    {
-      id: 5,
-      name: 'Tor',
-      avatar: 'https://bit.ly/3RVuVMv'
-    }
-  ];
-
-  const messagesData = [
-    {
-      userId: 1,
-      messages: [
-        {
-          id: 1,
-          messageUser: 'Spiderman',
-          messageAva: 'https://bit.ly/3Rm5F1M',
-          message: 'Hello man, how are you?',
-        },
-        {
-          id: 2,
-          messageUser: 'Ironman',
-          messageAva: 'https://bit.ly/3Qh9rbl',
-          message: 'I am five, what about you?',
-        },
-        {
-          id: 3,
-          messageUser: 'Spiderman',
-          messageAva: 'https://bit.ly/3Rm5F1M',
-          message: 'Not bad too',
-        },
-      ]
-    },
-    {
-      userId: 2,
-      messages: []
-    },
-  ];
-
+const Messages = ({ dialogs, messages }) => {
   return (
     <section className={styles.wrapper}>
       <h2 className={styles.title}>Messages:</h2>
       <div className={styles.container}>
         <ul className={styles.dialogList}>
-          <DialogItem
-            name={'Spiderman'}
-            id={2}
-            avatar={'https://bit.ly/3Rm5F1M'}
-          />
-
-          <DialogItem
-            name={'Hulk'}
-            id={3}
-            avatar={'https://bit.ly/3BdHZHq'}
-          />
-
-          <DialogItem
-            name={'Natasha'}
-            id={4}
-            avatar={'https://bit.ly/3Ri2Z5x'}
-          />
-
-          <DialogItem
-            name={'Tor'}
-            id={5}
-            avatar={'https://bit.ly/3RVuVMv'}
-          />
+          {dialogs.map(dialog => (
+            <DialogItem
+              key={dialog.id}
+              name={dialog.name}
+              id={dialog.id}
+              avatar={dialog.avatar}
+            />
+          ))}
         </ul>
 
         <ul className={styles.messageList}>
-          <MessagesItem
-            avatar={'https://bit.ly/3Rm5F1M'}
-            name={'Spiderman'}
-            message={'Hello man, how are you?'}
-            id={1} 
-          />
-
-          <MessagesItem
-            avatar={'https://bit.ly/3Qh9rbl'}
-            name={'ironman'}
-            message={'I am five, what about you?'}
-            id={2} 
-          />
-
-          <MessagesItem
-            avatar={'https://bit.ly/3Rm5F1M'}
-            name={'Spiderman'}
-            message={'Not bad too'}
-            id={3} 
-          />
+          {messages.map(message => (
+            <MessagesItem
+              key={message.id}
+              avatar={message.messageAva}
+              name={message.messageUser}
+              message={message.message}
+            />
+          ))}
         </ul>
       </div>
     </section>

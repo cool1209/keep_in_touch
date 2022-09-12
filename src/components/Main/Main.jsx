@@ -11,13 +11,25 @@ import Settings from './Settings/Settings';
 import styles from './Main.module.css';
 import HomePage from './HomePage/HomePage';
 
-const Main = () => {
+const Main = ({
+  users,
+  publications,
+  messages,
+  dialogs
+}) => {
   return (
     <main className={styles.main}>
       <Routes>
         <Route path='/' element={<HomePage/>} />
-        <Route path='/profile' element={<Profile/>} />
-        <Route path='/messages' element={<Messages/>} />
+        
+        <Route path='/profile' element={
+          <Profile users={users} publications={publications}/>
+        }/>
+
+        <Route path='/messages' element={
+          <Messages dialogs={dialogs} messages={messages} />
+        }/>
+
         <Route path='/news' element={<News/>} />
         <Route path='/music' element={<Music/>} />
         <Route path='/settings' element={<Settings/>} />

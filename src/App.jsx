@@ -4,12 +4,22 @@ import Navbar from './components/Navbar/Navbar';
 import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
 
-const App = () => {
+const App = ({
+  users,
+  publications,
+  messages,
+  dialogs
+}) => {
   return (
     <div className="App">
       <Header />
       <Navbar />
-      <Main />
+      <Main
+        users={users}
+        publications={publications}
+        messages={messages}
+        dialogs={dialogs}
+      />
       <Footer />
     </div>
   );
