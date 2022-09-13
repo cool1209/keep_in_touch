@@ -15,10 +15,10 @@
 
 .avatarContainer {
   position: absolute;
-  left: 50%;
+  left: 20px;
   bottom: -40px;
 
-  transform: translateX(-50%);
+  /* transform: translateX(-50%); */
 
   display: flex;
   justify-content: center;

@@ -11,6 +11,7 @@ const PublicationList = ({ publications }) => {
 
       {publications.map(publication => (
         <Publication
+          key={publication.id}
           publication={publication.publication}
           likes={publication.likes1}
         />
