@@ -1,4 +1,7 @@
 .Messages {
+  display: grid;
+  grid-template-rows: auto 1fr;
+
   height: 100%;
 }
 
@@ -13,28 +16,46 @@
 .container {
   display: grid;
   grid-template-columns: minmax(200px, 280px) 1fr;
-  grid-template-rows: 100%;
+  grid-template-rows: 1fr;
   grid-template-areas:
     'dialogs messages'
   ;
 
-  height: 90%;
+  padding-bottom: 20px;
 }
 
 .messagesWrapper {
   grid-area: messages;
-  flex-grow: 1;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  position: relative;
 
   padding: 0 20px;
 }
 
 .myMessage {
   display: flex;
-  position: relative;
+
+  position: sticky;
+  bottom: 5px;
+  z-index: 5;
+}
+
+.myMessage::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  z-index: -1;
+
+  background-color: var(--color-main-light);
+  border-radius: 10px 10px 0 0;
 }
 
 .myMessageInput {
