@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './DialogItem.module.css';
+import styles from './Dialog.module.css';
 import { NavLink } from 'react-router-dom';
 
-const DialogItem = ({ name, id, avatar }) => {
+const Dialog = ({ name, id, avatar }) => {
   const path = `/messages/${id}`;
 
   return (
@@ -15,4 +15,4 @@ const DialogItem = ({ name, id, avatar }) => {
   );
 }
 
-export default DialogItem;
+export default Dialog;

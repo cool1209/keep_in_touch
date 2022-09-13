@@ -13,7 +13,7 @@ const PublicationList = ({ publications }) => {
         <Publication
           key={publication.id}
           publication={publication.publication}
-          likes={publication.likes1}
+          likes={publication.likes}
         />
       ))}
     </section>

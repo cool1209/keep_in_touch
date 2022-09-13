@@ -1,25 +1,26 @@
 import React from 'react';
 import styles from './Publication.module.css';
 
-const Publication = ({ name, publication, likes }) => {
+const Publication = ({ publication, likes }) => {
   return (
     <article className={styles.userPublication}>
-      <div>
+      <div className={styles.userInfo}>
         <div className={styles.avatarContainer}>
           <img 
-            src={'https://bit.ly/3Qh9rbl'}
+            src={'https://bit.ly/3RGqLZ0'}
             alt='User avatar'
             className={styles.avatar}
           />
         </div>
 
-        <h3 className={styles.userName}>
-          {name}
-        </h3>
+        <h4 className={styles.userName}>
+          {'Iron-man'}
+        </h4>
 
         <div className={styles.likes}>
-          <button className={styles.likeBtn}>Like</button>
-          <span className={styles.likesCounter}>{likes}</span>
+          <button className={styles.likeBtn}>
+            Like: <span className={styles.likesCounter}>{likes}</span>
+          </button>
         </div>
       </div>
       

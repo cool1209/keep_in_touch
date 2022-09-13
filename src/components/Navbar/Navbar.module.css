@@ -1,18 +1,24 @@
 .navbar {
   grid-area: sidebar;
 
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 20px 0;
   
   background: var(--color-navbar-bg);
   border-radius: 10px;
 }
 
 .link {
-  display: block;
-
   margin-bottom: 15px;
 
   transition: color var(--duration-element-animation) linear;
+}
+
+.link:last-child {
+  margin-bottom: 0;
 }
 
 .link:hover {

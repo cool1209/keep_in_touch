@@ -9,9 +9,15 @@
   border-radius: 10px;
 }
 
+.userInfo {
+  width: 100px;
+}
+
 .avatarContainer {
-  width: 80px;
-  height: 80px;
+  margin: 0 auto;
+  
+  width: 60px;
+  height: 60px;
 }
 
 .avatar {
@@ -19,9 +25,10 @@
 }
 
 .userName {
-  margin: 0 0 10px;
+  margin: 8px 0;
 
-  font-size: 16px;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .likes {
@@ -44,8 +51,7 @@
 }
 
 .likesCounter {
-  margin-left: 5px;
-  font-weight: 600;
+  font-size: 12px;
 }
 
 .userText {

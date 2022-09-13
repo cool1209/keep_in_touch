@@ -18,13 +18,11 @@ export const PageNavLink = ({ to, linkName }) => (
 const Navbar = () => {
   return (
     <nav className={styles.navbar}>
-      <nav>
-        <PageNavLink to='/profile' linkName='Profile'/>
-        <PageNavLink to='/messages' linkName='Messages'/>
-        <PageNavLink to='/news' linkName='News'/>
-        <PageNavLink to='/music' linkName='Music'/>
-        <PageNavLink to='/settings' linkName='Settings'/>
-      </nav>
+      <PageNavLink to='/profile' linkName='Profile'/>
+      <PageNavLink to='/messages' linkName='Messages'/>
+      <PageNavLink to='/news' linkName='News'/>
+      <PageNavLink to='/music' linkName='Music'/>
+      <PageNavLink to='/settings' linkName='Settings'/>
     </nav>
   );
 };

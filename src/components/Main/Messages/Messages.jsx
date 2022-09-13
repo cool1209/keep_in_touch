@@ -1,34 +1,21 @@
 import React from 'react';
 import styles from './Messages.module.css';
-import DialogItem from './DialogItem/DialogItem';
-import MessagesItem from './MessagesItem/MessagesItem';
+import DialogList from './DialogList/DialogList';
+import MessageList from './MessageList/MessageList';
 
 const Messages = ({ dialogs, messages }) => {
   return (
-    <section className={styles.wrapper}>
+    <section className={styles.Messages}>
       <h2 className={styles.title}>Messages:</h2>
       <div className={styles.container}>
-        <ul className={styles.dialogList}>
-          {dialogs.map(dialog => (
-            <DialogItem
-              key={dialog.id}
-              name={dialog.name}
-              id={dialog.id}
-              avatar={dialog.avatar}
-            />
-          ))}
-        </ul>
-
-        <ul className={styles.messageList}>
-          {messages.map(message => (
-            <MessagesItem
-              key={message.id}
-              avatar={message.messageAva}
-              name={message.messageUser}
-              message={message.message}
-            />
-          ))}
-        </ul>
+        <DialogList dialogs={dialogs} />
+        <div className={styles.messagesWrapper}>
+          <MessageList messages={messages} />
+          <div className={styles.myMessage}>
+            <textarea className={styles.myMessageInput}></textarea>
+            <button className={styles.myMessageBtn}>Send</button>
+          </div>
+        </div>
       </div>
     </section>
   );
