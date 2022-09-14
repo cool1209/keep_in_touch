@@ -44,6 +44,21 @@ const state = {
       ],
       avatar: "https://bit.ly/3eAJZjY",
       wallpaper: "https://bit.ly/3wXgbnV"
+    },
+    {
+      id: 4,
+      name: "Natasha",
+      about: "After Thanos erases half of all life, Romanoff leads the Avengers for five years until she sacrifices herself, successfully helping the Avengers restore trillions of lives across the universe.",
+      friends: [
+        {
+          userId: 1
+        },
+        {
+          userId: 3
+        }
+      ],
+      avatar: "https://bit.ly/3S0izm7",
+      wallpaper: "https://bit.ly/3wXgbnV"
     }
   ],
   
@@ -73,6 +88,11 @@ const state = {
       name: 'Deadpool',
       avatar: 'https://bit.ly/3eAJZjY'
     },
+    {
+      id: 4,
+      name: 'Natasha',
+      avatar: 'https://bit.ly/3S0izm7'
+    }
   ],
   
   messages: [

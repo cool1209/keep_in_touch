@@ -1,0 +1,12 @@
+.sidebar {
+  grid-area: sidebar;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 20px 0;
+
+  background: var(--color-navbar-bg);
+  border-radius: 10px;
+}

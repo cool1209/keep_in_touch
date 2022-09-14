@@ -1,18 +1,18 @@
 .App {
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 0 200px 1fr 0;
   grid-template-rows: 80px 1fr 50px;
-  gap: 5px;
+  gap: 10px;
   grid-template-areas: 
-    "header header"
-    "sidebar main"
-    "footer footer";
+    "header header header header"
+    ". sidebar main ."
+    "footer footer footer footer";
 
   height: 100vh;
 }
 
 @media (min-width: 1440px) {
   .App {
-    grid-template-columns: 250px 1fr;
+    grid-template-columns: 0 250px 1fr 0;
   }
 }

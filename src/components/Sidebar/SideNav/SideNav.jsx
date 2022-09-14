@@ -1,7 +1,7 @@
-import classNames from 'classnames';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './Navbar.module.css';
+import classNames from 'classnames';
+import styles from './SideNav.module.css';
 
 export const PageNavLink = ({ to, linkName }) => (
   <NavLink 
@@ -15,9 +15,9 @@ export const PageNavLink = ({ to, linkName }) => (
   </NavLink>
 );
 
-const Navbar = () => {
+const SideNav = () => {
   return (
-    <nav className={styles.navbar}>
+    <nav className={styles.nav}>
       <PageNavLink to='/profile' linkName='Profile'/>
       <PageNavLink to='/messages' linkName='Messages'/>
       <PageNavLink to='/news' linkName='News'/>
@@ -27,4 +27,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default SideNav;

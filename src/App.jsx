@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/Header/Header';
-import Navbar from './components/Navbar/Navbar';
+import Sidebar from './components/Sidebar/Sidebar';
 import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
 
@@ -8,7 +8,7 @@ const App = ({ state }) => {
   return (
     <div className="App">
       <Header />
-      <Navbar />
+      <Sidebar />
       <Main
         users={state.users}
         publications={state.publications}
