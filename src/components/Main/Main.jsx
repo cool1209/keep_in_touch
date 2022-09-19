@@ -15,7 +15,9 @@ const Main = ({
   users,
   publications,
   messages,
-  dialogs
+  dialogs,
+  newPublicationText,
+  newMessageText
 }) => {
   return (
     <main className={styles.main}>
@@ -23,11 +25,19 @@ const Main = ({
         <Route path='/' element={<HomePage/>} />
         
         <Route path='/profile' element={
-          <Profile users={users} publications={publications}/>
+          <Profile
+            users={users}
+            publications={publications}
+            newPublicationText={newPublicationText}
+          />
         }/>
 
         <Route path='/messages' element={
-          <Messages dialogs={dialogs} messages={messages} />
+          <Messages
+            dialogs={dialogs}
+            messages={messages}
+            newMessageText={newMessageText}
+          />
         }/>
 
         <Route path='/news' element={<News/>} />

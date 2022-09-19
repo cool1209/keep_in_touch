@@ -14,6 +14,8 @@ const App = ({ state }) => {
         publications={state.publications}
         messages={state.messages}
         dialogs={state.dialogs}
+        newPublicationText={state.newPublicationText}
+        newMessageText={state.newMessageText}
       />
       <Footer />
     </div>
