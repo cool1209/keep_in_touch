@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './MyPublication.module.css';
-import { addPublication } from '../../../../store/state';
-import { updatePublicationText } from '../../../../store/state';
+import store from '../../../../store/store';
+
+const { addPublication, updatePublicationText } = store;
 
 const publicationInput = React.createRef();
 

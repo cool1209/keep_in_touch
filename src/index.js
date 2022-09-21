@@ -1,10 +1,14 @@
-import './index.css';
+import './styles/index.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 import App from './App';
+import store from './store/store.js';
+import initialState from './api/data.js';
 
-import state, { subscribe } from './store/state.js';
+const { subscribe, setState } = store;
+
+setState(initialState);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -12,7 +16,7 @@ const renderThree = () => {
   root.render(
     <React.StrictMode>
       <HashRouter>
-        <App state={state}/>
+        <App state={store.state}/>
       </HashRouter>
     </React.StrictMode>
   );

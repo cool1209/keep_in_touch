@@ -2,8 +2,9 @@ import React from 'react';
 import styles from './Messages.module.css';
 import DialogList from './DialogList/DialogList';
 import MessageList from './MessageList/MessageList';
-import { addMessage } from '../../../store/state';
-import { updateMessageText } from '../../../store/state';
+import store from '../../../store/store';
+
+const { addMessage, updateMessageText } = store;
 
 const Messages = ({ dialogs, messages, newMessageText }) => {
   const newMessageInput = React.createRef()

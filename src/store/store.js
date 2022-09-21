@@ -1,8 +1,8 @@
 const store = {
   state: [],
 
-  getState(data) {
-    store.state = data;
+  setState(initialState) {
+    store.state = initialState;
   },
 
   renderTree() {
