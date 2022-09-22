@@ -6,9 +6,8 @@ import App from './App';
 import store from './store/store.js';
 import initialState from './api/data.js';
 
-const { subscribe, setState } = store;
-
-setState(initialState);
+store.setState(initialState);
+const state = store.getState();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -16,11 +15,11 @@ const renderThree = () => {
   root.render(
     <React.StrictMode>
       <HashRouter>
-        <App state={store.state}/>
+        <App state={state}/>
       </HashRouter>
     </React.StrictMode>
   );
 };
 
-subscribe(renderThree);
+store.subscribe(renderThree);
 renderThree();

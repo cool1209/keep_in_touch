@@ -1,56 +1,60 @@
 const store = {
-  state: [],
+  _state: [],
 
   setState(initialState) {
-    store.state = initialState;
+    this._state = initialState;
   },
 
-  renderTree() {
+  getState() {
+    return this._state;
+  },
+
+  _callSubscriber() {
     return null;
   }
   ,
   addPublication() {
-    const id = store.state.publications.length + 1;
+    const id = this._state.publications.length + 1;
   
     const publication = {
       id,
       likes: 0,
-      publication: store.state.newPublicationText,
+      publication: this._state.newPublicationText,
       userId: 1,
     }
   
-    store.state.publications.push(publication);
-    store.state.newPublicationText = '';
-    store.renderTree();
+    this._state.publications.push(publication);
+    this._state.newPublicationText = '';
+    this._callSubscriber();
   },
 
   updatePublicationText(newText) {
-    store.state.newPublicationText = newText;
-    store.renderTree();
+    this._state.newPublicationText = newText;
+    this._callSubscriber();
   },
 
   addMessage() {
-    const id = store.state.messages.length + 1;
+    const id = this._state.messages.length + 1;
   
     const message = {
       id,
       messageUser: 'Iron-man',
       messageAva: 'https://bit.ly/3RGqLZ0',
-      message: store.state.newMessageText,
+      message: this._state.newMessageText,
     }
   
-    store.state.messages.push(message);
-    store.state.newMessageText = '';
-    store.renderTree();
+    this._state.messages.push(message);
+    this._state.newMessageText = '';
+    this._callSubscriber();
   },
 
   updateMessageText(newText) {
-    store.state.newMessageText = newText;
-    store.renderTree();
+    this._state.newMessageText = newText;
+    this._callSubscriber();
   },
 
   subscribe(observer) { 
-    store.renderTree = observer;
+    this._callSubscriber = observer;
   }
 };
 
