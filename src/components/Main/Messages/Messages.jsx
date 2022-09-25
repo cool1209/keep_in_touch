@@ -4,18 +4,16 @@ import DialogList from './DialogList/DialogList';
 import MessageList from './MessageList/MessageList';
 import store from '../../../store/store';
 
-const { addMessage, updateMessageText } = store;
-
 const Messages = ({ dialogs, messages, newMessageText }) => {
   const newMessageInput = React.createRef()
 
   const sendMessage = () => {
-    addMessage(newMessageText);
+    store.dispatch({ type: 'ADD-MESSAGE' });
   };
 
   const onChangeMessageText = () => {
     const text = newMessageInput.current.value;
-    updateMessageText(text);
+    store.dispatch({ type: 'UPDATE-MESSAGE-TEXT', payload: text });
   };
 
   return (
