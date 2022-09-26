@@ -1,18 +1,18 @@
 import React from 'react';
 import styles from './MyPublication.module.css';
-import store from '../../../../store/store';
+import store, { addPublication, updatePublicationText } from '../../../../store/store';
 
 const MyPublication = ({ newPublicationText }) => {
   const publicationInput = React.createRef();
 
   const sendPuplication = () => {
-    store.dispatch({ type: 'ADD-PUBLICATION' });
+    store.dispatch(addPublication());
   }
 
   const onChangePuplicationText = () => {
     const text = publicationInput.current.value;
 
-    store.dispatch({ type: 'UPDATE-PUBLICATION-TEXT', payload: text });
+    store.dispatch(updatePublicationText(text));
   }
 
   return (

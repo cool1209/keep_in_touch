@@ -2,18 +2,18 @@ import React from 'react';
 import styles from './Messages.module.css';
 import DialogList from './DialogList/DialogList';
 import MessageList from './MessageList/MessageList';
-import store from '../../../store/store';
+import store, { addMessage, updateMessageText } from '../../../store/store';
 
 const Messages = ({ dialogs, messages, newMessageText }) => {
   const newMessageInput = React.createRef()
 
   const sendMessage = () => {
-    store.dispatch({ type: 'ADD-MESSAGE' });
+    store.dispatch(addMessage());
   };
 
   const onChangeMessageText = () => {
     const text = newMessageInput.current.value;
-    store.dispatch({ type: 'UPDATE-MESSAGE-TEXT', payload: text });
+    store.dispatch(updateMessageText(text));
   };
 
   return (

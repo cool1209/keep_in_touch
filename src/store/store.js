@@ -1,3 +1,8 @@
+const ADD_PUBLICATION = 'ADD_PUBLICATION';
+const UPDATE_PUBLICATION_TEXT = 'UPDATE_PUBLICATION_TEXT';
+const ADD_MESSAGE = 'ADD_MESSAGE';
+const UPDATE_MESSAGE_TEXT = 'UPDATE_MESSAGE_TEXT';
+
 const store = {
   _state: [],
 
@@ -19,7 +24,7 @@ const store = {
 
   dispatch(action) {
     switch (action.type) {
-      case 'ADD-PUBLICATION':
+      case ADD_PUBLICATION:
         const publicationId = this._state.publications.length + 1;
         const publication = {
           id: publicationId,
@@ -35,12 +40,12 @@ const store = {
         }
         return;
 
-      case 'UPDATE-PUBLICATION-TEXT':
+      case UPDATE_PUBLICATION_TEXT:
         this._state.newPublicationText = action.payload;
         this._callSubscriber();
         return;
 
-      case 'ADD-MESSAGE':
+      case ADD_MESSAGE:
         const messageId = this._state.messages.length + 1;
   
         const message = {
@@ -57,7 +62,7 @@ const store = {
         }
         return;
 
-      case 'UPDATE-MESSAGE-TEXT':
+      case UPDATE_MESSAGE_TEXT:
         this._state.newMessageText = action.payload;
         this._callSubscriber();
         return;
@@ -67,5 +72,23 @@ const store = {
     }
   }
 };
+
+export const addPublication = () => ({
+  type: ADD_PUBLICATION
+});
+
+export const updatePublicationText = (text) => ({
+  type: UPDATE_PUBLICATION_TEXT,
+  payload: text
+});
+
+export const addMessage = () => ({
+  type: ADD_MESSAGE
+});
+
+export const updateMessageText = (text) => ({
+  type: UPDATE_MESSAGE_TEXT,
+  payload: text
+});
 
 export default store;
