@@ -2,17 +2,12 @@ import React from 'react';
 import styles from './Messages.module.css';
 import DialogList from './DialogList/DialogList';
 import MessageList from './MessageList/MessageList';
-import store, { sendMessageCreator, updateMessageTextCreator } from '../../../store/store';
+import { sendMessageCreator, updateMessageTextCreator } from '../../../store/store';
 
-const Messages = ({ dialogs, messages, newMessageText }) => {
-  const onSendMessage = () => {
-    store.dispatch(sendMessageCreator());
-  };
-
-  const onChangeMessageText = (event) => {
-    const text = event.target.value;
-    store.dispatch(updateMessageTextCreator(text));
-  };
+const Messages = ({ store }) => {
+  const state = store.getState();
+  const { messagesPage } = state;
+  const { dialogs, messages, newMessageText } = messagesPage;
 
   return (
     <section className={styles.messages}>
@@ -32,12 +27,14 @@ const Messages = ({ dialogs, messages, newMessageText }) => {
               placeholder="Input your message..."
               className={styles.myMessageInput}
               value={newMessageText}
-              onChange={onChangeMessageText}
+              onChange={(e) => (
+                store.dispatch(updateMessageTextCreator(e.target.value))
+              )}
             />
 
             <button
               className={styles.myMessageBtn}
-              onClick={onSendMessage}
+              onClick={() => store.dispatch(sendMessageCreator())}
             >Send</button>
           </div>
         </div>

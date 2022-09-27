@@ -61,60 +61,66 @@ const data = {
       wallpaper: "https://bit.ly/3wXgbnV"
     }
   ],
-  newPublicationText: "",
-  publications: [
-    {
-      id: 1,
-      likes: 2,
-      publication: "It is my first publication and I don't know what I should write here but I thing this text is no bad :)",
-      userId: 1,
-    },
-    {
-      id: 2,
-      likes: 1,
-      publication: 'It is my first publication and I don\'t know what I should write here but I thing this text is no bad :)',
-      userId: 1,
-    },
-  ],
+  publicationsPage: {
+    publications: [
+      {
+        id: 1,
+        likes: 2,
+        publication: "It is my first publication and I don't know what I should write here but I thing this text is no bad :)",
+        userId: 1,
+      },
+      {
+        id: 2,
+        likes: 1,
+        publication: 'It is my first publication and I don\'t know what I should write here but I thing this text is no bad :)',
+        userId: 1,
+      },
+    ],
+    newPublicationText: "",
+  },
+
+  messagesPage: {
+    dialogs: [
+      {
+        id: 2,
+        name: 'Spider-man',
+        avatar: 'https://bit.ly/3Rm5F1M'
+      },
+      {
+        id: 3,
+        name: 'Deadpool',
+        avatar: 'https://bit.ly/3eAJZjY'
+      },
+      {
+        id: 4,
+        name: 'Natasha',
+        avatar: 'https://bit.ly/3S0izm7'
+      }
+    ],
+    messages: [
+      {
+        id: 1,
+        messageUser: 'Spider-man',
+        messageAva: 'https://bit.ly/3Rm5F1M',
+        message: 'Hello man, how are you?',
+      },
+      {
+        id: 2,
+        messageUser: 'Iron-man',
+        messageAva: 'https://bit.ly/3RGqLZ0',
+        message: 'I am five, what about you?',
+      },
+      {
+        id: 3,
+        messageUser: 'Spider-man',
+        messageAva: 'https://bit.ly/3Rm5F1M',
+        message: 'Not bad too',
+      },
+    ],
+    newMessageText: ""
+  }
   
-  dialogs: [
-    {
-      id: 2,
-      name: 'Spider-man',
-      avatar: 'https://bit.ly/3Rm5F1M'
-    },
-    {
-      id: 3,
-      name: 'Deadpool',
-      avatar: 'https://bit.ly/3eAJZjY'
-    },
-    {
-      id: 4,
-      name: 'Natasha',
-      avatar: 'https://bit.ly/3S0izm7'
-    }
-  ],
-  newMessageText: "",
-  messages: [
-    {
-      id: 1,
-      messageUser: 'Spider-man',
-      messageAva: 'https://bit.ly/3Rm5F1M',
-      message: 'Hello man, how are you?',
-    },
-    {
-      id: 2,
-      messageUser: 'Iron-man',
-      messageAva: 'https://bit.ly/3RGqLZ0',
-      message: 'I am five, what about you?',
-    },
-    {
-      id: 3,
-      messageUser: 'Spider-man',
-      messageAva: 'https://bit.ly/3Rm5F1M',
-      message: 'Not bad too',
-    },
-  ]
+  
 }
 
 export default data;

@@ -1,18 +1,8 @@
 import React from 'react';
 import styles from './MyPublication.module.css';
-import store, { addPublicationCreator, updatePublicationTextCreator } from '../../../../store/store';
+import { addPublicationCreator, updatePublicationTextCreator } from '../../../../store/store';
 
-const MyPublication = ({ newPublicationText }) => {
-  const onAddPuplication = () => {
-    store.dispatch(addPublicationCreator());
-  }
-
-  const onChangePuplicationText = (event) => {
-    const text = event.target.value;
-
-    store.dispatch(updatePublicationTextCreator(text));
-  }
-
+const MyPublication = ({ newPublicationText, dispatch }) => {
   return (
     <section>
       <h2 className={styles.title}>
@@ -21,14 +11,16 @@ const MyPublication = ({ newPublicationText }) => {
 
       <textarea
         className={styles.textarea}
-        onChange={onChangePuplicationText}
+        onChange={(event) => {
+          dispatch(updatePublicationTextCreator(event.target.value))
+        }}
         placeholder='New post...'
         value={newPublicationText}
       />
       
       <button
         className={styles.button}
-        onClick={onAddPuplication}
+        onClick={() => dispatch(addPublicationCreator())}
       >
         Add puplication
       </button>

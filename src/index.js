@@ -7,7 +7,6 @@ import store from './store/store.js';
 import initialState from './api/data.js';
 
 store.setState(initialState);
-const state = store.getState();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -15,7 +14,7 @@ const renderThree = () => {
   root.render(
     <React.StrictMode>
       <HashRouter>
-        <App state={state}/>
+        <App store={store}/>
       </HashRouter>
     </React.StrictMode>
   );

@@ -25,45 +25,45 @@ const store = {
   dispatch(action) {
     switch (action.type) {
       case ADD_PUBLICATION:
-        const publicationId = this._state.publications.length + 1;
+        const publicationId = this._state.publicationsPage.publications.length + 1;
         const publication = {
           id: publicationId,
           likes: 0,
-          publication: this._state.newPublicationText,
+          publication: this._state.publicationsPage.newPublicationText,
           userId: 1,
         }
         
-        if (this._state.newPublicationText) {
-          this._state.publications.push(publication);
-          this._state.newPublicationText = '';
+        if (this._state.publicationsPage.newPublicationText) {
+          this._state.publicationsPage.publications.push(publication);
+          this._state.publicationsPage.newPublicationText = '';
           this._callSubscriber();
         }
         return;
 
       case UPDATE_PUBLICATION_TEXT:
-        this._state.newPublicationText = action.payload;
+        this._state.publicationsPage.newPublicationText = action.payload;
         this._callSubscriber();
         return;
 
       case ADD_MESSAGE:
-        const messageId = this._state.messages.length + 1;
+        const messageId = this._state.messagesPage.messages.length + 1;
   
         const message = {
           id: messageId,
           messageUser: 'Iron-man',
           messageAva: 'https://bit.ly/3RGqLZ0',
-          message: this._state.newMessageText,
+          message: this._state.messagesPage.newMessageText,
         }
       
-        if (this._state.newMessageText) {
-          this._state.messages.push(message);
-          this._state.newMessageText = '';
+        if (this._state.messagesPage.newMessageText) {
+          this._state.messagesPage.messages.push(message);
+          this._state.messagesPage.newMessageText = '';
           this._callSubscriber();
         }
         return;
 
       case UPDATE_MESSAGE_TEXT:
-        this._state.newMessageText = action.payload;
+        this._state.messagesPage.newMessageText = action.payload;
         this._callSubscriber();
         return;
 

@@ -4,18 +4,23 @@ import MyPublication from './MyPublication/MyPublication';
 import PublicationList from './PublicationList/PublicationList';
 import UserInfo from './UserInfo/UserInfo';
 
-const Profile = ({
-    users,
-    publications,
-    newPublicationText
-}) => {
+const Profile = ({ store }) => {
+  const state = store.getState();
+  const { users, publicationsPage  } = state;
+
   return (
     <section className={styles.profile}>
       <UserInfo users={users} />
       
       <div className={styles.publications}>
-        <MyPublication newPublicationText ={newPublicationText} />
-        <PublicationList publications={publications} />
+        <MyPublication
+          newPublicationText ={publicationsPage.newPublicationText}
+          dispatch={store.dispatch.bind(store)}
+        />
+
+        <PublicationList
+          publications={publicationsPage.publications}
+        />
       </div>
     </section>
   );

@@ -2,12 +2,14 @@ import React from 'react';
 import styles from './UserInfo.module.css';
 
 const UserInfo = ({ users }) => {
+  const user = users[0];
+
   return (
     <section className={styles.user}>
       <div className={styles.images}>
         <div>
           <img
-            src={users[0].wallpaper}
+            src={user.wallpaper}
             alt='User profile wallpaper'
             className={styles.wallpaper}
           />
@@ -15,7 +17,7 @@ const UserInfo = ({ users }) => {
 
         <div className={styles.avatarContainer}>
           <img
-            src={users[0].avatar}
+            src={user.avatar}
             alt='User avatar'
             className={styles.avatar}
           />
@@ -23,11 +25,11 @@ const UserInfo = ({ users }) => {
       </div>
 
       <h2 className={styles.userName}>
-        {users[0].name}
+        {user.name}
       </h2>
 
       <div className={styles.about}>
-        {users[0].about}
+        {user.about}
       </div>
     </section>
   );

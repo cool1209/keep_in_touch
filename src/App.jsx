@@ -3,19 +3,12 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
 
-const App = ({ state }) => {
+const App = ({ store }) => {
   return (
     <div className="app">
       <Header />
       <Sidebar />
-      <Main
-        users={state.users}
-        publications={state.publications}
-        messages={state.messages}
-        dialogs={state.dialogs}
-        newPublicationText={state.newPublicationText}
-        newMessageText={state.newMessageText}
-      />
+      <Main store={store} />
       <Footer />
     </div>
   );
