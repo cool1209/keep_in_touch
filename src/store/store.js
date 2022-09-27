@@ -73,20 +73,20 @@ const store = {
   }
 };
 
-export const addPublication = () => ({
+export const addPublicationCreator = () => ({
   type: ADD_PUBLICATION
 });
 
-export const updatePublicationText = (text) => ({
+export const updatePublicationTextCreator = (text) => ({
   type: UPDATE_PUBLICATION_TEXT,
   payload: text
 });
 
-export const addMessage = () => ({
+export const sendMessageCreator = () => ({
   type: ADD_MESSAGE
 });
 
-export const updateMessageText = (text) => ({
+export const updateMessageTextCreator = (text) => ({
   type: UPDATE_MESSAGE_TEXT,
   payload: text
 });

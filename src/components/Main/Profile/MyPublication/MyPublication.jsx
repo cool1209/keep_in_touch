@@ -1,18 +1,16 @@
 import React from 'react';
 import styles from './MyPublication.module.css';
-import store, { addPublication, updatePublicationText } from '../../../../store/store';
+import store, { addPublicationCreator, updatePublicationTextCreator } from '../../../../store/store';
 
 const MyPublication = ({ newPublicationText }) => {
-  const publicationInput = React.createRef();
-
-  const sendPuplication = () => {
-    store.dispatch(addPublication());
+  const onAddPuplication = () => {
+    store.dispatch(addPublicationCreator());
   }
 
-  const onChangePuplicationText = () => {
-    const text = publicationInput.current.value;
+  const onChangePuplicationText = (event) => {
+    const text = event.target.value;
 
-    store.dispatch(updatePublicationText(text));
+    store.dispatch(updatePublicationTextCreator(text));
   }
 
   return (
@@ -22,7 +20,6 @@ const MyPublication = ({ newPublicationText }) => {
       </h2>
 
       <textarea
-        ref={publicationInput}
         className={styles.textarea}
         onChange={onChangePuplicationText}
         placeholder='New post...'
@@ -31,7 +28,7 @@ const MyPublication = ({ newPublicationText }) => {
       
       <button
         className={styles.button}
-        onClick={sendPuplication}
+        onClick={onAddPuplication}
       >
         Add puplication
       </button>

@@ -2,18 +2,16 @@ import React from 'react';
 import styles from './Messages.module.css';
 import DialogList from './DialogList/DialogList';
 import MessageList from './MessageList/MessageList';
-import store, { addMessage, updateMessageText } from '../../../store/store';
+import store, { sendMessageCreator, updateMessageTextCreator } from '../../../store/store';
 
 const Messages = ({ dialogs, messages, newMessageText }) => {
-  const newMessageInput = React.createRef()
-
-  const sendMessage = () => {
-    store.dispatch(addMessage());
+  const onSendMessage = () => {
+    store.dispatch(sendMessageCreator());
   };
 
-  const onChangeMessageText = () => {
-    const text = newMessageInput.current.value;
-    store.dispatch(updateMessageText(text));
+  const onChangeMessageText = (event) => {
+    const text = event.target.value;
+    store.dispatch(updateMessageTextCreator(text));
   };
 
   return (
@@ -30,7 +28,6 @@ const Messages = ({ dialogs, messages, newMessageText }) => {
           
           <div className={styles.myMessage}>
             <input
-              ref={newMessageInput}
               type="text"
               placeholder="Input your message..."
               className={styles.myMessageInput}
@@ -40,7 +37,7 @@ const Messages = ({ dialogs, messages, newMessageText }) => {
 
             <button
               className={styles.myMessageBtn}
-              onClick={sendMessage}
+              onClick={onSendMessage}
             >Send</button>
           </div>
         </div>
