@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from './UserInfo.module.css';
 
-const UserInfo = ({ users }) => {
-  const user = users[0];
+const UserInfo = ({ user }) => {
 
   return (
     <section className={styles.user}>

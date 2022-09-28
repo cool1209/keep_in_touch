@@ -6,11 +6,11 @@ import UserInfo from './UserInfo/UserInfo';
 
 const Profile = ({ store }) => {
   const state = store.getState();
-  const { users, publicationsPage  } = state;
+  const { user, publicationsPage  } = state;
 
   return (
     <section className={styles.profile}>
-      <UserInfo users={users} />
+      <UserInfo user={user} />
       
       <div className={styles.publications}>
         <MyPublication
@@ -19,6 +19,7 @@ const Profile = ({ store }) => {
         />
 
         <PublicationList
+          user={user}
           publications={publicationsPage.publications}
         />
       </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import Publication from './Publication/Publication';
 import styles from './PublicationList.module.css';
 
-const PublicationList = ({ publications }) => {
+const PublicationList = ({ user, publications }) => {
   return (
     <section>
       <h2 className={styles.title}>
@@ -12,6 +12,7 @@ const PublicationList = ({ publications }) => {
       {publications.map(publication => (
         <Publication
           key={publication.id}
+          user={user}
           publication={publication.publication}
           likes={publication.likes}
         />

@@ -19,7 +19,7 @@ const SideNav = () => {
   return (
     <nav className={styles.nav}>
       <PageNavLink to='/profile' linkName='Profile'/>
-      <PageNavLink to='/messages' linkName='Messages'/>
+      <PageNavLink to='/messages' linkName='Dialogs'/>
       <PageNavLink to='/news' linkName='News'/>
       <PageNavLink to='/music' linkName='Music'/>
       <PageNavLink to='/settings' linkName='Settings'/>

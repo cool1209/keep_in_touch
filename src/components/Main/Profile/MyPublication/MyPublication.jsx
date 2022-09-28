@@ -1,6 +1,9 @@
 import React from 'react';
 import styles from './MyPublication.module.css';
-import { addPublicationCreator, updatePublicationTextCreator } from '../../../../store/store';
+import {
+  addPublicationCreator,
+  updatePublicationTextCreator
+} from '../../../../store/reducers/publicationReducer';
 
 const MyPublication = ({ newPublicationText, dispatch }) => {
   return (

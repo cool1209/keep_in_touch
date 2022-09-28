@@ -2,8 +2,8 @@ import classNames from 'classnames';
 import React from 'react';
 import styles from './Message.module.css';
 
-const Message = ({ avatar, name, message }) => {
-  const isMyMessage = name === 'Iron-man';
+const Message = ({ memberAva, member, message }) => {
+  const isMyMessage = member === 'Iron-man';
 
   return (
     <li className={
@@ -13,7 +13,7 @@ const Message = ({ avatar, name, message }) => {
       )}
     >
       <img 
-        src={avatar} 
+        src={memberAva} 
         alt='User avatar' 
         className={styles.userAva}
       />
