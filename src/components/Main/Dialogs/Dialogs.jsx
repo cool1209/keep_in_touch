@@ -6,7 +6,6 @@ const Dialogs = ({ store }) => {
   const state = store.getState();
   const { user, dialogsPage } = state;
   const { dialogs, newMessageText } = dialogsPage;
-  // console.log(user);
 
   return (
     <section className={styles.messages}>
@@ -16,21 +15,13 @@ const Dialogs = ({ store }) => {
 
       <div className={styles.container}>
         <ul className={styles.dialogList}>
-          <li className={styles.dialog}>
-            <img src={user.avatar} alt='User avatar' className={styles.dialogAva} />
-
-            <div>
-              {user.name}
-            </div>
-          </li>
-
-          <li className={styles.dialog}>
-            <img src={user.avatar} alt='User avatar' className={styles.dialogAva} />
-
-            <div>
-              {user.name}
-            </div>
-          </li>
+          {dialogs.map(dialog => (
+            <li className={styles.dialog} key={dialog.id}>
+              <div>
+                {dialog.companion}
+              </div>
+            </li>
+          ))}
         </ul>
 
 
