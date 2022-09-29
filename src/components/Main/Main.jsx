@@ -15,11 +15,11 @@ const Main = ({ store }) => {
     <main className={styles.main}>
       <Routes>
         <Route path='/' element={<HomePage/>} />
-        <Route path='/profile' element={  <Profile store={store}/> } />
-        <Route path='/messages' element={ <Dialogs store={store} />} />
-        <Route path='/news' element={<News/>} />
-        <Route path='/music' element={<Music/>} />
-        <Route path='/settings' element={<Settings/>} />
+        <Route path='/profile' element={ <Profile store={store}/> } />
+        <Route path='/dialogs/*' element={ <Dialogs store={store} /> } />
+        <Route path='/news' element={ <News/> } />
+        <Route path='/music' element={ <Music/> } />
+        <Route path='/settings' element={ <Settings/> } />
       </Routes>
     </main>
   );

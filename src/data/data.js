@@ -82,6 +82,11 @@ const data = {
           member: 1,
           message: 'Not bad too',
         },
+        {
+          id: 4,
+          member: 2,
+          message: 'Ok. See you soon!',
+        }
       ]
     },
     {
@@ -107,11 +112,11 @@ const data = {
     },
     {
       id: 3,
-      members: [1, 3],
+      members: [2, 3],
       messages: [
         {
           id: 1,
-          member: 1,
+          member: 2,
           message: 'Hello man, how are you?',
         },
         {
@@ -121,7 +126,7 @@ const data = {
         },
         {
           id: 3,
-          member: 1,
+          member: 2,
           message: 'Not bad too',
         },
       ]
@@ -152,9 +157,9 @@ const data = {
   publications: [
     {
       id: 1,
-      userId: 7,
+      userId: 1,
       publication: "I'm Irom-man ant this is my first publication",
-      likes: 2,
+      likes: 7,
     },
     {
       id: 2,

@@ -3,26 +3,31 @@ import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import styles from './SideNav.module.css';
 
-export const PageNavLink = ({ to, linkName }) => (
+export const CustomNavLink = ({ 
+  style,
+  to,
+  name,
+  ...props
+}) => (
   <NavLink 
     to={to}
     className={({ isActive }) => classNames(
-      styles.link,
-      { [styles.activeLink]: isActive }
+      style[0],
+      { [style[1]]: isActive }
     )}
   >
-    {linkName}
+    {name}
   </NavLink>
 );
 
 const SideNav = () => {
   return (
     <nav className={styles.nav}>
-      <PageNavLink to='/profile' linkName='Profile'/>
-      <PageNavLink to='/messages' linkName='Dialogs'/>
-      <PageNavLink to='/news' linkName='News'/>
-      <PageNavLink to='/music' linkName='Music'/>
-      <PageNavLink to='/settings' linkName='Settings'/>
+      <CustomNavLink style={[styles.link, styles.activeLink]} to='/profile' name='Profile'/>
+      <CustomNavLink style={[styles.link, styles.activeLink]} to='/dialogs' name='Dialogs'/>
+      <CustomNavLink style={[styles.link, styles.activeLink]} to='/news' name='News'/>
+      <CustomNavLink style={[styles.link, styles.activeLink]} to='/music' name='Music'/>
+      <CustomNavLink style={[styles.link, styles.activeLink]} to='/settings' name='Settings'/>
     </nav>
   );
 };

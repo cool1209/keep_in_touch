@@ -33,16 +33,17 @@ const store = {
   
         const message = {
           id: messageId,
-          messageUser: 'Iron-man',
-          messageAva: 'https://bit.ly/3RGqLZ0',
+          member: 'Iron-man',
+          memberAvatar: 'https://bit.ly/3RGqLZ0',
           message: this._state.dialogsPage.newMessageText,
         }
-      
+
         if (this._state.dialogsPage.newMessageText) {
           this._state.dialogsPage.dialogs[0].messages.push(message);
           this._state.dialogsPage.newMessageText = '';
           this._callSubscriber();
         }
+        
         return;
 
       case UPDATE_MESSAGE_TEXT:

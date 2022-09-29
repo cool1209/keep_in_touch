@@ -11,16 +11,16 @@ const getUser = (id) => (
 const getCurrentUser = () => getUser(getCurrentUserId());
 
 const getCurrentUserPublication = () => (
-  publications.filter(publication => publication.userId === getCurrentUser())
+  publications.filter(publication => publication.userId === getCurrentUserId())
 );
 
-const getCurrentUserDialogs = () => {
+const getCurrentUserDialog = () => {
   const currentUserId = getCurrentUserId();
 
-  const userDialogs = dialogs
+  const userDialog = dialogs
     .filter(dialog => dialog.members.includes(currentUserId));
 
-  const changedUserdialogs = userDialogs.map(dialog => ({
+  const changedUserdialogs = userDialog.map(dialog => ({
     id: dialog.id,
 
     companion: getUser(
@@ -46,7 +46,7 @@ export const getUserData = () => {
       newPublicationText: "",
     },
     dialogsPage: {
-      dialogs: getCurrentUserDialogs(),
+      dialogs: getCurrentUserDialog(),
       newMessageText: ""
     }
   }

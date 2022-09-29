@@ -64,6 +64,12 @@ a {
   color: var(--color-main)
 }
 
+ul {
+ margin: 0;
+ padding: 0;
+ list-style: none;
+}
+
 .app {
   display: grid;
   grid-template-columns: 0 200px 1fr 0;

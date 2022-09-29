@@ -35,27 +35,6 @@
 
   border-right: 2px solid var(--color-grey);
 }
-
-/* ----------------------------------------------------------------------------------- */
-
-.dialog {  
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  padding: 10px 15px;
-
-  background-color: var(--color-button);
-  border: 1px solid var(--color-grey);
-  border-radius: 10px;
-  cursor: pointer;
-
-  transition: background-color var(--duration-element-animation) linear;
-}
-
-.dialog:hover {
-  background-color: var(--color-button-behavior);
-}
-
 /* ----------------------------------------------------------------------------------- */
 
 .messages {
