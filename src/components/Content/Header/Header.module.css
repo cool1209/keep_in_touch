@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  align-items: center;
+  grid-area: header;
+
+  padding: 10px 25px;
+  background-color: var(--color-header-bg);
+}
+
+.header__logo {
+  width: 50px;
+}
+
+.header__title {
+  width: 100%;
+
+  font-family: 'Fredoka One', cursive;
+  font-size: 44px;
+  letter-spacing: 1px;
+  text-align: center;
+}

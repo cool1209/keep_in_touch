@@ -1,0 +1,6 @@
+.sidebar {
+  padding: 25px 30px;
+
+  background: var(--color-navbar-bg);
+  border-radius: 10px;
+}

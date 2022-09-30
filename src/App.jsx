@@ -1,15 +1,16 @@
-import Header from './components/Header/Header';
-import Sidebar from './components/Sidebar/Sidebar';
-import Main from './components/Main/Main';
-import Footer from './components/Footer/Footer';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './components/HomePage/HomePage';
+import Content from './components/Content/Content';
+
+
 
 const App = ({ store }) => {
   return (
     <div className="app">
-      <Header />
-      <Sidebar />
-      <Main store={store} />
-      <Footer />
+      <Routes>
+        <Route path='/' element={ <HomePage users={store.getState().users} /> } />
+        <Route path='/keep-in-touch/*' element={ <Content store={store} /> } />
+      </Routes>
     </div>
   );
 }

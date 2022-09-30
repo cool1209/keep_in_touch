@@ -1,0 +1,23 @@
+.sidenav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidenav__link {
+  margin-bottom: 15px;
+
+  transition: color var(--duration-element-animation) linear;
+}
+
+.sidenav__link:last-child {
+  margin-bottom: 0;
+}
+
+.sidenav__link:hover {
+  color: var(--color-red);
+}
+
+.activeLink {
+  color: var(--color-red);
+}

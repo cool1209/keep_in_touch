@@ -1,0 +1,76 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  border: 20px solid var(--color-blue-normal);
+}
+
+.home__title {
+  margin-bottom: 20px;
+
+  font-family: 'Fredoka One', cursive;
+  font-size: 42px;
+  line-height: 1;
+  text-align: center;
+}
+
+
+.home__titlePart {
+  display: block;
+}
+
+.home__socialNetworksName {
+  position: relative;
+
+  display: inline-block;
+
+  font-size: 83px;
+  color: var(--color-blue-dark);
+}
+
+.home__socialNetworksName:after {
+  content: "Keep in touch";
+  position: absolute;
+  left: 0;
+  width: 100%;
+
+  font-family: 'Fredoka One', cursive;
+  font-size: 80px;
+  font-weight: 400;
+  color: var(--color-blue-normal);
+}
+
+.home__description {
+  margin-bottom: 20px;
+  width: 450px;
+
+  font-size: 18px;
+  text-align: center;
+}
+
+.home__choice {
+  margin-bottom: 20px;
+
+  font-family: 'Fredoka One', cursive;
+  font-size: 22px;
+}
+
+.home__users {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  max-width: 700px;
+}
+
+.home__user {
+  width: 150px;
+  height: 150px;
+
+  border: 5px solid var(--color-blue-normal);
+  border-radius: 20px;
+}

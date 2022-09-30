@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 import App from './App';
 import store from './store/store.js';
-import { getUserData } from './data/user-data.js';
+import { getInitialState } from './data/user-data.js';
 
-store.setState(getUserData());
+setInterval(store.setState(getInitialState(), 1000));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

@@ -1,0 +1,48 @@
+.user__images {
+  position: relative;
+
+  margin-bottom: 50px;
+
+  border-radius: 10px;
+}
+
+.user__wallpaper {
+  height: 350px;
+  object-fit: cover;
+
+  border-radius: 8px 8px 0 0;
+}
+
+.user__avatarContainer {
+  position: absolute;
+  left: 20px;
+  bottom: -40px;
+
+  /* transform: translateX(-50%); */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 200px;
+  height: 200px;
+
+  background-color: var(--color-main-light);
+  border: 4px double var(--color-main);
+  border-radius: 50%;
+}
+
+.user__avatar {
+  width: 185px;
+  height: 185px;
+  border-radius: 50%;
+}
+
+.user__name {
+  padding-left: 20px;
+}
+
+.user__about {
+  padding: 10px 20px 0;
+  width: 50%;
+}

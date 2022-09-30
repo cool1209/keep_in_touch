@@ -36,6 +36,10 @@
   --font-size-main: 16px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-family: var(--font-main);
   font-size: var(--font-size-main);
@@ -49,9 +53,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
 }
 
 img {
@@ -71,20 +80,6 @@ ul {
 }
 
 .app {
-  display: grid;
-  grid-template-columns: 0 200px 1fr 0;
-  grid-template-rows: 80px 1fr 50px;
-  gap: 10px;
-  grid-template-areas: 
-    "header header header header"
-    ". sidebar main ."
-    "footer footer footer footer";
-
   height: 100vh;
-}
-
-@media (min-width: 1440px) {
-  .app {
-    grid-template-columns: 0 250px 1fr 0;
-  }
+  overflow-y: hidden;
 }
