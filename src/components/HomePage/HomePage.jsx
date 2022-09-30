@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { getCurrentUserId } from '../../data/user-data';
+// import { getCurrentUserId } from '../../data/user-data';
 import styles from './HomePage.module.css';
 
 const HomePage = ({ users }) => {
@@ -22,6 +22,14 @@ const HomePage = ({ users }) => {
 
       <div className={styles.home__users}>
         {users.map(user => (
+          <div key={user.id} onClick={() => console.log(user.id)}>
+            <NavLink to="/keep-in-touch/profile">
+              <img src={user.avatar} alt="User avatar" className={styles.home__user} />
+            </NavLink>
+          </div>
+        ))}
+
+{users.map(user => (
           <div key={user.id} onClick={() => console.log(user.id)}>
             <NavLink to="/keep-in-touch/profile">
               <img src={user.avatar} alt="User avatar" className={styles.home__user} />

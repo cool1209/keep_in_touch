@@ -9,7 +9,7 @@
   width: 50%;
   min-height: 80px;
 
-  font-size: var(--font-size-main);
+  font-size: var(--font-size-pc);
   
   border-radius: 8px;
   resize: vertical;
@@ -33,4 +33,25 @@
 
 .currentUserPublication__button:hover {
   background-color: var(--color-button-behavior);
+}
+
+@media (max-width: 1023px) {
+  .currentUserPublication {
+    text-align: center;
+  }
+
+  .currentUserPublication__textarea {
+    display: block;
+    margin-bottom: 10px;
+    margin: 0 auto 10px;
+    padding: 10px;
+    width: 75%;
+  }
+}
+
+@media (max-width: 575px) {
+
+  .currentUserPublication__textarea {
+    width: 100%;
+  }
 }

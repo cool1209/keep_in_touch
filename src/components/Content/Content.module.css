@@ -1,7 +1,7 @@
 .content {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr 50px;
+  grid-template-rows: auto 1fr 40px;
   grid-template-areas: 
     "header"
     "main"
@@ -17,4 +17,34 @@
   padding: 15px;
 
   overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+      "header"
+      "container";
+  
+    height: 100vh;
+  }
+
+  .content__container {
+    grid-area: container;
+  
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    padding: 15px 15px 0 15px;
+  
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 575px) {
+  .content__container {
+    padding: 10px 10px 0 10px;
+  }
 }

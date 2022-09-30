@@ -1,10 +1,16 @@
 .music {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  
+  margin-top: 20px;
 }
 
 .todo {
+  padding-top: 20px;
+}
+
+ol {
+  margin-top: 5px;
   padding: 0;
 }

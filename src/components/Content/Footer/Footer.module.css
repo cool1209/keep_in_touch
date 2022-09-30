@@ -4,8 +4,13 @@
   align-items: center;
   justify-content: center;
 
-  font-size: 14px;
   color: var(--color-text-ligth);
 
   background-color: var(--color-footer-bg);
+}
+
+@media (max-width: 767px) {
+  .footer {
+    display: none;
+  }
 }

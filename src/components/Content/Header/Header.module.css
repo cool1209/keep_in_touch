@@ -4,7 +4,7 @@
   grid-area: header;
 
   padding: 10px 25px;
-  background-color: var(--color-header-bg);
+  background-color: var(--color-blue-normal);
 }
 
 .header__logo {
@@ -18,4 +18,26 @@
   font-size: 44px;
   letter-spacing: 1px;
   text-align: center;
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding: 5px 15px;
+    background-color: var(--color-blue-dark);
+  }
+
+  .header__logo {
+    width: 35px;
+  }
+  
+  .header__title {
+    font-size: 32px;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 575px) {
+  .header {
+    padding: 5px 10px;
+  }
 }

@@ -15,7 +15,7 @@
   flex-direction: row-reverse;
   justify-content: space-between;
 
-  background-color: var(--color-user-message-bg);
+  background-color: var( --color-yellow-grey);
 }
 
 .message__memberAvatar {
@@ -32,4 +32,35 @@
 .message__text_currentUser {
   padding-left: 0;
   padding-right: 10px;
+}
+
+@media (max-width: 1023px) {
+  .message {
+    width: 70%;
+  }
+}
+
+@media (max-width: 575px) {
+  .message {
+    padding: 10px;
+    width: 100%;
+  
+    background-color: var(--color-message-bg);
+    border: 1px dashed var(--color-grey);
+    border-radius: 10px;
+  }
+
+  .message_currentUser {
+    align-self: end;
+    flex-direction: row;
+    background-color: var( --color-yellow-grey);
+  }
+
+  .message__memberAvatar {
+    display: none;
+  }
+
+  .message__text {
+    padding-left: 0;
+  }
 }

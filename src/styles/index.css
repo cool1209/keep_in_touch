@@ -4,7 +4,7 @@
   --color-main: #000000;
   --color-main-light: #ffffff;
   --color-grey: #858585;
-  --color-grey-light: #eeeeee;
+  --color-yellow-grey: #ffe7d3;
   --color-red: #ff0000;
   --color-blue-grey: #d6f8f6;
   --color-blue-light: #b4fffb;
@@ -33,7 +33,10 @@
   --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
-  --font-size-main: 16px;
+  --font-size-pc: 16px;
+  --font-size-laptop: 16px;
+  --font-size-tablet: 18px;
+  --font-size-mobile: 16px;
 }
 
 * {
@@ -42,7 +45,7 @@
 
 html {
   font-family: var(--font-main);
-  font-size: var(--font-size-main);
+  font-size: var(--font-size-pc);
   line-height: 1.2;
   color: var(--color-main-text);
 }
@@ -82,4 +85,16 @@ ul {
 .app {
   height: 100vh;
   overflow-y: hidden;
+}
+
+@media (max-width: 767px) {
+  html {
+    font-size: var(--font-size-laptop);
+  }
+}
+
+@media (max-width: 575px) {
+  html {
+    font-size: var(--font-size-mobile);
+  }
 }

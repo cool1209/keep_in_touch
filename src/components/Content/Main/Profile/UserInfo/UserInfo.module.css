@@ -46,3 +46,34 @@
   padding: 10px 20px 0;
   width: 50%;
 }
+
+@media (max-width: 1023px) {
+
+  .user__wallpaper {
+    height: 250px;
+  }
+
+  .user__avatarContainer {
+    position: absolute;
+    left: 50%;
+    bottom: -40px;
+    transform: translateX(-50%);
+  
+    width: 160px;
+    height: 160px;
+  }
+
+  .user__avatar {
+    width: 140px;
+    height: 140px;
+  }
+
+  .user__name {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .user__about {
+    width: 100%;;
+  }
+}

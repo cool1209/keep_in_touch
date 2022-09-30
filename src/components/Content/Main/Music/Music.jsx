@@ -4,16 +4,15 @@ import styles from './Music.module.css';
 const Music = () => {
   return (
     <div className={styles.music}>
-      <h1>
-        Music page under development...
-      </h1>
+      <h1>Music page</h1>
+      <h3> under development...</h3>
 
       <div>
-        <h3>
+        <h4  className={styles.todo}>
           To Do:
-        </h3>
+        </h4>
         
-        <ol className={styles.todo}>
+        <ol>
           <li>
             Add to search music
           </li>

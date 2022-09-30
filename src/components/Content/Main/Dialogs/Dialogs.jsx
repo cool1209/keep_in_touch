@@ -38,19 +38,20 @@ const Dialogs = ({ store }) => {
           </Routes>
         </ul>
 
-        <div className={styles.dialogs__CurrentUserMessage}>
-          <input
-            type="text"
-            placeholder="Input your message..."
-            className={styles.dialogs__messageInput}
-            value={newMessageText}
-            onChange={(e) => updateText(e.target.value)}
-          />
+        <div className={styles.dialogs__sendMessage}>
+          <div className={styles.dialogs__sendMessageInner}>
+            <input
+              type="text"
+              className={styles.dialogs__messageInput}
+              value={newMessageText}
+              onChange={(e) => updateText(e.target.value)}
+            />
 
-          <button
-            className={styles.dialogs__messageBtn}
-            onClick={sendMessage}
-          >Send</button>
+            <button
+              className={styles.dialogs__messageBtn}
+              onClick={sendMessage}
+            >Send</button>
+          </div>
         </div>
       </div>
     </section>

@@ -3,19 +3,18 @@ import styles from './News.module.css';
 
 const News = () => {
   return (
-    <div  className={styles.news}>
-      <h1>
-        News page under development...
-      </h1>
+    <div className={styles.news}>
+      <h1>News page</h1>
+      <h3> under development...</h3>
 
       <div>
-        <h3>
+        <h4  className={styles.todo}>
           To Do:
-        </h3>
-
-        <ol className={styles.todo}>
+        </h4>
+        
+        <ol>
           <li>
-            Add all publications
+            Add to all publications
           </li>
         </ol>
       </div>

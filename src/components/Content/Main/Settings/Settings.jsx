@@ -4,37 +4,20 @@ import styles from './Settings.module.css';
 const Settings = () => {
   return (
     <div className={styles.settings}>
-      <h1>
-        Settings page under development...
-      </h1>
+      <h1>Settings page</h1>
+      <h3> under development...</h3>
 
-      <div>
-        <h3>
-          To Do:
-        </h3>
-        
-        <ol className={styles.todo}>
-          <li>
-            Add to change user name
-          </li>
-
-          <li>
-            Add to change user password
-          </li>
-
-          <li>
-            Add to change user avatar
-          </li>
-
-          <li>
-            Add to change user about
-          </li>
-
-          <li>
-            Add to change user wallpaper
-          </li>
-        </ol>
-      </div>
+      <h4  className={styles.todo}>
+        To Do:
+      </h4>
+      
+      <ol>
+        <li>Add to change user name</li>
+        <li>Add to change user password</li>
+        <li>Add to change user avatar</li>
+        <li>Add to change user about</li>
+        <li>Add to change user wallpaper</li>
+      </ol>
     </div>
   );
 };

@@ -38,26 +38,17 @@
   list-style: none;
 }
 
-.dialogs__CurrentUserMessage {
-  display: flex;
-
+.dialogs__sendMessage {
   position: sticky;
-  bottom: 5px;
-  z-index: 5;
+  bottom: -1px;
+  z-index: 1;
+  padding-bottom: 5px;
+
+  background: var(--color-main-light);
 }
 
-.dialogs__CurrentUserMessage::before {
-  content: "";
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-
-  background-color: var(--color-main-light);
-  border-radius: 10px 10px 0 0;
+.dialogs__sendMessageInner {
+  display: flex;
 }
 
 .dialogs__messageInput {
@@ -65,7 +56,7 @@
   padding: 5px 110px 5px 15px;
 
   font-family: var(--font-main);
-  font-size: var(--font-size-main);
+  font-size: var(--font-size-pc);
   
   border: 1px solid var(--color-grey);
   border-radius: 10px;
@@ -80,11 +71,10 @@
   position: absolute;
   top: 0;
   right: 0;
+  bottom: 5px;
 
   padding: 0 30px;
-  height: 100%;
 
-  font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
   color: var(--color-blue-dark);
@@ -100,4 +90,37 @@
 .dialogs__messageBtn:hover {
   background-color: var(--color-button-behavior);
   color: var(--color-main-light)
+}
+
+@media (max-width: 1023px) {
+  .dialogs {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .dialogs__dialogList {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .dialogs__dialogList {
+    padding: 0 10px 0 0;
+  }
+
+  .dialogs__messages {
+    padding: 0;
+    margin-left: 10px;
+  }
+
+  .dialogs__messageInput {
+    padding: 0;
+    padding: 5px;
+  }
+
+  .dialogs__messageBtn {
+    padding: 0 10px;
+  }
 }

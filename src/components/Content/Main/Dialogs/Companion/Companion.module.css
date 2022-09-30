@@ -24,3 +24,18 @@
 .activeLink {
   background-color: var(--color-button-behavior);
 }
+
+@media (max-width: 575px) {
+  .companion {  
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 60px;
+    height: 60px;
+
+    font-size: 0;
+    text-transform: uppercase;
+    border-radius:50%;
+
+  }
+}

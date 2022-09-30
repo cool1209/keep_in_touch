@@ -47,7 +47,6 @@
   margin-bottom: 20px;
   width: 450px;
 
-  font-size: 18px;
   text-align: center;
 }
 
@@ -56,6 +55,7 @@
 
   font-family: 'Fredoka One', cursive;
   font-size: 22px;
+  color: var(--color-blue-dark);
 }
 
 .home__users {
@@ -73,4 +73,75 @@
 
   border: 5px solid var(--color-blue-normal);
   border-radius: 20px;
+}
+
+@media (max-width: 767px) {
+  .home {
+    border: 15px solid var(--color-blue-normal);
+  }
+
+  .home__title {
+    font-size: 32px;
+  }
+
+  .home__socialNetworksName {
+    font-size: 50px;
+  }
+  
+  .home__socialNetworksName:after {
+    font-size: 48px;
+  }
+
+  .home__description {
+    width: 320px;
+  }
+
+  .home__users {
+    max-width: 370px;
+    gap: 10px;
+  }
+
+  .home__user {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+
+@media (max-width: 575px) {
+
+  .home {
+    border-width: 5px;
+  }
+
+  .home__title {
+    font-size: 32px;
+  }
+
+  .home__socialNetworksName {
+    font-size: 44px;
+  }
+  
+  .home__socialNetworksName:after {
+    font-size: 42px;
+  }
+
+  .home__choice {
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+
+  .home__description {
+    margin-bottom: 15px;
+    width: 300px;
+  }
+
+  .home__users {
+    max-width: 300px;
+  }
+
+  .home__user {
+    width: 80px;
+    height: 80px;
+  }
 }
