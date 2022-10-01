@@ -2,25 +2,27 @@ const ADD_PUBLICATION = 'ADD_PUBLICATION';
 const UPDATE_PUBLICATION_TEXT = 'UPDATE_PUBLICATION_TEXT';
 
 const publicationsReducer = (state, action) => {
-  
+  const publicationsPage = state.publicationsPage;
+
   switch (action.type) {
     case ADD_PUBLICATION:
       const publicationId = state.publications.length + 1;
       const publication = {
         id: publicationId,
         likes: 0,
-        publication: state.newPublicationText,
-        userId: 1,
+        publication: publicationsPage.newPublicationText,
+        userId: state.user.id,
       }
       
-      if (state.newPublicationText) {
+      if (publicationsPage.newPublicationText) {
         state.publications.push(publication);
-        state.newPublicationText = '';
+        publicationsPage.newPublicationText = '';
       }
+
       return state;
 
     case UPDATE_PUBLICATION_TEXT:
-      state.newPublicationText = action.payload;
+      publicationsPage.newPublicationText = action.payload;
       return state;
 
     default:

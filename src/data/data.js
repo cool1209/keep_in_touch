@@ -4,14 +4,7 @@ const data = {
       id: 1,
       name: "Iron-man",
       about: "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil. After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
-      friends: [
-        {
-          userId: 2
-        },
-        {
-          userId: 3
-        },
-      ],
+      friends: [2, 4, 5, 6],
       avatar: "https://bit.ly/3RGqLZ0",
       wallpaper: "https://bit.ly/3dQ4OI8"
     },
@@ -19,14 +12,7 @@ const data = {
       id: 2,
       name: "Spider-man",
       about: "Bitten by a radioactive spider, Peter Parker's arachnid abilities give him amazing powers he uses to help others, while his personal life continues to offer plenty of obstacles. With amazing spider-like abilities, teenage science whiz Peter Parker fights crime and dreams of becoming an Avenger as Spider-Man.",
-      friends: [
-        {
-          userId: 1
-        },
-        {
-          userId: 3
-        }
-      ],
+      friends: [1],
       avatar: "https://bit.ly/3Rm5F1M",
       wallpaper: "https://bit.ly/3frTane"
     },
@@ -34,14 +20,7 @@ const data = {
       id: 3,
       name: "Deadpool",
       about: "Armed with his new abilities and a dark, twisted sense of humor, Deadpool hunts down the man who nearly destroyed his life. Wade Wilson is a small-time mercenary. He meets Vanessa and falls in love. Life is idyllic until one day he is diagnosed with terminal cancer.",
-      friends: [
-        {
-          userId: 1
-        },
-        {
-          userId: 2
-        }
-      ],
+      friends: [],
       avatar: "https://bit.ly/3eAJZjY",
       wallpaper: "https://bit.ly/3BULGki"
     },
@@ -49,16 +28,25 @@ const data = {
       id: 4,
       name: "Natasha",
       about: "After Thanos erases half of all life, Romanoff leads the Avengers for five years until she sacrifices herself, successfully helping the Avengers restore trillions of lives across the universe.",
-      friends: [
-        {
-          userId: 1
-        },
-        {
-          userId: 3
-        }
-      ],
+      friends: [1, 5],
       avatar: "https://bit.ly/3S0izm7",
-      wallpaper: "https://bit.ly/3RlD7F0"
+      wallpaper: "https://bit.ly/3UQ43iZ"
+    },
+    {
+      id: 5,
+      name: "Thor",
+      about: "In Norse mythology, he is a hammer-wielding god associated with lightning, thunder, storms, sacred groves and trees, strength, the protection of mankind, hallowing, and fertility.",
+      friends: [1, 4],
+      avatar: "https://bit.ly/3BS5kgI",
+      wallpaper: "https://bit.ly/3E8kNMo"
+    },
+    {
+      id: 6,
+      name: "Hulk",
+      about: "Bruce Banner lives a life caught between the soft-spoken scientist he's always been and the uncontrollable green monster powered by his rage. Exposed to heavy doses of gamma radiation, scientist Bruce Banner transforms into the mean, green rage machine called the Hulk.",
+      friends: [1, 4],
+      avatar: "https://bit.ly/3E6zrno",
+      wallpaper: "https://bit.ly/3rjVFe7"
     }
   ],
   
@@ -70,22 +58,12 @@ const data = {
         {
           id: 1,
           member: 1,
-          message: 'Hello man, how are you?',
+          message: 'Hello, Spider!',
         },
         {
           id: 2,
           member: 2,
-          message: 'I am five, what about you?',
-        },
-        {
-          id: 3,
-          member: 1,
-          message: 'Not bad too',
-        },
-        {
-          id: 4,
-          member: 2,
-          message: 'Ok. See you soon!',
+          message: 'Hi, Tonny!',
         }
       ]
     },
@@ -96,18 +74,13 @@ const data = {
         {
           id: 1,
           member: 4,
-          message: 'Hello man, how are you?',
+          message: 'Hello, Tonny!',
         },
         {
           id: 2,
           member: 1,
-          message: 'I am fine',
-        },
-        {
-          id: 3,
-          member: 4,
-          message: 'What about you?',
-        },
+          message: 'Good morning, Natasha',
+        }
       ]
     },
     {
@@ -117,17 +90,17 @@ const data = {
         {
           id: 1,
           member: 2,
-          message: 'Hello man, how are you?',
+          message: 'Hi, Deadpool!',
         },
         {
           id: 2,
           member: 3,
-          message: 'I am five, what about you?',
+          message: 'Spider? what do you want from me!?',
         },
         {
           id: 3,
           member: 2,
-          message: 'Not bad too',
+          message: 'Oh... Sorry man...',
         },
       ]
     },
@@ -138,17 +111,17 @@ const data = {
         {
           id: 1,
           member: 4,
-          message: 'Hello man, how are you?',
+          message: 'Hi, Deadpool!',
         },
         {
           id: 2,
           member: 3,
-          message: 'I am five, what about you?',
+          message: 'Hi, Natasha',
         },
         {
           id: 3,
           member: 4,
-          message: 'Not bad too',
+          message: "what's going on? :)",
         },
       ]
     },
@@ -201,9 +174,9 @@ const data = {
       id: 8,
       userId: 4,
       publication: "If you want to ask me something write me to dialogs :D",
-      likes: 12,
+      likes: 99,
     },
   ]
-}
+};
 
 export default data;

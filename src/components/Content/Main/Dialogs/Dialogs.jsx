@@ -8,11 +8,18 @@ import {
 import styles from './Dialogs.module.css';
 import Messages from './Messages/Messages';
 import Companion from './Companion/Companion';
+import getCurrentUserData from '../../../../functions/user-data';
 
 const Dialogs = ({ store }) => {
-  const state = store.getState().currentUser;
-  const { user, dialogsPage } = state;
+  const state = store.getState();
+  const {
+    user,
+    dialogsPage
+  } = getCurrentUserData(state);
   const { dialogs, newMessageText } = dialogsPage;
+
+  let dialogId = 0;
+  const getDialogId = (id) => dialogId = id;
 
   const updateText = (text) => store.dispatch(updateMessageTextCreator(text));
   const sendMessage = () => store.dispatch(sendMessageCreator());
@@ -21,7 +28,7 @@ const Dialogs = ({ store }) => {
     <section className={styles.dialogs}>
       <ul className={styles.dialogs__dialogList}>
         {dialogs.map(dialog => (
-          <Companion dialog={dialog} key={dialog.id} />
+          <Companion dialog={dialog} key={dialog.id} getDialogId={getDialogId} />
         ))}
       </ul>
 

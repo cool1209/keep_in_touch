@@ -2,26 +2,28 @@ const ADD_MESSAGE = 'ADD_MESSAGE';
 const UPDATE_MESSAGE_TEXT = 'UPDATE_MESSAGE_TEXT';
 
 const dialogsReduser = (state, action) => {
+  const dialogsPage = state.dialogsPage;
+  // const dialogId = action.payload;
+  const dialogId = 1;
 
   switch (action.type) {
     case ADD_MESSAGE:
-      const messageId = state.dialogs[0].messages.length + 1;
-
+      const messageId = state.dialogs[dialogId - 1].messages.length + 1;
       const message = {
         id: messageId,
-        member: 'Iron-man',
-        memberAvatar: 'https://bit.ly/3RGqLZ0',
-        message: state.newMessageText,
+        member: state.user.id,
+        message: dialogsPage.newMessageText,
       }
 
-      if (state.newMessageText) {
-        state.dialogs[0].messages.push(message);
-        state.newMessageText = '';
+      if (dialogsPage.newMessageText) {
+        state.dialogs[dialogId - 1].messages.push(message);
+        dialogsPage.newMessageText = '';
       }
       
       return state;
+
     case UPDATE_MESSAGE_TEXT:
-      state.newMessageText = action.payload;
+      dialogsPage.newMessageText = action.payload;
       return state;
 
     default:
@@ -29,8 +31,9 @@ const dialogsReduser = (state, action) => {
   }
 };
 
-export const sendMessageCreator = () => ({
-  type: ADD_MESSAGE
+export const sendMessageCreator = (dialogId) => ({
+  type: ADD_MESSAGE,
+  // payload: dialogId
 });
 
 export const updateMessageTextCreator = (text) => ({

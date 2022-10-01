@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Profile from './Profile/Profile';
 import Dialogs from './Dialogs/Dialogs';
@@ -13,7 +13,8 @@ const Main = ({ store }) => {
   return (
     <main className={styles.main}>
       <Routes>
-        <Route path='profile' element={ <Profile store={store}/> } />
+        <Route path='/' element={ <Profile store={store}/> } />
+        <Route path='profile' element={ <Navigate to="/" /> } />
         <Route path='dialogs/*' element={ <Dialogs store={store} /> } />
         <Route path='news' element={ <News/> } />
         <Route path='music' element={ <Music/> } />

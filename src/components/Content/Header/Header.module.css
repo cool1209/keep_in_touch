@@ -3,12 +3,13 @@
   align-items: center;
   grid-area: header;
 
-  padding: 10px 25px;
+  padding: 5px 20px;
   background-color: var(--color-blue-normal);
 }
 
 .header__logo {
-  width: 50px;
+  width: 70px;
+  height: 60px;
 }
 
 .header__title {
@@ -33,11 +34,17 @@
   .header__title {
     font-size: 32px;
     letter-spacing: 1px;
+    color: var(--color-blue-normal);
   }
 }
 
 @media (max-width: 575px) {
   .header {
     padding: 5px 10px;
+  }
+
+  .header__logo {
+    width: 45px;
+    height: 40px;
   }
 }

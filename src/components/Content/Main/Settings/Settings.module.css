@@ -8,13 +8,10 @@
 
 .todo {
   padding-top: 20px;
+  text-align: center;
 }
 
 ol {
   margin-top: 5px;
   padding: 0;
-}
-
-ol li {
-  text-align: left;
 }

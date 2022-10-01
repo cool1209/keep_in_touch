@@ -6,6 +6,7 @@
 
 .sidenav__link {
   margin-bottom: 15px;
+  font-weight: 600;
 
   transition: all var(--duration-element-animation) linear;
 }

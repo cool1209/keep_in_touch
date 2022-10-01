@@ -1,9 +1,13 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-// import { getCurrentUserId } from '../../data/user-data';
 import styles from './HomePage.module.css';
+import { getCurentUserCreator } from '../../store/reducers/currentUserReducer';
 
-const HomePage = ({ users }) => {
+const HomePage = ({ store }) => {
+  const users = store.getState().users;
+  const getCurrentUser = (id) => {
+    store.dispatch(getCurentUserCreator(id))
+  }  
+
   return (
     <div className={styles.home}>
       <h1 className={styles.home__title}>
@@ -16,29 +20,24 @@ const HomePage = ({ users }) => {
         This is a test home page to test the functionality of the "Keep in touch" social networks for different users.
       </p>
 
-      <p className={styles.home__choice}>
-        Select a user:
-      </p>
+      {users.length > 0
+        ? <>
+            <p className={styles.home__choice}>
+              Select a user:
+            </p>
 
-      <div className={styles.home__users}>
-        {users.map(user => (
-          <div key={user.id} onClick={() => console.log(user.id)}>
-            <NavLink to="/keep-in-touch/profile">
-              <img src={user.avatar} alt="User avatar" className={styles.home__user} />
-            </NavLink>
+            <div className={styles.home__users}>
+              {users.map(user => (
+                <div key={user.id} onClick={() => getCurrentUser(user.id)}>
+                  <img src={user.avatar} alt="User avatar" className={styles.home__user} />
+                </div>
+              ))}
+            </div>
+          </>
+        : <div className={styles.home__usersLoading}>
+            Users are loading...
           </div>
-        ))}
-
-{users.map(user => (
-          <div key={user.id} onClick={() => console.log(user.id)}>
-            <NavLink to="/keep-in-touch/profile">
-              <img src={user.avatar} alt="User avatar" className={styles.home__user} />
-            </NavLink>
-          </div>
-        ))}
-      </div>
-
-      
+      }
     </div>
   );
 };

@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   height: 100vh;
 
   border: 20px solid var(--color-blue-normal);
@@ -24,8 +25,8 @@
 
 .home__socialNetworksName {
   position: relative;
-
   display: inline-block;
+  margin-bottom: 20px;
 
   font-size: 83px;
   color: var(--color-blue-dark);
@@ -44,18 +45,23 @@
 }
 
 .home__description {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   width: 450px;
 
   text-align: center;
 }
 
-.home__choice {
-  margin-bottom: 20px;
+.home__choice,
+.home__usersLoading {
+  margin-bottom: 30px;
 
   font-family: 'Fredoka One', cursive;
   font-size: 22px;
   color: var(--color-blue-dark);
+}
+
+.home__usersLoading {
+  margin-top: 100px;
 }
 
 .home__users {
@@ -64,15 +70,17 @@
   flex-wrap: wrap;
   gap: 20px;
 
-  max-width: 700px;
+  max-width: 450px;
 }
 
 .home__user {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 
   border: 5px solid var(--color-blue-normal);
   border-radius: 20px;
+
+  cursor: pointer;
 }
 
 @media (max-width: 767px) {
