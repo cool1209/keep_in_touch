@@ -4,9 +4,7 @@
   align-items: center;
   justify-content: center;
 
-  color: var(--color-text-ligth);
-
-  background-color: var(--color-footer-bg);
+  background-color: var(--color-blue-normal);
 }
 
 @media (max-width: 767px) {

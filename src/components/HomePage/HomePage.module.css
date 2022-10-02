@@ -85,7 +85,7 @@
 
 @media (max-width: 767px) {
   .home {
-    border: 15px solid var(--color-blue-normal);
+    border-width: 15px;
   }
 
   .home__title {

@@ -5,29 +5,28 @@
   padding: 10px;
   width: 50%;
 
-  background-color: var(--color-message-bg);
+  background: var(--color-blue-light);
   border: 1px dashed var(--color-grey);
   border-radius: 10px;
-}
-
-.message_currentUser {
-  align-self: end;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-
-  background-color: var( --color-yellow-grey);
 }
 
 .message__memberAvatar {
   width: 50px;
   height: 50px;
-
   border-radius: 50%;
 }
 
 .message__text {
   padding-left: 10px;
 }
+
+.message_currentUser {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-self: end;
+  background-color: var( --color-yellow-grey);
+}
+
 
 .message__text_currentUser {
   padding-left: 0;
@@ -42,25 +41,17 @@
 
 @media (max-width: 575px) {
   .message {
-    padding: 10px;
-    width: 100%;
-  
-    background-color: var(--color-message-bg);
-    border: 1px dashed var(--color-grey);
-    border-radius: 10px;
+    width: 90%;
   }
 
   .message_currentUser {
-    align-self: end;
-    flex-direction: row;
-    background-color: var( --color-yellow-grey);
+
   }
 
   .message__memberAvatar {
-    display: none;
   }
 
   .message__text {
-    padding-left: 0;
+
   }
 }

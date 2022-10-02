@@ -25,35 +25,37 @@
 }
 
 .publication__userName {
-  margin: 8px 0;
+  margin-bottom: 5px;
 
   font-size: 12px;
-  font-weight: 400;
-}
-
-.publication__likes {
-  font-size: 14px;
+  text-decoration: underline;
 }
 
 .publication__likeBtn {
-  padding: 0;
-  width: 60px;
-  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  background: var(--color-button);
+  margin: 10px auto 0;
+  padding: 4px 10px 4px 5px;
+  width: 52px;
+
+  background: var(--color-blue-normal);
   border: 1px solid var(--color-button-border);
-  border-radius: 10px;
+  border-radius: 15px;
 
   transition: all var(--duration-element-animation) linear;
   cursor: pointer;
 }
 
 .publication__likeBtn:hover {
-  background-color: var(--color-button-behavior);
+  color: var(--color-main-light);
+  background: var(--color-blue-dark);
 }
 
 .publication__likesCounter {
   font-size: 12px;
+  font-weight: 600;
 }
 
 .publication__userText {

@@ -5,17 +5,17 @@ const getCurrentUserData = (state) => {
     users.find(user => user.id === id)
   );
 
-  const getCurrentUserPublication = () => (
+  const getCurrentUserPublications = () => (
     publications.filter(publication => publication.userId === user.id)
   );
 
-  const getCurrentUserDialog = () => {
+  const getCurrentUserDialogs = () => {
     const userDialogs = dialogs.filter(dialog => dialog.members.includes(user.id));
 
       return userDialogs.map(dialog => ({
       id: dialog.id,
 
-      companion: getUser(
+      contact: getUser(
         dialog.members.find(member => member !== user.id)
       ).name,
 
@@ -31,11 +31,11 @@ const getCurrentUserData = (state) => {
   return {
     ...state,
     publicationsPage: {
-      publications: getCurrentUserPublication(),
+      publications: getCurrentUserPublications(),
       newPublicationText: state.publicationsPage.newPublicationText,
     },
     dialogsPage: {
-      dialogs: getCurrentUserDialog(),
+      dialogs: getCurrentUserDialogs(),
       newMessageText: state.dialogsPage.newMessageText
     }
   }

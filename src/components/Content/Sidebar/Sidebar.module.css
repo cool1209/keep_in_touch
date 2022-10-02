@@ -7,7 +7,7 @@
 
 @media (max-width: 1023px) {
   .sidebar {
-    padding: 25px 50px;
+    padding: 25px 0;
   }
 }
 
@@ -17,14 +17,13 @@
     margin: 0 -15px;
     padding: 15px;
 
-    border-radius: 0;
     background: var(--color-blue-dark);
+    border-radius: 0;
   }
 }
 
 @media (max-width: 575px) {
   .sidebar {
-    padding: 10px 20px;
     padding: 10px 0;
   }
 }

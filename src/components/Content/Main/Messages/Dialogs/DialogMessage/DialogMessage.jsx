@@ -1,15 +1,15 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './Message.module.css';
+import styles from './DialogMessage.module.css';
 
-const Message = ({ message, user }) => {
-  const isUser = message.member === user.name;
-  
+const DialogMessage = ({ message, user }) => {
+  const isCurrentUser = message.member === user.name;
+
   return (
     <li className={
       classNames(
         styles.message, 
-        {[styles.message_currentUser]: isUser}
+        {[styles.message_currentUser]: isCurrentUser}
       )}
     >
       <img 
@@ -22,7 +22,7 @@ const Message = ({ message, user }) => {
         className={
           classNames(
             styles.message__text,
-            {[styles.message__text_currentUser]: isUser}
+            {[styles.message__text_currentUser]: isCurrentUser}
         )}
       >
         {message.message}
@@ -31,4 +31,4 @@ const Message = ({ message, user }) => {
   );
 };
 
-export default Message;
+export default DialogMessage;

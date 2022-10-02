@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './UserInfo.module.css';
-import logoutIcon from '../../../../../logout.png';
 import { removeCurentUserCreator } from '../../../../../store/reducers/currentUserReducer';
+import GetIcon from '../../../../../img/GetIcon';
 
 const UserInfo = ({ store }) => {
   const user = store.getState().user;
@@ -30,11 +30,7 @@ const UserInfo = ({ store }) => {
           onClick={() => store.dispatch(removeCurentUserCreator())}
         >
           Logout
-          <img
-            className={styles.user__logoutBtn}
-            src={logoutIcon}
-            alt="Logout button"
-            />
+          <GetIcon id='logout-icon' />
         </button>
       </div>
 

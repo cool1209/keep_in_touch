@@ -1,0 +1,11 @@
+.messages {
+  display: grid;
+  grid-template-columns: minmax(200px, auto) 1fr;
+  grid-template-rows: 1fr;
+
+  overflow: hidden;
+}
+
+
+
+

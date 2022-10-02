@@ -7,6 +7,7 @@
 
   font-weight: 600;
   text-align: center;
+  color: var(--color-blue-dark);
 }
 
 .friends__list {
@@ -33,7 +34,7 @@
 }
 
 .friends__item:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 .friends__avatar {
@@ -46,7 +47,12 @@
 @media (max-width: 1023px) {
 
   .friends__list {
-    flex-direction: column;
+    gap: 10px;
+  }
+
+  .friends__avatar {
+    width: 45px;
+    height: 45px;
   }
 }
 

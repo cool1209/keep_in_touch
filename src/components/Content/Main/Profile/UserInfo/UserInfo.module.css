@@ -15,21 +15,17 @@
   display: flex;
   align-items: center;
 
-  padding: 5px 10px;
+  padding: 0 12px;
+  height: 30px;
 
   font-size: 12px;
   font-weight: 600;
-  line-height: 1.15;
-  color: var(--color-red);
+  color: var(--color-main);
 
   background: var(--color-red-light);
   border-radius: 0 5px 0 10px;
   border: none;
-}
-
-.user__logoutBtn {
-  margin-left: 4px;
-  width: 14px;
+  cursor: pointer;
 }
 
 .user__wallpaper {

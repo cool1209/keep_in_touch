@@ -1,32 +1,37 @@
-.companion {  
+.contacts {
+  padding-right: 15px;
+  border-right: 3px solid var(--color-grey);
+
+  overflow-y: scroll;
+}
+
+.contacts__contact {  
   display: flex;
   align-items: center;
   margin-bottom: 10px;
   padding: 10px 15px;
 
-  background-color: var(--color-button);
+  background-color: var(--color-blue-normal);
   border: 1px solid var(--color-grey);
   border-radius: 10px;
   cursor: pointer;
 
-  transition: background-color var(--duration-element-animation) linear;
+  transition: all var(--duration-element-animation) linear;
 }
 
-.companion:hover {
-  background-color: var(--color-button-behavior);
-}
-
-.companion a {
+.contacts__contact a {
   display: flex;
   align-items: center;
 }
 
 .activeLink {
-  background-color: var(--color-button-behavior);
+  color: var(--color-main-light);
+  background-color: var(--color-blue-dark);
+
 }
 
 @media (max-width: 575px) {
-  .companion {  
+  .contacts__contact {  
     display: flex;
     align-items: center;
     margin-bottom: 10px;

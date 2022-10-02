@@ -7,11 +7,6 @@
   background-color: var(--color-blue-normal);
 }
 
-.header__logo {
-  width: 70px;
-  height: 60px;
-}
-
 .header__title {
   width: 100%;
 
@@ -25,10 +20,6 @@
   .header {
     padding: 5px 15px;
     background-color: var(--color-blue-dark);
-  }
-
-  .header__logo {
-    width: 35px;
   }
   
   .header__title {

@@ -5,9 +5,23 @@
 }
 
 .sidenav__link {
+  position: relative;
   margin-bottom: 15px;
   font-weight: 600;
 
+  transition: all var(--duration-element-animation) linear;
+}
+
+.sidenav__link:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--color-blue);
   transition: all var(--duration-element-animation) linear;
 }
 
@@ -16,11 +30,20 @@
 }
 
 .sidenav__link:hover {
-  color: var(--color-red);
+  color: var(--color-blue);
+}
+
+.sidenav__linkName {
+  display: inline-block;
+}
+
+.activeLink.sidenav__link:after {
+  width: 100%;
+  background: var(--color-blue);
 }
 
 .activeLink {
-  color: var(--color-red);
+  color: var(--color-blue);
 }
 
 @media (max-width: 767px) {
@@ -28,11 +51,11 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    gap: 15px;
   }
 
   .sidenav__link {
     margin-bottom: 0;
-    margin: 0 5px;
     padding: 10px 15px;
 
     font-weight: 600;
@@ -42,22 +65,56 @@
     border: 1px solid var(--color-main-light);
     border-radius: 12px;
   }
+
+  .sidenav__link:after {
+    display: none;
+  }
+  
+  .sidenav__link:hover,
+  .activeLink {
+    color: var(--color-blue-dark);
+    background: var(--color-main-light);
+  }
 }
 
 @media (max-width: 575px) {
+  .sidenav {
+    gap: 25px;
+  }
+
   .sidenav__link {
-    margin: 0 10px;
+    display: flex;
     padding: 0;
+    width: 45px;
+    height: 45px;
+    font-size: 0;
+    border: none;
+    transition: none;
+  }
+  
+  .activeLink {
+    position: relative;
+    border-radius: 0;
+  }
+
+  .activeLink::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -7px;
+    right: -7px;
+    bottom: -5px;
+    background: var(--color-main-light);
+  }
+}
+
+@media (max-width: 374px) {
+  .sidenav {
+    gap: 20px;
+  }
+
+  .sidenav__link {
     width: 40px;
     height: 40px;
-
-    font-size: 0;
-    font-weight: 0;
-
-    background-color: var(--color-main-light);
   }
-
-  .activeLink {
-    background-color: var(--color-blue-normal);
-  }
-};
+}

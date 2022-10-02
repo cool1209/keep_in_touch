@@ -1,7 +1,7 @@
-import dialogsReduser from "./reducers/dialogsReduser";
+import currentUserReducer from "./reducers/currentUserReducer";
+import messagesReduser from "./reducers/messagesReduser";
 import publicationsReducer from "./reducers/publicationsReducer";
 import data from '../data/data.js';
-import currentUserReducer from "./reducers/currentUserReducer";
 
 const initialState = {
   user: {},
@@ -36,7 +36,7 @@ const store = {
   dispatch(action) {
     currentUserReducer(this._state, action)
     publicationsReducer(this._state, action);
-    dialogsReduser(this._state, action);
+    messagesReduser(this._state, action);
 
     this._callSubscriber();
   }

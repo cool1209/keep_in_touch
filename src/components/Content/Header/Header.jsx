@@ -1,17 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from './../../../logo.png';
+import { GetImage } from '../../../img/GetImage';
 import styles from './Header.module.css';
 
 const Header = () => {
   return (
     <header className={styles.header}>
       <NavLink to="/profile">
-        <img
-          src={logo}
-          alt="Keep in touch logo"
-          className={styles.header__logo}
-        />
+        <GetImage id={'header-logo'} />
       </NavLink>
       
 

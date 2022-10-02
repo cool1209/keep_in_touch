@@ -1,10 +1,9 @@
 const ADD_MESSAGE = 'ADD_MESSAGE';
 const UPDATE_MESSAGE_TEXT = 'UPDATE_MESSAGE_TEXT';
 
-const dialogsReduser = (state, action) => {
+const messagesReduser = (state, action) => {
   const dialogsPage = state.dialogsPage;
-  // const dialogId = action.payload;
-  const dialogId = 1;
+  const dialogId = action.payload;
 
   switch (action.type) {
     case ADD_MESSAGE:
@@ -33,7 +32,7 @@ const dialogsReduser = (state, action) => {
 
 export const sendMessageCreator = (dialogId) => ({
   type: ADD_MESSAGE,
-  // payload: dialogId
+  payload: dialogId
 });
 
 export const updateMessageTextCreator = (text) => ({
@@ -41,4 +40,4 @@ export const updateMessageTextCreator = (text) => ({
   payload: text
 });
 
-export default dialogsReduser;
+export default messagesReduser;
