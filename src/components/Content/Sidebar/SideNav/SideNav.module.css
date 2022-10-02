@@ -21,7 +21,6 @@
   display: block;
   width: 0;
   height: 2px;
-  background: var(--color-blue);
   transition: all var(--transition-behavior);
 }
 
@@ -30,7 +29,7 @@
 }
 
 .sidenav__link:hover {
-  color: var(--color-blue);
+  color: var(--color-red);
 }
 
 .sidenav__linkName {
@@ -39,11 +38,11 @@
 
 .activeLink.sidenav__link:after {
   width: 100%;
-  background: var(--color-blue);
+  background: var(--color-red);
 }
 
 .activeLink {
-  color: var(--color-blue);
+  color: var(--color-red);
 }
 
 @media (max-width: 767px) {

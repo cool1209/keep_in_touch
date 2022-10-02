@@ -22,7 +22,7 @@ const Publication = ({ user, publication, likes }) => {
       
       <div className={styles.publication__userText}>
         <h3 className={styles.publication__userName}>
-          {user.name}:
+          {} {user.name}:
         </h3>
         {publication}
       </div>
