@@ -306,12 +306,12 @@ const data = {
       messages: [
         {
           id: 1,
-          member: 6,
+          member: 2,
           message: "Thor, when have you seen Valera for last time?",
         },
         {
           id: 2,
-          member: 1,
+          member: 5,
           message: "I've never seen that man! Don't ask this question again and again!",
         }
       ]
