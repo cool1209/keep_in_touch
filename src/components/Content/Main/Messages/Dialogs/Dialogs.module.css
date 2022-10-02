@@ -40,7 +40,7 @@
   width: 100%;
 
   font-family: var(--font-main);
-  font-size: var(--font-size-laptop);
+  font-size: var(--font-size-pc);
   
   border: 1px solid var(--color-grey);
   border-radius: 10px 0 0 10px;

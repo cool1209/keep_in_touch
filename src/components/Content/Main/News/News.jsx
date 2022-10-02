@@ -1,23 +1,51 @@
 import React from 'react';
+import GetIcon from '../../../../img/GetIcon';
 import styles from './News.module.css';
 
-const News = () => {
+const News = ({ store }) => {
+  const state = store.getState();
+  const publications = state.publications;
+  const users = state.users;
+  const getPublicationAutor = (userId) => (
+    users.find(user => user.id === userId)
+  ); 
+
   return (
     <div className={styles.news}>
-      <h1>News page</h1>
-      <h3> under development...</h3>
+      <ul className={styles.news__publications}>
+        {publications.map(publication => (
+          <li
+            className={styles.news__publication}
+            key={publication.id}
+          > 
+            <div>
+              <img
+                src={getPublicationAutor(publication.userId).avatar}
+                alt="Publication author avatar"
+                className={styles.news__publicationAuthorAvatar}
+              />
 
-      <div>
-        <h4  className={styles.todo}>
-          To Do:
-        </h4>
-        
-        <ol>
-          <li>
-            Add to all publications
+              <button className={styles.news__likeBtn}>
+                <GetIcon id='like-icon' />
+
+                <span className={styles.news__likesCounter}>
+                  {publication.likes}
+                </span>
+              </button>
+            </div>
+
+            <div>
+              <h3 className={styles.news__publicationAuthor}>
+                {getPublicationAutor(publication.userId).name}:
+              </h3>
+
+              <p>
+                {publication.publication}
+              </p>
+            </div>
           </li>
-        </ol>
-      </div>
+        ))}
+      </ul>
     </div>
   );
 };

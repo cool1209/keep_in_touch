@@ -285,7 +285,7 @@ const data = {
       ]
     },   
     {
-      id: 13,
+      id: 14,
       members: [1, 6],
       messages: [
         {
@@ -301,7 +301,7 @@ const data = {
       ]
     }, 
     {
-      id: 13,
+      id: 15,
       members: [2, 5],
       messages: [
         {
@@ -322,25 +322,25 @@ const data = {
     {
       id: 1,
       userId: 1,
-      publication: "I'm Irom-man ant this is my first publication",
+      publication: "I'm Irom-man and this is my first publication",
       likes: 5,
     },
     {
       id: 2,
       userId: 2,
-      publication: "I'm a Spider-man and I can make lots of web :)",
+      publication: "I'm Spider-man and I can make lots of web :)",
       likes: 5,
     },
     {
       id: 3,
       userId: 2,
-      publication: "I don't know what I should write here but I thing this text is no bad :)",
+      publication: "I don't know what I should write here but I think this text is no bad :)",
       likes: 3,
     },
     {
       id: 4,
       userId: 3,
-      publication: "I'm Deadpool and I dont know what my name means...",
+      publication: "I'm Deadpool and I don't know what my name is means...",
       likes: 2,
     },
     {

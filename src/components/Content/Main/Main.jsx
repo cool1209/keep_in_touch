@@ -16,9 +16,9 @@ const Main = ({ store }) => {
         <Route path='/' element={ <Navigate to="profile" /> } />
         <Route path='profile' element={ <Profile store={store}/> } />
         <Route path='messages/*' element={ <Messages store={store} /> } />
-        <Route path='news' element={ <News/> } />
-        <Route path='music' element={ <Music/> } />
-        <Route path='settings' element={ <Settings/> } />
+        <Route path='news' element={ <News store={store} /> } />
+        <Route path='music' element={ <Music /> } />
+        <Route path='settings' element={ <Settings /> } />
       </Routes>
     </main>
   );
