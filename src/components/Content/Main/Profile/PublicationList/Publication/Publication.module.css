@@ -5,6 +5,7 @@
   
   border: 1px solid var(--color-publication-bg);
   border-radius: 10px;
+  word-break: break-word;
 }
 
 .publication__userInfo {

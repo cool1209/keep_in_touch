@@ -11,14 +11,16 @@ const messagesReduser = (state, action) => {
       const message = {
         id: messageId,
         member: state.user.id,
-        message: dialogsPage.newMessageText,
+        message: dialogsPage.newMessageText.trim(),
       }
 
-      if (dialogsPage.newMessageText) {
+      if (dialogsPage.newMessageText.trim()) {
         state.dialogs[dialogId - 1].messages.push(message);
         dialogsPage.newMessageText = '';
-      }
+      } 
       
+      dialogsPage.newMessageText = '';
+
       return state;
 
     case UPDATE_MESSAGE_TEXT:

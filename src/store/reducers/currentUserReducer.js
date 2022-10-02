@@ -2,6 +2,7 @@ const GET_CURRENT_USER = 'GET_CURRENT_USER';
 const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
 
 const currentUserReducer = (state, action) => {
+
   switch (action.type) {
     case GET_CURRENT_USER:
       state.user = state.users.find(user => user.id === action.payload);
@@ -9,6 +10,8 @@ const currentUserReducer = (state, action) => {
 
     case REMOVE_CURRENT_USER:
       state.user = {};
+      state.publicationsPage.newPublicationText = '';
+      state.dialogsPage.newMessageText = '';
       return state;
 
     default:

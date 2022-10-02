@@ -10,18 +10,20 @@ const publicationsReducer = (state, action) => {
       const publication = {
         id: publicationId,
         likes: 0,
-        publication: publicationsPage.newPublicationText,
+        publication: publicationsPage.newPublicationText.trim(),
         userId: state.user.id,
       }
       
-      if (publicationsPage.newPublicationText) {
+      if (publicationsPage.newPublicationText.trim()) {
         state.publications.push(publication);
         publicationsPage.newPublicationText = '';
       }
 
+      publicationsPage.newPublicationText = '';
+      
       return state;
-
-    case UPDATE_PUBLICATION_TEXT:
+      
+      case UPDATE_PUBLICATION_TEXT:
       publicationsPage.newPublicationText = action.payload;
       return state;
 

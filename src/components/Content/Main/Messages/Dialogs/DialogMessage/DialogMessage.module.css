@@ -8,6 +8,7 @@
   background: var(--color-blue-light);
   border: 1px dashed var(--color-grey);
   border-radius: 10px;
+  word-break: break-word;
 }
 
 .message__memberAvatar {
