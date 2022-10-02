@@ -77,10 +77,18 @@
   width: 120px;
   height: 120px;
 
+  background: var(--color-blue-normal);
   border: 5px solid var(--color-blue-normal);
   border-radius: 20px;
 
+  transition: transform var(--transition-behavior);
   cursor: pointer;
+}
+
+
+
+.home__user:hover {
+  transform: scale(1.1);
 }
 
 @media (max-width: 767px) {

@@ -1,5 +1,5 @@
 .sidebar {
-  padding: 25px 30px;
+  padding: 35px 25px;
 
   background: var(--color-blue-normal);
   border-radius: 10px;
@@ -7,7 +7,7 @@
 
 @media (max-width: 1023px) {
   .sidebar {
-    padding: 25px 0;
+    padding: 25px 10px;
   }
 }
 

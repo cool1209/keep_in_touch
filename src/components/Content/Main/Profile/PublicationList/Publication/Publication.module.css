@@ -29,6 +29,7 @@
 
   font-size: 12px;
   text-decoration: underline;
+  color: var(--color-blue-dark)
 }
 
 .publication__likeBtn {
@@ -44,7 +45,7 @@
   border: 1px solid var(--color-button-border);
   border-radius: 15px;
 
-  transition: all var(--duration-element-animation) linear;
+  transition: all var(--transition-behavior);
   cursor: pointer;
 }
 

@@ -6,14 +6,16 @@ import styles from './Header.module.css';
 const Header = () => {
   return (
     <header className={styles.header}>
-      <NavLink to="/profile">
-        <GetImage id={'header-logo'} />
-      </NavLink>
-      
+      <div className={styles.header__container}>
+        <NavLink to="/profile">
+          <GetImage id={'header-logo'} />
+        </NavLink>
+        
 
-      <h1 className={styles.header__title}>
-        Keep in touch
-      </h1>
+        <h1 className={styles.header__title}>
+          Keep in touch
+        </h1>
+      </div>
     </header>
   );
 };

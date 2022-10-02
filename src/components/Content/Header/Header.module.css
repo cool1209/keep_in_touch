@@ -1,10 +1,16 @@
 .header {
+  background-color: var(--color-blue-normal);
+}
+
+.header__container {
   display: flex;
   align-items: center;
   grid-area: header;
 
+  margin: 0 auto;
   padding: 5px 20px;
-  background-color: var(--color-blue-normal);
+  max-width: 2000px;
+  width: 100%;
 }
 
 .header__title {
@@ -17,7 +23,7 @@
 }
 
 @media (max-width: 767px) {
-  .header {
+  .header__container {
     padding: 5px 15px;
     background-color: var(--color-blue-dark);
   }
@@ -30,12 +36,26 @@
 }
 
 @media (max-width: 575px) {
-  .header {
+  .header__container {
     padding: 5px 10px;
   }
 
   .header__logo {
     width: 45px;
     height: 40px;
+  }
+}
+
+@media (max-width: 300px) {
+
+  .header__logo {
+    width: 40px;
+    height: 35px;
+  }
+
+  .header__title {
+    font-size: 26px;
+    letter-spacing: 0.7px;
+    color: var(--color-blue-normal);
   }
 }

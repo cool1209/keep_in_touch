@@ -16,7 +16,7 @@
   border-radius: 10px;
   cursor: pointer;
 
-  transition: all var(--duration-element-animation) linear;
+  transition: all var(--transition-behavior);
 }
 
 .contacts__contact a {
@@ -31,14 +31,22 @@
 }
 
 @media (max-width: 575px) {
+  .contacts {
+    padding-right: 0;
+    border-right: none;
+  }
+
   .contacts__contact {  
-    display: flex;
+    display: block;
     align-items: center;
     margin-bottom: 10px;
-    width: 60px;
-    height: 60px;
+    padding: 15px;
 
-    font-size: 0;
     text-transform: uppercase;
+    text-align: center;
+  }
+
+  .contacts:has(.activeLink) {
+    display: none;
   }
 }

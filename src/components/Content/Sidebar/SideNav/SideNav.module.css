@@ -9,7 +9,7 @@
   margin-bottom: 15px;
   font-weight: 600;
 
-  transition: all var(--duration-element-animation) linear;
+  transition: all var(--transition-behavior);
 }
 
 .sidenav__link:after {
@@ -22,7 +22,7 @@
   width: 0;
   height: 2px;
   background: var(--color-blue);
-  transition: all var(--duration-element-animation) linear;
+  transition: all var(--transition-behavior);
 }
 
 .sidenav__link:last-child {
@@ -51,6 +51,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     gap: 15px;
   }
 
@@ -79,7 +80,8 @@
 
 @media (max-width: 575px) {
   .sidenav {
-    gap: 25px;
+    justify-content: space-evenly;
+    gap: 0;
   }
 
   .sidenav__link {
@@ -101,20 +103,25 @@
     content: "";
     position: absolute;
     top: -10px;
-    left: -7px;
-    right: -7px;
-    bottom: -5px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
     background: var(--color-main-light);
   }
 }
 
 @media (max-width: 374px) {
-  .sidenav {
-    gap: 20px;
-  }
 
   .sidenav__link {
     width: 40px;
     height: 40px;
+  }
+}
+
+@media (max-width: 300px) {
+
+  .sidenav__link {
+    width: 35px;
+    height: 35px;
   }
 }

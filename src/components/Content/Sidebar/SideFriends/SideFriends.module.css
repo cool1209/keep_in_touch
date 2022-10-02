@@ -1,5 +1,5 @@
 .friends {
-  margin-top: 50px;
+  margin-top: 60px;
 }
 
 .friends__title {
@@ -30,11 +30,11 @@
   border-radius: 50%;
   cursor: pointer;
 
-  transition: transform var(--duration-element-animation) linear;
+  transition: transform var(--transition-behavior);
 }
 
 .friends__item:hover {
-  transform: scale(1.15);
+  transform: scale(1.2);
 }
 
 .friends__avatar {

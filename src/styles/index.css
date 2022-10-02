@@ -3,16 +3,15 @@
 :root {
   --color-main: #000000;
   --color-main-light: #ffffff;
-  --color-grey: #858585;
+  --color-grey: #777;
   --color-yellow-grey: #ffe7d3;
-  --color-red: #ff0000;
-  --color-red-light: #ffd5d5;
-  --color-blue-light: #b4fffb;
-  --color-blue-normal: #54d0e6;
-  --color-blue-dark: #074f5c;
+  --color-pink: #ffd5d5;
   --color-blue: #0400ff;
+  --color-blue-normal: #54d0e6;
+  --color-blue-light: #b4fffb;
+  --color-blue-dark: #074f5c;
 
-  --duration-element-animation: 0.15s;
+  --transition-behavior: 0.1s linear;
   
   --color-text: var(--color-main);
   --color-text-ligth: var(--color-main-light);
@@ -37,7 +36,7 @@
   --font-size-pc: 16px;
   --font-size-laptop: 16px;
   --font-size-tablet: 18px;
-  --font-size-mobile: 16px;
+  --font-size-mobile: 18px;
 }
 
 * {

@@ -39,9 +39,10 @@
 
 .dialogs__input {
   padding: 5px 10px;
+  width: 100%;
 
   font-family: var(--font-main);
-  font-size: var(--font-size-pc);
+  font-size: var(--font-size-laptop);
   
   border: 1px solid var(--color-grey);
   border-radius: 10px 0 0 10px;
@@ -57,7 +58,7 @@
   outline: none;
   cursor: pointer;
 
-  transition: all var(--duration-element-animation) linear;
+  transition: all var(--transition-behavior);
 }
 
 .dialogs__btn:hover {
@@ -65,35 +66,13 @@
   color: var(--color-main-light)
 }
 
-@media (max-width: 1023px) {
-  .a {
-    display: grid;
-    grid-template-columns: auto 1fr;
-  }
-}
-
-@media (max-width: 767px) {
-  .a__dialogList {
-    padding: 0 10px;
-  }
-}
-
 @media (max-width: 575px) {
-  .a__dialogList {
-    padding: 0 10px 0 0;
-  }
-
-  .a__messages {
+  .dialogs {
+    margin: 0;
     padding: 0;
-    margin-left: 10px;
   }
 
-  .a__messageInput {
-    padding: 0;
-    padding: 5px;
-  }
-
-  .a__messageBtn {
-    padding: 0 10px;
+  .dialogs__sendMessage {
+    grid-template-columns: 3fr 1fr;
   }
 }

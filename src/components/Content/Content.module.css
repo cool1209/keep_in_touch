@@ -4,7 +4,7 @@
   grid-template-rows: auto 1fr 50px;
   grid-template-areas: 
     "header"
-    "main"
+    "container"
     "footer";
 
   height: 100vh;
@@ -14,7 +14,10 @@
   display: grid;
   grid-template-columns: auto 1fr;
 
+  margin: 0 auto;
   padding: 15px;
+  max-width: 2000px;
+  width: 100%;
 
   overflow: hidden;
 }
@@ -27,8 +30,6 @@
     grid-template-areas: 
       "header"
       "container";
-  
-    height: 100vh;
   }
 
   .content__container {
