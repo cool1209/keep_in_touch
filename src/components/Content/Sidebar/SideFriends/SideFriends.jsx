@@ -19,7 +19,7 @@ const randomFriends = [
 const SideFriends = () => {
   return (
     <div className={styles.friends}>
-      <h3 className={styles.friends__title}>Friends:</h3>
+      <h4 className={styles.friends__title}>Friends:</h4>
 
       <div className={styles.friends__list}>
         {randomFriends
