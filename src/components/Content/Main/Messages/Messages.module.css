@@ -15,8 +15,7 @@
 
 @media (max-width: 575px) {
   .messages {
-    grid-template-columns: 100% 100%;
-    margin-bottom: 10px;
+    grid-template-columns: 1fr;
   }
 }
 

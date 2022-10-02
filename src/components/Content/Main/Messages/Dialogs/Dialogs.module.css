@@ -5,10 +5,8 @@
 }
 
 .dialogs__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
+  display: grid;
+  grid-template-rows: 1fr auto;
   height: 100%;
 }
 
@@ -20,7 +18,7 @@
 .dialogs__sendMessage {
   display: grid;
   grid-template-columns: 1fr 100px;
-  grid-template-rows: auto;
+  grid-template-rows: 40px;
 
   position: sticky;
   bottom: 0;
@@ -51,7 +49,7 @@
 
 .dialogs__btn {
   font-weight: bold;
-
+  font-size: 16px;
   background: var(--color-blue-normal);
   border: 1px solid var(--color-grey);
   border-radius: 0 10px 10px 0;
@@ -68,8 +66,8 @@
 
 @media (max-width: 575px) {
   .dialogs {
-    margin: 0;
-    padding: 0;
+    margin: 0 ;
+    padding-right: 15px;
   }
 
   .dialogs__sendMessage {

@@ -1,6 +1,5 @@
 .message {
   display: flex;
-
   margin-bottom: 15px;
   padding: 10px;
   width: 50%;
@@ -43,16 +42,5 @@
 @media (max-width: 575px) {
   .message {
     width: 90%;
-  }
-
-  .message_currentUser {
-
-  }
-
-  .message__memberAvatar {
-  }
-
-  .message__text {
-
   }
 }

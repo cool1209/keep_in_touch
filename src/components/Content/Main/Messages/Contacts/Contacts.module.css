@@ -32,11 +32,13 @@
 
 @media (max-width: 575px) {
   .contacts {
-    padding-right: 0;
+    padding: 25px 40px 0;
+    height: 100%;
     border-right: none;
+    background: var(--color-main-light);
   }
 
-  .contacts__contact {  
+  .contacts__contact {
     display: block;
     align-items: center;
     margin-bottom: 10px;
@@ -47,6 +49,7 @@
   }
 
   .contacts:has(.activeLink) {
-    display: none;
+    height: 0;
+    overflow: hidden;
   }
 }
