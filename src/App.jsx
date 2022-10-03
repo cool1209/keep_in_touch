@@ -1,14 +1,14 @@
 import HomePage from './components/HomePage/HomePage';
 import Content from './components/Content/Content';
 
-const App = ({ store }) => {
-  const state = store.getState();
+const App = ({ state, store }) => {
+  const isCurrentUser = state.users.currentUser.id;
 
   return (
     <div className="app">
-      {state.user.id
-        ? <Content store={store} />
-        : <HomePage store={store} />
+      {isCurrentUser
+        ? <Content state={state} store={store} />
+        : <HomePage state={state} store={store} />
       }
     </div>
   );

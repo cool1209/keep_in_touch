@@ -18,11 +18,11 @@
   padding: 0 15px;
   height: 40px;
 
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
-  color: var(--color-main);
+  color: var(--color-extra-dark);
 
-  background: var(--color-pink);
+  background: var(--color-extra-normal);
   border-radius: 0 8px 0 10px;
   border: none;
   cursor: pointer;
@@ -47,8 +47,8 @@
   width: 165px;
   height: 165px;
 
-  background-color: var(--color-main-light);
-  border: 4px double var(--color-main);
+  background-color: var(--color-secondary);
+  border: 4px double var(--color-dark);
   border-radius: 50%;
 }
 

@@ -1,30 +1,34 @@
+import data from "../../data/data.js";
 const ADD_PUBLICATION = 'ADD_PUBLICATION';
 const UPDATE_PUBLICATION_TEXT = 'UPDATE_PUBLICATION_TEXT';
 
-const publicationsReducer = (state, action) => {
-  const publicationsPage = state.publicationsPage;
+const initialState = {
+  publications: data.publications,
+  newPublicationText: ''
+}
 
+const publicationsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_PUBLICATION:
       const publicationId = state.publications.length + 1;
       const publication = {
         id: publicationId,
         likes: 0,
-        publication: publicationsPage.newPublicationText.trim(),
-        userId: state.user.id,
+        publication: state.newPublicationText.trim(),
+        userId: action.userId,
       }
       
-      if (publicationsPage.newPublicationText.trim()) {
+      if (state.newPublicationText.trim()) {
         state.publications.push(publication);
-        publicationsPage.newPublicationText = '';
+        state.newPublicationText = '';
       }
 
-      publicationsPage.newPublicationText = '';
+      state.newPublicationText = '';
       
       return state;
       
       case UPDATE_PUBLICATION_TEXT:
-      publicationsPage.newPublicationText = action.payload;
+        state.newPublicationText = action.text;
       return state;
 
     default:
@@ -32,13 +36,14 @@ const publicationsReducer = (state, action) => {
   }
 }
 
-export const addPublicationCreator = () => ({
-  type: ADD_PUBLICATION
+export const addPublicationCreator = (userId) => ({
+  type: ADD_PUBLICATION,
+  userId
 });
 
 export const updatePublicationTextCreator = (text) => ({
   type: UPDATE_PUBLICATION_TEXT,
-  payload: text
+  text
 });
 
 export default publicationsReducer;

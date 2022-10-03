@@ -3,28 +3,29 @@ import styles from './Profile.module.css';
 import CurrentUserPublication from './CurrentUserPublication/CurrentUserPublication';
 import PublicationList from './PublicationList/PublicationList';
 import UserInfo from './UserInfo/UserInfo';
-import getCurrentUserData from '../../../../functions/user-data';
 
-const Profile = ({ store }) => {
-  const state = store.getState();
-  const {
-    user,
-    publicationsPage
-  } = getCurrentUserData(state);
+const Profile = ({ state, store }) => {
+  const user = state.users.currentUser;
+  const publications = state.publications.publications;
+  const newPublicationText = state.publications.newPublicationText;
+  const getUserPublications = () => (
+    publications.filter(publication => publication.userId === user.id)
+  );
 
   return (
     <section className={styles.profile}>
-      <UserInfo store={store} />
+      <UserInfo user={user} store={store} />
       
       <div className={styles.profile__publications}>
         <CurrentUserPublication
-          newPublicationText ={publicationsPage.newPublicationText}
-          dispatch={store.dispatch.bind(store)}
+          newPublicationText ={newPublicationText}
+          user={user}
+          store={store}
         />
 
         <PublicationList
           user={user}
-          publications={publicationsPage.publications}
+          publications={getUserPublications()}
         />
       </div>
     </section>

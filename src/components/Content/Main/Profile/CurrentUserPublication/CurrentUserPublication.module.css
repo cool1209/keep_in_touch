@@ -9,8 +9,9 @@
   width: 50%;
   min-height: 80px;
 
-  font-size: var(--font-size-laptop);
+  font-size: var(--font-size-mobile);
   
+  border: 1px solid var(--color-dark);
   border-radius: 8px;
   resize: vertical;
 }
@@ -19,21 +20,20 @@
   margin-bottom: 20px;
   padding: 15px 40px;
 
-  font-size: 16px;
   font-weight: 600;
 
-  background-color: var(--color-blue-normal);
-
-  border: 1px solid var(--color-grey);
+  background-color: var(--color-normal);
+  border: none;
+  outline: none;
   border-radius: 8px;
 
-  transition: all var(--transition-behavior);
   cursor: pointer;
+  transition: all var(--transition-behavior);
 }
 
 .currentUserPublication__button:hover {
-  color: var(--color-main-light);
-  background-color: var(--color-blue-dark);
+  color: var(--color-secondary);
+  background-color: var(--color-dark);
 }
 
 @media (max-width: 1023px) {

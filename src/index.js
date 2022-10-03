@@ -7,15 +7,20 @@ import store from './store/store.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const renderThree = () => {
+const renderThree = (state) => {
   root.render(
     <React.StrictMode>
       <HashRouter>
-        <App store={store}/>
+        <App state={state} store={store} />
       </HashRouter>
     </React.StrictMode>
   );
 };
 
-store.subscribe(renderThree);
-renderThree();
+
+const state = store.getState();
+renderThree(state);
+
+store.subscribe(() => {
+  renderThree(state);
+});

@@ -2,10 +2,10 @@ import React from 'react';
 import GetIcon from '../../../../img/GetIcon';
 import styles from './News.module.css';
 
-const News = ({ store }) => {
-  const state = store.getState();
-  const publications = state.publications;
-  const users = state.users;
+const News = ({ state }) => {
+  const publications = state.publications.publications;
+  const users = state.users.allUsers;
+
   const getPublicationAutor = (userId) => (
     users.find(user => user.id === userId)
   ); 
@@ -26,7 +26,9 @@ const News = ({ store }) => {
               />
 
               <button className={styles.news__likeBtn}>
-                <GetIcon id='like-icon' />
+                <span className={styles.news__likeIcon}>
+                  <GetIcon id='like-icon' />
+                </span>
 
                 <span className={styles.news__likesCounter}>
                   {publication.likes}

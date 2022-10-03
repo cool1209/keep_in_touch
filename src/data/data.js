@@ -241,7 +241,7 @@ const data = {
           message: "Yes I am, and you Spider-man, right?",
         },
         {
-          id: 2,
+          id: 3,
           member: 2,
           message: "Yes, but sorry... I'm looking for Valera :D",
         }
@@ -262,7 +262,7 @@ const data = {
           message: "Yes its mine",
         },
         {
-          id: 2,
+          id: 3,
           member: 3,
           message: "No, no, no!))) Now, its mine!)))",
         }

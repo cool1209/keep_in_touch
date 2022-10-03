@@ -1,33 +1,52 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import styles from './Dialogs.module.css';
-import getCurrentUserData from '../../../../../functions/user-data.js';
+import DialogMessage from './DialogMessage/DialogMessage';
 import {
   sendMessageCreator,
   updateMessageTextCreator
-} from '../../../../../store/reducers/messagesReduser';
-import DialogMessage from './DialogMessage/DialogMessage';
+} from '../../../../../store/reducers/messagesReducer';
 
 
-const Dialogs = ({ store }) => {
-  const state = getCurrentUserData(store.getState());
-  const dialogs = state.dialogsPage.dialogs;
-  const inputValue = state.dialogsPage.newMessageText;
-  const user = state.user;
-  const updateText = (text) => (store.dispatch(updateMessageTextCreator(text)));
-  const sendMessage = (dialogId) => (store.dispatch(sendMessageCreator(dialogId)));
+const Dialogs = ({ state, store }) => {
+  const user = state.users.currentUser;
+  const users = state.users.allUsers;
+  const dialogs = state.messages.dialogs;
+  const newMessageText = state.messages.newMessageText;
+  
+  const userDialogs = dialogs
+  .filter(dialog => dialog.members.includes(user.id));
+
+  const parseDialog = (dialog) => ({
+    id: dialog.id,
+
+    messages: dialog.messages.map(message => ({
+      id: message.id,
+      member: users.find(user => user.id === message.member).name,
+      memberAvatar: users.find(user => user.id === message.member).avatar,
+      message: message.message
+    }))
+  });
+  
+  const updateText = (text) => (
+    store.dispatch(updateMessageTextCreator(text))
+  );
+
+  const sendMessage = (dialogId) => (
+    store.dispatch(sendMessageCreator(dialogId))
+  );
 
   return (
     <ul className={styles.dialogs}>
         <Routes>
-          {dialogs.map(dialog => (
+          {userDialogs.map(dialog => (
             <Route
               path={`${dialog.id}`}
               key={dialog.id} 
               element={
                 <li className={styles.dialogs__container}>
                   <ul className={styles.dialogs__dialogMessages}>
-                    {dialog.messages.map(message => (
+                    {parseDialog(dialog).messages.map(message => (
                       <DialogMessage 
                         message={message}
                         user={user}
@@ -42,7 +61,7 @@ const Dialogs = ({ store }) => {
                       className={styles.dialogs__input}
                       onChange={(e) => updateText(e.target.value)}
                       placeholder="New message..."
-                      value={inputValue}
+                      value={newMessageText}
                     />
                     <button
                       className={styles.dialogs__btn}

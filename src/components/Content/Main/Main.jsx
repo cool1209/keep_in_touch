@@ -9,14 +9,14 @@ import Settings from './Settings/Settings';
 
 import styles from './Main.module.css';
 
-const Main = ({ store }) => {
+const Main = ({ state, store }) => {
   return (
     <main className={styles.main}>
       <Routes>
         <Route path='/' element={ <Navigate to="profile" /> } />
-        <Route path='profile' element={ <Profile store={store}/> } />
-        <Route path='messages/*' element={ <Messages store={store} /> } />
-        <Route path='news' element={ <News store={store} /> } />
+        <Route path='profile' element={ <Profile state={state} store={store} /> } />
+        <Route path='messages/*' element={ <Messages state={state} store={store} /> } />
+        <Route path='news' element={ <News state={state} /> } />
         <Route path='music' element={ <Music /> } />
         <Route path='settings' element={ <Settings /> } />
       </Routes>

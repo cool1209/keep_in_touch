@@ -1,11 +1,9 @@
 import React from 'react';
 import styles from './UserInfo.module.css';
-import { removeCurentUserCreator } from '../../../../../store/reducers/currentUserReducer';
+import { removeCurentUserCreator } from '../../../../../store/reducers/usersReducer';
 import GetIcon from '../../../../../img/GetIcon';
 
-const UserInfo = ({ store }) => {
-  const user = store.getState().user;
-
+const UserInfo = ({ user, store }) => {
   return (
     <section className={styles.user}>
       <div className={styles.user__images}>

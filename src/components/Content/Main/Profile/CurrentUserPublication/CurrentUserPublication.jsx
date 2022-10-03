@@ -5,7 +5,7 @@ import {
   updatePublicationTextCreator
 } from '../../../../../store/reducers/publicationsReducer';
 
-const CurrentUserPublication = ({ newPublicationText, dispatch }) => {
+const CurrentUserPublication = ({ newPublicationText, user, store }) => {
   return (
     <section className={styles.currentUserPublication}>
       <h2 className={styles.currentUserPublication__title}>
@@ -15,7 +15,7 @@ const CurrentUserPublication = ({ newPublicationText, dispatch }) => {
       <textarea
         className={styles.currentUserPublication__textarea}
         onChange={(event) => {
-          dispatch(updatePublicationTextCreator(event.target.value))
+          store.dispatch(updatePublicationTextCreator(event.target.value))
         }}
         placeholder='New post...'
         value={newPublicationText}
@@ -23,7 +23,7 @@ const CurrentUserPublication = ({ newPublicationText, dispatch }) => {
       
       <button
         className={styles.currentUserPublication__button}
-        onClick={() => dispatch(addPublicationCreator())}
+        onClick={() => store.dispatch(addPublicationCreator(user.id))}
       >
         Add puplication
       </button>

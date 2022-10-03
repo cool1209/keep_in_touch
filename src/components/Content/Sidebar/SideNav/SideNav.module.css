@@ -8,7 +8,6 @@
   position: relative;
   margin-bottom: 15px;
   font-weight: 600;
-
   transition: all var(--transition-behavior);
 }
 
@@ -29,7 +28,7 @@
 }
 
 .sidenav__link:hover {
-  color: var(--color-yellow-grey);
+  color: var(--color-secondary);
 }
 
 .sidenav__linkName {
@@ -38,11 +37,11 @@
 
 .activeLink.sidenav__link:after {
   width: 100%;
-  background: var(--color-yellow-grey);
+  background: var(--color-secondary);
 }
 
 .activeLink {
-  color: var(--color-yellow-grey);
+  color: var(--color-secondary);
 }
 
 @media (max-width: 767px) {
@@ -60,9 +59,9 @@
 
     font-weight: 600;
     text-transform: uppercase;
-    color: var(--color-main-light);
+    color: var(--color-secondary);
 
-    border: 1px solid var(--color-main-light);
+    border: 1px solid var(--color-secondary);
     border-radius: 12px;
   }
 
@@ -72,8 +71,8 @@
   
   .sidenav__link:hover,
   .activeLink {
-    color: var(--color-blue-dark);
-    background: var(--color-main-light);
+    color: var(--color-normal);
+    background: var(--color-secondary);
   }
 }
 
@@ -105,7 +104,7 @@
     left: -10px;
     right: -10px;
     bottom: -10px;
-    background: var(--color-main-light);
+    background: var(--color-secondary);
   }
 }
 

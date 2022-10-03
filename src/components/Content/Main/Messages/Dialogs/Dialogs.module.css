@@ -32,17 +32,16 @@
   right: 0;
   bottom: 0;
   z-index: -1;
-  background: var(--color-main-light);
+  background: var(--color-secondary);
 }
 
 .dialogs__input {
   padding: 5px 10px;
   width: 100%;
 
-  font-family: var(--font-main);
-  font-size: var(--font-size-pc);
+  font-size: var(--font-size-mobile);
   
-  border: 1px solid var(--color-grey);
+  border: 1px solid var(--color-dark);
   border-radius: 10px 0 0 10px;
   outline: none;
 }
@@ -50,8 +49,8 @@
 .dialogs__btn {
   font-weight: bold;
   font-size: 16px;
-  background: var(--color-blue-normal);
-  border: 1px solid var(--color-grey);
+  background: var(--color-normal);
+  border: 1px solid var(--color-dark);
   border-radius: 0 10px 10px 0;
   outline: none;
   cursor: pointer;
@@ -60,8 +59,8 @@
 }
 
 .dialogs__btn:hover {
-  background-color: var(--color-blue-dark);
-  color: var(--color-main-light)
+  background-color: var(--color-dark);
+  color: var(--color-secondary)
 }
 
 @media (max-width: 575px) {

@@ -1,7 +1,7 @@
 .sidebar {
   padding: 35px 25px;
 
-  background: var(--color-blue-normal);
+  background: var(--color-normal);
   border-radius: 10px;
 }
 
@@ -17,7 +17,6 @@
     margin: 0 -15px;
     padding: 15px;
 
-    background: var(--color-blue-dark);
     border-radius: 0;
   }
 }
@@ -25,5 +24,6 @@
 @media (max-width: 575px) {
   .sidebar {
     padding: 10px 0;
+    background-color: var(--color-dark);
   }
 }

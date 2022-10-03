@@ -1,12 +1,13 @@
 import React from 'react';
+import { getCurentUserCreator } from '../../store/reducers/usersReducer';
 import styles from './HomePage.module.css';
-import { getCurentUserCreator } from '../../store/reducers/currentUserReducer';
 
-const HomePage = ({ store }) => {
-  const users = store.getState().users;
-  const getCurrentUser = (id) => {
+const HomePage = ({ state, store }) => {
+  const users = state.users.allUsers;
+
+  const getCurrentUser = (id) => (
     store.dispatch(getCurentUserCreator(id))
-  }  
+  );
 
   return (
     <div className={styles.home}>
@@ -22,17 +23,17 @@ const HomePage = ({ store }) => {
 
       {users.length > 0
         ? <>
-            <p className={styles.home__choice}>
+            <h4 className={styles.home__choice}>
               Select a user:
-            </p>
+            </h4>
 
-            <div className={styles.home__users}>
+            <ul className={styles.home__users}>
               {users.map(user => (
-                <div key={user.id} onClick={() => getCurrentUser(user.id)}>
+                <li key={user.id} onClick={() => getCurrentUser(user.id)}>
                   <img src={user.avatar} alt="User avatar" className={styles.home__user} />
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </>
         : <div className={styles.home__usersLoading}>
             Users are loading...

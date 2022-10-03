@@ -1,5 +1,5 @@
 .header {
-  background-color: var(--color-blue-normal);
+  background-color: var(--color-normal);
 }
 
 .header__container {
@@ -16,26 +16,29 @@
 .header__title {
   width: 100%;
 
-  font-family: 'Fredoka One', cursive;
   font-size: 44px;
   letter-spacing: 1px;
   text-align: center;
+  color: var(--color-secondary);
+  text-shadow: 0 0 4px var(--color-extra-dark);
 }
 
 @media (max-width: 767px) {
   .header__container {
     padding: 5px 15px;
-    background-color: var(--color-blue-dark);
   }
   
   .header__title {
     font-size: 32px;
     letter-spacing: 1px;
-    color: var(--color-blue-normal);
   }
 }
 
 @media (max-width: 575px) {
+  .header {
+    background-color: var(--color-dark);
+  }
+
   .header__container {
     padding: 5px 10px;
   }
@@ -56,6 +59,5 @@
   .header__title {
     font-size: 26px;
     letter-spacing: 0.7px;
-    color: var(--color-blue-normal);
   }
 }

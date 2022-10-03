@@ -5,7 +5,8 @@
   justify-content: center;
 
   font-size: 14px;
-  background-color: var(--color-blue-normal);
+  color: var(--color-secondary);
+  background-color: var(--color-normal);
 }
 
 @media (max-width: 767px) {

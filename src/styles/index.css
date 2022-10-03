@@ -1,25 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
 :root {
-  --color-main: #000000;
-  --color-main-light: #ffffff;
-  --color-grey: #777;
-  --color-yellow-grey: #ffe7d3;
-  --color-pink: #ffd5d5;
-  --color-blue: #005b85;
-  --color-blue-normal: #54d0e6;
-  --color-blue-light: #b4fffb;
-  --color-blue-dark: #074f5c;
+  --color-main: #1f1f1f;
+  --color-secondary: #fff;
 
+  --color-very-light: #cef8ff;
+  --color-light: #42d6f0;
+  --color-normal: #5b9bc0;
+  --color-dark: #1a5170;
+
+  --color-extra-light: #f0e3c2;
+  --color-extra-normal: #ffe1e1;
+  --color-extra-dark: #000;
+  
   --transition-behavior: 0.1s linear;
 
-  --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  --font-family-title: 'Fredoka One', cursive;
+  --font-family-text: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
   
-  --font-size-pc: 16px;
-  --font-size-laptop: 16px;
-  --font-size-tablet: 18px;
+  --font-size-desktop: 16px;
   --font-size-mobile: 18px;
 }
 
@@ -28,10 +29,10 @@
 }
 
 html {
-  font-family: var(--font-main);
-  font-size: var(--font-size-pc);
+  font-family: var(--font-family-text);
+  font-size: var(--font-size-desktop);
   line-height: 1.2;
-  color: var(--color-main-text);
+  color: var(--color-main);
 }
 
 body {
@@ -40,19 +41,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h2,
-h3 {
-  margin: 0;
-  font-family: 'Fredoka One', cursive;
-  font-weight: 400;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
+h6 {
+  margin: 0;
+  font-family: var(--font-family-title);
+  font-weight: 400;
+}
+
 p {
   margin: 0;
 }
@@ -64,7 +63,11 @@ img {
 
 a {
   text-decoration: none;
-  color: var(--color-main)
+  color: var(--color-main);
+}
+
+button {
+  font-size: var(--font-size-desktop);
 }
 
 ul {
@@ -79,12 +82,6 @@ ul {
 }
 
 @media (max-width: 767px) {
-  html {
-    font-size: var(--font-size-laptop);
-  }
-}
-
-@media (max-width: 575px) {
   html {
     font-size: var(--font-size-mobile);
   }

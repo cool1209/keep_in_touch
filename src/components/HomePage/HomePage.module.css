@@ -6,13 +6,13 @@
 
   height: 100vh;
 
-  border: 20px solid var(--color-blue-normal);
+  border: 20px solid var(--color-normal);
 }
 
 .home__title {
   margin-bottom: 20px;
-
-  font-family: 'Fredoka One', cursive;
+  
+  font-weight: bold;
   font-size: 42px;
   line-height: 1;
   text-align: center;
@@ -21,6 +21,7 @@
 
 .home__titlePart {
   display: block;
+
 }
 
 .home__socialNetworksName {
@@ -29,7 +30,7 @@
   margin-bottom: 20px;
 
   font-size: 83px;
-  color: var(--color-blue-dark);
+  color: var(--color-dark);
 }
 
 .home__socialNetworksName:after {
@@ -38,10 +39,8 @@
   left: 0;
   width: 100%;
 
-  font-family: 'Fredoka One', cursive;
   font-size: 80px;
-  font-weight: 400;
-  color: var(--color-blue-normal);
+  color: var(--color-light);
 }
 
 .home__description {
@@ -55,9 +54,8 @@
 .home__usersLoading {
   margin-bottom: 30px;
 
-  font-family: 'Fredoka One', cursive;
-  font-size: 22px;
-  color: var(--color-blue-dark);
+  font-size: 20px;
+  color: var(--color-dark)
 }
 
 .home__usersLoading {
@@ -77,8 +75,7 @@
   width: 120px;
   height: 120px;
 
-  background: var(--color-blue-normal);
-  border: 5px solid var(--color-blue-normal);
+  border: 5px solid var(--color-light);
   border-radius: 20px;
 
   transition: transform var(--transition-behavior);

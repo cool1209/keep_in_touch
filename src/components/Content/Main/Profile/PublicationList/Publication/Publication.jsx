@@ -15,9 +15,14 @@ const Publication = ({ user, publication, likes }) => {
         </div>
 
         <button className={styles.publication__likeBtn}>
-          <GetIcon id='like-icon' />
-          <span className={styles.publication__likesCounter}>{likes}</span>
-        </button>
+                <span className={styles.publication__likeIcon}>
+                  <GetIcon id='like-icon' />
+                </span>
+
+                <span className={styles.publication__likesCounter}>
+                  {likes}
+                </span>
+              </button>
       </div>
       
       <div className={styles.publication__userText}>

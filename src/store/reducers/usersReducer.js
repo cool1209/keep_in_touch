@@ -1,17 +1,21 @@
+import data from "../../data/data";
 const GET_CURRENT_USER = 'GET_CURRENT_USER';
 const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
 
-const currentUserReducer = (state, action) => {
+const initialState = {
+  currentUser: {},
+  allUsers: data.users,
+};
+
+const usersReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case GET_CURRENT_USER:
-      state.user = state.users.find(user => user.id === action.payload);
+      state.currentUser = state.allUsers.find(user => user.id === action.payload);
       return state;
 
     case REMOVE_CURRENT_USER:
-      state.user = {};
-      state.publicationsPage.newPublicationText = '';
-      state.dialogsPage.newMessageText = '';
+      state.currentUser = {};
       return state;
 
     default:
@@ -26,4 +30,4 @@ export const getCurentUserCreator = (id) => ({
 
 export const removeCurentUserCreator = () => ({ type: REMOVE_CURRENT_USER });
 
-export default currentUserReducer;
+export default usersReducer;

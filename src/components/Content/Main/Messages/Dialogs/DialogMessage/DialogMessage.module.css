@@ -4,8 +4,8 @@
   padding: 10px;
   width: 50%;
 
-  background: var(--color-blue-light);
-  border: 1px dashed var(--color-grey);
+  background: var(--color-very-light);
+  border: 1px dashed var(--color-dark);
   border-radius: 10px;
   word-break: break-word;
 }
@@ -24,7 +24,7 @@
   flex-direction: row-reverse;
   justify-content: space-between;
   align-self: end;
-  background-color: var( --color-yellow-grey);
+  background-color: var(--color-extra-light);
 }
 
 

@@ -1,45 +1,14 @@
-import currentUserReducer from "./reducers/currentUserReducer";
-import messagesReduser from "./reducers/messagesReduser";
+import { combineReducers, createStore } from "redux";
+import usersReducer from "./reducers/usersReducer";
 import publicationsReducer from "./reducers/publicationsReducer";
-import data from '../data/data.js';
+import messagesReducer from "./reducers/messagesReducer";
 
-const initialState = {
-  user: {},
-  publicationsPage: {
-    publications: [],
-    newPublicationText: "",
-  },
-  dialogsPage: {
-    dialogs: [],
-    newMessageText: ""
-  },
-  users: data.users ? data.users : [],
-  publications: data.publications ? data.publications : [],
-  dialogs: data.dialogs ? data.dialogs : []
-};
+const rootReducer = combineReducers({
+  users: usersReducer,
+  publications: publicationsReducer,
+  messages: messagesReducer,
+});
 
-const store = {
-  _state: initialState,
-
-  _callSubscriber() {
-    return null;
-  },
-
-  getState() {
-    return this._state;
-  },
-
-  subscribe(observer) { 
-    this._callSubscriber = observer;
-  },
-
-  dispatch(action) {
-    currentUserReducer(this._state, action)
-    publicationsReducer(this._state, action);
-    messagesReduser(this._state, action);
-
-    this._callSubscriber();
-  }
-};
+const store = createStore(rootReducer);
 
 export default store;

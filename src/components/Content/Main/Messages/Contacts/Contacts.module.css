@@ -1,6 +1,6 @@
 .contacts {
   padding-right: 15px;
-  border-right: 3px solid var(--color-grey);
+  border-right: 3px solid var(--color-normal);
 
   overflow-y: scroll;
 }
@@ -11,8 +11,9 @@
   margin-bottom: 10px;
   padding: 10px 15px;
 
-  background-color: var(--color-blue-normal);
-  border: 1px solid var(--color-grey);
+  font-weight: 600;
+
+  background-color: var(--color-normal);
   border-radius: 10px;
   cursor: pointer;
 
@@ -25,8 +26,8 @@
 }
 
 .activeLink {
-  color: var(--color-main-light);
-  background-color: var(--color-blue-dark);
+  color: var(--color-secondary);
+  background-color: var(--color-dark);
 
 }
 
@@ -35,7 +36,7 @@
     padding: 25px 40px 0;
     height: 100%;
     border-right: none;
-    background: var(--color-main-light);
+    background: var(--color-bg-main-light);
   }
 
   .contacts__contact {
@@ -46,6 +47,11 @@
 
     text-transform: uppercase;
     text-align: center;
+  }
+
+  .activeLink {
+    color: var(--color-main);
+    background-color: var(--color-normal);
   }
 
   .contacts:has(.activeLink) {

@@ -1,18 +1,28 @@
 import React from 'react';
 import styles from './Contacts.module.css';
 import { CustomNavLink } from '../../../Sidebar/SideNav/SideNav';
-import getCurrentUserData from '../../../../../functions/user-data.js';
 
-const Contacts = ({ store }) => {
-  const state = getCurrentUserData(store.getState());
-  const dialogs = state.dialogsPage.dialogs;
+const Contacts = ({ state }) => {
+  const user = state.users.currentUser;
+  const users = state.users.allUsers;
+  const dialogs = state.messages.dialogs;
+  const userDialogs = dialogs
+    .filter(dialog => dialog.members.includes(user.id));
+
+  const getUserContactId = (dialog) => (
+    dialog.members.find(member => member !== user.id)
+  );
+
+  const getUserContactName = (dialog) => (
+    users.find(user => user.id === getUserContactId(dialog))
+  ).name;
 
   return (
     <ul className={styles.contacts}>
-      {dialogs.map(dialog => (
+      {userDialogs.map(dialog => (
         <CustomNavLink
           to={`${dialog.id}`}
-          name={`${dialog.contact}`}
+          name={getUserContactName(dialog)}
           style={[styles.contacts__contact, styles.activeLink]}
           key={dialog.id}
         />
