@@ -71,7 +71,7 @@
 
   .user__wallpaper {
     border-radius: 8px 8px 0 0;
-    height: 250px;
+    height: 300px;
   }
 
   .user__avatarContainer {
@@ -100,7 +100,7 @@
 @media (max-width: 575px) {
 
   .user__wallpaper {
-    height: 150px;
+    height: 200px;
   }
 
   .user__logout {

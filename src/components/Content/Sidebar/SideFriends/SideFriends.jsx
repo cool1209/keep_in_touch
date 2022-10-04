@@ -4,7 +4,7 @@ import styles from './SideFriends.module.css';
 const randomFriends = [
   { 
     id: 1,
-    avatar: "https://bit.ly/3Rm5F1M"
+    avatar: "https://bit.ly/3SQEqgj"
   },
   {
     id: 2,

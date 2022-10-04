@@ -30,7 +30,7 @@ const data = {
       about: "After Thanos erases half of all life, Romanoff leads the Avengers for five years until she sacrifices herself, successfully helping the Avengers restore trillions of lives across the universe.",
       friends: [1, 5],
       avatar: "https://bit.ly/3S0izm7",
-      wallpaper: "https://bit.ly/3SzwSil"
+      wallpaper: "https://bit.ly/3fGJPIk"
     },
     {
       id: 5,
