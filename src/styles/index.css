@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
 :root {
-  --color-main: #1f1f1f;
+  --color-main: #000;
   --color-secondary: #fff;
 
   --color-very-light: #cef8ff;
@@ -10,8 +10,7 @@
   --color-dark: #1a5170;
 
   --color-extra-light: #f0e3c2;
-  --color-extra-normal: #ffe1e1;
-  --color-extra-dark: #000;
+  --color-extra-normal: #ffd9d9;
   
   --transition-behavior: 0.1s linear;
 

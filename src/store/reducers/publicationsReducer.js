@@ -28,7 +28,7 @@ const publicationsReducer = (state = initialState, action) => {
       return state;
       
       case UPDATE_PUBLICATION_TEXT:
-        state.newPublicationText = action.text;
+        state.newPublicationText = action.publicationText;
       return state;
 
     default:
@@ -41,9 +41,9 @@ export const addPublicationCreator = (userId) => ({
   userId
 });
 
-export const updatePublicationTextCreator = (text) => ({
+export const updatePublicationTextCreator = (publicationText) => ({
   type: UPDATE_PUBLICATION_TEXT,
-  text
+  publicationText
 });
 
 export default publicationsReducer;

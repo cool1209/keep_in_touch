@@ -8,18 +8,19 @@ const initialState = {
 };
 
 const messagesReducer = (state = initialState, action) => {
-
+  const currentDialog = state.dialogs[action.dialogId - 1];
+  
   switch (action.type) {
     case ADD_MESSAGE:
-      const messageId = state.dialogs[action.dialogId - 1].messages.length + 1;
+      const messageId = currentDialog.messages.length + 1;
       const message = {
         id: messageId,
-        member: action.UserId,
-        message: state.newMessageText.trim(),
+        authorId: action.authorId,
+        message: state.newMessageText,
       }
 
-      if (state.newMessageText.trim()) {
-        state.dialogs[action.dialogId - 1].messages.push(message);
+      if (state.newMessageText) {
+        currentDialog.messages.push(message);
         state.newMessageText = '';
       } 
       
@@ -28,7 +29,7 @@ const messagesReducer = (state = initialState, action) => {
       return state;
 
     case UPDATE_MESSAGE_TEXT:
-      state.newMessageText = action.payload;
+      state.newMessageText = action.messageText;
       return state;
 
     default:
@@ -36,15 +37,15 @@ const messagesReducer = (state = initialState, action) => {
   }
 };
 
-export const sendMessageCreator = (dialogId, UserId) => ({
+export const sendMessageCreator = (dialogId, authorId) => ({
   type: ADD_MESSAGE,
   dialogId,
-  UserId
+  authorId
 });
 
-export const updateMessageTextCreator = (text) => ({
+export const updateMessageTextCreator = (messageText) => ({
   type: UPDATE_MESSAGE_TEXT,
-  text
+  messageText
 });
 
 export default messagesReducer;

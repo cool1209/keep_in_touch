@@ -3,17 +3,17 @@ import classNames from 'classnames';
 import styles from './DialogMessage.module.css';
 
 const DialogMessage = ({ message, user }) => {
-  const isCurrentUser = message.member === user.name;
+  const isCurrentUser = message.authorId === user.id;
 
   return (
-    <li className={
+    <article className={
       classNames(
         styles.message, 
         {[styles.message_currentUser]: isCurrentUser}
       )}
     >
       <img 
-        src={message.memberAvatar} 
+        src={message.authorAvatar} 
         alt='User avatar' 
         className={styles.message__memberAvatar}
       />
@@ -27,7 +27,7 @@ const DialogMessage = ({ message, user }) => {
       >
         {message.message}
       </div>
-    </li>
+    </article>
   );
 };
 

@@ -7,10 +7,10 @@ const Contacts = ({ state }) => {
   const users = state.users.allUsers;
   const dialogs = state.messages.dialogs;
   const userDialogs = dialogs
-    .filter(dialog => dialog.members.includes(user.id));
+    .filter(dialog => dialog.membersId.includes(user.id));
 
   const getUserContactId = (dialog) => (
-    dialog.members.find(member => member !== user.id)
+    dialog.membersId.find(member => member !== user.id)
   );
 
   const getUserContactName = (dialog) => (

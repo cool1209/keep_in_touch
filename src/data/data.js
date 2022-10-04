@@ -13,8 +13,8 @@ const data = {
       name: "Spider-man",
       about: "Bitten by a radioactive spider, Peter Parker's arachnid abilities give him amazing powers he uses to help others, while his personal life continues to offer plenty of obstacles. With amazing spider-like abilities, teenage science whiz Peter Parker fights crime and dreams of becoming an Avenger as Spider-Man.",
       friends: [1],
-      avatar: "https://bit.ly/3Rm5F1M",
-      wallpaper: "https://bit.ly/3frTane"
+      avatar: "https://bit.ly/3Ru9Qb3",
+      wallpaper: "https://bit.ly/3M3mHzT"
     },
     {
       id: 3,
@@ -22,7 +22,7 @@ const data = {
       about: "Armed with his new abilities and a dark, twisted sense of humor, Deadpool hunts down the man who nearly destroyed his life. Wade Wilson is a small-time mercenary. He meets Vanessa and falls in love. Life is idyllic until one day he is diagnosed with terminal cancer.",
       friends: [4],
       avatar: "https://bit.ly/3eAJZjY",
-      wallpaper: "https://bit.ly/3BULGki"
+      wallpaper: "https://images.alphacoders.com/744/74493.jpg"
     },
     {
       id: 4,
@@ -30,288 +30,288 @@ const data = {
       about: "After Thanos erases half of all life, Romanoff leads the Avengers for five years until she sacrifices herself, successfully helping the Avengers restore trillions of lives across the universe.",
       friends: [1, 5],
       avatar: "https://bit.ly/3S0izm7",
-      wallpaper: "https://bit.ly/3UQ43iZ"
+      wallpaper: "https://bit.ly/3SzwSil"
     },
     {
       id: 5,
       name: "Thor",
       about: "In Norse mythology, he is a hammer-wielding god associated with lightning, thunder, storms, sacred groves and trees, strength, the protection of mankind, hallowing, and fertility.",
       friends: [1, 4],
-      avatar: "https://bit.ly/3BS5kgI",
-      wallpaper: "https://bit.ly/3E8kNMo"
+      avatar: "https://bit.ly/3SWClzA",
+      wallpaper: "https://bit.ly/3SV8OpE"
     },
     {
       id: 6,
       name: "Hulk",
       about: "Bruce Banner lives a life caught between the soft-spoken scientist he's always been and the uncontrollable green monster powered by his rage. Exposed to heavy doses of gamma radiation, scientist Bruce Banner transforms into the mean, green rage machine called the Hulk.",
       friends: [1, 4],
-      avatar: "https://bit.ly/3E6zrno",
-      wallpaper: "https://bit.ly/3rjVFe7"
+      avatar: "https://bit.ly/3SJU50S",
+      wallpaper: "https://bit.ly/3V1QUTY"
     }
   ],
   
   dialogs: [
     { 
       id: 1,
-      members: [1, 2],
+      membersId: [1, 2],
       messages: [
         {
           id: 1,
-          member: 1,
+          authorId: 1,
           message: 'Hello, Spider!',
         },
         {
           id: 2,
-          member: 2,
+          authorId: 2,
           message: 'Hi, Tonny!',
         }
       ]
     },
     {
       id: 2,
-      members: [1, 4],
+      membersId: [1, 4],
       messages: [
         {
           id: 1,
-          member: 4,
+          authorId: 4,
           message: 'Hello, Tonny!',
         },
         {
           id: 2,
-          member: 1,
+          authorId: 1,
           message: 'Good morning, Natasha',
         }
       ]
     },
     {
       id: 3,
-      members: [2, 3],
+      membersId: [2, 3],
       messages: [
         {
           id: 1,
-          member: 2,
+          authorId: 2,
           message: 'Hi, Deadpool!',
         },
         {
           id: 2,
-          member: 3,
+          authorId: 3,
           message: 'Spider? what do you want from me!?',
         },
         {
           id: 3,
-          member: 2,
+          authorId: 2,
           message: 'Oh... Sorry man...',
         }
       ]
     },
     {
       id: 4,
-      members: [3, 4],
+      membersId: [3, 4],
       messages: [
         {
           id: 1,
-          member: 4,
+          authorId: 4,
           message: 'Hi, Deadpool!',
         },
         {
           id: 2,
-          member: 3,
+          authorId: 3,
           message: 'Hi, Natasha',
         },
         {
           id: 3,
-          member: 4,
+          authorId: 4,
           message: "what's going on? :)",
         }
       ]
     },
     { 
       id: 5,
-      members: [1, 3],
+      membersId: [1, 3],
       messages: [
         {
           id: 1,
-          member: 1,
+          authorId: 1,
           message: "Are you Deadpool?!",
         },
         {
           id: 2,
-          member: 3,
+          authorId: 3,
           message: "No :))) \n I'm a little pretty cat :)",
         }
       ]
     },
     {
       id: 6,
-      members: [2, 6],
+      membersId: [2, 6],
       messages: [
         {
           id: 1,
-          member: 6,
+          authorId: 6,
           message: "Who are you?",
         },
         {
           id: 2,
-          member: 2,
+          authorId: 2,
           message: "I am Spider-man. Do you have a questions?",
         }
       ]
     },
     {
       id: 7,
-      members: [3, 6],
+      membersId: [3, 6],
       messages: [
         {
           id: 1,
-          member: 3,
+          authorId: 3,
           message: "Hey, green boy, can you play football with me?))",
         },
         {
           id: 2,
-          member: 6,
+          authorId: 6,
           message: "I play only basketball",
         },
         {
           id: 3,
-          member: 3,
+          authorId: 3,
           message: "oh man... You're so boring...",
         }
       ]
     },
     {
       id: 8,
-      members: [4, 5],
+      membersId: [4, 5],
       messages: [
         {
           id: 1,
-          member: 4,
+          authorId: 4,
           message: "Hi, Thor! Can you help my?",
         },
         {
           id: 2,
-          member: 5,
+          authorId: 5,
           message: "What can I do for you?",
         }
       ]
     },
     {
       id: 9,
-      members: [5, 6],
+      membersId: [5, 6],
       messages: [
         {
           id: 1,
-          member: 5,
+          authorId: 5,
           message: "Hulk :) Hello my dear friend, I glad to see you in this social network!",
         },
         {
           id: 2,
-          member: 6,
+          authorId: 6,
           message: "I glad to see you too, Thor :)",
         }
       ]
     },
     {
       id: 10,
-      members: [1, 5],
+      membersId: [1, 5],
       messages: [
         {
           id: 1,
-          member: 1,
+          authorId: 1,
           message: "Hi, Thor! What about to save the world?)",
         },
         {
           id: 2,
-          member: 5,
+          authorId: 5,
           message: "I'm always ready for it, Iron-man ;)",
         }
       ]
     },
     {
       id: 11,
-      members: [2, 4],
+      membersId: [2, 4],
       messages: [
         {
           id: 1,
-          member: 2,
+          authorId: 2,
           message: "Hi, are you Natasha?)",
         },
         {
           id: 2,
-          member: 4,
+          authorId: 4,
           message: "Yes I am, and you Spider-man, right?",
         },
         {
           id: 3,
-          member: 2,
+          authorId: 2,
           message: "Yes, but sorry... I'm looking for Valera :D",
         }
       ]
     },
     {
       id: 12,
-      members: [3, 5],
+      membersId: [3, 5],
       messages: [
         {
           id: 1,
-          member: 3,
+          authorId: 3,
           message: "Hey, dude! Did you see Thor's hummer?",
         },
         {
           id: 2,
-          member: 5,
+          authorId: 5,
           message: "Yes its mine",
         },
         {
           id: 3,
-          member: 3,
+          authorId: 3,
           message: "No, no, no!))) Now, its mine!)))",
         }
       ]
     },
     {
       id: 13,
-      members: [4, 6],
+      membersId: [4, 6],
       messages: [
         {
           id: 1,
-          member: 6,
+          authorId: 6,
           message: "Good evening, Natasha! You are so beautiful...",
         },
         {
           id: 2,
-          member: 4,
+          authorId: 4,
           message: "Thanks, Hulk :) You are so cute...",
         }
       ]
     },   
     {
       id: 14,
-      members: [1, 6],
+      membersId: [1, 6],
       messages: [
         {
           id: 1,
-          member: 6,
+          authorId: 6,
           message: "Tonny, I have something for you",
         },
         {
           id: 2,
-          member: 1,
+          authorId: 1,
           message: "I listen to you, Hulk",
         }
       ]
     }, 
     {
       id: 15,
-      members: [2, 5],
+      membersId: [2, 5],
       messages: [
         {
           id: 1,
-          member: 2,
+          authorId: 2,
           message: "Thor, when have you seen Valera for last time?",
         },
         {
           id: 2,
-          member: 5,
+          authorId: 5,
           message: "I've never seen that man! Don't ask this question again and again!",
         }
       ]
@@ -358,7 +358,7 @@ const data = {
     {
       id: 7,
       userId: 4,
-      publication: "My name is Natasha Romanova :)",
+      publication: "My name is Natasha Romanoff :)",
       likes: 5,
     },
     {

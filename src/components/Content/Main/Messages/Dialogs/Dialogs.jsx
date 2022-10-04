@@ -15,25 +15,27 @@ const Dialogs = ({ state, store }) => {
   const newMessageText = state.messages.newMessageText;
   
   const userDialogs = dialogs
-  .filter(dialog => dialog.members.includes(user.id));
+  .filter(dialog => dialog.membersId.includes(user.id));
+
+  const getAuthorAvatar = (id) => users.find(user => user.id === id).avatar;
 
   const parseDialog = (dialog) => ({
     id: dialog.id,
 
     messages: dialog.messages.map(message => ({
       id: message.id,
-      member: users.find(user => user.id === message.member).name,
-      memberAvatar: users.find(user => user.id === message.member).avatar,
+      authorId: message.authorId,
+      authorAvatar: getAuthorAvatar(message.authorId),
       message: message.message
     }))
   });
   
-  const updateText = (text) => (
-    store.dispatch(updateMessageTextCreator(text))
+  const updateText = (messageText) => (
+    store.dispatch(updateMessageTextCreator(messageText))
   );
 
-  const sendMessage = (dialogId) => (
-    store.dispatch(sendMessageCreator(dialogId))
+  const sendMessage = (dialogId, userId) => (
+    store.dispatch(sendMessageCreator(dialogId, userId))
   );
 
   return (
@@ -65,7 +67,7 @@ const Dialogs = ({ state, store }) => {
                     />
                     <button
                       className={styles.dialogs__btn}
-                      onClick={() => sendMessage(dialog.id)}
+                      onClick={() => sendMessage(dialog.id, user.id)}
                     >Send</button>
                   </div>
                 </li>
