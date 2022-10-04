@@ -13,7 +13,7 @@ const data = {
       name: "Spider-man",
       about: "Bitten by a radioactive spider, Peter Parker's arachnid abilities give him amazing powers he uses to help others, while his personal life continues to offer plenty of obstacles. With amazing spider-like abilities, teenage science whiz Peter Parker fights crime and dreams of becoming an Avenger as Spider-Man.",
       friends: [1],
-      avatar: "https://bit.ly/3Ru9Qb3",
+      avatar: "https://bit.ly/3SQEqgj",
       wallpaper: "https://bit.ly/3M3mHzT"
     },
     {

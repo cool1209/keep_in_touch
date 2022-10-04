@@ -4,13 +4,13 @@
   --color-main: #000;
   --color-secondary: #fff;
 
-  --color-very-light: #cef8ff;
+  --color-very-light: #c0e9ee;
   --color-light: #42d6f0;
   --color-normal: #5b9bc0;
   --color-dark: #1a5170;
 
   --color-extra-light: #f0e3c2;
-  --color-extra-normal: #ffd9d9;
+  --color-extra-normal: #cecece;
   
   --transition-behavior: 0.1s linear;
 
@@ -38,6 +38,19 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-extra-normal);
+  border-radius: 20px;
 }
 
 h1,

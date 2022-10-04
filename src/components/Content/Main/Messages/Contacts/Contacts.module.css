@@ -1,5 +1,5 @@
 .contacts {
-  padding-right: 15px;
+  padding-right: 10px;
   border-right: 3px solid var(--color-normal);
 
   overflow-y: scroll;
