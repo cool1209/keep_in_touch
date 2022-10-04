@@ -16,10 +16,10 @@ const messagesReducer = (state = initialState, action) => {
       const message = {
         id: messageId,
         authorId: action.authorId,
-        message: state.newMessageText,
+        message: state.newMessageText.trim(),
       }
 
-      if (state.newMessageText) {
+      if (state.newMessageText.trim()) {
         currentDialog.messages.push(message);
         state.newMessageText = '';
       } 
