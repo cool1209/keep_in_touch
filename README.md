@@ -22,32 +22,63 @@
 
 ## Description:
 
->The small social network simulator. <br>
->It is a ractical project better understand how to work with frameworks like React and Redux.
+А social network simulator. <br> The pet project for better understanding how to work with frameworks <br> like React and Redux. Flux architecture, data interaction, etc.
 
 ## Documentation
 
-> [Getting Started with React](https://reactjs.org/docs/getting-started.html) <br>
-> [Getting Started with Redux](https://redux.js.org/introduction/getting-started)
+**1. Home page:** 
+- You can choose a character for entering the social network
+
+**2. Profile:**
+- You can log out of your account (button in the upper right corner).
+- You can view information on the character.
+- You can add a publication.
+
+**3. Messages:**
+- It is possible to select a contact and write him a message (then you can switch to the account of the person to whom the message was sent and read it).
+
+**4. News:** 
+- It is possible to view the publications of all characters.
+
+**5. Music:**
+- Content is temporarily unavailable...
+
+**6. Settings:**
+- Content is temporarily unavailable...
+
+**7. Added responsibility for mobile devices.**
+
+---
+
+**Frameworks dokumentation:**
+- [Getting Started with React](https://reactjs.org/docs/getting-started.html) <br>
+- [Getting Started with Redux](https://redux.js.org/introduction/getting-started)
+
+---
 
 **The npm commands used to install the required node modules:**
 - `npx create-react-app my-app`
 - `npm i gh-pages --save-dev`
+- `npm i redux --save-dev`
 
 ## Developers
 
+- [Ihor Kuchin](https://github.com/ik-web)
+
 ## License
 
->MIT License
->
->Copyright (c) 2022 Ihor Kuchin
->
->Permission is hereby granted, free of charge, to any person obtaining a copy
->of this software and associated documentation files (the "Software"), to deal
->in the Software without restriction, including without limitation the rights
->to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
->copies of the Software, and to permit persons to whom the Software is
->furnished to do so, subject to the following conditions:
->
->The above copyright notice and this permission notice shall be included in all
->copies or substantial portions of the Software.
+```
+MIT License
+
+Copyright (c) 2022 Ihor Kuchin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+```
