@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Profile.module.css';
 import UserInfoContainer from './UserInfo/UserInfoContainer';
-import UserNewPublicationContainer from './UserNewPublication/UserNewPublicationContainer';
+import NewUserPublicationContainer from './NewUserPublication/NewUserPublicationContainer';
 import PublicationListContainer from './PublicationList/PublicationListContainer';
 
 const Profile = () => {
@@ -10,7 +10,7 @@ const Profile = () => {
       <UserInfoContainer />
       
       <div className={styles.profile__publications}>
-        <UserNewPublicationContainer/>
+        <NewUserPublicationContainer/>
         <PublicationListContainer />
       </div>
     </section>

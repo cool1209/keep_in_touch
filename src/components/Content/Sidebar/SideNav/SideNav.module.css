@@ -88,6 +88,7 @@
     width: 45px;
     height: 45px;
     font-size: 0;
+    color: var(--color-secondary);
     border: none;
     transition: none;
   }
@@ -106,6 +107,11 @@
     bottom: -10px;
     background: var(--color-secondary);
   }
+
+  .sidenav__link:hover {
+    color: transparent;
+    background: transparent;
+  }
 }
 
 @media (max-width: 374px) {
@@ -113,13 +119,5 @@
   .sidenav__link {
     width: 40px;
     height: 40px;
-  }
-}
-
-@media (max-width: 300px) {
-
-  .sidenav__link {
-    width: 35px;
-    height: 35px;
   }
 }

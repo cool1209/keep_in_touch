@@ -1,4 +1,4 @@
-.start {
+.login {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,7 +9,7 @@
   border: 20px solid var(--color-normal);
 }
 
-.start__title {
+.login__title {
   margin-bottom: 20px;
   
   font-weight: bold;
@@ -19,12 +19,12 @@
 }
 
 
-.start__titlePart {
+.login__titlePart {
   display: block;
 
 }
 
-.start__socialNetworksName {
+.login__socialNetworksName {
   position: relative;
   display: inline-block;
   margin-bottom: 20px;
@@ -33,7 +33,7 @@
   color: var(--color-dark);
 }
 
-.start__socialNetworksName:after {
+.login__socialNetworksName:after {
   content: "Keep in touch";
   position: absolute;
   left: 0;
@@ -44,26 +44,26 @@
   color: var(--color-light);
 }
 
-.start__description {
+.login__description {
   margin-bottom: 30px;
   width: 450px;
 
   text-align: center;
 }
 
-.start__choice,
-.start__usersLoading {
+.login__choice,
+.login__usersLoading {
   margin-bottom: 30px;
 
   font-size: 20px;
   color: var(--color-dark)
 }
 
-.start__usersLoading {
+.login__usersLoading {
   margin-top: 100px;
 }
 
-.start__users {
+.login__users {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -72,7 +72,7 @@
   max-width: 450px;
 }
 
-.start__user {
+.login__user {
   width: 120px;
   height: 120px;
 
@@ -85,37 +85,37 @@
 
 
 
-.start__user:hover {
+.login__user:hover {
   transform: scale(1.1);
 }
 
 @media (max-width: 767px) {
-  .start {
+  .login {
     border-width: 15px;
   }
 
-  .start__title {
+  .login__title {
     font-size: 32px;
   }
 
-  .start__socialNetworksName {
+  .login__socialNetworksName {
     font-size: 50px;
   }
   
-  .start__socialNetworksName:after {
+  .login__socialNetworksName:after {
     font-size: 48px;
   }
 
-  .start__description {
+  .login__description {
     width: 320px;
   }
 
-  .start__users {
+  .login__users {
     max-width: 370px;
     gap: 10px;
   }
 
-  .start__user {
+  .login__user {
     width: 100px;
     height: 100px;
   }
@@ -124,37 +124,37 @@
 
 @media (max-width: 575px) {
 
-  .start {
+  .login {
     border-width: 5px;
   }
 
-  .start__title {
+  .login__title {
     font-size: 32px;
   }
 
-  .start__socialNetworksName {
+  .login__socialNetworksName {
     font-size: 44px;
   }
   
-  .start__socialNetworksName:after {
+  .login__socialNetworksName:after {
     font-size: 42px;
   }
 
-  .start__choice {
+  .login__choice {
     margin-bottom: 15px;
     font-size: 20px;
   }
 
-  .start__description {
+  .login__description {
     margin-bottom: 15px;
     width: 300px;
   }
 
-  .start__users {
+  .login__users {
     max-width: 300px;
   }
 
-  .start__user {
+  .login__user {
     width: 80px;
     height: 80px;
   }

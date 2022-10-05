@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './UserNewPublication.module.css';
+import styles from './NewUserPublication.module.css';
 
-const UserNewPublication = ({
+const NewUserPublication = ({
   newPublicationText,
   user,
   onUpdatePublicationText,
@@ -30,4 +30,4 @@ const UserNewPublication = ({
   );
 };
 
-export default UserNewPublication;
+export default NewUserPublication;

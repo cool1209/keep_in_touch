@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { getCurentUserCreator } from '../../store/reducers/usersReducer';
-import StartPage from './StartPage';
+import StartPage from './LoginPage';
 
 const mapStateToProps = (state) => ({
   users: state.users.allUsers
@@ -12,6 +12,6 @@ const mapDispatchToProps = (dispatch) => ({
   )
 });
 
-const StartPageContainer = connect(mapStateToProps, mapDispatchToProps)(StartPage);
+const LoginPageContainer = connect(mapStateToProps, mapDispatchToProps)(StartPage);
 
-export default StartPageContainer;
+export default LoginPageContainer;

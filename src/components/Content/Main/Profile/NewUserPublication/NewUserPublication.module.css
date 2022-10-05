@@ -13,16 +13,13 @@
   
   border: 1px solid var(--color-normal);
   border-radius: 8px;
+  outline: none;
   resize: vertical;
 }
 
 .userNewPublication__textarea::placeholder {
+  font-family: sans-serif;
   color: var(--color-normal);
-}
-
-.userNewPublication__textarea:focus {
-  border: 1px solid var(--color-dark);
-  outline: none;
 }
 
 .userNewPublication__textarea:focus.userNewPublication__textarea::placeholder {

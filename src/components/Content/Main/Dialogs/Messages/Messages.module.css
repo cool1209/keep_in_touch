@@ -1,21 +1,36 @@
-.dialogs {
+.messages {
   margin: 0 -15px 0 15px;
   padding-right: 10px;
   overflow-y: scroll;
 }
 
-.dialogs__container {
+.messages__hint {
+  position: relative;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+
+  text-align: center;
+  color: var(--color-dark)
+}
+
+.messages:has(.messages__container) .messages__hint {
+  display: none;
+}
+
+.messages__container {
   display: grid;
   grid-template-rows: 1fr auto;
   height: 100%;
 }
 
-.dialogs__dialogMessages {
+.messages__dialogMessages {
   display: flex;
   flex-direction: column;
 }
 
-.dialogs__sendMessage {
+.messages__sendMessage {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 100px;
   grid-template-rows: 40px;
@@ -24,33 +39,43 @@
   bottom: 0;
 }
 
-.dialogs__message:after {
+.messages__sendMessage:after {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: -1;
   background: var(--color-secondary);
+  border-radius: 12px 12px 0 0
 }
 
-.dialogs__input {
+.messages__input {
+  position: relative;
   padding: 5px 10px;
   width: 100%;
 
   font-size: var(--font-size-mobile);
   
-  border: 1px solid var(--color-dark);
+  border: 1px solid var(--color-normal);
   border-radius: 10px 0 0 10px;
   outline: none;
 }
 
-.dialogs__btn {
+.messages__input::placeholder {
+  color: var(--color-normal);
+}
+
+.messages__input:focus.messages__input::placeholder {
+  color: var(--color-dark);
+}
+
+.messages__btn {
   font-weight: bold;
   font-size: 16px;
   background: var(--color-normal);
-  border: 1px solid var(--color-dark);
+  border: 1px solid var(--color-тщкьфд);
   border-radius: 0 10px 10px 0;
   outline: none;
   cursor: pointer;
@@ -58,18 +83,22 @@
   transition: all var(--transition-behavior);
 }
 
-.dialogs__btn:hover {
+.messages__btn:hover {
   background-color: var(--color-dark);
   color: var(--color-secondary)
 }
 
 @media (max-width: 575px) {
-  .dialogs {
+  .messages {
     margin: 0 ;
     padding-right: 15px;
   }
 
-  .dialogs__sendMessage {
+  .messages__hint {
+    display: none;
+  }
+
+  .messages__sendMessage {
     grid-template-columns: 3fr 1fr;
   }
 }

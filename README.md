@@ -22,11 +22,9 @@
 
 ## Description:
 
-```
 А social network simulator.
 The pet project for better understanding how to work with frameworks
 like React and Redux. Flux architecture, data interaction, etc.
-```
 
 ## Documentation
 
@@ -49,20 +47,6 @@ like React and Redux. Flux architecture, data interaction, etc.
 >- You can logout from your account (button in the upper right corner).
 >- You can view information about the character.
 >- You can add a new publication.
->
-> **7. Added responsibility for mobile devices.**
----
-> **Added changes:**
->- HomePage changed to StartPage
->- Settings page removed
->- News page changed to Home page
->- Messages page changed to Dialogs page
->- Added Network page
->- Added react-redux library
->- Added component containers using react-redux connect
->- Changed some stules
->- Fixed some bugs
----
 
 > **Frameworks dokumentation:**
 >- [Getting Started with React](https://reactjs.org/docs/getting-started.html) <br>

@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './DialogMessage.module.css';
+import styles from './Message.module.css';
 
-const DialogMessage = ({ message, user }) => {
+const Message = ({ message, user }) => {
   const isCurrentUser = message.authorId === user.id;
 
   return (
@@ -31,4 +31,4 @@ const DialogMessage = ({ message, user }) => {
   );
 };
 
-export default DialogMessage;
+export default Message;

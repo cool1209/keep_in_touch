@@ -1,4 +1,4 @@
-import StartPageContainer from './components/StartPage/StartPageContainer';
+import LoginPageContainer from './components/LoginPage/LoginPageContainer';
 import Content from './components/Content/Content';
 
 const App = ({ isUser }) => {
@@ -6,7 +6,7 @@ const App = ({ isUser }) => {
     <div className="app">
       {isUser
         ? <Content />
-        : <StartPageContainer />
+        : <LoginPageContainer />
       }
     </div>
   );
