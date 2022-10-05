@@ -21,50 +21,52 @@
 </p>
 
 ## Description:
-
+```
 А social network simulator.
 The pet project for better understanding how to work with frameworks
 like React and Redux. Flux architecture, data interaction, etc.
-
+```
 ## Documentation
 
-> **1. Start page:** 
+> **1. Login page:** 
 >- You can choose a character for entering the social network
 >
-> **2. Home:** 
+> **2. Home page:** 
 >- It is possible to view the publications of all characters.
 >
-> **3. Dialogs:**
+> **3. Dialogs page:**
 > - It is possible to select a contact and write a message (then you can switch >to the account of the person to whom the message was sent and read it).
 >
-> **4. Network:**
+> **4. Network page:**
 >- Content is temporarily unavailable...
 >
-> **5. Music:**
+> **5. Music page:**
 >- Content is temporarily unavailable...
 >
-> **6. Profile:**
+> **6. Profile page:**
 >- You can logout from your account (button in the upper right corner).
 >- You can view information about the character.
 >- You can add a new publication.
 
-> **Frameworks dokumentation:**
->- [Getting Started with React](https://reactjs.org/docs/getting-started.html) <br>
->- [Getting Started with Redux](https://redux.js.org/introduction/getting-started)
+ **Added changes:**
+ - HomePage changed to LoginPage
+ - Settings page removed
+ - News page renamed to Home page
+ - Messages page renamed to Dialogs page
+ - Added Network page- Added react-redux library
+ - Added component containers using react-redux connect
+ - Changed some stules- Fixed some bugs
 
----
 
-> **The npm commands used to install the required node modules:**
->
->`npx create-react-app my-app`
->
->`npm i gh-pages --save-dev`
->
->`npm i redux`
->
->`npm i react-redux`
+ **Frameworks dokumentation:** <br>
+- [Getting Started with React](https://reactjs.org/docs/getting-started.html) <br>
+- [Getting Started with Redux](https://redux.js.org/introduction/getting-started)
 
----
+ **The npm commands used to install the required node modules:**
+- `npx create-react-app my-app`
+- `npm i gh-pages --save-dev`
+- `npm i redux`
+- `npm i react-redux`
 
 ## Developers
 
