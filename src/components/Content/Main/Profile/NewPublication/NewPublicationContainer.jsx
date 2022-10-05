@@ -3,7 +3,7 @@ import {
   updatePublicationTextCreator
 } from '../../../../../store/reducers/publicationsReducer';
 import { connect } from 'react-redux';
-import UserNewPublication from './NewUserPublication';
+import UserNewPublication from './NewPublication';
 
 const mapStateToProps = (state) => ({
   newPublicationText: state.publications.newPublicationText,
@@ -19,9 +19,9 @@ const mapDispatchToProps = (dispatch) => ({
     )
   });
 
-const NewUserPublicationContainer = connect(
+const NewPublicationContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(UserNewPublication);
 
-export default NewUserPublicationContainer;
+export default NewPublicationContainer;

@@ -50,7 +50,7 @@
   transition: transform var(--transition-behavior);
 }
 
-.publication__likeBtn:hover .news__likeIcon {
+.publication__likeBtn:hover .publication__likeIcon {
   transform: scale(1.3);
 }
 
