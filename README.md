@@ -16,50 +16,71 @@
 
 <p align="center">
   <a href="https://ik-web.github.io/keep-in-touch/">
-    [> DEMO LINK <]
+    ⮚⮚ DEMO ⮘⮘
   </a> 
 </p>
 
 ## Description:
 
-А social network simulator. <br> The pet project for better understanding how to work with frameworks <br> like React and Redux. Flux architecture, data interaction, etc.
+```
+А social network simulator.
+The pet project for better understanding how to work with frameworks
+like React and Redux. Flux architecture, data interaction, etc.
+```
 
 ## Documentation
 
-**1. Home page:** 
-- You can choose a character for entering the social network
+> **1. Start page:** 
+>- You can choose a character for entering the social network
+>
+> **2. Home:** 
+>- It is possible to view the publications of all characters.
+>
+> **3. Dialogs:**
+> - It is possible to select a contact and write a message (then you can switch >to the account of the person to whom the message was sent and read it).
+>
+> **4. Network:**
+>- Content is temporarily unavailable...
+>
+> **5. Music:**
+>- Content is temporarily unavailable...
+>
+> **6. Profile:**
+>- You can logout from your account (button in the upper right corner).
+>- You can view information about the character.
+>- You can add a new publication.
+>
+> **7. Added responsibility for mobile devices.**
+---
+> **Added changes:**
+>- HomePage changed to StartPage
+>- Settings page removed
+>- News page changed to Home page
+>- Messages page changed to Dialogs page
+>- Added Network page
+>- Added react-redux library
+>- Added component containers using react-redux connect
+>- Changed some stules
+>- Fixed some bugs
+---
 
-**2. Profile:**
-- You can log out of your account (button in the upper right corner).
-- You can view information on the character.
-- You can add a publication.
-
-**3. Messages:**
-- It is possible to select a contact and write him a message (then you can switch to the account of the person to whom the message was sent and read it).
-
-**4. News:** 
-- It is possible to view the publications of all characters.
-
-**5. Network:**
-- Content is temporarily unavailable...
-
-**6. Settings:**
-- Content is temporarily unavailable...
-
-**7. Added responsibility for mobile devices.**
+> **Frameworks dokumentation:**
+>- [Getting Started with React](https://reactjs.org/docs/getting-started.html) <br>
+>- [Getting Started with Redux](https://redux.js.org/introduction/getting-started)
 
 ---
 
-**Frameworks dokumentation:**
-- [Getting Started with React](https://reactjs.org/docs/getting-started.html) <br>
-- [Getting Started with Redux](https://redux.js.org/introduction/getting-started)
+> **The npm commands used to install the required node modules:**
+>
+>`npx create-react-app my-app`
+>
+>`npm i gh-pages --save-dev`
+>
+>`npm i redux`
+>
+>`npm i react-redux`
 
 ---
-
-**The npm commands used to install the required node modules:**
-- `npx create-react-app my-app`
-- `npm i gh-pages --save-dev`
-- `npm i redux --save-dev`
 
 ## Developers
 
