@@ -1,14 +1,12 @@
-import HomePage from './components/HomePage/HomePage';
+import StartPageContainer from './components/StartPage/StartPageContainer';
 import Content from './components/Content/Content';
 
-const App = ({ state, store }) => {
-  const isCurrentUser = state.users.currentUser.id;
-
+const App = ({ isUser }) => {
   return (
     <div className="app">
-      {isCurrentUser
-        ? <Content state={state} store={store} />
-        : <HomePage state={state} store={store} />
+      {isUser
+        ? <Content />
+        : <StartPageContainer />
       }
     </div>
   );

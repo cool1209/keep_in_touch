@@ -7,21 +7,15 @@ const Music = () => {
       <h1>Music page</h1>
       <h3> under development...</h3>
 
-      <div>
-        <h4  className={styles.todo}>
-          To Do:
-        </h4>
-        
-        <ol>
-          <li>
-            Add to search music
-          </li>
-
-          <li>
-            Add user's music list
-          </li>
-        </ol>
-      </div>
+      <h4  className={styles.todo}>
+        To Do:
+      </h4>
+      
+      <ol>
+        <li>Add to search music</li>
+        <li>Add music to a user playlist</li>
+        <li>Add a user playlist</li>
+      </ol>
     </div>
   );
 };

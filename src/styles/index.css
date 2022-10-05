@@ -21,6 +21,7 @@
   
   --font-size-desktop: 16px;
   --font-size-mobile: 18px;
+  --font-size-mini: 14px;
 }
 
 * {
@@ -41,7 +42,8 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {

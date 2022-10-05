@@ -1,9 +1,8 @@
 import React from 'react';
 import styles from './UserInfo.module.css';
-import { removeCurentUserCreator } from '../../../../../store/reducers/usersReducer';
 import GetIcon from '../../../../../img/GetIcon';
 
-const UserInfo = ({ user, store }) => {
+const UserInfo = ({ user, removeCurentUser }) => {
   return (
     <section className={styles.user}>
       <div className={styles.user__images}>
@@ -25,7 +24,7 @@ const UserInfo = ({ user, store }) => {
 
         <button
           className={styles.user__logout}
-          onClick={() => store.dispatch(removeCurentUserCreator())}
+          onClick={() => removeCurentUser()}
         >
           Logout
           <GetIcon id='logout-icon' />

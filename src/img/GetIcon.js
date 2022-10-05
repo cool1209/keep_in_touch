@@ -2,11 +2,11 @@ import React from 'react';
 import styles from './ImagesStyles.module.css';
 import logout from './icons/logout.png';
 import like from './icons/like.ico';
-import profile from './icons/profile.ico';
-import messages from './icons/messages.ico';
-import news from './icons/news.ico';
+import home from './icons/home.png';
+import dialogs from './icons/dialogs.ico';
+import network from './icons/network.ico';
 import music from './icons/music.png';
-import settings from './icons/settings.ico';
+import profile from './icons/profile.ico';
 
 const GetIcon = ({ id }) => {
   switch (id) {
@@ -23,7 +23,7 @@ const GetIcon = ({ id }) => {
       return (
         <img
           src={like}
-          alt='Logout icon'
+          alt='Like icon'
           className={styles.likeIcon}
         />
       );
@@ -32,26 +32,35 @@ const GetIcon = ({ id }) => {
       return (
         <img
           src={profile}
-          alt='Logout icon'
+          alt='Profile icon'
           className={styles.profileIcon}
         />
       );
 
-    case 'messages-icon':
+    case 'dialogs-icon':
       return (
         <img
-          src={messages}
-          alt='Logout icon'
-          className={styles.messagesIcon}
+          src={dialogs}
+          alt='Dialogs icon'
+          className={styles.dialogsIcon}
         />
       );
      
-    case 'news-icon':
+    case 'home-icon':
       return (
         <img
-          src={news}
-          alt='Logout icon'
-          className={styles.newsIcon}
+          src={home}
+          alt='Home icon'
+          className={styles.homeIcon}
+        />
+      );
+
+    case 'network-icon':
+      return (
+        <img
+          src={network}
+          alt='Network icon'
+          className={styles.networkIcon}
         />
       );
 
@@ -59,17 +68,8 @@ const GetIcon = ({ id }) => {
       return (
         <img
           src={music}
-          alt='Logout icon'
+          alt='Music icon'
           className={styles.musicIcon}
-        />
-      );
-
-    case 'settings-icon':
-      return (
-        <img
-          src={settings}
-          alt='Logout icon'
-          className={styles.settingsIcon}
         />
       );
          

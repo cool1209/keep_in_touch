@@ -1,4 +1,4 @@
-.home {
+.start {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,7 +9,7 @@
   border: 20px solid var(--color-normal);
 }
 
-.home__title {
+.start__title {
   margin-bottom: 20px;
   
   font-weight: bold;
@@ -19,12 +19,12 @@
 }
 
 
-.home__titlePart {
+.start__titlePart {
   display: block;
 
 }
 
-.home__socialNetworksName {
+.start__socialNetworksName {
   position: relative;
   display: inline-block;
   margin-bottom: 20px;
@@ -33,36 +33,37 @@
   color: var(--color-dark);
 }
 
-.home__socialNetworksName:after {
+.start__socialNetworksName:after {
   content: "Keep in touch";
   position: absolute;
   left: 0;
   width: 100%;
 
   font-size: 80px;
+  font-weight: 400;
   color: var(--color-light);
 }
 
-.home__description {
+.start__description {
   margin-bottom: 30px;
   width: 450px;
 
   text-align: center;
 }
 
-.home__choice,
-.home__usersLoading {
+.start__choice,
+.start__usersLoading {
   margin-bottom: 30px;
 
   font-size: 20px;
   color: var(--color-dark)
 }
 
-.home__usersLoading {
+.start__usersLoading {
   margin-top: 100px;
 }
 
-.home__users {
+.start__users {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -71,7 +72,7 @@
   max-width: 450px;
 }
 
-.home__user {
+.start__user {
   width: 120px;
   height: 120px;
 
@@ -84,37 +85,37 @@
 
 
 
-.home__user:hover {
+.start__user:hover {
   transform: scale(1.1);
 }
 
 @media (max-width: 767px) {
-  .home {
+  .start {
     border-width: 15px;
   }
 
-  .home__title {
+  .start__title {
     font-size: 32px;
   }
 
-  .home__socialNetworksName {
+  .start__socialNetworksName {
     font-size: 50px;
   }
   
-  .home__socialNetworksName:after {
+  .start__socialNetworksName:after {
     font-size: 48px;
   }
 
-  .home__description {
+  .start__description {
     width: 320px;
   }
 
-  .home__users {
+  .start__users {
     max-width: 370px;
     gap: 10px;
   }
 
-  .home__user {
+  .start__user {
     width: 100px;
     height: 100px;
   }
@@ -123,37 +124,37 @@
 
 @media (max-width: 575px) {
 
-  .home {
+  .start {
     border-width: 5px;
   }
 
-  .home__title {
+  .start__title {
     font-size: 32px;
   }
 
-  .home__socialNetworksName {
+  .start__socialNetworksName {
     font-size: 44px;
   }
   
-  .home__socialNetworksName:after {
+  .start__socialNetworksName:after {
     font-size: 42px;
   }
 
-  .home__choice {
+  .start__choice {
     margin-bottom: 15px;
     font-size: 20px;
   }
 
-  .home__description {
+  .start__description {
     margin-bottom: 15px;
     width: 300px;
   }
 
-  .home__users {
+  .start__users {
     max-width: 300px;
   }
 
-  .home__user {
+  .start__user {
     width: 80px;
     height: 80px;
   }

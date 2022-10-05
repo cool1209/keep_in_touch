@@ -40,7 +40,7 @@
 **4. News:** 
 - It is possible to view the publications of all characters.
 
-**5. Music:**
+**5. Network:**
 - Content is temporarily unavailable...
 
 **6. Settings:**

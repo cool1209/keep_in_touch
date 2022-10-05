@@ -18,7 +18,7 @@
   padding: 0 15px;
   height: 38px;
 
-  font-size: 12px;
+  font-size: var(--font-size-mini);
   letter-spacing: 0.5px;
   color: var(--color-main);
 

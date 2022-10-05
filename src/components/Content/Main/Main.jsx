@@ -1,24 +1,24 @@
 import React from 'react';
+import styles from './Main.module.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import Profile from './Profile/Profile';
-import Messages from './Messages/Messages';
-import News from './News/News';
+import HomeContainer from './Home/HomeContainer';
+// import Dialogs from './Dialogs/Dialogs';
+import Network from './Network/Network';
 import Music from './Music/Music';
-import Settings from './Settings/Settings';
+import Profile from './Profile/Profile';
 
-import styles from './Main.module.css';
 
-const Main = ({ state, store }) => {
+const Main = () => {
   return (
     <main className={styles.main}>
       <Routes>
-        <Route path='/' element={ <Navigate to="profile" /> } />
-        <Route path='profile' element={ <Profile state={state} store={store} /> } />
-        <Route path='messages/*' element={ <Messages state={state} store={store} /> } />
-        <Route path='news' element={ <News state={state} /> } />
+        <Route path='/' element={ <Navigate to="home" /> } />
+        <Route path='home' element={ <HomeContainer /> } />
+        {/* <Route path='dialogs/*' element={ <Dialogs /> } /> */}
+        <Route path='network' element={ <Network /> } />
         <Route path='music' element={ <Music /> } />
-        <Route path='settings' element={ <Settings /> } />
+        <Route path='profile' element={ <Profile /> } />
       </Routes>
     </main>
   );

@@ -15,7 +15,7 @@
   grid-template-columns: auto 1fr;
 
   margin: 0 auto;
-  padding: 15px;
+  padding: 15px 15px 15px 15px;
   max-width: 2000px;
   width: 100%;
 

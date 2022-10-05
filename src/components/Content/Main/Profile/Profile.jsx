@@ -1,32 +1,17 @@
 import React from 'react';
 import styles from './Profile.module.css';
-import CurrentUserPublication from './CurrentUserPublication/CurrentUserPublication';
-import PublicationList from './PublicationList/PublicationList';
-import UserInfo from './UserInfo/UserInfo';
+import UserInfoContainer from './UserInfo/UserInfoContainer';
+import UserNewPublicationContainer from './UserNewPublication/UserNewPublicationContainer';
+import PublicationListContainer from './PublicationList/PublicationListContainer';
 
-const Profile = ({ state, store }) => {
-  const user = state.users.currentUser;
-  const publications = state.publications.publications;
-  const newPublicationText = state.publications.newPublicationText;
-  const getUserPublications = () => (
-    publications.filter(publication => publication.userId === user.id)
-  );
-
+const Profile = () => {
   return (
     <section className={styles.profile}>
-      <UserInfo user={user} store={store} />
+      <UserInfoContainer />
       
       <div className={styles.profile__publications}>
-        <CurrentUserPublication
-          newPublicationText ={newPublicationText}
-          user={user}
-          store={store}
-        />
-
-        <PublicationList
-          user={user}
-          publications={getUserPublications()}
-        />
+        <UserNewPublicationContainer/>
+        <PublicationListContainer />
       </div>
     </section>
   );

@@ -1,8 +1,8 @@
-.currentUserPublication__title {
+.userNewPublication__title {
   margin: 20px 0;
 }
 
-.currentUserPublication__textarea {
+.userNewPublication__textarea {
   display: block;
   margin-bottom: 10px;
   padding: 10px;
@@ -11,12 +11,25 @@
 
   font-size: var(--font-size-mobile);
   
-  border: 1px solid var(--color-dark);
+  border: 1px solid var(--color-normal);
   border-radius: 8px;
   resize: vertical;
 }
 
-.currentUserPublication__button {
+.userNewPublication__textarea::placeholder {
+  color: var(--color-normal);
+}
+
+.userNewPublication__textarea:focus {
+  border: 1px solid var(--color-dark);
+  outline: none;
+}
+
+.userNewPublication__textarea:focus.userNewPublication__textarea::placeholder {
+  color: var(--color-dark);
+}
+
+.userNewPublication__button {
   margin-bottom: 20px;
   padding: 15px 40px;
 
@@ -31,17 +44,17 @@
   transition: all var(--transition-behavior);
 }
 
-.currentUserPublication__button:hover {
+.userNewPublication__button:hover {
   color: var(--color-secondary);
   background-color: var(--color-dark);
 }
 
 @media (max-width: 1023px) {
-  .currentUserPublication {
+  .userNewPublication {
     text-align: center;
   }
 
-  .currentUserPublication__textarea {
+  .userNewPublication__textarea {
     display: block;
     margin-bottom: 10px;
     margin: 0 auto 10px;
@@ -52,7 +65,7 @@
 
 @media (max-width: 575px) {
 
-  .currentUserPublication__textarea {
+  .userNewPublication__textarea {
     width: 100%;
   }
 }

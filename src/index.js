@@ -4,23 +4,24 @@ import ReactDOM from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 import App from './App';
 import store from './store/store.js';
+import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const renderThree = (state) => {
+const renderThree = () => {
   root.render(
     <React.StrictMode>
       <HashRouter>
-        <App state={state} store={store} />
+        <Provider store={store}>
+          <App isUser={store.getState().users.currentUser.id} />
+        </Provider>
       </HashRouter>
     </React.StrictMode>
   );
 };
 
-
-const state = store.getState();
-renderThree(state);
+renderThree();
 
 store.subscribe(() => {
-  renderThree(state);
+  renderThree();
 });

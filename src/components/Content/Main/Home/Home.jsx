@@ -1,11 +1,8 @@
 import React from 'react';
 import GetIcon from '../../../../img/GetIcon';
-import styles from './News.module.css';
+import styles from './Home.module.css';
 
-const News = ({ state }) => {
-  const publications = state.publications.publications;
-  const users = state.users.allUsers;
-
+const Home = ({ users, publications }) => {
   const getPublicationAutor = (userId) => (
     users.find(user => user.id === userId)
   ); 
@@ -52,4 +49,4 @@ const News = ({ state }) => {
   );
 };
 
-export default News;
+export default Home;

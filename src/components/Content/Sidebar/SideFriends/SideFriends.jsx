@@ -1,22 +1,22 @@
 import React from 'react';
 import styles from './SideFriends.module.css';
 
-const randomFriends = [
-  { 
-    id: 1,
-    avatar: "https://bit.ly/3SQEqgj"
-  },
-  {
-    id: 2,
-    avatar: "https://bit.ly/3eAJZjY"
-  },
-  {
-    id: 3,
-    avatar: "https://bit.ly/3S0izm7"
-  }
-];
-
 const SideFriends = () => {
+  const randomFriends = [
+    { 
+      id: 1,
+      avatar: "https://bit.ly/3SQEqgj"
+    },
+    {
+      id: 2,
+      avatar: "https://bit.ly/3eAJZjY"
+    },
+    {
+      id: 3,
+      avatar: "https://bit.ly/3S0izm7"
+    }
+  ];
+  
   return (
     <div className={styles.friends}>
       <h4 className={styles.friends__title}>Friends:</h4>

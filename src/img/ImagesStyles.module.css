@@ -13,10 +13,10 @@
 }
 
 .profileIcon,
-.messagesIcon,
-.newsIcon,
+.dialogsIcon,
+.networkIcon,
 .musicIcon,
-.settingsIcon {
+.homeIcon {
   display: none;
 }
 
@@ -27,10 +27,10 @@
   }
 
   .profileIcon,
-  .messagesIcon,
-  .newsIcon,
+  .dialogsIcon,
+  .networkIcon,
   .musicIcon,
-  .settingsIcon {
+  .homeIcon {
     z-index: 1;
     display: block;
   }

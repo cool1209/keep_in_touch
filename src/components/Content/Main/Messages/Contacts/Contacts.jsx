@@ -1,6 +1,6 @@
 import React from 'react';
+import CustomNavLink from '../../../../shared/CustomNavLink';
 import styles from './Contacts.module.css';
-import { CustomNavLink } from '../../../Sidebar/SideNav/SideNav';
 
 const Contacts = ({ state }) => {
   const user = state.users.currentUser;

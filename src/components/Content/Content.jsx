@@ -5,13 +5,13 @@ import Main from './Main/Main';
 import Footer from './Footer/Footer';
 import styles from './Content.module.css';
 
-const Content = ({ state, store }) => {
+const Content = () => {
   return (
     <div className={styles.content}>
       <Header />
         <div  className={styles.content__container}>
           <Sidebar />
-          <Main state={state} store={store} />
+          <Main />
         </div>
       <Footer />
     </div>
