@@ -12,6 +12,8 @@
   background: var(--color-extra-light);
   border: 1px dashed var(--color-normal);
   border-radius: 10px;
+
+  word-break: break-word;
 }
 
 .publication__userAvatarContainer {

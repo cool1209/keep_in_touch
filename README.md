@@ -16,7 +16,7 @@
 
 <p align="center">
   <a href="https://ik-web.github.io/keep-in-touch/">
-    ⮚⮚ DEMO ⮘⮘
+    ⮚⮚ DEMO LINK ⮘⮘
   </a> 
 </p>
 

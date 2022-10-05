@@ -8,15 +8,16 @@ const initialState = {
 };
 
 const usersReducer = (state = initialState, action) => {
+  const stateCopy = {...state}
 
   switch (action.type) {
     case GET_CURRENT_USER:
-      state.currentUser = state.allUsers.find(user => user.id === action.payload);
-      return state;
+      stateCopy.currentUser = state.allUsers.find(user => user.id === action.payload);
+      return stateCopy;
 
     case REMOVE_CURRENT_USER:
-      state.currentUser = {};
-      return state;
+      stateCopy.currentUser = {};
+      return stateCopy;
 
     default:
       return state;

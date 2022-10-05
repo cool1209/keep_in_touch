@@ -8,8 +8,11 @@ const initialState = {
 }
 
 const publicationsReducer = (state = initialState, action) => {
+  const stateCopy = {...state}
+  
   switch (action.type) {
     case ADD_PUBLICATION:
+      stateCopy.publications = [...state.publications];
       const publicationId = state.publications.length + 1;
       const publication = {
         id: publicationId,
@@ -19,17 +22,18 @@ const publicationsReducer = (state = initialState, action) => {
       }
       
       if (state.newPublicationText.trim()) {
-        state.publications.push(publication);
-        state.newPublicationText = '';
+        stateCopy.publications.push(publication);
+        stateCopy.newPublicationText = '';
       }
 
-      state.newPublicationText = '';
+      stateCopy.newPublicationText = '';
       
-      return state;
+      return stateCopy;
       
       case UPDATE_PUBLICATION_TEXT:
-        state.newPublicationText = action.text;
-      return state;
+        stateCopy.newPublicationText = action.text;
+
+        return stateCopy;
 
     default:
       return state;

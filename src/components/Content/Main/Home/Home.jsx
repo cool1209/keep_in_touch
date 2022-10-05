@@ -8,33 +8,33 @@ const Home = ({ users, publications }) => {
   ); 
 
   return (
-    <div className={styles.news}>
-      <ul className={styles.news__publications}>
+    <div className={styles.home}>
+      <ul className={styles.home__publications}>
         {publications.map(publication => (
           <li
-            className={styles.news__publication}
+            className={styles.home__publication}
             key={publication.id}
           > 
             <div>
               <img
                 src={getPublicationAutor(publication.userId).avatar}
                 alt="Publication author avatar"
-                className={styles.news__publicationAuthorAvatar}
+                className={styles.home__publicationAuthorAvatar}
               />
 
-              <button className={styles.news__likeBtn}>
-                <span className={styles.news__likeIcon}>
+              <button className={styles.home__likeBtn}>
+                <span className={styles.home__likeIcon}>
                   <GetIcon id='like-icon' />
                 </span>
 
-                <span className={styles.news__likesCounter}>
+                <span className={styles.home__likesCounter}>
                   {publication.likes}
                 </span>
               </button>
             </div>
 
             <div>
-              <h3 className={styles.news__publicationAuthor}>
+              <h3 className={styles.home__publicationAuthor}>
                 {getPublicationAutor(publication.userId).name}:
               </h3>
 

@@ -7,7 +7,6 @@ const UserNewPublication = ({
   onUpdatePublicationText,
   onAddPublication
 }) => {
-  console.log(newPublicationText);
   return (
     <section className={styles.userNewPublication}>
       <h2 className={styles.userNewPublication__title}>

@@ -8,29 +8,31 @@ const initialState = {
 };
 
 const messagesReducer = (state = initialState, action) => {
-  const currentDialog = state.dialogs[action.dialogId - 1];
+  const copyState = {...state};
   
   switch (action.type) {
     case ADD_MESSAGE:
+      copyState.dialogs = [...state.dialogs];
+      const currentDialog = copyState.dialogs[action.dialogId - 1];
       const messageId = currentDialog.messages.length + 1;
       const message = {
         id: messageId,
         authorId: action.authorId,
-        message: state.newMessageText.trim(),
+        message: copyState.newMessageText.trim(),
       }
 
-      if (state.newMessageText.trim()) {
+      if (copyState.newMessageText.trim()) {
         currentDialog.messages.push(message);
-        state.newMessageText = '';
+        copyState.newMessageText = '';
       } 
       
-      state.newMessageText = '';
+      copyState.newMessageText = '';
 
-      return state;
+      return copyState;
 
     case UPDATE_MESSAGE_TEXT:
-      state.newMessageText = action.messageText;
-      return state;
+      copyState.newMessageText = action.messageText;
+      return copyState;
 
     default:
       return state;
