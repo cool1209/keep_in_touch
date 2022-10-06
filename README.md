@@ -23,8 +23,8 @@
 ## Description:
 ```
 А social network simulator.
-The pet project for better understanding how to work with frameworks
-like React and Redux. Flux architecture, data interaction, etc.
+The pet project for better understanding how to work with React
+and Redux, Flux architecture, data interaction, etc.
 ```
 ## Documentation
 
@@ -35,7 +35,8 @@ like React and Redux. Flux architecture, data interaction, etc.
 >- It is possible to view the publications of all characters.
 >
 > **3. Dialogs page:**
-> - It is possible to select a contact and write a message (then you can switch >to the account of the person to whom the message was sent and read it).
+> - It is possible to select a contact and write a message (then you can switch 
+> to the account of the person to whom the message was sent and read it).
 >
 > **4. Network page:**
 >- Content is temporarily unavailable...
@@ -53,9 +54,11 @@ like React and Redux. Flux architecture, data interaction, etc.
  - Settings page removed
  - News page renamed to Home page
  - Messages page renamed to Dialogs page
- - Added Network page- Added react-redux library
+ - Added Network page
+ - Added react-redux library
  - Added component containers using react-redux connect
- - Changed some stules- Fixed some bugs
+ - Changed some stules
+ - Fixed some bugs
 
 
  **Frameworks dokumentation:** <br>
