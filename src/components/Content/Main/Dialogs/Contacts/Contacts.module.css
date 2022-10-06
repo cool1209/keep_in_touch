@@ -13,14 +13,21 @@
 
   background-color: var(--color-normal);
   border-radius: 10px;
+  outline: none;
   cursor: pointer;
 
   transition: all var(--transition-behavior);
 }
 
+.contacts__contact:focus,
+.contacts__contact:hover,
+.activeLink {
+  background-color: var(--color-light);
+}
+
 .contacts__contact a {
   display: flex;
-  align-items: center;
+  align-items: center;  
 }
 
 .activeLink {

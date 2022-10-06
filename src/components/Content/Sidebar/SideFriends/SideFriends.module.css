@@ -24,8 +24,8 @@
 .friends__item {
   padding: 0;
 
-  border: 0;
-  outline: 0;
+  border: none;
+  outline: none;
   background-color: transparent;
   border-radius: 50%;
   cursor: pointer;
@@ -33,6 +33,7 @@
   transition: transform var(--transition-behavior);
 }
 
+.friends__item:focus,
 .friends__item:hover {
   transform: scale(1.2);
 }

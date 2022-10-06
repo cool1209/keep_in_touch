@@ -41,6 +41,7 @@
   transition: all var(--transition-behavior);
 }
 
+.userNewPublication__button:focus,
 .userNewPublication__button:hover {
   color: var(--color-secondary);
   background-color: var(--color-dark);

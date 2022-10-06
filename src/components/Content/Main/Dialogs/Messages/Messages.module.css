@@ -83,6 +83,7 @@
   transition: all var(--transition-behavior);
 }
 
+.messages__btn:focus,
 .messages__btn:hover {
   background-color: var(--color-dark);
   color: var(--color-secondary)

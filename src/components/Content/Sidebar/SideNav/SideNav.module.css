@@ -7,7 +7,10 @@
 .sidenav__link {
   position: relative;
   margin-bottom: 15px;
+
   font-weight: 600;
+
+  outline: none;
   transition: all var(--transition-behavior);
 }
 
@@ -27,6 +30,7 @@
   margin-bottom: 0;
 }
 
+.sidenav__link:focus,
 .sidenav__link:hover {
   color: var(--color-secondary);
 }
