@@ -1,0 +1,4 @@
+.network {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+}

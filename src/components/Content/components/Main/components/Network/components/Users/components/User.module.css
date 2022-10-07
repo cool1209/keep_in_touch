@@ -1,0 +1,7 @@
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-very-light);
+  border-radius: 10px;
+}
