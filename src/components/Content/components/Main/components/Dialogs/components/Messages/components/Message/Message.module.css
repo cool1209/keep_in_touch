@@ -5,7 +5,7 @@
   width: 50%;
 
   background: var(--color-very-light);
-  border: 1px dashed var(--color-dark);
+  border: 1px dashed var(--color-normal);
   border-radius: 10px;
   word-break: break-word;
 }

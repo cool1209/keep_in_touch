@@ -1,9 +1,9 @@
-import data from "../../data/data.js";
+import publications from "../../data/publications.js";
 const ADD_PUBLICATION = 'ADD_PUBLICATION';
 const UPDATE_PUBLICATION_TEXT = 'UPDATE_PUBLICATION_TEXT';
 
 const initialState = {
-  publications: data.publications,
+  publications: publications,
   newPublicationText: ''
 }
 

@@ -16,9 +16,9 @@ const Home = ({ users, publications }) => {
             key={publication.id}
           > 
             <div>
-              <img
+              <img 
                 src={getPublicationAutor(publication.userId).avatar}
-                alt="Publication author avatar"
+                alt='Publication author avatar'
                 className={styles.home__publicationAuthorAvatar}
               />
 

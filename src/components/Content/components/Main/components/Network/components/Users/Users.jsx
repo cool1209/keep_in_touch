@@ -6,16 +6,22 @@ import User from './components/User';
 const Users = () => {
   return (
     <div className={styles.users}>
-      <User />
-      <User />
-      <User />
-      <User />
-      <User />
-      <User />
-      <User />
-      <User />
-      <User />
-      <User />
+      <div className={styles.users__list}>
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+        <User />
+      </div>
+
+      <button className={styles.users__btn}>Show more...</button>
     </div>
   );
 };

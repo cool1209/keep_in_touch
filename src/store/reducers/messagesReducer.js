@@ -1,9 +1,9 @@
-import data from "../../data/data";
+import dialogs from "../../data/dialogs";
 const ADD_MESSAGE = 'ADD_MESSAGE';
 const UPDATE_MESSAGE_TEXT = 'UPDATE_MESSAGE_TEXT';
 
 const initialState = {
-  dialogs: data.dialogs,
+  dialogs: dialogs,
   newMessageText: '',
 };
 

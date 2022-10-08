@@ -1,10 +1,10 @@
-import data from "../../data/data";
+import users from "../../data/users2";
 const GET_CURRENT_USER = 'GET_CURRENT_USER';
 const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
 
 const initialState = {
   currentUser: {},
-  allUsers: data.users,
+  allUsers: users
 };
 
 const usersReducer = (state = initialState, action) => {

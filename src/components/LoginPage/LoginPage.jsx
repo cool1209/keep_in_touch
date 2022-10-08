@@ -11,7 +11,7 @@ const LoginPage = ({ users, getCurrentUser }) => {
       </h1>
 
       <p className={styles.login__description}>
-        This is a test home page to test the functionality of the "Keep in touch" social networks for different users.
+        This is a test home page to test the functionality of the <strong>"Keep in touch"</strong> social networks for different users.
       </p>
 
       {users.length > 0
@@ -22,8 +22,16 @@ const LoginPage = ({ users, getCurrentUser }) => {
 
             <ul className={styles.login__users}>
               {users.map(user => (
-                <li key={user.id} onClick={() => getCurrentUser(user.id)}>
-                  <img src={user.avatar} alt="User avatar" className={styles.login__user} />
+                <li
+                  key={user.id}
+                  onClick={() => getCurrentUser(user.id)}
+                  title={user.name}
+                >
+                  <img
+                    src={user.avatar}
+                    alt="User avatar"
+                    className={styles.login__user}
+                  />
                 </li>
               ))}
             </ul>

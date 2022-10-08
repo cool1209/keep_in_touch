@@ -16,13 +16,11 @@ const PublicationList = ({ user, publications }) => {
       {getUserNewPublications().map(publication => (
         <article className={styles.publication} key={publication.id}>
           <div className={styles.publication__userInfo}>
-            <div className={styles.publication__userAvatarContainer}>
-              <img 
-                src={user.avatar}
-                alt='User avatar'
-                className={styles.publication__userAvatar}
-              />
-            </div>
+            <img 
+              src={user.avatar}
+              alt='User avatar'
+              className={styles.publication__userAvatar}
+            />
     
             <button className={styles.publication__likeBtn}>
               <span className={styles.publication__likeIcon}>

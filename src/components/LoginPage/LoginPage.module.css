@@ -27,9 +27,9 @@
 .login__socialNetworksName {
   position: relative;
   display: inline-block;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
-  font-size: 83px;
+  font-size: 80px;
   color: var(--color-dark);
 }
 
@@ -39,7 +39,7 @@
   left: 0;
   width: 100%;
 
-  font-size: 80px;
+  font-size: 77px;
   font-weight: 400;
   color: var(--color-light);
 }
@@ -53,7 +53,7 @@
 
 .login__choice,
 .login__usersLoading {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 
   font-size: 20px;
   color: var(--color-dark)
@@ -66,18 +66,19 @@
 .login__users {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 15px;
 
-  max-width: 450px;
+  max-width: 720px;
 }
 
 .login__user {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
 
   border: 5px solid var(--color-light);
-  border-radius: 20px;
+  border-radius: 10px;
 
   transition: transform var(--transition-behavior);
   cursor: pointer;
@@ -86,7 +87,7 @@
 
 
 .login__user:hover {
-  transform: scale(1.1);
+  transform: scale(1.25);
 }
 
 @media (max-width: 767px) {
@@ -109,18 +110,7 @@
   .login__description {
     width: 320px;
   }
-
-  .login__users {
-    max-width: 370px;
-    gap: 10px;
-  }
-
-  .login__user {
-    width: 100px;
-    height: 100px;
-  }
 }
-
 
 @media (max-width: 575px) {
 
@@ -148,14 +138,5 @@
   .login__description {
     margin-bottom: 15px;
     width: 300px;
-  }
-
-  .login__users {
-    max-width: 300px;
-  }
-
-  .login__user {
-    width: 80px;
-    height: 80px;
   }
 }

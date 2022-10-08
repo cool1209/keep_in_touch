@@ -1,6 +1,37 @@
 .users {
+  position: relative;
+}
+
+.users__list {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
+  padding-bottom: 55px;
+  height: 100%;
+}
+
+.users__btn {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
   padding: 0 20px;
+  height: 40px;
+
+  background: var(--color-extra-normal);
+  outline: none;
+  border:  none;
+  border-radius: 20px;
+  cursor: pointer;
+
+  transition: background var(--transition-behavior); 
+}
+
+.users__btn:focus {
+  border: 2px solid var(--color-normal);
+}
+
+.users__btn:hover {
+  background: var(--color-very-light);
 }

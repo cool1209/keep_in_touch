@@ -13,6 +13,7 @@
   --color-extra-normal: #cecece;
   
   --transition-behavior: 0.1s linear;
+  --text-shadow: 0 0 4px var(--color-main);
 
   --font-family-title: 'Fredoka One', cursive;
   --font-family-text: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

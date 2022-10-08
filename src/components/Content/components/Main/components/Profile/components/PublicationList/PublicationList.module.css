@@ -16,7 +16,7 @@
   word-break: break-word;
 }
 
-.publication__userAvatarContainer {
+.publication__userAvatar {
   margin: 0 15px 10px;
   width: 80px;
   height: 80px;
@@ -25,7 +25,9 @@
   border-radius: 50%;
 }
 
-.publication__userAvatarContainer img{
+.publication__userAvatar img{
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
 }
 
