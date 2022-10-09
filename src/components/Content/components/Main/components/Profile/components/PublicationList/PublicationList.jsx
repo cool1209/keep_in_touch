@@ -9,12 +9,15 @@ const PublicationList = ({ user, publications }) => {
 
   return (
     <section className={styles.publicationList}>
-      <h2 className={styles.publicationList__title}>
+      <h3 className={styles.publicationList__title}>
         All my publications:
-      </h2>
+      </h3>
 
       {getUserNewPublications().map(publication => (
-        <article className={styles.publication} key={publication.id}>
+        <article
+          className={`${styles.publicationList__item} ${styles.publication}`}
+          key={publication.id}
+        >
           <div className={styles.publication__userInfo}>
             <img 
               src={user.avatar}
@@ -33,10 +36,7 @@ const PublicationList = ({ user, publications }) => {
             </button>
           </div>
           
-          <div className={styles.publication__userText}>
-            <h3 className={styles.publication__userName}>
-              {user.name}:
-            </h3>
+          <div className={styles.publication__text}>
             {publication.publication}
           </div>
         </article>

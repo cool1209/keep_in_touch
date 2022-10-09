@@ -1,16 +1,16 @@
 import React from 'react';
-import styles from './Sidebar.module.css';
+import s from './LeftSidebar.module.css';
 
 import SideFriends from './components/SideFriends/SideFriends';
 import SideNav from './components/SideNav/SideNav';
 
-const Sidebar = () => {
+const LeftSidebar = () => {
   return (
-    <div className={styles.sidebar}>
+    <div className={s.sidebar}>
       <SideNav />
       <SideFriends />
     </div>
   );
 };
 
-export default Sidebar;
+export default LeftSidebar;

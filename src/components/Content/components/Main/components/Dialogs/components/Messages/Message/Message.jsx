@@ -1,28 +1,28 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './Message.module.css';
+import s from './Message.module.css';
 
 const Message = ({ message, user }) => {
-  const isCurrentUser = message.authorId === user.id;
+  const loginUser = message.authorId === user.id;
 
   return (
     <article className={
       classNames(
-        styles.message, 
-        {[styles.message_currentUser]: isCurrentUser}
+        s.message, 
+        {[s.message_loginUser]: loginUser}
       )}
     >
       <img 
         src={message.authorAvatar} 
         alt='User avatar' 
-        className={styles.message__memberAvatar}
+        className={s.message__authorAvatar}
       />
 
       <div 
         className={
           classNames(
-            styles.message__text,
-            {[styles.message__text_currentUser]: isCurrentUser}
+            s.message__text,
+            {[s.message__text_loginUser]: loginUser}
         )}
       >
         {message.message}

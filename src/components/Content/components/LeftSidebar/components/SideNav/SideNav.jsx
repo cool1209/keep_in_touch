@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './SideNav.module.css';
+import s from './SideNav.module.css';
 import CustomNavLink from '../../../../../shared/CustomNavLink';
 
 const SideNav = () => {
@@ -32,10 +32,10 @@ const SideNav = () => {
   ];
   
   return (
-    <nav className={styles.sidenav}>
+    <nav className={s.sidenav}>
       {links.map(link => (
         <CustomNavLink
-          style={[styles.sidenav__link, styles.activeLink]}
+          style={[s.sidenav__link, s.activeLink]}
           to={link.path}
           name={link.name}
           id={link.id}

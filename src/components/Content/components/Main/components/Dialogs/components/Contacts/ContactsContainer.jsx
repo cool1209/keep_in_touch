@@ -3,8 +3,8 @@ import Contacts from './Contacts';
 
 
 const mapStateToProps = (state) => ({
-  user: state.users.currentUser,
-  users: state.users.allUsers,
+  user: state.users.loginUser,
+  users: state.users.users,
   dialogs: state.messages.dialogs
 });
 

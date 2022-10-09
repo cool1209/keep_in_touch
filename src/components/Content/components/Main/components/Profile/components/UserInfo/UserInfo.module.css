@@ -1,11 +1,14 @@
+.user {
+  margin-bottom: 40px;
+}
+
 .user__images {
   position: relative;
 
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 
   border-radius: 10px;
 }
-
 
 .user__logout {
   position: absolute;
@@ -23,7 +26,7 @@
   color: var(--color-main);
 
   background: var(--color-extra-normal);
-  border-radius: 0 8px 0 10px;
+  border-radius: 0 6px 0 10px;
   border: none;
   cursor: pointer;
 }
@@ -58,20 +61,54 @@
   border-radius: 50%;
 }
 
+.user__info {
+  padding-left: 15px;
+}
+
 .user__name {
-  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.user__status {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+.user__indicator {
+  display: inline-block;
+  margin-right: 4px;
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid var(--color-normal);
+  border-radius: 50%;
+}
+
+.user__indicator_offline {
+  background: #ff1212;
+}
+
+.user__indicator_online {
+  background: #50ff50;
+}
+
+.user__city {
+  margin-bottom: 15px;
+  font-style: italic;
 }
 
 .user__about {
-  padding: 10px 20px 0;
   width: 50%;
+  font-style: italic;
 }
 
 @media (max-width: 1023px) {
 
   .user__wallpaper {
     border-radius: 8px 8px 0 0;
-    height: 300px;
+    height: 250px;
   }
 
   .user__avatarContainer {
@@ -100,7 +137,7 @@
 @media (max-width: 575px) {
 
   .user__wallpaper {
-    height: 200px;
+    height: 160px;
   }
 
   .user__logout {

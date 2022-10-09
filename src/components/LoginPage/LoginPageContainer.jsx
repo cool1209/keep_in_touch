@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
-import { getCurentUserCreator } from '../../store/reducers/usersReducer';
+import { loginUserAC } from '../../store/reducers/usersReducer';
 import StartPage from './LoginPage';
 
 const mapStateToProps = (state) => ({
-  users: state.users.allUsers
+  users: state.users.users
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getCurrentUser: (id) => (
-    dispatch(getCurentUserCreator(id))
+  onLoginUser: (id) => (
+    dispatch(loginUserAC(id))
   )
 });
 

@@ -1,12 +1,23 @@
 .footer {
   grid-area: footer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+  padding: 15px 0;
 
   font-size: 14px;
+  text-align: center;
   color: var(--color-secondary);
   background-color: var(--color-normal);
+}
+
+.footer__performer {
+  padding-left: 6px;
+  font-family: var(--font-family-title);
+  color: var(--color-secondary);
+  transition: color var(--transition-behavior);
+}
+
+.footer__performer:hover {
+  color: var(--color-dark);
 }
 
 @media (max-width: 767px) {

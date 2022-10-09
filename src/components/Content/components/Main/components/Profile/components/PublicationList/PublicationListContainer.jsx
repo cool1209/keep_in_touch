@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import PublicationList from './PublicationList'
 
 const mapStateToProps = (state) => ({
-  user: state.users.currentUser,
+  user: state.users.loginUser,
   publications: state.publications.publications
 });
 

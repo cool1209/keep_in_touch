@@ -10,7 +10,7 @@
   word-break: break-word;
 }
 
-.message__memberAvatar {
+.message__authorAvatar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -20,7 +20,7 @@
   padding-left: 10px;
 }
 
-.message_currentUser {
+.message_loginUser {
   flex-direction: row-reverse;
   justify-content: space-between;
   align-self: end;
@@ -28,7 +28,7 @@
 }
 
 
-.message__text_currentUser {
+.message__text_loginUser {
   padding-left: 0;
   padding-right: 10px;
 }

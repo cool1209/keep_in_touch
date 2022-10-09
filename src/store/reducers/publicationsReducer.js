@@ -43,12 +43,12 @@ const publicationsReducer = (state = initialState, action) => {
   }
 }
 
-export const addPublicationCreator = (userId) => ({
+export const addPublicationAC = (userId) => ({
   type: ADD_PUBLICATION,
   userId
 });
 
-export const updatePublicationTextCreator = (text) => ({
+export const updatePublicationTextAC = (text) => ({
   type: UPDATE_PUBLICATION_TEXT,
   text
 });

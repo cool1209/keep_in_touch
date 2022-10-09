@@ -9,9 +9,9 @@ const NewPublication = ({
 }) => {
   return (
     <section className={styles.userNewPublication}>
-      <h2 className={styles.userNewPublication__title}>
-        New publication:
-      </h2>
+      <h3 className={styles.userNewPublication__title}>
+        Add a new publication:
+      </h3>
 
       <textarea
         className={styles.userNewPublication__textarea}

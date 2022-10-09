@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Profile.module.css';
+import s from './Profile.module.css';
 
 import UserInfoContainer from './components/UserInfo/UserInfoContainer';
 import NewPublicationContainer from './components/NewPublication/NewPublicationContainer';
@@ -7,10 +7,10 @@ import PublicationListContainer from './components/PublicationList/PublicationLi
 
 const Profile = () => {
   return (
-    <section className={styles.profile}>
+    <section className={s.profile}>
       <UserInfoContainer />
       
-      <div className={styles.profile__publications}>
+      <div className={s.profile__publications}>
         <NewPublicationContainer/>
         <PublicationListContainer />
       </div>

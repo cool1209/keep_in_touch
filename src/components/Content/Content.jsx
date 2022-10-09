@@ -1,19 +1,20 @@
 import React from 'react';
-import styles from './Content.module.css';
+import s from './Content.module.css';
 
 import Header from './components/Header/Header';
-import Sidebar from './components/Sidebar/Sidebar';
+import LeftSidebar from './components/LeftSidebar/LeftSidebar';
 import Main from './components/Main/Main';
+import RightSidebar from './components/RightSidebar/RightSidebar';
 import Footer from './components/Footer/Footer';
+
 
 const Content = () => {
   return (
-    <div className={styles.content}>
+    <div className={s.content}>
       <Header />
-        <div  className={styles.content__container}>
-          <Sidebar />
-          <Main />
-        </div>
+      <LeftSidebar />
+      <RightSidebar />
+      <Main />
       <Footer />
     </div>
   );

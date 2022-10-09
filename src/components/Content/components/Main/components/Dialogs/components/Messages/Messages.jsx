@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './Messages.module.css';
+import s from './Messages.module.css';
 import { Route, Routes } from 'react-router-dom';
-import Message from './components/Message/Message';
+import Message from './Message/Message';
 
 
 const Messages = ({
@@ -28,8 +28,8 @@ const Messages = ({
   });
 
   return (
-    <ul className={styles.messages}>
-      <h2 className={styles.messages__hint}>
+    <ul className={s.messages}>
+      <h2 className={s.messages__hint}>
         Please select a contact
       </h2>
 
@@ -39,8 +39,8 @@ const Messages = ({
             path={`${dialog.id}`}
             key={dialog.id} 
             element={
-              <li className={styles.messages__container}>
-                <ul className={styles.messages__dialogMessages}>
+              <li className={s.messages__container}>
+                <ul className={s.messages__dialogMessages}>
                   {parseDialog(dialog).messages.map(message => (
                     <Message 
                       message={message}
@@ -50,16 +50,16 @@ const Messages = ({
                   ))}
                 </ul>
 
-                <div className={styles.messages__sendMessage}>
+                <div className={s.messages__sendMessage}>
                   <input
                     type="text"
-                    className={styles.messages__input}
+                    className={s.messages__input}
                     onChange={(e) => onUpdateText(e.target.value)}
                     placeholder="New message..."
                     value={newMessageText}
                   />
                   <button
-                    className={styles.messages__btn}
+                    className={s.messages__btn}
                     onClick={() => onSendMessage(dialog.id, user.id)}
                   >Send</button>
                 </div>

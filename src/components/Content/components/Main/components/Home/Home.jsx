@@ -1,6 +1,6 @@
 import React from 'react';
 import GetIcon from '../../../../../../img/GetIcon';
-import styles from './Home.module.css';
+import s from './Home.module.css';
 
 const Home = ({ users, publications }) => {
   const getPublicationAutor = (userId) => (
@@ -8,33 +8,33 @@ const Home = ({ users, publications }) => {
   ); 
 
   return (
-    <div className={styles.home}>
-      <ul className={styles.home__publications}>
+    <div className={s.home}>
+      <ul className={s.home__publications}>
         {publications.map(publication => (
           <li
-            className={styles.home__publication}
+            className={s.home__publication}
             key={publication.id}
           > 
             <div>
               <img 
                 src={getPublicationAutor(publication.userId).avatar}
                 alt='Publication author avatar'
-                className={styles.home__publicationAuthorAvatar}
+                className={s.home__publicationAuthorAvatar}
               />
 
-              <button className={styles.home__likeBtn}>
-                <span className={styles.home__likeIcon}>
+              <button className={s.home__likeBtn}>
+                <span className={s.home__likeIcon}>
                   <GetIcon id='like-icon' />
                 </span>
 
-                <span className={styles.home__likesCounter}>
+                <span className={s.home__likesCounter}>
                   {publication.likes}
                 </span>
               </button>
             </div>
 
-            <div>
-              <h3 className={styles.home__publicationAuthor}>
+            <div className={s.home__publicationText}>
+              <h3 className={s.home__publicationAuthor}>
                 {getPublicationAutor(publication.userId).name}:
               </h3>
 

@@ -1,12 +1,13 @@
 .home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 15px 15px 0;
+  background: var(--color-very-light);
+  border-radius: 10px;
 }
 
 .home__publications {
   display: flex;
   flex-direction: column-reverse;
+  align-items: center;
 }
 
 .home__publication {
@@ -15,6 +16,7 @@
   margin-bottom: 15px;
   padding: 15px;
   max-width: 800px;
+  width: 100%;
 
   background: var(--color-extra-light);
   border: 1px dashed var(--color-normal);
@@ -24,11 +26,11 @@
 }
 
 .home__publicationAuthorAvatar {
-  margin: 0 15px 10px;
-  width: 80px;
-  height: 80px;
+  margin: 0 auto 10px;
+  width: 60px;
+  height: 60px;
 
-  border: 4px solid var(--color-normal);
+  border: 3px solid var(--color-normal);
   border-radius: 50%;
 }
 
@@ -43,12 +45,11 @@
   justify-content: space-between;
   align-items: center;
 
-  margin: 10px auto 0;
-  padding: 4px 10px 4px 5px;
-  width: 52px;
+  margin: 0 auto;
+  padding: 4px 10px 4px 4px;
+  width: 100%;
 
-  font-size: 14px;
-
+  background: var(--color-extra-normal);
   border: none;
   border-radius: 15px;
   outline: none;
@@ -60,12 +61,19 @@
 }
 
 .home__likeBtn:hover .home__likeIcon {
-  transform: scale(1.3);
+  transform: scale(1.35);
+}
+
+.home__likesCounter {
+  font-size: var(--font-size-mini);
+}
+
+.home__publicationText {
+  margin-left: 15px;
 }
 
 .home__publicationAuthor {
   margin-bottom: 5px;
-
   font-size: var(--font-size-mini);
   text-decoration: underline;
   color: var(--color-dark)

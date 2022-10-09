@@ -1,0 +1,8 @@
+.rightSidebar {
+  grid-area: rightAside;
+  margin-right: 15px;
+  padding: 35px 0;
+
+  background: var(--color-normal);
+  border-radius: 10px;
+}

@@ -1,5 +1,7 @@
 .sidebar {
-  padding: 35px 25px;
+  grid-area: leftAside;
+  margin-left: 15px;
+  padding: 35px 0;
 
   background: var(--color-normal);
   border-radius: 10px;

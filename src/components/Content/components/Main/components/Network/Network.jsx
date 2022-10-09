@@ -1,17 +1,22 @@
 import React from 'react';
-import styles from './Network.module.css';
+import s from './Network.module.css';
+import User from './User/User';
 
-import UserFilter from './components/UserFilter/UserFilter';
-import Users from './components/Users/Users';
-import MessagePopap from './components/MessagePopap/MessagePopap';
+const Network = ({ users }) => {
+  const title = 'All users:';
 
-const Network = () => {
   return (
-    <div className={styles.network}>
-      <MessagePopap />
-      <Users />
-      <UserFilter />
-    </div>
+    <section className={s.network}>
+      <h2 className={s.network__title}>{title}</h2>
+
+      <ul className={s.network__users}>
+        {users.map(user => (
+          <User user={user}  key={user.id} />
+        ))}
+      </ul>
+
+      <button className={s.network__btn}>Show more...</button>
+    </section>
   );
 };
 

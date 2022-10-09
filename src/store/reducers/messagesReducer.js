@@ -44,13 +44,13 @@ const messagesReducer = (state = initialState, action) => {
   }
 };
 
-export const sendMessageCreator = (dialogId, authorId) => ({
+export const sendMessageAC = (dialogId, authorId) => ({
   type: ADD_MESSAGE,
   dialogId,
   authorId
 });
 
-export const updateMessageTextCreator = (messageText) => ({
+export const updateMessageTextAC = (messageText) => ({
   type: UPDATE_MESSAGE_TEXT,
   messageText
 });

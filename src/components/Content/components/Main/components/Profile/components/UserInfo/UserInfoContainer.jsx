@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
-import { removeCurentUserCreator } from '../../../../../../../../store/reducers/usersReducer';
+import { logoutUserAC } from '../../../../../../../../store/reducers/usersReducer';
 import UserInfo from './UserInfo';
 
 
 const mapStateToProps = (state) => ({
-  user: state.users.currentUser
+  user: state.users.loginUser
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  removeCurentUser: () => dispatch(removeCurentUserCreator())
+  onLogoutUser: () => dispatch(logoutUserAC())
 });
 
 const UserInfoContainer = connect(mapStateToProps, mapDispatchToProps)(UserInfo);

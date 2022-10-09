@@ -2,24 +2,24 @@ import Messages from './Messages';
 import { connect } from 'react-redux';
 
 import {
-  sendMessageCreator,
-  updateMessageTextCreator
+  sendMessageAC,
+  updateMessageTextAC
 } from '../../../../../../../../store/reducers/messagesReducer';
 
 
 const mapStateToProps = (state) => ({
-  user: state.users.currentUser,
-  users: state.users.allUsers,
+  user: state.users.loginUser,
+  users: state.users.users,
   dialogs: state.messages.dialogs,
   newMessageText: state.messages.newMessageText
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onUpdateText: (messageText) => (
-    dispatch(updateMessageTextCreator(messageText))
+    dispatch(updateMessageTextAC(messageText))
   ),
   onSendMessage: (dialogId, userId) => (
-    dispatch(sendMessageCreator(dialogId, userId))
+    dispatch(sendMessageAC(dialogId, userId))
   )
 });
 

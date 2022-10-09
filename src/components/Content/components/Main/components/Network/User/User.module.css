@@ -1,0 +1,82 @@
+.user {
+  display: grid;
+  grid-template-rows: auto 1fr repeat(4, auto);
+  justify-items: center;
+  gap: 8px;
+
+  padding: 15px;
+  width: 200px;
+
+  background-color: var(--color-very-light);
+  border: 1px solid var(--color-normal);
+  border-radius: 10px;
+  cursor: pointer;
+
+  transition: box-shadow var(--transition-behavior);
+}
+
+.user:hover {
+  box-shadow: var(--box-shadow);
+}
+
+.user__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 6px;
+}
+
+.user__name {
+  text-align: center;
+}
+
+.user__status {
+  display: flex;
+  align-items: center;
+}
+
+.user__indicator {
+  display: inline-block;
+  margin-right: 4px;
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid var(--color-normal);
+  border-radius: 50%;
+}
+
+.user__indicator_offline {
+  background: #ff1212;
+}
+
+.user__indicator_online {
+  background: #50ff50;
+}
+
+.user__btns {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.user__btn {
+  padding: 10px 0;
+  width: 100%;
+
+  background: var(--color-normal);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+
+  transition: all var(--transition-behavior);
+}
+
+.user__btn:focus {
+  border: 2px solid var(--color-normal);
+}
+
+.user__btn:hover {
+  background: var(--color-dark);
+  color: var(--color-secondary)
+}

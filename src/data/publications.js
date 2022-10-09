@@ -57,13 +57,13 @@ const publications = [
     id: 10,
     userId: 9,
     publication: "Does anyone know where to get good whiskey?",
-    likes: 5,
+    likes: 1,
   },
   {
     id: 11,
     userId: 11,
-    publication: "Does anyone know where to get good whiskey?",
-    likes: 5,
+    publication: "I'm the best guard of the Earthrealm",
+    likes: 10,
   },
 ];
 

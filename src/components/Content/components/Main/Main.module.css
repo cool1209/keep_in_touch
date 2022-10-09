@@ -1,13 +1,12 @@
 .main {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 100%;
   grid-template-rows: 1fr;
 
-  margin-right: -3px;
-  padding-left: 15px;
+  margin-right: -4px;
 
   background-color: var(--color-bg-main-light);
-  border-radius: 8px;
+  border-radius: 10px;
 
   overflow-y: scroll;
 }

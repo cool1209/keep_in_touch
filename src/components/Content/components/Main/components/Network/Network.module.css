@@ -1,4 +1,42 @@
 .network {
-  display: grid;
-  grid-template-columns: 1fr 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.network__title {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.network__users {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  flex-grow: 1;
+
+  margin-bottom: 30px;
+}
+
+.network__btn {
+  display: block;
+  margin: 0 auto;
+  padding: 8px 16px;
+
+  background: var(--color-extra-normal);
+  border: 2px solid transparent;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+
+  transition: all var(--transition-behavior);
+}
+
+.network__btn:focus {
+  border: 2px solid var(--color-normal);
+}
+
+.network__btn:hover {
+  background: var(--color-dark);
+  color: var(--color-secondary)
 }

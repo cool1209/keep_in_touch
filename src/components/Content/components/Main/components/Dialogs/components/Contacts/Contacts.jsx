@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomNavLink from '../../../../../../../shared/CustomNavLink';
-import styles from './Contacts.module.css';
+import s from './Contacts.module.css';
 
 const Contacts = ({ user, users, dialogs }) => {
   const userDialogs = dialogs
@@ -15,12 +15,12 @@ const Contacts = ({ user, users, dialogs }) => {
   ).name;
 
   return (
-    <ul className={styles.contacts}>
+    <ul className={s.contacts}>
       {userDialogs.map(dialog => (
         <CustomNavLink
           to={`${dialog.id}`}
           name={getContactName(dialog)}
-          style={[styles.contacts__contact, styles.activeLink]}
+          style={[s.contacts__contact, s.activeLink]}
           key={dialog.id}
         />
       ))}

@@ -1,24 +1,24 @@
-import users from "../../data/users2";
-const GET_CURRENT_USER = 'GET_CURRENT_USER';
-const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
+import users from "../../data/users";
+const LOGIN_USER = 'LOGIN_USER';
+const LOGOUT_USER = 'LOGOUT_USER';
 
 const initialState = {
-  currentUser: {},
-  allUsers: users
+  loginUser: {},
+  users: users
 };
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_CURRENT_USER:
+    case LOGIN_USER:
       return {
         ...state,
-        currentUser: state.allUsers.find(user => user.id === action.payload)
+        loginUser: state.users.find(user => user.id === action.payload)
       }
 
-    case REMOVE_CURRENT_USER:
+    case LOGOUT_USER:
       return {
         ...state,
-        currentUser: {}
+        loginUser: {}
       }
 
     default:
@@ -26,11 +26,11 @@ const usersReducer = (state = initialState, action) => {
   };
 }
 
-export const getCurentUserCreator = (id) => ({
-    type: GET_CURRENT_USER,
+export const loginUserAC = (id) => ({
+    type: LOGIN_USER,
     payload: id
   });
 
-export const removeCurentUserCreator = () => ({ type: REMOVE_CURRENT_USER });
+export const logoutUserAC = () => ({ type: LOGOUT_USER });
 
 export default usersReducer;
