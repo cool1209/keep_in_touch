@@ -1,28 +1,28 @@
 import React from 'react';
-import styles from './UserInfo.module.css';
+import s from './UserInfo.module.css';
 import GetIcon from '../../../../../../../../img/GetIcon';
 import classNames from 'classnames';
 
 const UserInfo = ({ user, onLogoutUser }) => {
   return (
-    <section className={styles.user}>
-      <div className={styles.user__images}>
+    <section className={s.user}>
+      <div className={s.user__images}>
         <img
           src={user.wallpaper}
           alt='User profile wallpaper'
-          className={styles.user__wallpaper}
+          className={s.user__wallpaper}
         />
 
-        <div className={styles.user__avatarContainer}>
+        <div className={s.user__avatarContainer}>
           <img
             src={user.avatar}
             alt='User avatar'
-            className={styles.user__avatar}
+            className={s.user__avatar}
           />
         </div>
 
         <button
-          className={styles.user__logout}
+          className={s.user__logout}
           onClick={() => onLogoutUser()}
         >
           Logout
@@ -30,27 +30,27 @@ const UserInfo = ({ user, onLogoutUser }) => {
         </button>
       </div>
 
-      <div className={styles.user__info}>
-        <h2 className={styles.user__name}>
+      <div className={s.user__info}>
+        <h2 className={s.user__name}>
           {user.name}
         </h2>
 
-        <div className={styles.user__status}>
+        <div className={s.user__status}>
           <span className={classNames(
-            `${styles.user__indicator} ${styles.user__indicator_offline}`,
+            `${s.user__indicator} ${s.user__indicator_offline}`,
               {
-                [styles.user__indicator_online]: user.status === 'Online'
+                [s.user__indicator_online]: user.status === 'Online'
               }
             )}></span>
             
           <em>{user.status}</em>
         </div>
 
-        <div className={styles.user__city}>
+        <div className={s.user__city}>
           <b>Lives in:</b> {user.city}
         </div>
 
-        <div className={styles.user__about}>
+        <div className={s.user__about}>
           <b>About me:</b>
           <p>{user.about}</p>
         </div>

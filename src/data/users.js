@@ -6,7 +6,7 @@ const users = [
     status: "Offline",
     city: "New York",
     about: "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil. After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
-    friends: [2, 4, 5, 6],
+    friends: [2, 4, 5, 6, 19],
     avatar: "https://bit.ly/3RGqLZ0",
     wallpaper: "https://bit.ly/3dQ4OI8"
   },
@@ -50,7 +50,7 @@ const users = [
     status: "Offline",
     city: "Asgard",
     about: "In Norse mythology, he is a hammer-wielding god associated with lightning, thunder, storms, sacred groves and trees, strength, the protection of mankind, hallowing, and fertility.",
-    friends: [1, 4, 8],
+    friends: [1, 4, 8, 19],
     avatar: "https://bit.ly/3SWClzA",
     wallpaper: "https://bit.ly/3SV8OpE"
   },
@@ -84,8 +84,8 @@ const users = [
     city: "Asgard",
     about: "Loki is considered a trickster god, known for being neither fully good nor evil since his main aim was always to create chaos. Despite his father being a giant, he is still counted a member of the Aesir—a tribe of deities including Odin, Frigg, Tyr, and Thor.",
     friends: [4, 5],
-    avatar: "https://bit.ly/3CfgJHT",
-    wallpaper: "https://bit.ly/3fTGsht"
+    avatar: "https://bit.ly/3CLHi8M",
+    wallpaper: "https://bit.ly/3yuo05z"
   },
   {
     id: 9,
@@ -105,7 +105,7 @@ const users = [
     status: "Offline",
     city: "Gotham",
     about: "Superman was born on the fictional planet Krypton and was named Kal-El. As a baby, his parents sent him to Earth in a small spaceship moments before Krypton was destroyed in a natural cataclysm. His ship landed in the American countryside, near the fictional town of Smallville.",
-    friends: [9, 13],
+    friends: [9, 13, 18],
     avatar: "https://bit.ly/3RMp2AL",
     wallpaper: "https://bit.ly/3Evsb4L"
   },
@@ -138,7 +138,7 @@ const users = [
     status: "Offline",
     city: "Gotham",
     about: "In the name of his murdered parents, Bruce Wayne wages eternal war on the criminals of Gotham City. He is vengeance. He is the night. He is Batman.",
-    friends: [9, 10],
+    friends: [9, 10, 18],
     avatar: "https://bit.ly/3EvZ4ye",
     wallpaper: "https://bit.ly/3Cj5eiz"
   },
@@ -183,85 +183,85 @@ const users = [
     city: "Anywhere",
     about: "Immortal God of Thunder, Protector of the Earth. Raiden saved the Earth time and time again, gathering the bravest and strongest warriors of the time to participate in the Mortal Kombat tournament.",
     friends: [11, 16],
-    avatar: "https://bit.ly/3SULMQs",
-    wallpaper: "https://bit.ly/3TaGzUj"
+    avatar: "https://bit.ly/3VctFa1",
+    wallpaper: "https://bit.ly/3EtXoVX"
   },
   {
     id: 18,
-    name: "",
+    name: "Wonder Woman",
     login: "user-18",
-    status: "",
-    city: "",
-    about: "",
-    friends: [],
-    avatar: "",
-    wallpaper: ""
+    status: "Offline",
+    city: "Themyscira",
+    about: "Wonder Woman, was an Amazon, and possessed similar powers of super-strength and flight. Unlike most/all other versions, her golden lasso could change shape into any form she desired, including a giant winged serpent.",
+    friends: [10, 13],
+    avatar: "https://bit.ly/3T93pLT",
+    wallpaper: "https://bit.ly/3MgthmU"
   },
   {
     id: 19,
-    name: "",
+    name: "Carol Danvers",
     login: "user-19",
-    status: "",
-    city: "",
-    about: "",
-    friends: [],
-    avatar: "",
-    wallpaper: ""
+    status: "Offline",
+    city: "New York",
+    about: "Captain Marvel, is an impulsive United States Air Force pilot exposed to the energy of the Tesseract (which housed the Space Stone) while unknowingly amid an inter-universe war. The explosion gave her powerful superhuman powers and abilities.",
+    friends: [1, 5],
+    avatar: "https://bit.ly/3fV3Wm9",
+    wallpaper: "https://bit.ly/3TbDtiW"
   },
   {
     id: 20,
-    name: "",
+    name: "User name",
     login: "user-20",
-    status: "",
-    city: "",
-    about: "",
+    status: "Offline",
+    city: "somewhere...",
+    about: "Some text about some user...",
     friends: [],
-    avatar: "",
-    wallpaper: ""
+    avatar: "https://bit.ly/3MqaoOw",
+    wallpaper: "https://bit.ly/3emGlKL"
   },
   {
     id: 21,
-    name: "",
+    name: "User name",
     login: "user-21",
-    status: "",
-    city: "",
-    about: "",
+    status: "Offline",
+    city: "somewhere...",
+    about: "Some text about some user...",
     friends: [],
-    avatar: "",
-    wallpaper: ""
+    avatar: "https://bit.ly/3MqaoOw",
+    wallpaper: "https://bit.ly/3emGlKL"
   },
   {
     id: 22,
-    name: "",
+    name: "User name",
     login: "user-22",
-    status: "",
-    city: "",
-    about: "",
+    status: "Offline",
+    city: "somewhere...",
+    about: "Some text about some user...",
     friends: [],
-    avatar: "",
-    wallpaper: ""
+    avatar: "https://bit.ly/3MqaoOw",
+    wallpaper: "https://bit.ly/3emGlKL"
   },
   {
     id: 23,
-    name: "",
+    name: "User name",
     login: "user-23",
-    status: "",
-    city: "",
-    about: "",
+    status: "Offline",
+    city: "somewhere...",
+    about: "Some text about some user...",
     friends: [],
-    avatar: "",
-    wallpaper: ""
+    avatar: "https://bit.ly/3MqaoOw",
+    wallpaper: "https://bit.ly/3emGlKL"
   },
   {
     id: 24,
-    name: "",
+    name: "User name",
     login: "user-24",
-    status: "",
-    city: "",
-    about: "",
+    status: "Offline",
+    city: "somewhere...",
+    about: "Some text about some user...",
     friends: [],
-    avatar: "",
-    wallpaper: ""
+    avatar: "https://bit.ly/3MqaoOw",
+    wallpaper: "https://bit.ly/3emGlKL"
   }
 ];
 

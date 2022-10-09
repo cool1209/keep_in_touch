@@ -1,11 +1,11 @@
-import LoginPageContainer from './components/LoginPage/LoginPageContainer';
-import Content from './components/Content/Content';
+import LoginPageContainer from './pages/LoginPage/LoginPageContainer';
+import ContentPage from './pages/ContentPage/ContentPage';
 
 const App = ({ isUser }) => {
   return (
     <div className="app">
       {isUser
-        ? <Content />
+        ? <ContentPage />
         : <LoginPageContainer />
       }
     </div>

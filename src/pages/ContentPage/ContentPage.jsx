@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './Content.module.css';
+import s from './ContentPage.module.css';
 
 import Header from './components/Header/Header';
 import LeftSidebar from './components/LeftSidebar/LeftSidebar';
@@ -8,7 +8,7 @@ import RightSidebar from './components/RightSidebar/RightSidebar';
 import Footer from './components/Footer/Footer';
 
 
-const Content = () => {
+const ContentPage = () => {
   return (
     <div className={s.content}>
       <Header />
@@ -20,4 +20,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default ContentPage;

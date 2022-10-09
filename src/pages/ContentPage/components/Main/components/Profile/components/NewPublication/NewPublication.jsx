@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './NewPublication.module.css';
+import s from './NewPublication.module.css';
 
 const NewPublication = ({
   newPublicationText,
@@ -8,20 +8,20 @@ const NewPublication = ({
   onAddPublication
 }) => {
   return (
-    <section className={styles.userNewPublication}>
-      <h3 className={styles.userNewPublication__title}>
+    <section className={s.userNewPublication}>
+      <h3 className={s.userNewPublication__title}>
         Add a new publication:
       </h3>
 
       <textarea
-        className={styles.userNewPublication__textarea}
+        className={s.userNewPublication__textarea}
         onChange={(e) => onUpdatePublicationText(e.target.value)}
         placeholder='Write a publication...'
         value={newPublicationText}
       />
       
       <button
-        className={styles.userNewPublication__button}
+        className={s.userNewPublication__button}
         onClick={() => onAddPublication(user.id)}
       >
         Add puplication

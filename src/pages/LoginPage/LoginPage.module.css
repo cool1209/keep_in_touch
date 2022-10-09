@@ -1,0 +1,155 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+
+  border: 20px solid var(--color-normal);
+}
+
+.login__title {
+  margin-bottom: 20px;
+  
+  font-weight: bold;
+  font-size: 42px;
+  line-height: 1;
+  text-align: center;
+}
+
+
+.login__titlePart {
+  display: block;
+
+}
+
+.login__socialNetworksName {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+
+  font-size: 80px;
+  color: var(--color-dark);
+}
+
+.login__socialNetworksName:after {
+  content: "Keep in touch";
+  position: absolute;
+  left: 0;
+  width: 100%;
+
+  font-size: 77px;
+  font-weight: 400;
+  color: var(--color-light);
+}
+
+.login__description {
+  margin-bottom: 30px;
+  width: 450px;
+
+  text-align: center;
+}
+
+.login__hint {
+  margin-bottom: 15px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.login__users {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 3px;
+
+  margin-bottom: 15px;
+  padding: 3px;
+
+  background: var(--color-normal);
+}
+
+.login__user {
+  padding: 10px 5px;
+  text-align: center;
+  background: var(--color-secondary);
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  transition: all var(--transition-behavior);
+}
+
+.login__user:hover {
+  color: var(--color-secondary);
+  background: var(--color-dark);
+}
+
+.login__input::placeholder {
+  font-style: italic;
+}
+
+.login__field {
+  display: flex;
+}
+
+.login__input {
+  padding: 5px 10px;
+
+  font-size: var(--font-size-mobile);
+  
+  border: 1px solid var(--color-normal);
+  border-radius: 10px 0 0 10px;
+  outline: none;
+}
+
+.login__input::placeholder {
+  color: var(--color-normal);
+}
+
+.login__input:focus.messages__input::placeholder {
+  color: var(--color-dark);
+}
+
+.login__btn {
+  margin-left: -1px;
+  padding: 0 15px;
+  font-weight: bold;
+  font-size: 16px;
+  background: var(--color-normal);
+  border: 1px solid var(--color-тщкьфд);
+  border-radius: 0 10px 10px 0;
+  outline: none;
+  cursor: pointer;
+
+  transition: all var(--transition-behavior);
+}
+
+.login__btn:focus,
+.login__btn:hover {
+  background-color: var(--color-dark);
+  color: var(--color-secondary)
+}
+
+@media (max-width: 575px) {
+
+  .login {
+    border-width: 5px;
+  }
+
+  .login__title {
+    font-size: 32px;
+  }
+
+  .login__socialNetworksName {
+    font-size: 44px;
+  }
+  
+  .login__socialNetworksName:after {
+    font-size: 42px;
+  }
+
+  .login__description {
+    margin-bottom: 15px;
+    width: 300px;
+  }
+}
