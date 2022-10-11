@@ -7,7 +7,7 @@ const initialState = {
   newMessageText: '',
 };
 
-const messagesReducer = (state = initialState, action) => {
+const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MESSAGE:
       const copyState = {
@@ -55,4 +55,4 @@ export const updateMessageTextAC = (messageText) => ({
   messageText
 });
 
-export default messagesReducer;
+export default dialogsReducer;

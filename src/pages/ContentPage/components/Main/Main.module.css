@@ -1,9 +1,10 @@
 .main {
+  position: relative;
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 1fr;
 
-  background-color: var(--color-bg-main-light);
+  background: var(--color-secondary);
   border-radius: 10px;
 
   overflow-y: scroll;

@@ -1,7 +1,7 @@
 .home {
   padding: 15px 15px 0;
-  background: var(--color-very-light);
   border-radius: 10px;
+  background: var(--color-very-light);
 }
 
 .home__publications {
@@ -77,4 +77,16 @@
   font-size: var(--font-size-mini);
   text-decoration: underline;
   color: var(--color-dark)
+}
+
+@media (max-width: 767px) {
+  .home {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 575px) {
+  .home {
+    margin-bottom: 10px;
+  }
 }

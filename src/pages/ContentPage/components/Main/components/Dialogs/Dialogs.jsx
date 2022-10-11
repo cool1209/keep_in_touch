@@ -3,12 +3,21 @@ import styles from './Dialogs.module.css';
 
 import ContactsContainer from './components/Contacts/ContactsContainer';
 import MessagesContainer from './components/Messages/MessagesContainer';
+import WithNoData from '../../../../../shared/WithNoData/WithNoData';
 
-const Dialogs = () => { 
+const Dialogs = ({ user, dialogs }) => {
+  const userDialogs = dialogs
+    .filter(dialog => dialog.membersId.includes(user.id));
+
   return (
     <section className={styles.dialogs}>
-      <ContactsContainer />
-      <MessagesContainer />
+      {userDialogs.length
+      ? <>
+          <ContactsContainer />
+          <MessagesContainer />
+        </>
+      : <WithNoData message={"You don't have any dialogue..."} />
+      }
     </section>
   );
 };

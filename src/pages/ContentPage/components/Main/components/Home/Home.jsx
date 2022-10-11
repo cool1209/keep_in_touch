@@ -1,6 +1,6 @@
 import React from 'react';
 import GetIcon from '../../../../../../img/GetIcon';
-import IsLoading from '../../../../../shared/IsLoading/IsLoading';
+import WithNoData from '../../../../../shared/WithNoData/WithNoData';
 import styles from './Home.module.css';
 
 const Home = ({ users, publications }) => {
@@ -10,8 +10,8 @@ const Home = ({ users, publications }) => {
 
   return (
     <div className={styles.home}>
-      {publications.length > 0
-        ?<ul className={styles.home__publications}>
+      {publications.length
+      ? <ul className={styles.home__publications}>
           {publications.map(publication => (
             <li
               className={styles.home__publication}
@@ -48,7 +48,7 @@ const Home = ({ users, publications }) => {
           ))}
         </ul>
 
-        : <IsLoading text={'Publications is loading...'} />
+      : <WithNoData message={'Publications is loading...'} />
       }
     </div>
   );

@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import {
   sendMessageAC,
   updateMessageTextAC
-} from '../../../../../../../../store/reducers/messagesReducer';
+} from '../../../../../../../../store/reducers/dialogsReducer';
 
 
 const mapStateToProps = (state) => ({
   user: state.users.loginUser,
   users: state.users.users,
-  dialogs: state.messages.dialogs,
-  newMessageText: state.messages.newMessageText
+  dialogs: state.dialogs.dialogs,
+  newMessageText: state.dialogs.newMessageText
 });
 
 const mapDispatchToProps = (dispatch) => ({

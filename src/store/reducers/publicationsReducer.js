@@ -3,7 +3,7 @@ const ADD_PUBLICATION = 'ADD_PUBLICATION';
 const UPDATE_PUBLICATION_TEXT = 'UPDATE_PUBLICATION_TEXT';
 
 const initialState = {
-  publications: [],
+  publications: publications,
   newPublicationText: ''
 }
 
