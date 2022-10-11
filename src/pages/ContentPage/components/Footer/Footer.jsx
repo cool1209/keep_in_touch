@@ -1,15 +1,15 @@
 import React from 'react';
-import s from './Footer.module.css';
+import styles from './Footer.module.css';
 
 
 const Footer = () => {
   return (
-    <footer className={s.footer}>
+    <footer className={styles.footer}>
       "Keep in touch" - 2022. Copyright
       <a 
         href="https://www.linkedin.com/in/ihor-kuchin-6a3736203/"
         target={`_blank`}
-        className={s.footer__performer}
+        className={styles.footer__performer}
       >
         ik-web
       </a>

@@ -1,44 +1,107 @@
-import React from 'react';
-import s from './LoginPage.module.css';
+import React, { useState } from 'react';
+import styles from './LoginPage.module.css';
 
-const LoginPage = ({ users, onLoginUser }) => {
-  const filteredUsers = users.filter(user => user.name !== 'User name');
+const LoginPage = ({ onLoginUser }) => {
+  const users = [
+    {
+      name: "Tony",
+      login: "Iron-man"
+    },
+    {
+      name: "Peter",
+      login: "Spider-man"
+    },
+    {
+      name: "Wade",
+      login: "Deadpool"
+    },
+    {
+      name: "Natasha",
+      login: "Black-Widow"
+    },
+    {
+      name: "Thor",
+      login: "Thor"
+    },
+    {
+      name: "Bruce",
+      login: "Hulk"
+    },
+    {
+      name: "Stephen",
+      login: "Doctor-Strange"
+    },
+    {
+      name: "Loki",
+      login: "Loki"
+    },
+    {
+      name: "Arthur",
+      login: "Aquaman"
+    },
+    {
+      name: "Kal-El",
+      login: "Superman"
+    },
+    {
+      name: "Lao",
+      login: "Kung-Lao"
+    },
+    {
+      name: "Yuri",
+      login: "Undisputed"
+    }
+  ];
+
+  const [userLogin, setUserLogin] = useState('');
 
   return (
-    <div className={s.login}>
-      <h1 className={s.login__title}>
-        <span className={s.login__titlePart}>Welcome</span>
-        <span className={s.login__titlePart}>to</span>
-        <span className={s.login__socialNetworksName}>Keep in touch</span>
+    <div className={styles.login}>
+      <h1 className={styles.login__title}>
+        <span className={styles.login__titlePart}>Welcome</span>
+        <span className={styles.login__titlePart}>to</span>
+        <span className={styles.login__socialNetworkName}>Keep in touch</span>
       </h1>
 
-      <p className={s.login__description}>
-        The test login page to check the functionality of <br /> this social networks for different users.
+      <p className={styles.login__description}>
+        The test login page to check the functionality of this social network for different users.
       </p>
 
-      <p className={s.login__hint}>
-        Select a user and click the "Sign in" button.
-      </p>
-
-      <div className={s.login__users}>
-        {filteredUsers.map(user => (
-          <button
-            key={user.id}
-            className={s.login__user}
-          >{user.name}</button>
-        ))}
-      </div>
-
-      <div className={s.login__field}>
+      <div className={styles.login__field}>
         <input
-          className={s.login__input}
+          className={styles.login__input}
           type='text'
-          placeholder='Input your login...'
-          // value={}
+          placeholder='Enter your nickname...'
+          value={userLogin}
           disabled
         />
 
-        <button className={s.login__btn}>Sign in</button>
+        <button
+          className={styles.login__btn}
+          onClick={() => (
+            userLogin
+            ? onLoginUser(userLogin)
+            : null
+          )}
+        >
+          LogIn
+        </button>
+      </div>
+
+      <p className={styles.login__hint}>
+        Select a user below and click the "LogIn" button. 
+      </p>
+
+      <div className={styles.login__users}>
+        {users.map(user => (
+          <button
+            key={user.login}
+            className={styles.login__user}
+            onClick={() => setUserLogin(user.login)}
+          >
+            {user.name}
+          </button>
+        ))}
       </div>
     </div>
   );

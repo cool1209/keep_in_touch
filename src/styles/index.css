@@ -44,8 +44,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-
-  width: 4px;
+  width: 0;
 }
 
 ::-webkit-scrollbar-track {
@@ -93,6 +92,7 @@ ul {
 }
 
 .app {
+  min-width: 320px;
   height: 100vh;
   overflow-y: hidden;
 }
@@ -104,6 +104,10 @@ ul {
 }
 
 /* --------------------------------------------- */
+
+@media (max-width: 1279px) {
+
+}
 
 @media (max-width: 1023px) {
 

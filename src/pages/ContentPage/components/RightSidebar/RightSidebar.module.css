@@ -1,8 +1,22 @@
 .rightSidebar {
-  grid-area: rightAside;
+  grid-area: rightSidebar;
   margin-right: 15px;
   padding: 35px 0;
 
+  text-align: center;
+
   background: var(--color-normal);
   border-radius: 10px;
+}
+
+@media (max-width: 1399px) {
+  .rightSidebar {
+    padding: 10px 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .rightSidebar {
+    display: none;
+  }
 }

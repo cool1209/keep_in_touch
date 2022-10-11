@@ -1,17 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { GetImage } from '../../../../img/GetImage';
-import s from './Header.module.css';
+import styles from './Header.module.css';
 
 const Header = () => {
   return (
-    <header className={s.header}>
-      <div className={s.header__inner}>
+    <header className={styles.header}>
+      <div className={styles.header__inner}>
         <NavLink to="/profile">
           <GetImage id={'header-logo'} />
         </NavLink>
         
-        <h1 className={s.header__title}>
+        <h1 className={styles.header__title}>
           Keep in touch
         </h1>
       </div>

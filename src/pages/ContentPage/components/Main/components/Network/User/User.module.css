@@ -20,12 +20,12 @@
 }
 
 .user__avatar {
-  width: 120px;
-  height: 120px;
   border-radius: 6px;
+  max-width: 150px;
+  max-height: 150px;
 }
 
-.user__name {
+.user__nickname {
   text-align: center;
 }
 
@@ -52,15 +52,8 @@
   background: #50ff50;
 }
 
-.user__btns {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 5px;
-}
-
 .user__btn {
-  padding: 10px 0;
+  padding: 8px 0;
   width: 100%;
 
   background: var(--color-normal);
@@ -79,4 +72,32 @@
 .user__btn:hover {
   background: var(--color-dark);
   color: var(--color-secondary)
+}
+
+@media (max-width: 1399px) {
+  .user {
+    gap: 5px;
+    padding: 10px;
+    width:165px;
+  }
+
+  .user__avatar {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  .user__nickname {
+    font-size: var(--font-size-desktop);
+  }
+}
+
+@media (max-width: 374px) {
+  .user {
+    max-width:145px;
+  }
+  
+  .user__avatar {
+    width: 80px;
+    height: 80px;
+  }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import GetIcon from '../../../../../../img/GetIcon';
-import s from './Home.module.css';
+import IsLoading from '../../../../../shared/IsLoading/IsLoading';
+import styles from './Home.module.css';
 
 const Home = ({ users, publications }) => {
   const getPublicationAutor = (userId) => (
@@ -8,43 +9,47 @@ const Home = ({ users, publications }) => {
   ); 
 
   return (
-    <div className={s.home}>
-      <ul className={s.home__publications}>
-        {publications.map(publication => (
-          <li
-            className={s.home__publication}
-            key={publication.id}
-          > 
-            <div>
-              <img 
-                src={getPublicationAutor(publication.userId).avatar}
-                alt='Publication author avatar'
-                className={s.home__publicationAuthorAvatar}
-              />
+    <div className={styles.home}>
+      {publications.length > 0
+        ?<ul className={styles.home__publications}>
+          {publications.map(publication => (
+            <li
+              className={styles.home__publication}
+              key={publication.id}
+            > 
+              <div>
+                <img 
+                  src={getPublicationAutor(publication.userId).avatar}
+                  alt='Publication author avatar'
+                  className={styles.home__publicationAuthorAvatar}
+                />
 
-              <button className={s.home__likeBtn}>
-                <span className={s.home__likeIcon}>
-                  <GetIcon id='like-icon' />
-                </span>
+                <button className={styles.home__likeBtn}>
+                  <span className={styles.home__likeIcon}>
+                    <GetIcon id='like-icon' />
+                  </span>
 
-                <span className={s.home__likesCounter}>
-                  {publication.likes}
-                </span>
-              </button>
-            </div>
+                  <span className={styles.home__likesCounter}>
+                    {publication.likes}
+                  </span>
+                </button>
+              </div>
 
-            <div className={s.home__publicationText}>
-              <h3 className={s.home__publicationAuthor}>
-                {getPublicationAutor(publication.userId).name}:
-              </h3>
+              <div className={styles.home__publicationText}>
+                <h3 className={styles.home__publicationAuthor}>
+                  {getPublicationAutor(publication.userId).nickname}:
+                </h3>
 
-              <p>
-                {publication.publication}
-              </p>
-            </div>
-          </li>
-        ))}
-      </ul>
+                <p>
+                  {publication.publication}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        : <IsLoading text={'Publications is loading...'} />
+      }
     </div>
   );
 };

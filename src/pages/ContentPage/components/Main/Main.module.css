@@ -3,17 +3,26 @@
   grid-template-columns: 100%;
   grid-template-rows: 1fr;
 
-  margin-right: -4px;
-
   background-color: var(--color-bg-main-light);
   border-radius: 10px;
 
   overflow-y: scroll;
 }
 
+@media (max-width: 1399px) {
+  .main {
+    margin-right: 15px;
+  }
+}
+
 @media (max-width: 767px) {
   .main {
-    order: 1;
-    padding-left: 0;
+    margin: 15px 15px 0 15px;
+  }
+}
+
+@media (max-width: 575px) {
+  .main {
+    margin: 10px 10px 0 10px;
   }
 }

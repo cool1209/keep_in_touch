@@ -1,12 +1,13 @@
 import React from 'react';
-import s from './LeftSidebar.module.css';
+import styles from './LeftSidebar.module.css';
 
 import SideFriends from './components/SideFriends/SideFriends';
 import SideNav from './components/SideNav/SideNav';
 
+
 const LeftSidebar = () => {
   return (
-    <div className={s.sidebar}>
+    <div className={styles.leftSidebar}>
       <SideNav />
       <SideFriends />
     </div>

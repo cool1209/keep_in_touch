@@ -4,16 +4,16 @@
 }
 
 .header__inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr 60px;
   align-items: center;
   padding: 5px 15px;
 }
 
 .header__title {
-  margin-right: 70px;
   width: 100%;
 
-  font-size: 44px;
+  font-size: 36px;
   letter-spacing: 1px;
   text-align: center;
   color: var(--color-secondary);
@@ -26,7 +26,12 @@
   }
 
   .header__inner {
+    grid-template-columns: auto 1fr 45px;
     padding: 5px 10px;
+  }
+
+  .header__title {
+    font-size: 26px;
   }
 
   .header__logo {

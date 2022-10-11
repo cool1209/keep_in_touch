@@ -1,0 +1,8 @@
+.isLoading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-style: italic;
+  color: var(--color-dark);
+}

@@ -69,6 +69,11 @@
   margin-bottom: 15px;
 }
 
+.user__infoItemTitle {
+  font-style: italic;
+  font-family: var(--font-family-text);
+}
+
 .user__status {
   display: flex;
   align-items: center;
@@ -77,8 +82,7 @@
 }
 
 .user__indicator {
-  display: inline-block;
-  margin-right: 4px;
+  margin-right: 5px;
   width: 16px;
   height: 16px;
 
@@ -95,13 +99,13 @@
 }
 
 .user__city {
+  display: flex;
+  gap: 8px;
   margin-bottom: 15px;
-  font-style: italic;
 }
 
 .user__about {
   width: 50%;
-  font-style: italic;
 }
 
 @media (max-width: 1023px) {
@@ -125,8 +129,13 @@
   }
 
   .user__name {
+    margin-bottom: 10px;
     padding-left: 0;
     text-align: center;
+  }
+
+  .user__status {
+    justify-content: center;
   }
 
   .user__about {

@@ -12,7 +12,7 @@ const usersReducer = (state = initialState, action) => {
     case LOGIN_USER:
       return {
         ...state,
-        loginUser: state.users.find(user => user.id === action.payload)
+        loginUser: state.users.find(user => user.nickname === action.payload)
       }
 
     case LOGOUT_USER:
@@ -26,9 +26,9 @@ const usersReducer = (state = initialState, action) => {
   };
 }
 
-export const loginUserAC = (id) => ({
+export const loginUserAC = (login) => ({
     type: LOGIN_USER,
-    payload: id
+    payload: login
   });
 
 export const logoutUserAC = () => ({ type: LOGOUT_USER });

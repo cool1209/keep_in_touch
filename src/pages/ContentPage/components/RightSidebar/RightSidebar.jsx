@@ -1,10 +1,10 @@
 import React from 'react';
-import s from './RightSidebar.module.css';
+import styles from './RightSidebar.module.css';
 
 const RightSidebar = () => {
   return (
-    <div className={s.rightSidebar}>
-      
+    <div className={styles.rightSidebar}>
+      Another menu bar
     </div>
   );
 };

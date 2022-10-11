@@ -12,12 +12,9 @@
 
 .friends__list {
   display: flex;
+  justify-content: center;
   gap: 15px;
-
-  margin: 0 auto;
-  padding: 10px;
-  width: max-content;
-
+  
   border-radius: 10px;
 }
 

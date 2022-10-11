@@ -265,7 +265,7 @@ const dialogs = [
     ]
   },
   {
-    id: 15,
+    id: 16,
     membersId: [2, 7],
     messages: [
       {

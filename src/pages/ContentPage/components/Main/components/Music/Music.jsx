@@ -1,13 +1,13 @@
 import React from 'react';
-import s from './Music.module.css';
+import styles from './Music.module.css';
 
 const Music = () => {
   return (
-    <div className={s.music}>
+    <div className={styles.music}>
       <h1>Music page</h1>
       <h3> under development...</h3>
 
-      <h4  className={s.todo}>
+      <h4  className={styles.todo}>
         To Do:
       </h4>
       

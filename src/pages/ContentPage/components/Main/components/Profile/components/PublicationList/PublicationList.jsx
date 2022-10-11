@@ -1,6 +1,6 @@
 import React from 'react';
 import GetIcon from '../../../../../../../../img/GetIcon';
-import s from './PublicationList.module.css';
+import styles from './PublicationList.module.css';
 
 const PublicationList = ({ user, publications }) => {
   const getUserNewPublications = () => (
@@ -8,35 +8,35 @@ const PublicationList = ({ user, publications }) => {
   );
 
   return (
-    <section className={s.publicationList}>
-      <h3 className={s.publicationList__title}>
+    <section className={styles.publicationList}>
+      <h3 className={styles.publicationList__title}>
         All my publications:
       </h3>
 
       {getUserNewPublications().map(publication => (
         <article
-          className={`${s.publicationList__item} ${s.publication}`}
+          className={`${styles.publicationList__item} ${styles.publication}`}
           key={publication.id}
         >
-          <div className={s.publication__userInfo}>
+          <div className={styles.publication__userInfo}>
             <img 
               src={user.avatar}
               alt='User avatar'
-              className={s.publication__userAvatar}
+              className={styles.publication__userAvatar}
             />
     
-            <button className={s.publication__likeBtn}>
-              <span className={s.publication__likeIcon}>
+            <button className={styles.publication__likeBtn}>
+              <span className={styles.publication__likeIcon}>
                 <GetIcon id='like-icon' />
               </span>
 
-              <span className={s.publication__likesCounter}>
+              <span className={styles.publication__likesCounter}>
                 {publication.likes}
               </span>
             </button>
           </div>
           
-          <div className={s.publication__text}>
+          <div className={styles.publication__text}>
             {publication.publication}
           </div>
         </article>

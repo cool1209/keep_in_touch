@@ -1,43 +1,43 @@
 import classNames from 'classnames';
 import React from 'react';
-import s from './User.module.css';
+import styles from './User.module.css';
 
 const User = ({ user }) => {
 
   return (
-    <li className={s.user}>
+    <li className={styles.user}>
       <img
         src={user.avatar}
         alt="User avatar"
-        className={s.user__avatar}
+        className={styles.user__avatar}
       />
 
-      <h3 className={s.user__name}>
-        {user.name}
+      <h3 className={styles.user__nickname}>
+        {user.nickname}
       </h3>
 
 
-      <div className={s.user__status}>
+      <div className={styles.user__status}>
         <span className={classNames(
-          `${s.user__indicator} ${s.user__indicator_offline}`,
+          `${styles.user__indicator} ${styles.user__indicator_offline}`,
             {
-              [s.user__indicator_online]: user.status === 'Online'
+              [styles.user__indicator_online]: user.status === 'Online'
             }
           )}></span>
           
-        <em className={s.user__statusText}>{user.status}</em>
+        <em className={styles.user__statusText}>{user.status}</em>
       </div> 
 
-      <div className={s.user__sity}>
+      <div className={styles.user__sity}>
         {user.city}
       </div>
 
-      <button className={s.user__btn}>
-        Add to friends
+      <button className={styles.user__btn}>
+        Add friend
       </button>
 
-      <button className={s.user__btn}>
-        Send message
+      <button className={styles.user__btn}>
+        Message
       </button>
     </li>
   );

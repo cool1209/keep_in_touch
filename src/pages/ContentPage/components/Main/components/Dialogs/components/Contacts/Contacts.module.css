@@ -38,7 +38,7 @@
 
 @media (max-width: 575px) {
   .contacts {
-    padding: 0;
+    padding: 0 15px 0;
     height: 100%;
     border-right: none;
     background: var(--color-bg-main-light);

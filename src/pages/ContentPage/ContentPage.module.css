@@ -5,20 +5,40 @@
   gap: 15px;
   grid-template-areas: 
     "header header header"
-    "leftAside main rightAside"
+    "leftSidebar main rightSidebar"
     "footer footer footer";
 
   height: 100vh;
+  overflow: hidden;
+}
+
+@media (max-width: 1399px) {
+  .content {
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 15px;
+    grid-template-areas: 
+      "header header"
+      "leftSidebar rightSidebar"
+      "leftSidebar main"
+      "footer footer";
+  }
+}
+
+@media (max-width: 1023px) {
+  .content {
+    grid-template-columns: 200px 1fr;
+  }
 }
 
 @media (max-width: 767px) {
   .content {
-
-  }
-}
-
-@media (max-width: 575px) {
-  .content {
-    
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 0;
+    grid-template-areas: 
+      "header"
+      "main"
+      "leftSidebar ";
   }
 }

@@ -1,5 +1,5 @@
-.sidebar {
-  grid-area: leftAside;
+.leftSidebar {
+  grid-area: leftSidebar;
   margin-left: 15px;
   padding: 35px 0;
 
@@ -8,13 +8,13 @@
 }
 
 @media (max-width: 1023px) {
-  .sidebar {
-    padding: 25px 10px;
+  .leftSidebar {
+    padding: 25px 0;
   }
 }
 
 @media (max-width: 767px) {
-  .sidebar {
+  .leftSidebar {
     order: 2;
     margin: 0 -15px;
     padding: 15px;
@@ -24,7 +24,7 @@
 }
 
 @media (max-width: 575px) {
-  .sidebar {
+  .leftSidebar {
     padding: 10px 0;
     background-color: var(--color-dark);
   }
