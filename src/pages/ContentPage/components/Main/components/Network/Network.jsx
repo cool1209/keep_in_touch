@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Network.module.css';
 import User from './User/User';
 
-const Network = ({ users }) => {
+const Network = ({ users, onAddUsers }) => {
   const title = 'All users:';
 
   return (
@@ -15,7 +15,10 @@ const Network = ({ users }) => {
         ))}
       </ul>
 
-      <button className={styles.network__btn}>Show more...</button>
+      <button
+        className={styles.network__btn}
+        onClick={onAddUsers}
+      >Show more...</button>
     </section>
   );
 };

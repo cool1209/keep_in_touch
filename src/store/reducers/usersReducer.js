@@ -1,24 +1,22 @@
-import users from "../../data/users";
-const LOGIN_USER = 'LOGIN_USER';
-const LOGOUT_USER = 'LOGOUT_USER';
+import { getUsers } from "../../backend/server/server";
+
+const SET_USERS = 'SET_USERS';
+const ADD_USERS = 'ADD_USERS';
 
 const initialState = {
-  loginUser: {},
-  users: users
+  users: []
 };
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN_USER:
+    case SET_USERS:
       return {
-        ...state,
-        loginUser: state.users.find(user => user.nickname === action.payload)
+        users: getUsers(0)
       }
 
-    case LOGOUT_USER:
+    case ADD_USERS:
       return {
-        ...state,
-        loginUser: {}
+        users: [ ...state.users, ...getUsers(state.users.length) ]
       }
 
     default:
@@ -26,11 +24,12 @@ const usersReducer = (state = initialState, action) => {
   };
 }
 
-export const loginUserAC = (login) => ({
-    type: LOGIN_USER,
-    payload: login
-  });
+export const setUsersAC = () => ({
+  type: SET_USERS,
+});
 
-export const logoutUserAC = () => ({ type: LOGOUT_USER });
+export const addUsersAC = () => ({
+    type: ADD_USERS,
+  });
 
 export default usersReducer;

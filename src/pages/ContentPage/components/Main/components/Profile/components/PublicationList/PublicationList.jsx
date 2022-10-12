@@ -2,10 +2,7 @@ import React from 'react';
 import GetIcon from '../../../../../../../../img/GetIcon';
 import styles from './PublicationList.module.css';
 
-const PublicationList = ({ user, publications }) => {
-  const getUserNewPublications = () => (
-    publications.filter(publication => publication.userId === user.id)
-  );
+const PublicationList = ({ publications }) => {
 
   return (
     <section className={styles.publicationList}>
@@ -13,14 +10,14 @@ const PublicationList = ({ user, publications }) => {
         All my publications:
       </h3>
 
-      {getUserNewPublications().map(publication => (
+      {publications.map(publication => (
         <article
           className={`${styles.publicationList__item} ${styles.publication}`}
           key={publication.id}
         >
           <div className={styles.publication__userInfo}>
             <img 
-              src={user.avatar}
+              src={publication.authorAvatar}
               alt='User avatar'
               className={styles.publication__userAvatar}
             />

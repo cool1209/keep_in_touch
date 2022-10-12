@@ -1,14 +1,16 @@
 import { connect } from 'react-redux';
-import { logoutUserAC } from '../../../../../../../../store/reducers/usersReducer';
+import { logoutUserAC } from '../../../../../../../../store/reducers/loginUserReducer';
 import UserInfo from './UserInfo';
 
 
 const mapStateToProps = (state) => ({
-  user: state.users.loginUser
+  user: state.user.user
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onLogoutUser: () => dispatch(logoutUserAC())
+  onLogoutUser: () => {
+    dispatch(logoutUserAC());
+  }
 });
 
 const UserInfoContainer = connect(mapStateToProps, mapDispatchToProps)(UserInfo);

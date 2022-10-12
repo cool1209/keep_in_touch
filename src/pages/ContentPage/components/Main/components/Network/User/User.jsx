@@ -12,8 +12,8 @@ const User = ({ user }) => {
         className={styles.user__avatar}
       />
 
-      <h3 className={styles.user__nickname}>
-        {user.nickname}
+      <h3 className={styles.user__login}>
+        {user.login}
       </h3>
 
 

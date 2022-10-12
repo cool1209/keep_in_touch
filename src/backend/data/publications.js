@@ -1,5 +1,5 @@
 const publications = [
-{
+  {
     id: 1,
     userId: 2,
     publication: "I don't know what I should write here but I think this text is no bad :)",

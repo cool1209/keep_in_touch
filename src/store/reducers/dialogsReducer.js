@@ -1,14 +1,26 @@
-import dialogs from "../../data/dialogs";
+import {
+  getUserDialogs,
+  postNewMessage
+} from "../../backend/server/server";
+
+const SET_DIALOGS = 'SET_DIALOGS';
 const ADD_MESSAGE = 'ADD_MESSAGE';
 const UPDATE_MESSAGE_TEXT = 'UPDATE_MESSAGE_TEXT';
 
 const initialState = {
-  dialogs: dialogs,
+  dialogs: [],
   newMessageText: '',
 };
 
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_DIALOGS:
+      return {
+        ...state,
+        dialogs: getUserDialogs(),
+        newMessageText: ''
+      }
+
     case ADD_MESSAGE:
       const copyState = {
         ...state,
@@ -43,6 +55,10 @@ const dialogsReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export const setDialogsAC = () => ({
+  type: SET_DIALOGS,
+});
 
 export const sendMessageAC = (dialogId, authorId) => ({
   type: ADD_MESSAGE,

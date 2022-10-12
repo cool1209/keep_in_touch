@@ -6,26 +6,11 @@ import Message from './Message/Message';
 
 const Messages = ({
   user,
-  users,
   dialogs,
   newMessageText,
   onUpdateText,
   onSendMessage
 }) => {
-  const userDialogs = dialogs
-  .filter(dialog => dialog.membersId.includes(user.id));
-
-  const getAuthorAvatar = (id) => users.find(user => user.id === id).avatar;
-
-  const parseDialog = (dialog) => ({
-    id: dialog.id,
-    messages: dialog.messages.map(message => ({
-      id: message.id,
-      authorId: message.authorId,
-      authorAvatar: getAuthorAvatar(message.authorId),
-      message: message.message
-    }))
-  });
 
   return (
     <ul className={styles.messages}>
@@ -34,14 +19,14 @@ const Messages = ({
       </h2>
 
       <Routes>
-        {userDialogs.map(dialog => (
+        {dialogs.map(dialog => (
           <Route
             path={`${dialog.id}`}
             key={dialog.id} 
             element={
               <li className={styles.messages__container}>
                 <ul className={styles.messages__dialogMessages}>
-                  {parseDialog(dialog).messages.map(message => (
+                  {dialog.messages.map(message => (
                     <Message 
                       message={message}
                       user={user}

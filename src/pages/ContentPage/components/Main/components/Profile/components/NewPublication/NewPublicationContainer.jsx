@@ -7,7 +7,7 @@ import UserNewPublication from './NewPublication';
 
 const mapStateToProps = (state) => ({
   newPublicationText: state.publications.newPublicationText,
-  user: state.users.loginUser 
+  user: state.user.user 
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -8,8 +8,7 @@ import {
 
 
 const mapStateToProps = (state) => ({
-  user: state.users.loginUser,
-  users: state.users.users,
+  user: state.user.user,
   dialogs: state.dialogs.dialogs,
   newMessageText: state.dialogs.newMessageText
 });

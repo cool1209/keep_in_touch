@@ -3,11 +3,7 @@ import GetIcon from '../../../../../../img/GetIcon';
 import WithNoData from '../../../../../shared/WithNoData/WithNoData';
 import styles from './Home.module.css';
 
-const Home = ({ users, publications }) => {
-  const getPublicationAutor = (userId) => (
-    users.find(user => user.id === userId)
-  ); 
-
+const Home = ({ publications }) => {
   return (
     <div className={styles.home}>
       {publications.length
@@ -19,7 +15,7 @@ const Home = ({ users, publications }) => {
             > 
               <div>
                 <img 
-                  src={getPublicationAutor(publication.userId).avatar}
+                  src={publication.authorAvatar}
                   alt='Publication author avatar'
                   className={styles.home__publicationAuthorAvatar}
                 />
@@ -37,7 +33,7 @@ const Home = ({ users, publications }) => {
 
               <div className={styles.home__publicationText}>
                 <h3 className={styles.home__publicationAuthor}>
-                  {getPublicationAutor(publication.userId).nickname}:
+                  {publication.author}:
                 </h3>
 
                 <p>

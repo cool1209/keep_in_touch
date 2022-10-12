@@ -25,7 +25,7 @@
   height: 150px;
 }
 
-.user__nickname {
+.user__login {
   text-align: center;
 }
 
@@ -91,7 +91,7 @@
     height: 100px;
   }
 
-  .user__nickname {
+  .user__login {
     font-size: var(--font-size-desktop);
   }
 }

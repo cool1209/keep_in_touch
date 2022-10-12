@@ -1,28 +1,38 @@
-import publications from "../../data/publications.js";
+import {
+  getPublications,
+  postPublication
+} from "../../backend/server/server";
+
+const SET_PUBLICATIONS = 'SET_PUBLICATIONS';
 const ADD_PUBLICATION = 'ADD_PUBLICATION';
 const UPDATE_PUBLICATION_TEXT = 'UPDATE_PUBLICATION_TEXT';
 
 const initialState = {
-  publications: publications,
+  publications: [],
   newPublicationText: ''
 }
 
 const publicationsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_PUBLICATIONS:
+      return {
+        publications: getPublications(),
+        newPublicationText: ''
+      }
+
     case ADD_PUBLICATION:
-      const publicationId = state.publications.length + 1;
-      
       const newPublication = {
-        id: publicationId,
         likes: 0,
         publication: state.newPublicationText.trim(),
         userId: action.userId,
       }
       
       if (state.newPublicationText.trim()) {
+        postPublication(newPublication);
+
         return {
           ...state,
-          publications: [ ...state.publications, newPublication ],
+          publications: getPublications(),
           newPublicationText: ''
         }
       }
@@ -42,6 +52,10 @@ const publicationsReducer = (state = initialState, action) => {
       return state;
   }
 }
+
+export const setPublicationsAC = () => ({
+  type: SET_PUBLICATIONS
+});
 
 export const addPublicationAC = (userId) => ({
   type: ADD_PUBLICATION,

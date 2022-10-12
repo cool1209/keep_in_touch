@@ -1,4 +1,4 @@
-.login {
+.loginPage {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,7 +9,7 @@
   border: 20px solid var(--color-normal);
 }
 
-.login__title {
+.loginPage__title {
   margin-bottom: 20px;
   
   font-weight: bold;
@@ -19,12 +19,12 @@
 }
 
 
-.login__titlePart {
+.loginPage__titlePart {
   display: block;
 
 }
 
-.login__socialNetworkName {
+.loginPage__socialNetworkName {
   position: relative;
   display: inline-block;
   margin-bottom: 15px;
@@ -33,7 +33,7 @@
   color: var(--color-dark);
 }
 
-.login__socialNetworkName:after {
+.loginPage__socialNetworkName:after {
   content: "Keep in touch";
   position: absolute;
   left: 0;
@@ -44,19 +44,19 @@
   color: var(--color-light);
 }
 
-.login__description {
+.loginPage__description {
   margin-bottom: 20px;
   max-width: 400px;
 
   text-align: center;
 }
 
-.login__field {
+.loginPage__field {
   display: flex;
   margin-bottom: 20px;
 }
 
-.login__input {
+.loginPage__input {
   padding: 5px 10px;
   width: 200px;
   
@@ -68,15 +68,15 @@
   outline: none;
 }
 
-.login__input::placeholder {
+.loginPage__input::placeholder {
   color: var(--color-normal);
 }
 
-.login__input:focus.messages__input::placeholder {
+.loginPage__input:focus.messages__input::placeholder {
   color: var(--color-dark);
 }
 
-.login__btn {
+.loginPage__btn {
   margin-left: -1px;
   padding: 0 15px;
   font-size: 16px;
@@ -89,13 +89,13 @@
   transition: all var(--transition-behavior);
 }
 
-.login__btn:focus,
-.login__btn:hover {
+.loginPage__btn:focus,
+.loginPage__btn:hover {
   background-color: var(--color-dark);
   color: var(--color-secondary)
 }
 
-.login__hint {
+.loginPage__hint {
   margin-bottom: 20px;
   padding: 0 10px;
   max-width: 400px;
@@ -104,7 +104,7 @@
   font-weight: 600;
 }
 
-.login__users {
+.loginPage__users {
   display: grid;
   grid-template-columns: repeat(4, auto);
   gap: 3px;
@@ -115,7 +115,7 @@
   background: var(--color-normal);
 }
 
-.login__user {
+.loginPage__user {
   padding: 8px 10px;
   text-align: center;
   background: var(--color-secondary);
@@ -126,7 +126,7 @@
   transition: all var(--transition-behavior);
 }
 
-.login__user:hover {
+.loginPage__user:hover {
   color: var(--color-secondary);
   background: var(--color-dark);
 }
@@ -137,24 +137,24 @@
     border-width: 10px;
   }
 
-  .login__title {
+  .loginPage__title {
     font-size: 32px;
   }
 
-  .login__socialNetworkName {
+  .loginPage__socialNetworkName {
     font-size: 44px;
   }
   
-  .login__socialNetworkName:after {
+  .loginPage__socialNetworkName:after {
     font-size: 42px;
   }
 
-  .login__description {
+  .loginPage__description {
     margin-bottom: 15px;
     width: 300px;
   }
 
-  .login__users {
+  .loginPage__users {
     grid-template-columns: repeat(3, auto);
   }
 }
@@ -169,20 +169,20 @@
     overflow-y: scroll;
   }
 
-  .login__title {
+  .loginPage__title {
     font-size: 28px;
     margin-bottom: 0;
   }
 
-  .login__socialNetworkName {
+  .loginPage__socialNetworkName {
     font-size: 44px;
   }
   
-  .login__socialNetworkName:after {
+  .loginPage__socialNetworkName:after {
     font-size: 42px;
   }
 
-  .login__users {
+  .loginPage__users {
     grid-template-columns: repeat(6, auto);
   }
 }
