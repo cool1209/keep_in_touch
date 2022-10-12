@@ -275,7 +275,7 @@ const dialogs = [
       },
       {
         id: 2,
-        authorId: 5,
+        authorId: 7,
         message: "No, I didn't",
       }
     ]
