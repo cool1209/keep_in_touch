@@ -1,7 +1,7 @@
 import {
   getUserDialogs,
   postNewMessage
-} from "../../backend/server/server";
+} from "../../backend/server";
 
 const SET_DIALOGS = 'SET_DIALOGS';
 const ADD_MESSAGE = 'ADD_MESSAGE';
@@ -27,18 +27,14 @@ const dialogsReducer = (state = initialState, action) => {
       };
 
       if (state.newMessageText.trim()) {
-        copyState.dialogs = [ ...state.dialogs ];
-  
-        const currentDialog = copyState.dialogs[action.dialogId - 1];
-        const newMessageId = currentDialog.messages.length + 1;
-        
         const newMessage = {
-          id: newMessageId,
           authorId: action.authorId,
           message: state.newMessageText.trim(),
         }
         
-        currentDialog.messages.push(newMessage);
+        postNewMessage(action.dialogId, newMessage);
+        
+        copyState.dialogs = getUserDialogs();
       }
 
       copyState.newMessageText = '';

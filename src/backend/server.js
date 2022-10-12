@@ -1,6 +1,6 @@
-import users from "../data/users";
-import publications from "../data/publications";
-import dialogs from "../data/dialogs";
+import users from "./data/users";
+import publications from "./data/publications";
+import dialogs from "./data/dialogs";
 
 let userId = 0;
 
@@ -8,9 +8,15 @@ export const postUserLogin = (login) => (
   userId = users.find(user => user.login === login).id
 );
 
-export const getUser = () => (
-  users.find(user => user.id === userId)
+export const postUserLogout = (userId) => (
+  users.find(user => user.id === userId).status = 'Offline'
 );
+
+export const getUser = () => {
+  const user = users.find(user => user.id === userId);
+  user.status = 'Online';
+  return user;
+};
   
 export const getUsers = (stateUsers = 0) => (
   users.slice(stateUsers, (stateUsers + 6))
@@ -61,6 +67,10 @@ export const getUserDialogs = () => (
     }))
 );
 
-export const postNewMessage = () => {
+export const postNewMessage = (dialogId, message) => {
+  const currentDialog = dialogs.find(dialog => dialog.id === dialogId);
+  const newMessageId = currentDialog.messages.length + 1;
+  const newMessage = {...message, id: newMessageId }
 
+  currentDialog.messages.push(newMessage);
 };

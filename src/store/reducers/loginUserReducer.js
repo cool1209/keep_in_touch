@@ -1,7 +1,8 @@
 import {
   postUserLogin,
+  postUserLogout,
   getUser
-} from "../../backend/server/server";
+} from "../../backend/server";
 
 const LOGIN_USER = 'LOGIN_USER';
 const LOGOUT_USER = 'LOGOUT_USER';
@@ -17,10 +18,12 @@ const loginUserReducer = (state = initialState, action) => {
 
       return {
         ...state,
-        user: getUser()
+        user: getUser(),
       }
 
     case LOGOUT_USER:
+      postUserLogout(state.user.id);
+
       return {
         ...state,
         user: {}

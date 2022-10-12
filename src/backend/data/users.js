@@ -262,6 +262,72 @@ const users = [
     friends: [],
     avatar: "https://bit.ly/3MqaoOw",
     wallpaper: "https://bit.ly/3emGlKL"
+  },
+  {
+    id: 25,
+    name: "User name",
+    login: "user-25",
+    status: "Offline",
+    city: "somewhere...",
+    about: "Some text about some user...",
+    friends: [],
+    avatar: "https://bit.ly/3MqaoOw",
+    wallpaper: "https://bit.ly/3emGlKL"
+  },
+  {
+    id: 26,
+    name: "User name",
+    login: "user-26",
+    status: "Offline",
+    city: "somewhere...",
+    about: "Some text about some user...",
+    friends: [],
+    avatar: "https://bit.ly/3MqaoOw",
+    wallpaper: "https://bit.ly/3emGlKL"
+  },
+  {
+    id: 27,
+    name: "User name",
+    login: "user-27",
+    status: "Offline",
+    city: "somewhere...",
+    about: "Some text about some user...",
+    friends: [],
+    avatar: "https://bit.ly/3MqaoOw",
+    wallpaper: "https://bit.ly/3emGlKL"
+  },
+  {
+    id: 28,
+    name: "User name",
+    login: "user-28",
+    status: "Offline",
+    city: "somewhere...",
+    about: "Some text about some user...",
+    friends: [],
+    avatar: "https://bit.ly/3MqaoOw",
+    wallpaper: "https://bit.ly/3emGlKL"
+  },
+  {
+    id: 29,
+    name: "User name",
+    login: "user-29",
+    status: "Offline",
+    city: "somewhere...",
+    about: "Some text about some user...",
+    friends: [],
+    avatar: "https://bit.ly/3MqaoOw",
+    wallpaper: "https://bit.ly/3emGlKL"
+  },
+  {
+    id: 30,
+    name: "User name",
+    login: "user-30",
+    status: "Offline",
+    city: "somewhere...",
+    about: "Some text about some user...",
+    friends: [],
+    avatar: "https://bit.ly/3MqaoOw",
+    wallpaper: "https://bit.ly/3emGlKL"
   }
 ];
 

@@ -1,4 +1,4 @@
-import { getUsers } from "../../backend/server/server";
+import { getUsers } from "../../backend/server";
 
 const SET_USERS = 'SET_USERS';
 const ADD_USERS = 'ADD_USERS';

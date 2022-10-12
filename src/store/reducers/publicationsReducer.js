@@ -1,7 +1,7 @@
 import {
   getPublications,
   postPublication
-} from "../../backend/server/server";
+} from "../../backend/server";
 
 const SET_PUBLICATIONS = 'SET_PUBLICATIONS';
 const ADD_PUBLICATION = 'ADD_PUBLICATION';
