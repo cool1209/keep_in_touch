@@ -133,7 +133,7 @@
 
 @media (max-width: 575px) {
 
-  .login {
+  .loginPage {
     border-width: 10px;
   }
 
@@ -161,7 +161,7 @@
 
 @media (orientation: landscape) and (max-width: 767px) {
 
-  .login {
+  .loginPage {
     justify-content: start;
     padding-top: 10px;
     border-width: 10px;
