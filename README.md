@@ -29,35 +29,35 @@ and Redux, Flux architecture, data interaction, etc.
 ## Documentation
 
 > **1. Login page:** 
->- You can choose a character for entering the social network
+>- You can choose a user for entering the social network (choose a user and click the `logIn` button).
 >
 > **2. Home page:** 
->- It is possible to view the publications of all characters.
+>- On this page you can view the publications of all users.
 >
 > **3. Dialogs page:**
 > - It is possible to select a contact and write a message (then you can switch 
 > to the account of the person to whom the message was sent and read it).
 >
 > **4. Network page:**
->- Content is temporarily unavailable...
+>- On this page, you can view the users of this network.
 >
 > **5. Music page:**
 >- Content is temporarily unavailable...
 >
 > **6. Profile page:**
->- You can logout from your account (button in the upper right corner).
->- You can view information about the character.
+>- You can logout from your account (in the upper right corner of the wallpaper).
+>- You can view user information.
 >- You can add a new publication.
 
  **Added changes:**
- - HomePage changed to LoginPage
- - Settings page removed
- - News page renamed to Home page
- - Messages page renamed to Dialogs page
+ - Changed a way to enter to the network
+ - Added user city and network status
+ - Changed user description
  - Added Network page
- - Added react-redux library
- - Added component containers using react-redux connect
- - Changed some stules
+ - Added one more a menu bar
+ - Fixed database
+ - Fixed reducers
+ - Changed some styles
  - Fixed some bugs
 
 
