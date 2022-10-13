@@ -1,7 +1,4 @@
-import {
-  getUserDialogs,
-  postNewMessage
-} from "../../backend/server";
+import server from "../../backend/server";
 
 const SET_DIALOGS = 'SET_DIALOGS';
 const ADD_MESSAGE = 'ADD_MESSAGE';
@@ -17,29 +14,37 @@ const dialogsReducer = (state = initialState, action) => {
     case SET_DIALOGS:
       return {
         ...state,
-        dialogs: getUserDialogs(),
-        newMessageText: ''
+        dialogs: action.dialogs,
       }
 
     case ADD_MESSAGE:
-      const copyState = {
-        ...state,
-      };
-
       if (state.newMessageText.trim()) {
+        const currentDialogMessages = state.dialogs
+        .find(dialog => dialog.id === action.dialogId)
+        .messages;
+
         const newMessage = {
-          authorId: action.authorId,
+          id: currentDialogMessages.length + 1,
+          dialogId: action.dialogId,
+          authorId: action.user.id,
+          authorAvatar: action.user.avatar,
           message: state.newMessageText.trim(),
         }
-        
-        postNewMessage(action.dialogId, newMessage);
-        
-        copyState.dialogs = getUserDialogs();
+
+        server.post('server/api/message', newMessage);
+
+        currentDialogMessages.push(newMessage);
+
+        return {
+          ...state,
+          newMessageText: ''
+        }
       }
 
-      copyState.newMessageText = '';
-      
-      return copyState;
+      return {
+        ...state,
+        newMessageText: ''
+      }
 
     case UPDATE_MESSAGE_TEXT:
       return {
@@ -52,14 +57,15 @@ const dialogsReducer = (state = initialState, action) => {
   }
 };
 
-export const setDialogsAC = () => ({
+export const setDialogsAC = (dialogs) => ({
   type: SET_DIALOGS,
+  dialogs
 });
 
-export const sendMessageAC = (dialogId, authorId) => ({
+export const sendMessageAC = (dialogId, user) => ({
   type: ADD_MESSAGE,
   dialogId,
-  authorId
+  user
 });
 
 export const updateMessageTextAC = (messageText) => ({

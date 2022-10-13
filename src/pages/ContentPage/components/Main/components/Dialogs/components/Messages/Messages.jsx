@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Messages.module.css';
 import { Route, Routes } from 'react-router-dom';
 import Message from './Message/Message';
+import WithNoData from '../../../../../../../shared/WithNoData/WithNoData';
 
 
 const Messages = ({
@@ -14,9 +15,12 @@ const Messages = ({
 
   return (
     <ul className={styles.messages}>
-      <h2 className={styles.messages__hint}>
-        Please select a contact
-      </h2>
+      <div className={styles.messages__hint}>
+        {dialogs.length
+          ? <WithNoData message={'Please select a contact'} />
+          : <WithNoData message={"You don't have any dialogue..."} />
+        }
+      </div>
 
       <Routes>
         {dialogs.map(dialog => (
@@ -45,7 +49,7 @@ const Messages = ({
                   />
                   <button
                     className={styles.messages__btn}
-                    onClick={() => onSendMessage(dialog.id, user.id)}
+                    onClick={() => onSendMessage(dialog.id, user)}
                   >Send</button>
                 </div>
               </li>

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import server from '../../backend/server';
 import styles from './LoginPage.module.css';
 
-const LoginPage = ({ onLoginUser }) => {
-  const [userLogin, setUserLogin] = useState('');
+const LoginPage = ({ setUser }) => {
+  const [login, setLogin] = useState('');
   const users = [
     {
       name: "Tony",
@@ -54,6 +55,13 @@ const LoginPage = ({ onLoginUser }) => {
     }
   ];
 
+  const loginUser = (login) => {
+    server.get('server/api/user/' + login)
+    .then(user => {
+      setUser(user);
+    })
+  }
+
   return (
     <div className={styles.loginPage}>
       <h1 className={styles.loginPage__title}>
@@ -71,15 +79,15 @@ const LoginPage = ({ onLoginUser }) => {
           className={styles.loginPage__input}
           type='text'
           placeholder='Enter your login...'
-          value={userLogin}
+          value={login}
           disabled
         />
 
         <button
           className={styles.loginPage__btn}
           onClick={() => (
-            userLogin
-            ? onLoginUser(userLogin)
+            login
+            ? loginUser(login)
             : null
           )}
         >
@@ -96,7 +104,7 @@ const LoginPage = ({ onLoginUser }) => {
           <button
             key={user.login}
             className={styles.loginPage__user}
-            onClick={() => setUserLogin(user.login)}
+            onClick={() => setLogin(user.login)}
           >
             {user.name}
           </button>

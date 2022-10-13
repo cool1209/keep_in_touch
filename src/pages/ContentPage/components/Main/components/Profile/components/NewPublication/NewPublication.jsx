@@ -22,7 +22,7 @@ const NewPublication = ({
       
       <button
         className={styles.userNewPublication__button}
-        onClick={() => onAddPublication(user.id)}
+        onClick={() => onAddPublication(user.id, user.avatar)}
       >
         Add puplication
       </button>

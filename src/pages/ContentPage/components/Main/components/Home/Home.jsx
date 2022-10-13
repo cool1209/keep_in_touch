@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import server from '../../../../../../backend/server';
 import GetIcon from '../../../../../../img/GetIcon';
 import WithNoData from '../../../../../shared/WithNoData/WithNoData';
 import styles from './Home.module.css';
 
-const Home = ({ publications }) => {
+const Home = ({ publications, setPublications }) => {
+  useEffect(() => {
+    server.get('server/api/publications/')
+    .then((publications) => {
+      setPublications(publications);
+    });
+  }, []);
+
   return (
     <div className={styles.home}>
       {publications.length

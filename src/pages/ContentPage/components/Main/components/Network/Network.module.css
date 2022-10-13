@@ -1,7 +1,6 @@
 .network {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
 }
 
 .network__title {
@@ -14,13 +13,11 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
-
-  margin-bottom: 35px;
 }
 
 .network__btn {
   display: block;
-  margin: 0 auto;
+  margin: 35px auto 20px;
   padding: 8px 16px;
 
   background: var(--color-extra-normal);

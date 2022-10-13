@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import server from '../../../../../../backend/server';
 import styles from './Network.module.css';
 import User from './User/User';
 
-const Network = ({ users, onAddUsers }) => {
+const Network = ({ users, setUsers, addUsers }) => {
   const title = 'All users:';
+  const [ page, setPage ] = useState(1);
+  const [ isBtn, setIsBtn ] = useState(true);
+
+  const getUsers = (action) => {
+    server.get('server/api/users/' + page)
+    .then(users => {
+      if (users) {
+        action(users);
+        setPage(page + 1);
+      } else {
+        setIsBtn(false);
+      }
+    })
+  }
+  
+  useEffect(() => {
+    getUsers(setUsers)
+  }, []);
 
   return (
     <section className={styles.network}>
@@ -14,11 +33,13 @@ const Network = ({ users, onAddUsers }) => {
           <User user={user}  key={user.id} />
         ))}
       </ul>
-
-      <button
-        className={styles.network__btn}
-        onClick={onAddUsers}
-      >Show more...</button>
+      
+      {isBtn &&
+        <button
+          className={styles.network__btn}
+          onClick={() => getUsers(addUsers)}
+        >Show more...</button>
+      }
     </section>
   );
 };

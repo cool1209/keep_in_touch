@@ -1,22 +1,30 @@
-import { getUsers } from "../../backend/server";
-
+const SET_USER = 'SET_USER';
 const SET_USERS = 'SET_USERS';
 const ADD_USERS = 'ADD_USERS';
 
 const initialState = {
+  user: {},
   users: []
 };
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_USER:
+      return {
+        ...state,
+        user: action.user,
+      }
+
     case SET_USERS:
       return {
-        users: getUsers(0)
+        ...state,
+        users: action.users
       }
 
     case ADD_USERS:
       return {
-        users: [ ...state.users, ...getUsers(state.users.length) ]
+        ...state,
+        users: [ ...state.users, ...action.users ]
       }
 
     default:
@@ -24,12 +32,19 @@ const usersReducer = (state = initialState, action) => {
   };
 }
 
-export const setUsersAC = () => ({
-  type: SET_USERS,
+export const setUserAC = (user) => ({
+  type: SET_USER,
+  user
 });
 
-export const addUsersAC = () => ({
+export const setUsersAC = (users) => ({
+  type: SET_USERS,
+  users
+});
+
+export const addUsersAC = (users) => ({
     type: ADD_USERS,
+    users
   });
 
 export default usersReducer;

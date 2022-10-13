@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Dialogs.module.css';
 
 import ContactsContainer from './components/Contacts/ContactsContainer';
 import MessagesContainer from './components/Messages/MessagesContainer';
-import WithNoData from '../../../../../shared/WithNoData/WithNoData';
+import server from '../../../../../../backend/server';
 
-const Dialogs = ({ dialogs }) => {
+const Dialogs = ({ user, setDialogs }) => {
+  useEffect(() => {
+    server.get('server/api/dialogs/' + user.id)
+    .then(dialogs => {
+      setDialogs(dialogs)
+    });
+  }, []);
+
   return (
     <section className={styles.dialogs}>
-      {dialogs.length
-      ? <>
-          <ContactsContainer />
-          <MessagesContainer />
-        </>
-      : <WithNoData message={"You don't have any dialogue..."} />
-      }
+      <ContactsContainer />
+      <MessagesContainer />
     </section>
   );
 };

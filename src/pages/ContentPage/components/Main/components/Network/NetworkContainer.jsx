@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { addUsersAC } from "../../../../../../store/reducers/usersReducer";
+import { addUsersAC, setUsersAC } from "../../../../../../store/reducers/usersReducer";
 import Network from "./Network";
 
 const mapStateToProps = (state) => ({
@@ -7,8 +7,11 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onAddUsers: () => {
-    dispatch(addUsersAC());
+  setUsers: (users) => {
+    dispatch(setUsersAC(users));
+  },
+  addUsers: (users) => {
+    dispatch(addUsersAC(users));
   }
 });
 

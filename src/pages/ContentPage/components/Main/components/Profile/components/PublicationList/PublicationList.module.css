@@ -1,3 +1,8 @@
+.publicationList__inner {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .publicationList__title {
   margin-bottom: 20px;
 }

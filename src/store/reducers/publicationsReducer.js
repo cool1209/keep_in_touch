@@ -1,38 +1,45 @@
-import {
-  getPublications,
-  postPublication
-} from "../../backend/server";
+import server from "../../backend/server";
 
 const SET_PUBLICATIONS = 'SET_PUBLICATIONS';
-const ADD_PUBLICATION = 'ADD_PUBLICATION';
+const SET_USER_PUBLICATIONS = 'SET_USER_PUBLICATIONS';
+const ADD_NEW_PUBLICATION = 'ADD_NEW_PUBLICATION';
 const UPDATE_PUBLICATION_TEXT = 'UPDATE_PUBLICATION_TEXT';
 
 const initialState = {
+  userPublications: [],
   publications: [],
   newPublicationText: ''
 }
 
 const publicationsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_PUBLICATIONS:
+    case SET_USER_PUBLICATIONS:
       return {
-        publications: getPublications(),
-        newPublicationText: ''
+        ...state,
+        userPublications: action.publications,
       }
 
-    case ADD_PUBLICATION:
-      const newPublication = {
-        likes: 0,
-        publication: state.newPublicationText.trim(),
-        userId: action.userId,
+    case SET_PUBLICATIONS:
+      return {
+        ...state,
+        publications: action.publications,
       }
-      
+
+    case ADD_NEW_PUBLICATION:
       if (state.newPublicationText.trim()) {
-        postPublication(newPublication);
+        const newPublication = {
+          id: state.userPublications.length + 1,
+          userId: action.userId,
+          authorAvatar: action.userAvatar,
+          publication: state.newPublicationText.trim(),
+          likes: 0,
+        }
+        
+        server.post('server/api/publication', newPublication);
 
         return {
           ...state,
-          publications: getPublications(),
+          userPublications: [...state.userPublications, newPublication],
           newPublicationText: ''
         }
       }
@@ -53,13 +60,20 @@ const publicationsReducer = (state = initialState, action) => {
   }
 }
 
-export const setPublicationsAC = () => ({
-  type: SET_PUBLICATIONS
+export const setPublicationsAC = (publications) => ({
+  type: SET_PUBLICATIONS,
+  publications
 });
 
-export const addPublicationAC = (userId) => ({
-  type: ADD_PUBLICATION,
-  userId
+export const setUserPublicationsAC = (publications) => ({
+  type: SET_USER_PUBLICATIONS,
+  publications
+});
+
+export const addNewPublicationAC = (userId, userAvatar) => ({
+  type: ADD_NEW_PUBLICATION,
+  userId,
+  userAvatar
 });
 
 export const updatePublicationTextAC = (text) => ({

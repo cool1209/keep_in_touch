@@ -2,8 +2,15 @@ import React from 'react';
 import styles from './UserInfo.module.css';
 import GetIcon from '../../../../../../../../img/GetIcon';
 import classNames from 'classnames';
+import server from '../../../../../../../../backend/server';
 
-const UserInfo = ({ user, onLogoutUser }) => {
+const UserInfo = ({ user, setUser }) => {
+
+  const logoutUser = (id) => {
+    server.put('server/api/user/' + id);
+    setUser();
+  }
+
   return (
     <section className={styles.user}>
       <div className={styles.user__images}>
@@ -23,7 +30,7 @@ const UserInfo = ({ user, onLogoutUser }) => {
 
         <button
           className={styles.user__logout}
-          onClick={() => onLogoutUser()}
+          onClick={() => logoutUser(user.id)}
         >
           Logout
           <GetIcon id='logout-icon' />

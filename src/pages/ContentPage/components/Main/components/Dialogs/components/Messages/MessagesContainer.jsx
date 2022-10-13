@@ -8,7 +8,7 @@ import {
 
 
 const mapStateToProps = (state) => ({
-  user: state.user.user,
+  user: state.users.user,
   dialogs: state.dialogs.dialogs,
   newMessageText: state.dialogs.newMessageText
 });
@@ -17,8 +17,8 @@ const mapDispatchToProps = (dispatch) => ({
   onUpdateText: (messageText) => (
     dispatch(updateMessageTextAC(messageText))
   ),
-  onSendMessage: (dialogId, userId) => (
-    dispatch(sendMessageAC(dialogId, userId))
+  onSendMessage: (dialogId, user) => (
+    dispatch(sendMessageAC(dialogId, user))
   )
 });
 

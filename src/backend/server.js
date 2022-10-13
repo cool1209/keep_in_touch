@@ -1,76 +1,88 @@
-import users from "./data/users";
-import publications from "./data/publications";
-import dialogs from "./data/dialogs";
+import users from "./database/users";
+import publications from "./database/publications";
+import dialogs from "./database/dialogs";
+import {
+  getDialogs,
+  getHeaderEndpoint,
+  getLogInUser,
+  getPublications,
+  getUserPublications,
+  getUsers,
+  postNewMessage,
+  postNewPublication,
+  setLogoutUser
+} from "./serverFunctions";
 
-let userId = 0;
+const server = {
+  get: (header) => {
+    const [ action, parameter ] = getHeaderEndpoint(header);
 
-export const postUserLogin = (login) => (
-  userId = users.find(user => user.login === login).id
-);
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        switch(action) {
+          case 'user':
+            resolve(getLogInUser(parameter, users));
+            break;
+          case 'users':
+            resolve(getUsers(parameter, users));
+            break;
+    
+          case 'publications':
+            resolve(getPublications(publications, users));
+            break;
 
-export const postUserLogout = (userId) => (
-  users.find(user => user.id === userId).status = 'Offline'
-);
+          case 'user-publications':
+            resolve(getUserPublications(parameter, publications, users));
+            break;
 
-export const getUser = () => {
-  const user = users.find(user => user.id === userId);
-  user.status = 'Online';
-  return user;
+          case 'dialogs':
+            resolve(getDialogs(parameter, dialogs, users));
+            break;
+
+          default:
+            reject('404 (not found)');
+        }
+      }, 1000)
+    })
+  },
+
+  post: (header, body) => {
+    const [ action ] = getHeaderEndpoint(header);
+        
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        switch(action) {
+          case 'publication':
+            resolve(postNewPublication(body, publications));
+            break;
+
+          case 'message':
+            resolve(postNewMessage(body, dialogs));
+            break;
+
+          default:
+            reject('404 (not found)');
+        }
+      }, 100)
+    })
+  },
+
+  put: (header) => {
+    const [ action, parameter ] = getHeaderEndpoint(header);
+    
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        switch(action) {
+          case 'user':
+            resolve(setLogoutUser(parameter, users));
+            break;
+
+          default:
+            reject('404 (not found)');
+        }
+      }, 10000)
+    })
+  }
 };
-  
-export const getUsers = (stateUsers = 0) => (
-  users.slice(stateUsers, (stateUsers + 6))
-);
 
-// export const getUsers1 = (pageLength = 6) => {
-
-// };
-
-export const getPublications = () => (
-  publications.map(publication => (
-    {
-      id: publication.id,
-      userId: publication.userId,
-      author: users.find(user => user.id === publication.userId).login,
-      authorAvatar:  users.find(user => user.id === publication.userId).avatar,
-      publication: publication.publication,
-      likes: publication.likes,
-    }
-  ))
-);
-      
-export const postPublication = (publication) => (
-  publications.push({
-    ...publication,
-    id: publications.length + 1
-  })
-);
-
-export const getUserDialogs = () => (
-  dialogs
-    .filter(dialog => dialog.membersId.includes(userId))
-    .map(dialog => ({
-      id: dialog.id,
-      contact: users
-        .find(user => user.id === dialog.membersId.find(id => id !== userId))
-        .login,
-      contactAvatar: users
-        .find(user => user.id === dialog.membersId.find(id => id !== userId))
-        .avatar,
-      messages: dialog.messages.map(message => ({
-        id: message.id,
-        authorId: message.authorId,
-        author:  users.find(user => user.id === message.authorId).login,
-        authorAvatar: users.find(user => user.id === message.authorId).avatar,
-        message: message.message
-      }))
-    }))
-);
-
-export const postNewMessage = (dialogId, message) => {
-  const currentDialog = dialogs.find(dialog => dialog.id === dialogId);
-  const newMessageId = currentDialog.messages.length + 1;
-  const newMessage = {...message, id: newMessageId }
-
-  currentDialog.messages.push(newMessage);
-};
+export default server;

@@ -1,15 +1,19 @@
 import { connect } from 'react-redux';
-import { logoutUserAC } from '../../../../../../../../store/reducers/loginUserReducer';
+import { setDialogsAC } from '../../../../../../../../store/reducers/dialogsReducer';
+import { setPublicationsAC } from '../../../../../../../../store/reducers/publicationsReducer';
+import { setUserAC } from '../../../../../../../../store/reducers/usersReducer';
 import UserInfo from './UserInfo';
 
 
 const mapStateToProps = (state) => ({
-  user: state.user.user
+  user: state.users.user
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onLogoutUser: () => {
-    dispatch(logoutUserAC());
+  setUser: () => {
+    dispatch(setUserAC({}));
+    dispatch(setPublicationsAC([]));
+    dispatch(setDialogsAC([]));
   }
 });
 
