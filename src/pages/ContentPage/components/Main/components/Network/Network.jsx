@@ -1,47 +1,43 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import server from '../../../../../../backend/server';
 import styles from './Network.module.css';
 import User from './User/User';
 
-const Network = ({ users, setUsers, addUsers }) => {
-  const title = 'All users:';
-  const [ page, setPage ] = useState(1);
-  const [ isBtn, setIsBtn ] = useState(true);
+class Network extends React.Component {
+  state = {
+    title: 'All users',
+  };
 
-  const getUsers = (action) => {
-    server.get('server/api/users/' + page)
+  componentDidMount() {
+    server.get('server/api/users')
     .then(users => {
-      if (users) {
-        action(users);
-        setPage(page + 1);
-      } else {
-        setIsBtn(false);
-      }
+      this.props.setUsers(users);
     })
   }
+
+  render() {
+    const { title } = this.state;
+    const { users } = this.props;
+
+    return (
+      <section className={styles.network}>
+        <h2 className={styles.network__title}>
+          {title}
+        </h2>
   
-  useEffect(() => {
-    getUsers(setUsers)
-  }, []);
-
-  return (
-    <section className={styles.network}>
-      <h2 className={styles.network__title}>{title}</h2>
-
-      <ul className={styles.network__users}>
-        {users.map(user => (
-          <User user={user}  key={user.id} />
-        ))}
-      </ul>
-      
-      {isBtn &&
+        <ul className={styles.network__users}>
+          {users.map(user => (
+            <User user={user}  key={user.id} />
+          ))}
+        </ul>
+        
         <button
           className={styles.network__btn}
-          onClick={() => getUsers(addUsers)}
+          onClick={null}
         >Show more...</button>
-      }
-    </section>
-  );
+      </section>
+    )
+  }
 };
 
 export default Network;
