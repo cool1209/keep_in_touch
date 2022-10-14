@@ -25,7 +25,7 @@ export const setLogoutUser = (id, users) => {
 const createPublication = (publication, users) => ({
   id: publication.id,
   userId: publication.userId,
-  author: users.find(user => user.id === publication.userId).login,
+  author: users.find(user => user.id === publication.userId).nickname,
   authorAvatar:  users.find(user => user.id === publication.userId).avatar,
   publication: publication.publication,
   likes: publication.likes,
@@ -57,7 +57,7 @@ export const postNewPublication = (newPublication, publications) => {
 };
 
 export const getUsers = (page = 1, users) => {
-  const pageLength = 6;
+  const pageLength = 20;
   const usersPages = [];
   let usersPage = [];
   let userCounter = 0;
@@ -117,5 +117,3 @@ export const postNewMessage = (newMessage, dialogs) => {
     message: newMessage.message,
   });
 };
-
-// .filter(publication => publication.author === state.user.user.login)

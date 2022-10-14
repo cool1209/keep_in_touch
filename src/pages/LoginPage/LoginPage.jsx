@@ -7,51 +7,51 @@ const LoginPage = ({ setUser }) => {
   const users = [
     {
       name: "Tony",
-      login: "Iron-man"
+      login: "user1"
     },
     {
       name: "Peter",
-      login: "Spider-man"
+      login: "user2"
     },
     {
       name: "Wade",
-      login: "Deadpool"
+      login: "user3"
     },
     {
       name: "Natasha",
-      login: "Black-Widow"
+      login: "user4"
     },
     {
       name: "Thor",
-      login: "Thor"
+      login: "user5"
     },
     {
       name: "Bruce",
-      login: "Hulk"
+      login: "user6"
     },
     {
       name: "Stephen",
-      login: "Doctor-Strange"
+      login: "user7"
     },
     {
       name: "Loki",
-      login: "Loki"
+      login: "user8"
     },
     {
       name: "Arthur",
-      login: "Aquaman"
+      login: "user9"
     },
     {
       name: "Kal-El",
-      login: "Superman"
+      login: "user10"
     },
     {
       name: "Lao",
-      login: "Kung-Lao"
+      login: "user11"
     },
     {
       name: "Yuri",
-      login: "Undisputed"
+      login: "user12"
     }
   ];
 

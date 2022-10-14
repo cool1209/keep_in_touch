@@ -6,18 +6,29 @@ import User from './User/User';
 class Network extends React.Component {
   state = {
     title: 'All users',
+    isBtn: true
   };
 
   componentDidMount() {
-    server.get('server/api/users')
+    if (!this.props.users.length) {
+      this.getUsers(this.props.setUsers);
+    };
+  }
+
+  getUsers(propsFn) {
+    server.get('server/api/users/' + this.props.page)
     .then(users => {
-      this.props.setUsers(users);
+      if (users) {
+        propsFn(users);
+      } else {
+        this.setState({isBtn: false});
+      }
     })
   }
 
   render() {
     const { title } = this.state;
-    const { users } = this.props;
+    const { users, addUsers } = this.props;
 
     return (
       <section className={styles.network}>
@@ -30,11 +41,13 @@ class Network extends React.Component {
             <User user={user}  key={user.id} />
           ))}
         </ul>
-        
-        <button
-          className={styles.network__btn}
-          onClick={null}
-        >Show more...</button>
+
+        {this.state.isBtn &&
+          <button
+            className={styles.network__btn}
+            onClick={() => this.getUsers(addUsers)}
+          >Show more...</button>
+        }
       </section>
     )
   }

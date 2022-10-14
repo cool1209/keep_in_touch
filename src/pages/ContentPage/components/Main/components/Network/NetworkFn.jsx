@@ -2,18 +2,22 @@ import React, { useEffect, useState } from 'react';
 import server from '../../../../../../backend/server';
 import styles from './Network.module.css';
 import User from './User/User';
+import WithNoData from '../../../../../shared/WithNoData/WithNoData';
 
-const Network = ({ users, setUsers, addUsers }) => {
-  const title = 'All users:';
-  const [ page, setPage ] = useState(1);
+const Network = ({
+  users,
+  page,
+  setUsers,
+  addUsers
+}) => {
+  const [ title, setTitle ] = useState('All users:');
   const [ isBtn, setIsBtn ] = useState(true);
 
-  const getUsers = (action) => {
+  const getUsers = (propsFn) => {
     server.get('server/api/users/' + page)
     .then(users => {
       if (users) {
-        action(users);
-        setPage(page + 1);
+        propsFn(users);
       } else {
         setIsBtn(false);
       }
@@ -21,7 +25,9 @@ const Network = ({ users, setUsers, addUsers }) => {
   }
   
   useEffect(() => {
-    getUsers(setUsers)
+    if (!users.length) {
+      getUsers(setUsers)
+    };
   }, []);
 
   return (
@@ -34,12 +40,16 @@ const Network = ({ users, setUsers, addUsers }) => {
         ))}
       </ul>
       
-      {isBtn &&
-        <button
-          className={styles.network__btn}
-          onClick={() => getUsers(addUsers)}
-        >Show more...</button>
+      {users.length
+      ? isBtn &&
+          <button
+            className={styles.network__btn}
+            onClick={() => getUsers(addUsers)}
+          >Show more...</button>
+        
+      : <WithNoData message={'Users is loading...'} />
       }
+      
     </section>
   );
 };

@@ -80,9 +80,11 @@ const server = {
           default:
             reject('404 (not found)');
         }
-      }, 10000)
+      }, 30000)
     })
   }
 };
 
 export default server;
+
+// "https://bit.ly/3emGlKL"

@@ -1,8 +1,11 @@
+import { getTestUsers } from "./databaseFunctions";
+
 const users = [
   {
     id: 1,
+    login: "user1",
     name: "Tony Stark",
-    login: "Iron-man",
+    nickname: 'Iron-man',
     status: "Offline",
     city: "New York",
     about: "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil. After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
@@ -12,8 +15,9 @@ const users = [
   },
   {
     id: 2,
+    login: "user2",
     name: "Peter Parker",
-    login: "Spider-man",
+    nickname: 'Spider-man',
     status: "Offline",
     city: "New York",
     about: "Bitten by a radioactive spider, Peter Parker's arachnid abilities give him amazing powers he uses to help others, while his personal life continues to offer plenty of obstacles. With amazing spider-like abilities, teenage science whiz Peter Parker fights crime and dreams of becoming an Avenger as Spider-Man.",
@@ -23,8 +27,9 @@ const users = [
   },
   {
     id: 3,
+    login: "user3",
     name: "Wade Wilson",
-    login: "Deadpool",
+    nickname: "Deadpool",
     status: "Offline",
     city: "New York",
     about: "Armed with his new abilities and a dark, twisted sense of humor, Deadpool hunts down the man who nearly destroyed his life. Wade Wilson is a small-time mercenary. He meets Vanessa and falls in love. Life is idyllic until one day he is diagnosed with terminal cancer.",
@@ -34,8 +39,9 @@ const users = [
   },
   {
     id: 4,
+    login: "user4",
     name: "Natasha Romanoff",
-    login: "Black-Widow",
+    nickname: "Black-Widow",
     status: "Offline",
     city: "New York",
     about: "After Thanos erases half of all life, Romanoff leads the Avengers for five years until she sacrifices herself, successfully helping the Avengers restore trillions of lives across the universe.",
@@ -45,8 +51,9 @@ const users = [
   },
   {
     id: 5,
-    name: "Thor",
-    login: "Thor",
+    login: "user5",
+    name: "Thor Thundergod",
+    nickname: "Thor",
     status: "Offline",
     city: "Asgard",
     about: "In Norse mythology, he is a hammer-wielding god associated with lightning, thunder, storms, sacred groves and trees, strength, the protection of mankind, hallowing, and fertility.",
@@ -56,8 +63,9 @@ const users = [
   },
   {
     id: 6,
+    login: "user6",
     name: "Bruce Banner",
-    login: "Hulk",
+    nickname: "Hulk",
     status: "Offline",
     city: "New York",
     about: "Bruce Banner lives a life caught between the soft-spoken scientist he's always been and the uncontrollable green monster powered by his rage. Exposed to heavy doses of gamma radiation, scientist Bruce Banner transforms into the mean, green rage machine called the Hulk.",
@@ -67,8 +75,9 @@ const users = [
   },
   {
     id: 7,
+    login: "user7",
     name: "Stephen Vincent Strange",
-    login: "Doctor-Strange",
+    nickname: "Doctor-Strange",
     status: "Offline",
     city: "New York",
     about: "Doctor Stephen Vincent Strange, M.D., Ph.D is a Master of the Mystic Arts.",
@@ -78,8 +87,9 @@ const users = [
   },
   {
     id: 8,
-    name: "Loki",
-    login: "Loki",
+    login: "user8",
+    name: "Loki Liesgod",
+    nickname: "Loki",
     status: "Offline",
     city: "Asgard",
     about: "Loki is considered a trickster god, known for being neither fully good nor evil since his main aim was always to create chaos. Despite his father being a giant, he is still counted a member of the Aesir—a tribe of deities including Odin, Frigg, Tyr, and Thor.",
@@ -89,8 +99,9 @@ const users = [
   },
   {
     id: 9,
+    login: "user9",
     name: "Arthur Curry",
-    login: "Aquaman",
+    nickname: "Aquaman",
     status: "Offline",
     city: "Atlantis",
     about: "Arthur Curry is the King of Atlantis, the firstborn son of Queen Atlanna, the older maternal half-brother of Orm Marius, and a member of the Justice League, as well as the superhero known to the world as the Aquaman.",
@@ -100,8 +111,9 @@ const users = [
   },
   {
     id: 10,
-    name: "Kal-El",
-    login: "Superman",
+    login: "user10",
+    name: "Kal-El Kryptonian",
+    nickname: "Superman",
     status: "Offline",
     city: "Gotham",
     about: "Superman was born on the fictional planet Krypton and was named Kal-El. As a baby, his parents sent him to Earth in a small spaceship moments before Krypton was destroyed in a natural cataclysm. His ship landed in the American countryside, near the fictional town of Smallville.",
@@ -111,8 +123,9 @@ const users = [
   },
   {
     id: 11,
+    login: "user11",
     name: "Kung Lao",
-    login: "Kung-Lao",
+    nickname: "Kung-Lao",
     status: "Offline",
     city: "Shaolin",
     about: "Of the Earthrealm warriors, Kung Lao is the most outspoken pacifist, although he will not hesitate to severely punish those who attack him, Earthrealm, or his friends. His trademark is his Razor-Rimmed Hat, which he can employ quite powerfully and effectively in combat.",
@@ -122,8 +135,9 @@ const users = [
   },
   {
     id: 12,
+    login: "user12",
     name: "Yuri Boyka",
-    login: "Undisputed",
+    nickname: "Undisputed",
     status: "Offline",
     city: "Los Angeles",
     about: "Yuri Boyka is a professional prison fighter who appears as the main antagonist in the Undisputed-2 film, and later became the main protagonist of the third film to the latest Undisputed film.",
@@ -133,8 +147,9 @@ const users = [
   },
   {
     id: 13,
+    login: "user13",
     name: "Bruce Wayne",
-    login: "Batman",
+    nickname: "Batman",
     status: "Offline",
     city: "Gotham",
     about: "In the name of his murdered parents, Bruce Wayne wages eternal war on the criminals of Gotham City. He is vengeance. He is the night. He is Batman.",
@@ -144,8 +159,9 @@ const users = [
   },
   {
     id: 14,
+    login: "user14",
     name: "Harley Quinn",
-    login: "Harley-Quinn",
+    nickname: "Harley-Quinn",
     status: "Offline",
     city: "Gotham",
     about: "Harley Quinn's abilities include expert gymnastic skills, proficiency in weapons and hand-to-hand combat, complete unpredictability, immunity to toxins, and enhanced strength, agility, and durability. Quinn often wields clown-themed gag weapons, with an oversized mallet being her signature weapon.",
@@ -155,8 +171,9 @@ const users = [
   },
   {
     id: 15,
-    name: "Joker",
-    login: "Joker",
+    login: "user15",
+    name: "Joker Merrymaker",
+    nickname: "Joker",
     status: "Offline",
     city: "Gotham",
     about: "The Joker possesses no superhuman abilities, instead using his expertise in chemical engineering to develop poisonous or lethal concoctions and thematic weaponry, including razor-tipped playing cards, deadly joy buzzers, and acid-spraying lapel flowers.",
@@ -166,8 +183,9 @@ const users = [
   },
   {
     id: 16,
+    login: "user16",
     name: "Liu Kang",
-    login: "Liu-Kang",
+    nickname: "Liu-Kang",
     status: "Offline",
     city: "Shaolin",
     about: "Liu became the Grand Champion of Mortal Kombat throughout the first four tournaments, a title that remained undisputed in the original timeline.",
@@ -177,19 +195,21 @@ const users = [
   },
   {
     id: 17,
-    name: "Raiden",
-    login: "Raiden",
+    login: "user17",
+    name: "Raiden Flashgod",
+    nickname: "Raiden",
     status: "Offline",
     city: "Anywhere",
     about: "Immortal God of Thunder, Protector of the Earth. Raiden saved the Earth time and time again, gathering the bravest and strongest warriors of the time to participate in the Mortal Kombat tournament.",
-    friends: [11, 16],
+    friends: [11, 16, 20],
     avatar: "https://bit.ly/3VctFa1",
     wallpaper: "https://bit.ly/3EtXoVX"
   },
   {
     id: 18,
+    login: "user18",
     name: "Diana Princess",
-    login: "Wander-woman",
+    nickname: "Wander-woman",
     status: "Offline",
     city: "Themyscira",
     about: "Wonder Woman's origin story (from Golden to Bronze Age) relates that she was sculpted from clay by her mother Queen Hippolyta and was given a life as an Amazon, along with superhuman powers as gifts by the Greek gods.",
@@ -199,8 +219,9 @@ const users = [
   },
   {
     id: 19,
+    login: "user19",
     name: "Carol Danvers",
-    login: "Capitan-Marvel",
+    nickname: "Capitan-Marvel",
     status: "Offline",
     city: "New York",
     about: "Captain Marvel, is an impulsive United States Air Force pilot exposed to the energy of the Tesseract (which housed the Space Stone) while unknowingly amid an inter-universe war. The explosion gave her powerful superhuman powers and abilities.",
@@ -210,125 +231,30 @@ const users = [
   },
   {
     id: 20,
-    name: "User name",
-    login: "user-20",
+    login: "user20",
+    name: "Sonya Blade",
+    nickname: "Sonya-MK",
     status: "Offline",
-    city: "somewhere...",
-    about: "Some text about some user...",
-    friends: [],
-    avatar: "https://bit.ly/3MqaoOw",
-    wallpaper: "https://bit.ly/3emGlKL"
+    city: "Los Angeles",
+    about: "VIGILANCE. Decorated officer of the Special Forces. Sonya braved the Mortal Kombat tournament, defended Earthrealm, and rescued her partner, Jax Briggs. Serious to a fault, she never takes time for personal leave, preferring to remain vigilant until all realms are safe from conquest.",
+    friends: [17],
+    avatar: "https://bit.ly/3yBHeWH",
+    wallpaper: "https://bit.ly/3S16Int"
   },
   {
     id: 21,
-    name: "User name",
-    login: "user-21",
+    login: "user21",
+    name: "T'Challa Wakandian",
+    nickname: "Black-Panter",
     status: "Offline",
-    city: "somewhere...",
-    about: "Some text about some user...",
+    city: "Wakanda",
+    about: "Black Panther is the title held by T'Challa, a member of the royal family of the fictional African country of Wakanda. After the death of his father, T'Challa claimed the throne and the role of Black Panther. He was exposed to a mystical herb that enhanced his strength and agility to near-superhuman levels.",
     friends: [],
-    avatar: "https://bit.ly/3MqaoOw",
-    wallpaper: "https://bit.ly/3emGlKL"
-  },
-  {
-    id: 22,
-    name: "User name",
-    login: "user-22",
-    status: "Offline",
-    city: "somewhere...",
-    about: "Some text about some user...",
-    friends: [],
-    avatar: "https://bit.ly/3MqaoOw",
-    wallpaper: "https://bit.ly/3emGlKL"
-  },
-  {
-    id: 23,
-    name: "User name",
-    login: "user-23",
-    status: "Offline",
-    city: "somewhere...",
-    about: "Some text about some user...",
-    friends: [],
-    avatar: "https://bit.ly/3MqaoOw",
-    wallpaper: "https://bit.ly/3emGlKL"
-  },
-  {
-    id: 24,
-    name: "User name",
-    login: "user-24",
-    status: "Offline",
-    city: "somewhere...",
-    about: "Some text about some user...",
-    friends: [],
-    avatar: "https://bit.ly/3MqaoOw",
-    wallpaper: "https://bit.ly/3emGlKL"
-  },
-  {
-    id: 25,
-    name: "User name",
-    login: "user-25",
-    status: "Offline",
-    city: "somewhere...",
-    about: "Some text about some user...",
-    friends: [],
-    avatar: "https://bit.ly/3MqaoOw",
-    wallpaper: "https://bit.ly/3emGlKL"
-  },
-  {
-    id: 26,
-    name: "User name",
-    login: "user-26",
-    status: "Offline",
-    city: "somewhere...",
-    about: "Some text about some user...",
-    friends: [],
-    avatar: "https://bit.ly/3MqaoOw",
-    wallpaper: "https://bit.ly/3emGlKL"
-  },
-  {
-    id: 27,
-    name: "User name",
-    login: "user-27",
-    status: "Offline",
-    city: "somewhere...",
-    about: "Some text about some user...",
-    friends: [],
-    avatar: "https://bit.ly/3MqaoOw",
-    wallpaper: "https://bit.ly/3emGlKL"
-  },
-  {
-    id: 28,
-    name: "User name",
-    login: "user-28",
-    status: "Offline",
-    city: "somewhere...",
-    about: "Some text about some user...",
-    friends: [],
-    avatar: "https://bit.ly/3MqaoOw",
-    wallpaper: "https://bit.ly/3emGlKL"
-  },
-  {
-    id: 29,
-    name: "User name",
-    login: "user-29",
-    status: "Offline",
-    city: "somewhere...",
-    about: "Some text about some user...",
-    friends: [],
-    avatar: "https://bit.ly/3MqaoOw",
-    wallpaper: "https://bit.ly/3emGlKL"
-  },
-  {
-    id: 30,
-    name: "User name",
-    login: "user-30",
-    status: "Offline",
-    city: "somewhere...",
-    about: "Some text about some user...",
-    friends: [],
-    avatar: "https://bit.ly/3MqaoOw",
-    wallpaper: "https://bit.ly/3emGlKL"
-  }
+    avatar: "https://bit.ly/3EHqxgt",
+    wallpaper: "https://bit.ly/3yBvrrF"
+  }  
 ];
+
+getTestUsers(users, 10000)
 
 export default users;

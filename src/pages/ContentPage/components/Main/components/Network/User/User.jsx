@@ -3,7 +3,8 @@ import React from 'react';
 import styles from './User.module.css';
 
 const User = ({ user }) => {
-
+  const firstName = user.name.split(' ')[0];
+  
   return (
     <li className={styles.user}>
       <img
@@ -13,7 +14,7 @@ const User = ({ user }) => {
       />
 
       <h3 className={styles.user__login}>
-        {user.login}
+        {firstName}
       </h3>
 
 
