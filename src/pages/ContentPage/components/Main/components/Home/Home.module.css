@@ -1,16 +1,16 @@
-.home {
+.wrapper {
   padding: 15px 15px 0;
   border-radius: 10px;
   background: var(--color-very-light);
 }
 
-.home__publications {
+.posts {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
 }
 
-.home__publication {
+.post {
   display: flex;
 
   margin-bottom: 15px;
@@ -25,7 +25,7 @@
   word-break: break-word;
 }
 
-.home__publicationAuthorAvatar {
+.postAuthorAvatar {
   margin: 0 auto 10px;
   width: 60px;
   height: 60px;
@@ -34,13 +34,13 @@
   border-radius: 50%;
 }
 
-.home__publicationAuthorAvatar img {
+.postAuthorAvatar img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
 }
 
-.home__likeBtn {
+.likeBtn {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,23 +56,23 @@
   cursor: pointer;
 }
 
-.home__likeIcon {
+.likeIcon {
   transition: transform var(--transition-behavior);
 }
 
-.home__likeBtn:hover .home__likeIcon {
+.likeBtn:hover .likeIcon {
   transform: scale(1.35);
 }
 
-.home__likesCounter {
+.likesCounter {
   font-size: var(--font-size-mini);
 }
 
-.home__publicationText {
+.postText {
   margin-left: 15px;
 }
 
-.home__publicationAuthor {
+.postAuthor {
   margin-bottom: 5px;
   font-size: var(--font-size-mini);
   text-decoration: underline;

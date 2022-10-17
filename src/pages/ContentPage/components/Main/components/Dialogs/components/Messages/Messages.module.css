@@ -1,10 +1,10 @@
-.messages {
+.wrapper {
   margin: 0 -15px 0 15px;
   padding-right: 11px;
   overflow-y: scroll;
 }
 
-.messages__hint {
+.hint {
   position: relative;
   top: 50%;
   left: 0;
@@ -14,22 +14,22 @@
   color: var(--color-dark)
 }
 
-.messages:has(.messages__container) .messages__hint {
+.wrapper:has(.container) .hint {
   display: none;
 }
 
-.messages__container {
+.container {
   display: grid;
   grid-template-rows: 1fr auto;
   height: 100%;
 }
 
-.messages__dialogMessages {
+.dialogMessages {
   display: flex;
   flex-direction: column;
 }
 
-.messages__sendMessage {
+.sendMessage {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 100px;
@@ -39,7 +39,7 @@
   bottom: 0;
 }
 
-.messages__sendMessage:after {
+.sendMessage:after {
   content: "";
   position: absolute;
   top: 0;
@@ -51,7 +51,7 @@
   border-radius: 12px 12px 0 0
 }
 
-.messages__input {
+.input {
   position: relative;
   padding: 5px 10px;
   width: 100%;
@@ -63,15 +63,15 @@
   outline: none;
 }
 
-.messages__input::placeholder {
+.input::placeholder {
   color: var(--color-normal);
 }
 
-.messages__input:focus.messages__input::placeholder {
+.input:focus.input::placeholder {
   color: var(--color-dark);
 }
 
-.messages__btn {
+.btn {
   font-weight: bold;
   font-size: 16px;
   background: var(--color-normal);
@@ -83,23 +83,23 @@
   transition: all var(--transition-behavior);
 }
 
-.messages__btn:focus,
-.messages__btn:hover {
+.btn:focus,
+.btn:hover {
   background-color: var(--color-dark);
   color: var(--color-secondary)
 }
 
 @media (max-width: 575px) {
-  .messages {
+  .wrapper {
     margin: 0 ;
     padding-right: 15px;
   }
 
-  .messages__hint {
+  .hint {
     display: none;
   }
 
-  .messages__sendMessage {
+  .sendMessage {
     grid-template-columns: 3fr 1fr;
   }
 }

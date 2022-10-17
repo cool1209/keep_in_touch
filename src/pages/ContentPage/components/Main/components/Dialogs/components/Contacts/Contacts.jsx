@@ -1,15 +1,15 @@
 import React from 'react';
 import CustomNavLink from '../../../../../../../shared/CustomNavLink';
-import styles from './Contacts.module.css';
+import ContactsStyles from './Contacts.module.css';
 
 const Contacts = ({ dialogs }) => {
   return (
-    <ul className={styles.contacts}>
+    <ul className={ContactsStyles.wrapper}>
       {dialogs.map(dialog => (
         <CustomNavLink
           to={`${dialog.id}`}
           name={dialog.contact}
-          style={[styles.contacts__contact, styles.activeLink]}
+          style={[ContactsStyles.contact, ContactsStyles.activeLink]}
           key={dialog.id}
         />
       ))}

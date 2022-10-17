@@ -1,12 +1,12 @@
-.userNewPublication {
+.wrapper {
   margin-bottom: 40px;
 }
 
-.userNewPublication__title {
+.title {
   margin-bottom: 20px;
 }
 
-.userNewPublication__textarea {
+.textarea {
   display: block;
   margin-bottom: 10px;
   padding: 10px;
@@ -21,16 +21,16 @@
   resize: vertical;
 }
 
-.userNewPublication__textarea::placeholder {
+.textarea::placeholder {
   font-family: sans-serif;
   color: var(--color-normal);
 }
 
-.userNewPublication__textarea:focus.userNewPublication__textarea::placeholder {
+.textarea:focus.textarea::placeholder {
   color: var(--color-dark);
 }
 
-.userNewPublication__button {
+.button {
   padding: 15px 40px;
 
   font-weight: 600;
@@ -44,18 +44,18 @@
   transition: all var(--transition-behavior);
 }
 
-.userNewPublication__button:focus,
-.userNewPublication__button:hover {
+.button:focus,
+.button:hover {
   color: var(--color-secondary);
   background-color: var(--color-dark);
 }
 
 @media (max-width: 1023px) {
-  .userNewPublication {
+  .wrapper {
     text-align: center;
   }
 
-  .userNewPublication__textarea {
+  .textarea {
     display: block;
     margin-bottom: 10px;
     margin: 0 auto 10px;
@@ -66,7 +66,7 @@
 
 @media (max-width: 575px) {
 
-  .userNewPublication__textarea {
+  .textarea {
     width: 100%;
   }
 }

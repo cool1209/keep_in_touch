@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './Message.module.css';
+import MessageStyles from './Message.module.css';
 
 const Message = ({ message, user }) => {
   const loginUser = message.authorId === user.id;
@@ -8,21 +8,21 @@ const Message = ({ message, user }) => {
   return (
     <article className={
       classNames(
-        styles.message, 
-        {[styles.message_loginUser]: loginUser}
+        MessageStyles.wrapper, 
+        {[MessageStyles.wrapper_loginUser]: loginUser}
       )}
     >
       <img 
         src={message.authorAvatar} 
         alt='User avatar' 
-        className={styles.message__authorAvatar}
+        className={MessageStyles.authorAvatar}
       />
 
       <div 
         className={
           classNames(
-            styles.message__text,
-            {[styles.message__text_loginUser]: loginUser}
+            MessageStyles.text,
+            {[MessageStyles.text_loginUser]: loginUser}
         )}
       >
         {message.message}

@@ -1,11 +1,11 @@
-.contacts {
+.wrapper {
   padding-right: 10px;
   border-right: 3px solid var(--color-normal);
 
   overflow-y: scroll;
 }
 
-.contacts__contact {  
+.contact {  
   display: flex;
   align-items: center;
   margin-bottom: 10px;
@@ -19,13 +19,13 @@
   transition: all var(--transition-behavior);
 }
 
-.contacts__contact:focus,
-.contacts__contact:hover,
+.contact:focus,
+.contact:hover,
 .activeLink {
   background-color: var(--color-light);
 }
 
-.contacts__contact a {
+.contact a {
   display: flex;
   align-items: center;  
 }
@@ -37,14 +37,14 @@
 }
 
 @media (max-width: 575px) {
-  .contacts {
+  .wrapper {
     padding: 0 15px 0;
     height: 100%;
     border-right: none;
     background: var(--color-bg-main-light);
   }
 
-  .contacts__contact {
+  .contact {
     display: block;
     align-items: center;
     margin-bottom: 10px;

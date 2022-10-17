@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Main.module.css';
+import MainStyles from './Main.module.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import HomeContainer from './components/Home/HomeContainer';
@@ -11,7 +11,7 @@ import Profile from './components/Profile/Profile';
 
 const Main = () => {
   return (
-    <main className={styles.main}>
+    <main className={MainStyles.wrapper}>
       <Routes>
         <Route path='/' element={ <Navigate to="home" /> } />
         <Route path='home' element={ <HomeContainer /> } />

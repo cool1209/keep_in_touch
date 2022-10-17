@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setUserAC } from '../../store/reducers/usersReducer';
+import { setUserAC } from '../../store/reducers/loginUserReducer';
 import StartPage from './LoginPage';
 
 const mapDispatchToProps = (dispatch) => ({

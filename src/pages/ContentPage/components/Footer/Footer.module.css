@@ -1,4 +1,4 @@
-.footer {
+.wrapper {
   grid-area: footer;
 
   padding: 15px 0;
@@ -9,19 +9,19 @@
   background-color: var(--color-normal);
 }
 
-.footer__performer {
+.performer {
   padding-left: 6px;
   font-family: var(--font-family-title);
   color: var(--color-secondary);
   transition: color var(--transition-behavior);
 }
 
-.footer__performer:hover {
+.performer:hover {
   color: var(--color-dark);
 }
 
 @media (max-width: 767px) {
-  .footer {
+  .wrapper {
     display: none;
   }
 }

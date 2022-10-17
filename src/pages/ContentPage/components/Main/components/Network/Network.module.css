@@ -1,21 +1,21 @@
-.network {
+.wrapper {
   display: flex;
   flex-direction: column;
 }
 
-.network__title {
+.title {
   margin-bottom: 10px;
   text-align: center;
 }
 
-.network__users {
+.users {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
 }
 
-.network__btn {
+.btn {
   display: block;
   margin: 35px auto 20px;
   padding: 8px 16px;
@@ -29,17 +29,17 @@
   transition: all var(--transition-behavior);
 }
 
-.network__btn:focus {
+.btn:focus {
   border: 2px solid var(--color-normal);
 }
 
-.network__btn:hover {
+.btn:hover {
   background: var(--color-dark);
   color: var(--color-secondary)
 }
 
 @media (max-width: 575px) {
-  .network__users {
+  .users {
     gap: 10px;
   }
 }

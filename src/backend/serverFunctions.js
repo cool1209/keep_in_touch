@@ -1,14 +1,30 @@
-export const getHeaderEndpoint = (header) => {
-  const headerEndpoint = header.split('api/')[1];
-  const headerEndpointParts = headerEndpoint.split('/');
+export const getRequest = (header) => {
+  const serverAddress = 'server/api';
 
-  const action = headerEndpointParts[0];
-  const parameter = headerEndpointParts[1];
+  const headerParts = header.split('?');
+  const requestAdressParts = headerParts[0].split('/');
+  const requestAdress = requestAdressParts[0] + '/' + requestAdressParts[1];
 
-  return [
-    action,
-    parameter
-  ];
+  if (serverAddress === requestAdress) {
+    const endpoint = requestAdressParts[2];
+    const action = endpoint;
+    
+    if (headerParts[1]) {
+      const parameters = headerParts[1].split('&')
+      .map(parametr => parametr.split('=')[1]);
+
+      return [
+        action,
+        ...parameters
+      ];
+    }
+    
+    return [ action ];
+  } else {
+    const action = 'error';
+    return [ action ]
+  }
+
 };
 
 export const getLogInUser = (login,  users) => {
@@ -22,42 +38,46 @@ export const setLogoutUser = (id, users) => {
   user.status = 'Offline';
 };
 
-const createPublication = (publication, users) => ({
-  id: publication.id,
-  userId: publication.userId,
-  author: users.find(user => user.id === publication.userId).nickname,
-  authorAvatar:  users.find(user => user.id === publication.userId).avatar,
-  publication: publication.publication,
-  likes: publication.likes,
-});
-
-export const getPublications = (publications, users) => {
-  return publications.map(publication => (
-    createPublication(publication, users)
-  ));
+const parsePost = (post, users) => {
+  const parsedPost = {
+    id: post.id,
+    userId: post.userId,
+  
+    author: users.find(user => user.id === post.userId).nickname,
+  
+    authorAvatar: users.find(user => user.id === post.userId).avatar,
+  
+    text: post.text,
+    likes: post.likes,
+  }
+  return parsedPost;
 };
 
-export const getUserPublications = (userId, publications, users) => {
-  const userPublications = publications
-  .filter(publication => publication.userId === +userId)
-  .map(publication => (
-    createPublication(publication, users)
-  ));
-
-  return userPublications
+export const getParsedPosts = (posts, users) => {
+  return posts.map(post => parsePost(post, users));
 };
 
-export const postNewPublication = (newPublication, publications) => {
-  publications.push({
-    id: publications.length + 1,
-    userId: newPublication.userId,
-    publication: newPublication.publication,
+export const getUserPosts = (userId, posts, users) => {
+  const userPost = posts
+  .filter(post => post.userId === +userId)
+  .map(post => (
+    parsePost(post, users)
+  ));
+
+  return userPost
+};
+
+export const postNewPost = (newPost, posts) => {
+  posts.push({
+    id: posts.length + 1,
+    userId: newPost.userId,
+    post: newPost.post,
     likes: 0,
   });
 };
 
 export const getUsers = (page = 1, users) => {
-  const pageLength = 20;
+  const pageLength = 10;
   const usersPages = [];
   let usersPage = [];
   let userCounter = 0;
@@ -91,24 +111,33 @@ export const getDialogs = (userId, dialogs, users) => {
     .filter(dialog => dialog.membersId.includes(+userId))
     .map(dialog => ({
       id: dialog.id,
+
       contact: users
-        .find(user => user.id === dialog.membersId.find(id => id !== +userId))
-        .login,
+      .find(user => user.id === dialog.membersId.find(id => id !== +userId))
+      .nickname,
+
       contactAvatar: users
-        .find(user => user.id === dialog.membersId.find(id => id !== +userId))
-        .avatar,
+      .find(user => user.id === dialog.membersId.find(id => id !== +userId))
+      .avatar,
+
       messages: dialog.messages.map(message => ({
         id: message.id,
         authorId: message.authorId,
-        authorAvatar: users.find(user => user.id === message.authorId).avatar,
+
+        authorAvatar: users
+        .find(user => user.id === message.authorId)
+        .avatar,
+
         message: message.message
       }))
     }))
 };
 
-export const postNewMessage = (newMessage, dialogs) => {
+export const postNewMessage = (newMessage, dialogsData) => {
   const dialogId = newMessage.dialogId;
-  const currentDialog = dialogs.find(dialog => dialog.id === dialogId);
+  const currentDialog = dialogsData.dialogs
+    .find(dialog => dialog.id === dialogId);
+
   const newMessageId = currentDialog.messages.length + 1;
 
   currentDialog.messages.push({

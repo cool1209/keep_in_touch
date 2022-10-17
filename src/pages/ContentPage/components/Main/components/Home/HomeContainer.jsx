@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
-import { setPublicationsAC } from '../../../../../../store/reducers/publicationsReducer';
+import { setPostsAC } from '../../../../../../store/reducers/postsReducer';
 import Home from './Home';
 
 const mapStateToProps = (state) => ({
-  publications: state.publications.publications,
+  posts: state.posts.posts,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setPublications: (publications) => {
-    dispatch(setPublicationsAC(publications));
+  setPosts: (publications) => {
+    dispatch(setPostsAC(publications));
   }
 });
 

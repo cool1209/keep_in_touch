@@ -1,43 +1,43 @@
 import classNames from 'classnames';
 import React from 'react';
-import styles from './User.module.css';
+import UserStyles from './User.module.css';
 
 const User = ({ user }) => {
   const firstName = user.name.split(' ')[0];
   
   return (
-    <li className={styles.user}>
+    <li className={UserStyles.wrapper}>
       <img
         src={user.avatar}
         alt="User avatar"
-        className={styles.user__avatar}
+        className={UserStyles.avatar}
       />
 
-      <h3 className={styles.user__login}>
+      <h3 className={UserStyles.login}>
         {firstName}
       </h3>
 
 
-      <div className={styles.user__status}>
+      <div className={UserStyles.status}>
         <span className={classNames(
-          `${styles.user__indicator} ${styles.user__indicator_offline}`,
+          `${UserStyles.indicator} ${UserStyles.indicator_offline}`,
             {
-              [styles.user__indicator_online]: user.status === 'Online'
+              [UserStyles.indicator_online]: user.status === 'Online'
             }
           )}></span>
           
-        <em className={styles.user__statusText}>{user.status}</em>
+        <em className={UserStyles.statusText}>{user.status}</em>
       </div> 
 
-      <div className={styles.user__sity}>
+      <div className={UserStyles.city}>
         {user.city}
       </div>
 
-      <button className={styles.user__btn}>
+      <button className={UserStyles.btn}>
         Add friend
       </button>
 
-      <button className={styles.user__btn}>
+      <button className={UserStyles.btn}>
         Message
       </button>
     </li>

@@ -1,22 +1,14 @@
-const SET_USER = 'SET_USER';
 const SET_USERS = 'SET_USERS';
 const RESET_REQUIRED_USERS_PAGE = 'RESET_REQUIRED_USERS_PAGE';
 const ADD_USERS = 'ADD_USERS';
 
 const initialState = {
-  user: {},
   users: [],
   requiredUsersPage: 1
 };
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_USER:
-      return {
-        ...state,
-        user: action.user,
-      }
-
     case SET_USERS:
       return {
         ...state,
@@ -41,11 +33,6 @@ const usersReducer = (state = initialState, action) => {
       return state;
   };
 }
-
-export const setUserAC = (user) => ({
-  type: SET_USER,
-  user
-});
 
 export const setUsersAC = (users) => ({
   type: SET_USERS,

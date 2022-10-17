@@ -1,4 +1,4 @@
-import { getTestUsers } from "./databaseFunctions";
+import { getTestUsers } from "./dataFunctions";
 
 const users = [
   {
@@ -8,7 +8,7 @@ const users = [
     nickname: 'Iron-man',
     status: "Offline",
     city: "New York",
-    about: "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil. After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
+    about: "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
     friends: [2, 4, 5, 6, 19],
     avatar: "https://bit.ly/3RGqLZ0",
     wallpaper: "https://bit.ly/3dQ4OI8"
@@ -252,9 +252,9 @@ const users = [
     friends: [],
     avatar: "https://bit.ly/3EHqxgt",
     wallpaper: "https://bit.ly/3yBvrrF"
-  }  
+  }
 ];
 
-getTestUsers(users, 10000)
+getTestUsers(users, 1)
 
 export default users;

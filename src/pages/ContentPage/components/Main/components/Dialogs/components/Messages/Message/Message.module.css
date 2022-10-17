@@ -1,4 +1,4 @@
-.message {
+.wrapper {
   display: flex;
   margin-bottom: 15px;
   padding: 10px;
@@ -10,17 +10,17 @@
   word-break: break-word;
 }
 
-.message__authorAvatar {
+.authorAvatar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
 
-.message__text {
+.text {
   padding-left: 10px;
 }
 
-.message_loginUser {
+.wrapper_loginUser {
   flex-direction: row-reverse;
   justify-content: space-between;
   align-self: end;
@@ -28,19 +28,19 @@
 }
 
 
-.message__text_loginUser {
+.text_loginUser {
   padding-left: 0;
   padding-right: 10px;
 }
 
 @media (max-width: 1023px) {
-  .message {
+  .wrapper {
     width: 70%;
   }
 }
 
 @media (max-width: 575px) {
-  .message {
+  .wrapper {
     width: 90%;
   }
 }

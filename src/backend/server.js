@@ -1,42 +1,42 @@
-import users from "./database/users";
-import publications from "./database/publications";
-import dialogs from "./database/dialogs";
+import users from "./data/users";
+import posts from "./data/posts";
+import dialogs from "./data/dialogs";
 import {
   getDialogs,
-  getHeaderEndpoint,
+  getRequest,
   getLogInUser,
-  getPublications,
-  getUserPublications,
+  getParsedPosts,
+  getUserPosts,
   getUsers,
   postNewMessage,
-  postNewPublication,
+  postNewPost,
   setLogoutUser
 } from "./serverFunctions";
 
 const server = {
   get: (header) => {
-    const [ action, parameter ] = getHeaderEndpoint(header);
+    const [ action, parameter1 ] = getRequest(header);
 
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         switch(action) {
-          case 'user':
-            resolve(getLogInUser(parameter, users));
+          case 'login':
+            resolve(getLogInUser(parameter1, users));
             break;
           case 'users':
-            resolve(getUsers(parameter, users));
+            resolve(getUsers(parameter1, users));
             break;
     
-          case 'publications':
-            resolve(getPublications(publications, users));
+          case 'posts':
+            resolve(getParsedPosts(posts, users));
             break;
 
-          case 'user-publications':
-            resolve(getUserPublications(parameter, publications, users));
+          case 'user-posts':
+            resolve(getUserPosts(parameter1, posts, users));
             break;
 
           case 'dialogs':
-            resolve(getDialogs(parameter, dialogs, users));
+            resolve(getDialogs(parameter1, dialogs, users));
             break;
 
           default:
@@ -47,13 +47,13 @@ const server = {
   },
 
   post: (header, body) => {
-    const [ action ] = getHeaderEndpoint(header);
+    const [ action ] = getRequest(header);
         
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         switch(action) {
-          case 'publication':
-            resolve(postNewPublication(body, publications));
+          case 'posts':
+            resolve(postNewPost(body, posts));
             break;
 
           case 'message':
@@ -68,13 +68,13 @@ const server = {
   },
 
   put: (header) => {
-    const [ action, parameter ] = getHeaderEndpoint(header);
+    const [ action, parameter1 ] = getRequest(header);
     
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         switch(action) {
-          case 'user':
-            resolve(setLogoutUser(parameter, users));
+          case 'logout':
+            resolve(setLogoutUser(parameter1, users));
             break;
 
           default:
@@ -86,5 +86,3 @@ const server = {
 };
 
 export default server;
-
-// "https://bit.ly/3emGlKL"

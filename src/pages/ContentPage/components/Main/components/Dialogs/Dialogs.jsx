@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styles from './Dialogs.module.css';
+import DialogsStyles from './Dialogs.module.css';
 
 import ContactsContainer from './components/Contacts/ContactsContainer';
 import MessagesContainer from './components/Messages/MessagesContainer';
@@ -7,14 +7,14 @@ import server from '../../../../../../backend/server';
 
 const Dialogs = ({ user, setDialogs }) => {
   useEffect(() => {
-    server.get('server/api/dialogs/' + user.id)
+    server.get(`server/api/dialogs?user=${user.id}`)
     .then(dialogs => {
       setDialogs(dialogs)
     });
   }, []);
 
   return (
-    <section className={styles.dialogs}>
+    <section className={DialogsStyles.wrapper}>
       <ContactsContainer />
       <MessagesContainer />
     </section>

@@ -1,9 +1,9 @@
-.profile__publications {
+.posts {
   padding: 0 20px;
 }
 
 @media (max-width: 575px) {
-  .profile__publications {
+  .posts {
     padding: 0;
   }
 }

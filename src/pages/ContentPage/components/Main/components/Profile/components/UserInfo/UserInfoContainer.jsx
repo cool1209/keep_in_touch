@@ -1,16 +1,15 @@
 import UserInfo from './UserInfo';
 import { connect } from 'react-redux';
 import { setDialogsAC } from '../../../../../../../../store/reducers/dialogsReducer';
-import { setPublicationsAC } from '../../../../../../../../store/reducers/publicationsReducer';
+import { setPostsAC } from '../../../../../../../../store/reducers/postsReducer';
+import { setUserAC } from '../../../../../../../../store/reducers/loginUserReducer';
 import {
   resetRequiredUsersPageAC,
-  setUserAC,
   setUsersAC
 } from '../../../../../../../../store/reducers/usersReducer';
 
-
 const mapStateToProps = (state) => ({
-  user: state.users.user
+  user: state.loginUser.user
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -18,7 +17,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(setUserAC({}));
     dispatch(setUsersAC([]));
     dispatch(resetRequiredUsersPageAC([]));
-    dispatch(setPublicationsAC([]));
+    dispatch(setPostsAC([]));
     dispatch(setDialogsAC([]));
   }
 });

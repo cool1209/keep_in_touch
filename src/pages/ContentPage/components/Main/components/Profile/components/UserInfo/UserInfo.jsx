@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './UserInfo.module.css';
+import UserInfoStyles from './UserInfo.module.css';
 import GetIcon from '../../../../../../../../img/GetIcon';
 import classNames from 'classnames';
 import server from '../../../../../../../../backend/server';
@@ -7,29 +7,29 @@ import server from '../../../../../../../../backend/server';
 const UserInfo = ({ user, setUser }) => {
 
   const logoutUser = (id) => {
-    server.put('server/api/user/' + id);
+    server.put(`server/api/logout?user=${id}`);
     setUser();
   }
 
   return (
-    <section className={styles.user}>
-      <div className={styles.user__images}>
+    <section className={UserInfoStyles.wrapper}>
+      <div className={UserInfoStyles.images}>
         <img
           src={user.wallpaper}
           alt='User profile wallpaper'
-          className={styles.user__wallpaper}
+          className={UserInfoStyles.wallpaper}
         />
 
-        <div className={styles.user__avatarContainer}>
+        <div className={UserInfoStyles.avatarContainer}>
           <img
             src={user.avatar}
             alt='User avatar'
-            className={styles.user__avatar}
+            className={UserInfoStyles.avatar}
           />
         </div>
 
         <button
-          className={styles.user__logout}
+          className={UserInfoStyles.logoutBtn}
           onClick={() => logoutUser(user.id)}
         >
           Logout
@@ -37,16 +37,16 @@ const UserInfo = ({ user, setUser }) => {
         </button>
       </div>
 
-      <div className={styles.user__info}>
-        <h2 className={styles.user__name}>
+      <div className={UserInfoStyles.info}>
+        <h2 className={UserInfoStyles.name}>
           {user.name}
         </h2>
 
-        <div className={styles.user__status}>
+        <div className={UserInfoStyles.status}>
           <span className={classNames(
-            `${styles.user__indicator} ${styles.user__indicator_offline}`,
+            `${UserInfoStyles.statusIndicator} ${UserInfoStyles.statusIndicator_offline}`,
             {
-              [styles.user__indicator_online]: user.status === 'Online'
+              [UserInfoStyles.statusIndicator_online]: user.status === 'Online'
             }
             )}
           ></span>
@@ -55,7 +55,7 @@ const UserInfo = ({ user, setUser }) => {
         </div>
 
         <div
-          className={`${styles.user__city} ${styles.user__infoItemTitle}`}
+          className={`${UserInfoStyles.city} ${UserInfoStyles.infoItemTitle}`}
         >
           <h4>
             Lives in:
@@ -65,7 +65,7 @@ const UserInfo = ({ user, setUser }) => {
         </div>
 
         <div
-          className={`${styles.user__about} ${styles.user__infoItemTitle}`}
+          className={`${UserInfoStyles.about} ${UserInfoStyles.infoItemTitle}`}
         >
           <h4>
             About me:

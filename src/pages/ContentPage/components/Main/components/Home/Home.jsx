@@ -2,50 +2,50 @@ import React, { useEffect } from 'react';
 import server from '../../../../../../backend/server';
 import GetIcon from '../../../../../../img/GetIcon';
 import WithNoData from '../../../../../shared/WithNoData/WithNoData';
-import styles from './Home.module.css';
+import HomeStyles from './Home.module.css';
 
-const Home = ({ publications, setPublications }) => {
+const Home = ({ posts, setPosts }) => {
   useEffect(() => {
-    server.get('server/api/publications/')
-    .then((publications) => {
-      setPublications(publications);
+    server.get('server/api/posts')
+    .then((posts) => {
+      setPosts(posts);
     });
   }, []);
 
   return (
-    <div className={styles.home}>
-      {publications.length
-      ? <ul className={styles.home__publications}>
-          {publications.map(publication => (
+    <div className={HomeStyles.wrapper}>
+      {posts.length
+      ? <ul className={HomeStyles.posts}>
+          {posts.map(post => (
             <li
-              className={styles.home__publication}
-              key={publication.id}
+              className={HomeStyles.post}
+              key={post.id}
             > 
               <div>
                 <img 
-                  src={publication.authorAvatar}
+                  src={post.authorAvatar}
                   alt='Publication author avatar'
-                  className={styles.home__publicationAuthorAvatar}
+                  className={HomeStyles.postAuthorAvatar}
                 />
 
-                <button className={styles.home__likeBtn}>
-                  <span className={styles.home__likeIcon}>
+                <button className={HomeStyles.likeBtn}>
+                  <span className={HomeStyles.likeIcon}>
                     <GetIcon id='like-icon' />
                   </span>
 
-                  <span className={styles.home__likesCounter}>
-                    {publication.likes}
+                  <span className={HomeStyles.likesCounter}>
+                    {post.likes}
                   </span>
                 </button>
               </div>
 
-              <div className={styles.home__publicationText}>
-                <h3 className={styles.home__publicationAuthor}>
-                  {publication.author}:
+              <div className={HomeStyles.postText}>
+                <h3 className={HomeStyles.postAuthor}>
+                  {post.author}:
                 </h3>
 
                 <p>
-                  {publication.publication}
+                  {post.text}
                 </p>
               </div>
             </li>

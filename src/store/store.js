@@ -1,12 +1,14 @@
 import { combineReducers, createStore } from "redux";
-import publicationsReducer from "./reducers/publicationsReducer";
-import messagesReducer from "./reducers/dialogsReducer";
+import postsReducer from "./reducers/postsReducer";
+import dialogsReducer from "./reducers/dialogsReducer";
 import usersReducer from "./reducers/usersReducer";
+import loginUserReducer from "./reducers/loginUserReducer";
 
 const rootReducer = combineReducers({
+  loginUser: loginUserReducer,
   users: usersReducer,
-  publications: publicationsReducer,
-  dialogs: messagesReducer,
+  posts: postsReducer,
+  dialogs: dialogsReducer,
 });
 
 const store = createStore(rootReducer);

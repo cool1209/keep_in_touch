@@ -1,8 +1,8 @@
-.user {
+.wrapper {
   margin-bottom: 40px;
 }
 
-.user__images {
+.images {
   position: relative;
 
   margin-bottom: 60px;
@@ -10,7 +10,7 @@
   border-radius: 10px;
 }
 
-.user__logout {
+.logoutBtn {
   position: absolute;
   top: 0;
   right: 0;
@@ -31,14 +31,14 @@
   cursor: pointer;
 }
 
-.user__wallpaper {
+.wallpaper {
   height: 350px;
   object-fit: cover;
 
   border-radius: 8px 8px 0 50px;
 }
 
-.user__avatarContainer {
+.avatarContainer {
   position: absolute;
   left: 0;
   bottom: -40px;
@@ -55,33 +55,33 @@
   border-radius: 50%;
 }
 
-.user__avatar {
+.avatar {
   width: 150px;
   height: 150px;
   border-radius: 50%;
 }
 
-.user__info {
+.info {
   padding-left: 15px;
 }
 
-.user__name {
+.name {
   margin-bottom: 15px;
 }
 
-.user__infoItemTitle {
+.infoItemTitle {
   font-style: italic;
   font-family: var(--font-family-text);
 }
 
-.user__status {
+.status {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
   line-height: 1;
 }
 
-.user__indicator {
+.statusIndicator {
   margin-right: 5px;
   width: 16px;
   height: 16px;
@@ -90,32 +90,32 @@
   border-radius: 50%;
 }
 
-.user__indicator_offline {
+.statusIndicator_offline {
   background: #ff1212;
 }
 
-.user__indicator_online {
+.statusIndicator_online {
   background: #50ff50;
 }
 
-.user__city {
+.city {
   display: flex;
   gap: 8px;
   margin-bottom: 15px;
 }
 
-.user__about {
+.about {
   width: 50%;
 }
 
 @media (max-width: 1023px) {
 
-  .user__wallpaper {
+  .wallpaper {
     border-radius: 8px 8px 0 0;
     height: 250px;
   }
 
-  .user__avatarContainer {
+  .avatarContainer {
     left: 50%;
     transform: translateX(-50%);
   
@@ -123,43 +123,43 @@
     height: 160px;
   }
 
-  .user__avatar {
+  .avatar {
     width: 140px;
     height: 140px;
   }
 
-  .user__name {
+  .name {
     margin-bottom: 10px;
     padding-left: 0;
     text-align: center;
   }
 
-  .user__status {
+  .status {
     justify-content: center;
   }
 
-  .user__about {
+  .about {
     width: 100%;;
   }
 }
 
 @media (max-width: 575px) {
 
-  .user__wallpaper {
+  .wallpaper {
     height: 160px;
   }
 
-  .user__logout {
+  .logoutBtn {
     padding: 0 10px;
     height: 35px;
   }
 
-  .user__avatarContainer {
+  .avatarContainer {
     width: 110px;
     height: 110px;
   }
 
-  .user__avatar {
+  .avatar {
     width: 100px;
     height: 100px;
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import server from '../../../../../../backend/server';
-import styles from './Network.module.css';
+import NetworkStyles from './Network.module.css';
 import User from './User/User';
 
 class Network extends React.Component {
@@ -16,7 +16,7 @@ class Network extends React.Component {
   }
 
   getUsers(propsFn) {
-    server.get('server/api/users/' + this.props.page)
+    server.get(`server/api/users?page=${this.props.page}`)
     .then(users => {
       if (users) {
         propsFn(users);
@@ -31,12 +31,12 @@ class Network extends React.Component {
     const { users, addUsers } = this.props;
 
     return (
-      <section className={styles.network}>
-        <h2 className={styles.network__title}>
+      <section className={NetworkStyles.wrapper}>
+        <h2 className={NetworkStyles.title}>
           {title}
         </h2>
   
-        <ul className={styles.network__users}>
+        <ul className={NetworkStyles.users}>
           {users.map(user => (
             <User user={user}  key={user.id} />
           ))}
@@ -44,7 +44,7 @@ class Network extends React.Component {
 
         {this.state.isBtn &&
           <button
-            className={styles.network__btn}
+            className={NetworkStyles.btn}
             onClick={() => this.getUsers(addUsers)}
           >Show more...</button>
         }

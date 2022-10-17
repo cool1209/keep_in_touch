@@ -1,16 +1,16 @@
-.header {
+.wrapper {
   grid-area: header;
   background-color: var(--color-normal);
 }
 
-.header__inner {
+.inner {
   display: grid;
   grid-template-columns: auto 1fr 60px;
   align-items: center;
   padding: 5px 15px;
 }
 
-.header__title {
+.title {
   width: 100%;
 
   font-size: 36px;
@@ -21,21 +21,16 @@
 }
 
 @media (max-width: 575px) {
-  .header {
+  .wrapper {
     background-color: var(--color-dark);
   }
 
-  .header__inner {
+  .inner {
     grid-template-columns: auto 1fr 45px;
     padding: 5px 10px;
   }
 
-  .header__title {
+  .title {
     font-size: 26px;
-  }
-
-  .header__logo {
-    width: 45px;
-    height: 40px;
   }
 }

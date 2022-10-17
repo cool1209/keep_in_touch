@@ -3,7 +3,7 @@ import { setDialogsAC } from '../../../../../../store/reducers/dialogsReducer';
 import Dialogs from './Dialogs';
 
 const mapStateToProps = (state) => ({
-  user: state.users.user,
+  user: state.loginUser.user,
 });
 
 const mapDispatchToProps = (dispatch) => ({

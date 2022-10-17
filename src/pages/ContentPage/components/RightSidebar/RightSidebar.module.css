@@ -1,4 +1,4 @@
-.rightSidebar {
+.wrapper {
   grid-area: rightSidebar;
   margin-right: 15px;
   padding: 35px 0;
@@ -10,13 +10,13 @@
 }
 
 @media (max-width: 1399px) {
-  .rightSidebar {
+  .wrapper {
     padding: 10px 15px;
   }
 }
 
 @media (max-width: 767px) {
-  .rightSidebar {
+  .wrapper {
     display: none;
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ContentPage.module.css';
+import ContentPageStyles from './ContentPage.module.css';
 
 import Header from './components/Header/Header';
 import LeftSidebar from './components/LeftSidebar/LeftSidebar';
@@ -10,7 +10,7 @@ import Footer from './components/Footer/Footer';
 
 const ContentPage = () => {
   return (
-    <div className={styles.content}>
+    <div className={ContentPageStyles.wrapper}>
       <Header />
       <LeftSidebar />
       <RightSidebar />

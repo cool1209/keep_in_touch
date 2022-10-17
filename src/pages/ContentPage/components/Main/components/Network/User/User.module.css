@@ -1,4 +1,4 @@
-.user {
+.wrapper {
   display: grid;
   grid-template-rows: auto 1fr repeat(4, auto);
   justify-items: center;
@@ -15,26 +15,26 @@
   transition: box-shadow var(--transition-behavior);
 }
 
-.user:hover {
+.wrapper:hover {
   box-shadow: var(--box-shadow);
 }
 
-.user__avatar {
+.avatar {
   border-radius: 6px;
   width: 150px;
   height: 150px;
 }
 
-.user__login {
+.login {
   text-align: center;
 }
 
-.user__status {
+.status {
   display: flex;
   align-items: center;
 }
 
-.user__indicator {
+.indicator {
   display: inline-block;
   margin-right: 4px;
   width: 16px;
@@ -44,20 +44,20 @@
   border-radius: 50%;
 }
 
-.user__indicator_offline {
+.indicator_offline {
   background: #ff1212;
 }
 
-.user__indicator_online {
+.indicator_online {
   background: #50ff50;
 }
 
-.user__sity,
-.user__statusText {
+.city,
+.statusText {
   font-size: var(--font-size-mini);   
 }
 
-.user__btn {
+.btn {
   padding: 8px 0;
   width: 100%;
 
@@ -70,38 +70,38 @@
   transition: all var(--transition-behavior);
 }
 
-.user__btn:focus {
+.btn:focus {
   border: 2px solid var(--color-normal);
 }
 
-.user__btn:hover {
+.btn:hover {
   background: var(--color-dark);
   color: var(--color-secondary)
 }
 
 @media (max-width: 1399px) {
-  .user {
+  .wrapper {
     gap: 5px;
     padding: 10px;
     width:165px;
   }
 
-  .user__avatar {
+  .avatar {
     width: 100px;
     height: 100px;
   }
 
-  .user__login {
+  .login {
     font-size: var(--font-size-desktop);
   }
 }
 
 @media (max-width: 374px) {
-  .user {
+  .wrapper {
     max-width:145px;
   }
   
-  .user__avatar {
+  .avatar {
     width: 80px;
     height: 80px;
   }

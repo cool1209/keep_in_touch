@@ -1,18 +1,18 @@
 import React from 'react';
-import styles from './Profile.module.css';
+import ProfileStyles from './Profile.module.css';
 
 import UserInfoContainer from './components/UserInfo/UserInfoContainer';
-import NewPublicationContainer from './components/NewPublication/NewPublicationContainer';
-import PublicationListContainer from './components/PublicationList/PublicationListContainer';
+import NewPostContainer from './components/NewPost/NewPostContainer';
+import PostsContainer from './components/PostsStyles/PostsContainer';
 
 const Profile = () => {
   return (
-    <section className={styles.profile}>
+    <section className={ProfileStyles.wrapper}>
       <UserInfoContainer />
       
-      <div className={styles.profile__publications}>
-        <NewPublicationContainer/>
-        <PublicationListContainer />
+      <div className={ProfileStyles.posts}>
+        <NewPostContainer/>
+        <PostsContainer />
       </div>
     </section>
   );

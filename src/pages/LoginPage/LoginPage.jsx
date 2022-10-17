@@ -56,7 +56,7 @@ const LoginPage = ({ setUser }) => {
   ];
 
   const loginUser = (login) => {
-    server.get('server/api/user/' + login)
+    server.get(`server/api/login?user=${login}`)
     .then(user => {
       setUser(user);
     })

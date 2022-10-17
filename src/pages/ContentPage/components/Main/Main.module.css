@@ -1,4 +1,4 @@
-.main {
+.wrapper {
   position: relative;
   display: grid;
   grid-template-columns: 100%;
@@ -11,19 +11,19 @@
 }
 
 @media (max-width: 1399px) {
-  .main {
+  .wrapper {
     margin-right: 15px;
   }
 }
 
 @media (max-width: 767px) {
-  .main {
+  .wrapper {
     margin: 15px 15px 0 15px;
   }
 }
 
 @media (max-width: 575px) {
-  .main {
+  .wrapper {
     margin: 10px 10px 0 10px;
   }
 }

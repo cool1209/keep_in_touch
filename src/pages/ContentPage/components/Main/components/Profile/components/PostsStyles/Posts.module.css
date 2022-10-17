@@ -1,18 +1,18 @@
-.publicationList__inner {
+.inner {
   display: flex;
   flex-direction: column-reverse;
 }
 
-.publicationList__title {
+.title {
   margin-bottom: 20px;
 }
 
-.publicationList__item {
+.item {
   display: flex;
   margin-bottom: 15px;
 }
 
-.publication {
+.post {
   padding: 15px;
   max-width: 800px;
 
@@ -23,7 +23,7 @@
   word-break: break-word;
 }
 
-.publication__userAvatar {
+.post__userAvatar {
   margin: 0 auto 10px;
   width: 60px;
   height: 60px;
@@ -32,13 +32,13 @@
   border-radius: 50%;
 }
 
-.publication__userAvatar img{
+.post__userAvatar img{
   width: 100%;
   height: 100%;
   border-radius: 50%;
 }
 
-.publication__likeBtn {
+.post__likeBtn {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,26 +54,26 @@
   cursor: pointer;
 }
 
-.publication__likeIcon {
+.post__likeIcon {
   transition: transform var(--transition-behavior);
 }
 
-.publication__likeBtn:hover .publication__likeIcon {
+.post__likeBtn:hover .post__likeIcon {
   transform: scale(1.35);
 }
 
-.publication__likesCounter {
+.post__likesCounter {
   font-size: var(--font-size-mini);
 }
 
-.publication__text {
+.post__text {
   margin-left: 15px;
 }
 
 @media (max-width: 1023px) {
 
-  .publicationList__title,
-  .publication__title {
+  .title,
+  .post__title {
     text-align: center;
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Messages.module.css';
+import MessagesStyles from './Messages.module.css';
 import { Route, Routes } from 'react-router-dom';
 import Message from './Message/Message';
 import WithNoData from '../../../../../../../shared/WithNoData/WithNoData';
@@ -14,8 +14,8 @@ const Messages = ({
 }) => {
 
   return (
-    <ul className={styles.messages}>
-      <div className={styles.messages__hint}>
+    <ul className={MessagesStyles.wrapper}>
+      <div className={MessagesStyles.hint}>
         {dialogs.length
           ? <WithNoData message={'Please select a contact'} />
           : <WithNoData message={"You don't have any dialogue..."} />
@@ -28,8 +28,8 @@ const Messages = ({
             path={`${dialog.id}`}
             key={dialog.id} 
             element={
-              <li className={styles.messages__container}>
-                <ul className={styles.messages__dialogMessages}>
+              <li className={MessagesStyles.container}>
+                <ul className={MessagesStyles.dialogMessages}>
                   {dialog.messages.map(message => (
                     <Message 
                       message={message}
@@ -39,16 +39,16 @@ const Messages = ({
                   ))}
                 </ul>
 
-                <div className={styles.messages__sendMessage}>
+                <div className={MessagesStyles.sendMessage}>
                   <input
                     type="text"
-                    className={styles.messages__input}
+                    className={MessagesStyles.input}
                     onChange={(e) => onUpdateText(e.target.value)}
                     placeholder="New message..."
                     value={newMessageText}
                   />
                   <button
-                    className={styles.messages__btn}
+                    className={MessagesStyles.btn}
                     onClick={() => onSendMessage(dialog.id, user)}
                   >Send</button>
                 </div>

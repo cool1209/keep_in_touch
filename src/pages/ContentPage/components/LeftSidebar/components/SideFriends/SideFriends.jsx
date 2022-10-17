@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './SideFriends.module.css';
+import SideFriendsStyles from './SideFriends.module.css';
 
 const SideFriends = () => {
   const randomFriends = [
@@ -18,15 +18,15 @@ const SideFriends = () => {
   ];
   
   return (
-    <div className={styles.friends}>
-      <h4 className={styles.friends__title}>Friends:</h4>
+    <div className={SideFriendsStyles.wrapper}>
+      <h4 className={SideFriendsStyles.title}>Friends:</h4>
 
-      <div className={styles.friends__list}>
+      <div className={SideFriendsStyles.buttonsContainer}>
         {randomFriends
           .map(friend => (
-            <button className={styles.friends__item} key={friend.id}>
+            <button className={SideFriendsStyles.button} key={friend.id}>
               <img
-                className={styles.friends__avatar}
+                className={SideFriendsStyles.avatar}
                 src={friend.avatar}
                 alt="Friend's avatar"
               />
