@@ -3,7 +3,7 @@ import DialogsStyles from './Dialogs.module.css';
 
 import ContactsContainer from './components/Contacts/ContactsContainer';
 import MessagesContainer from './components/Messages/MessagesContainer';
-import server from '../../../../../../backend/server';
+import server from '../../../../../../backend/server/server';
 
 const Dialogs = ({ user, setDialogs }) => {
   useEffect(() => {

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import server from '../../../../../../../../backend/server';
+import server from '../../../../../../../../backend/server/server';
 import GetIcon from '../../../../../../../../img/GetIcon';
 import PostsStyles from './Posts.module.css';
 

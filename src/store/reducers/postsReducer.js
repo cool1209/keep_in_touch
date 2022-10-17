@@ -1,4 +1,4 @@
-import server from "../../backend/server";
+import server from "../../backend/server/server";
 
 const SET_POSTS = 'SET_POSTS';
 const SET_USER_POSTS = 'SET_USER_POSTS';
@@ -31,11 +31,11 @@ const postsReducer = (state = initialState, action) => {
           id: state.userPosts.length + 1,
           userId: action.userId,
           authorAvatar: action.userAvatar,
-          post: state.newPostText.trim(),
+          text: state.newPostText.trim(),
           likes: 0,
         }
         
-        server.post('server/api/publication', newPost);
+        server.post('server/api/post', newPost);
 
         return {
           ...state,

@@ -1,6 +1,6 @@
-import users from "./data/users";
-import posts from "./data/posts";
-import dialogs from "./data/dialogs";
+import users from "../database/users";
+import posts from "../database/posts";
+import dialogs from "../database/dialogs";
 import {
   getDialogs,
   getRequest,
@@ -52,7 +52,7 @@ const server = {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         switch(action) {
-          case 'posts':
+          case 'post':
             resolve(postNewPost(body, posts));
             break;
 

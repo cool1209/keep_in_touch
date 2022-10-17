@@ -1,4 +1,4 @@
-import server from "../../backend/server";
+import server from "../../backend/server/server";
 
 const SET_DIALOGS = 'SET_DIALOGS';
 const ADD_MESSAGE = 'ADD_MESSAGE';

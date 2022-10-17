@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import server from '../../../../../../backend/server';
+import server from '../../../../../../backend/server/server';
 import NetworkStyles from './Network.module.css';
 import User from './User/User';
 import WithNoData from '../../../../../shared/WithNoData/WithNoData';

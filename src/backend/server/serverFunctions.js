@@ -18,62 +18,22 @@ export const getRequest = (header) => {
         ...parameters
       ];
     }
-    
     return [ action ];
   } else {
     const action = 'error';
     return [ action ]
   }
-
 };
 
 export const getLogInUser = (login,  users) => {
-  const user = users.find(user => user.login === login);
+  const user = users.items.find(user => user.login === login);
   user.status = 'Online';
   return user;
 };
 
 export const setLogoutUser = (id, users) => {
-  const user = users.find(user => user.id === +id);
+  const user = users.items.find(user => user.id === +id);
   user.status = 'Offline';
-};
-
-const parsePost = (post, users) => {
-  const parsedPost = {
-    id: post.id,
-    userId: post.userId,
-  
-    author: users.find(user => user.id === post.userId).nickname,
-  
-    authorAvatar: users.find(user => user.id === post.userId).avatar,
-  
-    text: post.text,
-    likes: post.likes,
-  }
-  return parsedPost;
-};
-
-export const getParsedPosts = (posts, users) => {
-  return posts.map(post => parsePost(post, users));
-};
-
-export const getUserPosts = (userId, posts, users) => {
-  const userPost = posts
-  .filter(post => post.userId === +userId)
-  .map(post => (
-    parsePost(post, users)
-  ));
-
-  return userPost
-};
-
-export const postNewPost = (newPost, posts) => {
-  posts.push({
-    id: posts.length + 1,
-    userId: newPost.userId,
-    post: newPost.post,
-    likes: 0,
-  });
 };
 
 export const getUsers = (page = 1, users) => {
@@ -82,8 +42,8 @@ export const getUsers = (page = 1, users) => {
   let usersPage = [];
   let userCounter = 0;
 
-  for (let i = 0; i < users.length; i++) {
-    const user = users[i];
+  for (let i = 0; i < users.items.length; i++) {
+    const user = users.items[i];
 
     if (userCounter < pageLength) {
       usersPage.push(user);
@@ -96,7 +56,7 @@ export const getUsers = (page = 1, users) => {
       userCounter = 0;
     }
 
-    if (i === users.length - 1 && usersPage.length) {
+    if (i === users.items.length - 1 && usersPage.length) {
       usersPages.push(usersPage);
     }
   }
@@ -106,17 +66,55 @@ export const getUsers = (page = 1, users) => {
     : null;
 };
 
+const parsePost = (post, users) => {
+  const parsedPost = {
+    id: post.id,
+    userId: post.userId,
+  
+    author: users.items.find(user => user.id === post.userId).nickname,
+  
+    authorAvatar: users.items.find(user => user.id === post.userId).avatar,
+  
+    text: post.text,
+    likes: post.likes,
+  }
+  return parsedPost;
+};
+
+export const getParsedPosts = (posts, users) => {
+  return posts.items.map(post => parsePost(post, users));
+};
+
+export const getUserPosts = (userId, posts, users) => {
+  const userPost = posts.items
+  .filter(post => post.userId === +userId)
+  .map(post => (
+    parsePost(post, users)
+  ));
+
+  return userPost
+};
+
+export const postNewPost = (newPost, posts) => {
+  posts.items.push({
+    id: posts.items.length + 1,
+    userId: newPost.userId,
+    text: newPost.text,
+    likes: 0,
+  });
+};
+
 export const getDialogs = (userId, dialogs, users) => {
-  return dialogs
+  return dialogs.items
     .filter(dialog => dialog.membersId.includes(+userId))
     .map(dialog => ({
       id: dialog.id,
 
-      contact: users
+      contact: users.items
       .find(user => user.id === dialog.membersId.find(id => id !== +userId))
       .nickname,
 
-      contactAvatar: users
+      contactAvatar: users.items
       .find(user => user.id === dialog.membersId.find(id => id !== +userId))
       .avatar,
 
@@ -124,7 +122,7 @@ export const getDialogs = (userId, dialogs, users) => {
         id: message.id,
         authorId: message.authorId,
 
-        authorAvatar: users
+        authorAvatar: users.items
         .find(user => user.id === message.authorId)
         .avatar,
 
@@ -133,16 +131,17 @@ export const getDialogs = (userId, dialogs, users) => {
     }))
 };
 
-export const postNewMessage = (newMessage, dialogsData) => {
-  const dialogId = newMessage.dialogId;
-  const currentDialog = dialogsData.dialogs
+export const postNewMessage = (message, dialogs) => {
+  const dialogId = message.dialogId;
+  const currentDialog = dialogs.items.dialogs
     .find(dialog => dialog.id === dialogId);
 
   const newMessageId = currentDialog.messages.length + 1;
-
-  currentDialog.messages.push({
+  const newMessage = {
     id: newMessageId,
-    authorId: newMessage.authorId,
-    message: newMessage.message,
-  });
+    authorId: message.authorId,
+    message: message.message,
+  }
+
+  currentDialog.messages.push(newMessage);
 };

@@ -60,32 +60,40 @@ const getRandomNumber = (number) => Math.floor(Math.random() * number);
 
 export const getTestUsers = (users, userCaunter) => {
   for (let i = 0; i < userCaunter; i++) {
+    const userId = users.items.length + 1;
+    const name = getRandomItem(testNames);
+    const city = getRandomItem(testCities);
+
     const testUser = {
-      id: users.length + 1,
-      login: "user" + (i + 1),
-      name: getRandomItem(testNames),
-      nickname: getRandomItem(testNames),
+      id: userId,
+      login: `user${userId}`,
+      name,
+      nickname: name,
       status: "Offline",
-      city: getRandomItem(testCities),
+      city,
       about: null,
       friends: null,
       avatar: "https://bit.ly/3MqaoOw",
       wallpaper: "https://bit.ly/3emGlKL"
     }
 
-    users.push(testUser);
+    users.items.push(testUser);
   }
 };
 
 export const getTestPosts = (posts, postCaunter) => {
   for (let i = 0; i < postCaunter; i++) {
     const testPost = {
-      id: posts.length + 1,
+      id: posts.items.length + 1,
       userId: getRandomNumber(21) + 1,
       text: getRandomItem(testPosts),
       likes: getRandomNumber(20)
     };
 
-    posts.push(testPost)
+    posts.items.push(testPost)
   }
 };
+
+export const addDataItemsTotalCount = (data) => {
+  data.totalCount = data.items.length;
+}

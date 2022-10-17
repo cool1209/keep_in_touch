@@ -2,7 +2,7 @@ import React from 'react';
 import UserInfoStyles from './UserInfo.module.css';
 import GetIcon from '../../../../../../../../img/GetIcon';
 import classNames from 'classnames';
-import server from '../../../../../../../../backend/server';
+import server from '../../../../../../../../backend/server/server';
 
 const UserInfo = ({ user, setUser }) => {
 

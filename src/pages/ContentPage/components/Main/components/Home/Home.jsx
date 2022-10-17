@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import server from '../../../../../../backend/server';
+import server from '../../../../../../backend/server/server';
 import GetIcon from '../../../../../../img/GetIcon';
 import WithNoData from '../../../../../shared/WithNoData/WithNoData';
 import HomeStyles from './Home.module.css';

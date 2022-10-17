@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import server from '../../backend/server';
+import server from '../../backend/server/server';
 import styles from './LoginPage.module.css';
 
 const LoginPage = ({ setUser }) => {
