@@ -6,11 +6,12 @@ import NetworkClass from "./NetworkClass";
 const mapStateToProps = (state) => ({
   users: state.users.users,
   pages: state.users.pages,
+  currentPage: state.users.currentPage,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setUsers: (users, totalCount) => {
-    dispatch(setUsersAC(users, totalCount));
+  setUsers: (users, totalCount, currentPage) => {
+    dispatch(setUsersAC(users, totalCount, currentPage));
   }
 });
 

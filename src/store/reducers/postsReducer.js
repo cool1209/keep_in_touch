@@ -30,7 +30,7 @@ const postsReducer = (state = initialState, action) => {
         const newPost = {
           id: state.userPosts.length + 1,
           userId: action.userId,
-          authorAvatar: action.userAvatar,
+          authorAvatar: action.useravatar,
           text: state.newPostText.trim(),
           likes: 0,
         }
@@ -39,7 +39,7 @@ const postsReducer = (state = initialState, action) => {
 
         return {
           ...state,
-          userPosts: [...state.userPosts, newPost],
+          userPosts: [ newPost, ...state.userPosts ],
           newPostText: ''
         }
       }
@@ -70,10 +70,10 @@ export const setUserPostsAC = (posts) => ({
   posts
 });
 
-export const addNewPostAC = (userId, userAvatar) => ({
+export const addNewPostAC = (userId, useravatar) => ({
   type: ADD_NEW_POST,
   userId,
-  userAvatar
+  useravatar
 });
 
 export const updatePostTextAC = (text) => ({

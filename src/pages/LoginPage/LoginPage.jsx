@@ -1,59 +1,13 @@
 import React, { useState } from 'react';
 import server from '../../backend/server/server';
-import styles from './LoginPage.module.css';
+import PaginationButtons from '../shared/PaginationButtons/PaginationButtons';
+import LoginPageStyles from './LoginPage.module.css';
 
 const LoginPage = ({ setUser }) => {
   const [login, setLogin] = useState('');
-  const users = [
-    {
-      name: "Tony",
-      login: "user1"
-    },
-    {
-      name: "Peter",
-      login: "user2"
-    },
-    {
-      name: "Wade",
-      login: "user3"
-    },
-    {
-      name: "Natasha",
-      login: "user4"
-    },
-    {
-      name: "Thor",
-      login: "user5"
-    },
-    {
-      name: "Bruce",
-      login: "user6"
-    },
-    {
-      name: "Stephen",
-      login: "user7"
-    },
-    {
-      name: "Loki",
-      login: "user8"
-    },
-    {
-      name: "Arthur",
-      login: "user9"
-    },
-    {
-      name: "Kal-El",
-      login: "user10"
-    },
-    {
-      name: "Lao",
-      login: "user11"
-    },
-    {
-      name: "Yuri",
-      login: "user12"
-    }
-  ];
+  const [curentPage, setCurentPage] = useState(1);
+  const pages = [1, 2, 3, 4, 5];
+  const users = server.getLoginUsers(curentPage);
 
   const loginUser = (login) => {
     server.get(`server/api/login?user=${login}`)
@@ -63,20 +17,20 @@ const LoginPage = ({ setUser }) => {
   }
 
   return (
-    <div className={styles.loginPage}>
-      <h1 className={styles.loginPage__title}>
-        <span className={styles.loginPage__titlePart}>Welcome</span>
-        <span className={styles.loginPage__titlePart}>to</span>
-        <span className={styles.loginPage__socialNetworkName}>Keep in touch</span>
+    <div className={LoginPageStyles.wrapper}>
+      <h1 className={LoginPageStyles.title}>
+        <span className={LoginPageStyles.titlePart}>Welcome</span>
+        <span className={LoginPageStyles.titlePart}>to</span>
+        <span className={LoginPageStyles.socialNetworkName}>Keep in touch</span>
       </h1>
 
-      <p className={styles.loginPage__description}>
+      <p className={LoginPageStyles.description}>
         The test login page to check the functionality of this social network for different users.
       </p>
 
-      <div className={styles.loginPage__field}>
+      <div className={LoginPageStyles.loginField}>
         <input
-          className={styles.loginPage__input}
+          className={LoginPageStyles.input}
           type='text'
           placeholder='Enter your login...'
           value={login}
@@ -84,7 +38,7 @@ const LoginPage = ({ setUser }) => {
         />
 
         <button
-          className={styles.loginPage__btn}
+          className={LoginPageStyles.btn}
           onClick={() => (
             login
             ? loginUser(login)
@@ -95,21 +49,28 @@ const LoginPage = ({ setUser }) => {
         </button>
       </div>
 
-      <p className={styles.loginPage__hint}>
-        Select a user below and click the "LogIn" button. 
+      <p className={LoginPageStyles.hint}>
+        Select a user below and click the "LogIn" button.
       </p>
 
-      <div className={styles.loginPage__users}>
+      <div className={LoginPageStyles.users}>
         {users.map(user => (
-          <button
+          <img
+            className={LoginPageStyles.user}
+            src={user.avatar}
+            alt='User avatar'
             key={user.login}
-            className={styles.loginPage__user}
             onClick={() => setLogin(user.login)}
-          >
-            {user.name}
-          </button>
+          />
         ))}
       </div>
+
+      <PaginationButtons
+          styles={null}
+          pages={pages}
+          currentPage={curentPage}
+          getDataPage={setCurentPage}
+        />
     </div>
   );
 };

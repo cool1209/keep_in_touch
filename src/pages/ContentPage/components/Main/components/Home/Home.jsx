@@ -1,57 +1,25 @@
 import React, { useEffect } from 'react';
 import server from '../../../../../../backend/server/server';
-import GetIcon from '../../../../../../img/GetIcon';
 import WithNoData from '../../../../../shared/WithNoData/WithNoData';
 import HomeStyles from './Home.module.css';
+import Post from './Post/Post';
 
 const Home = ({ posts, setPosts }) => {
   useEffect(() => {
     server.get('server/api/posts')
     .then((posts) => {
-      console.log(posts);
-      setPosts(posts);
+      setPosts(posts.items);
     });
   }, []);
 
   return (
     <div className={HomeStyles.wrapper}>
       {posts.length
-      ? <ul className={HomeStyles.posts}>
+      ? <div className={HomeStyles.posts}>
           {posts.map(post => (
-            <li
-              className={HomeStyles.post}
-              key={post.id}
-            > 
-              <div>
-                <img 
-                  src={post.authorAvatar}
-                  alt='Publication author avatar'
-                  className={HomeStyles.postAuthorAvatar}
-                />
-
-                <button className={HomeStyles.likeBtn}>
-                  <span className={HomeStyles.likeIcon}>
-                    <GetIcon id='like-icon' />
-                  </span>
-
-                  <span className={HomeStyles.likesCounter}>
-                    {post.likes}
-                  </span>
-                </button>
-              </div>
-
-              <div className={HomeStyles.postText}>
-                <h3 className={HomeStyles.postAuthor}>
-                  {post.author}:
-                </h3>
-
-                <p>
-                  {post.text}
-                </p>
-              </div>
-            </li>
+            <Post key={post.id} post={post} />
           ))}
-        </ul>
+        </div>
 
       : <WithNoData message={'Publications is loading...'} />
       }

@@ -1,0 +1,23 @@
+export const testUsers = [
+  {name: 'Tyrande', avatar: 'https://bit.ly/3s5ASeK'},
+  {name: 'Anna', avatar: 'https://bit.ly/3D5uudz'},
+  {name: 'John', avatar: 'https://bit.ly/3S4ARSQ'},
+  {name: 'Kratos', avatar: 'https://bit.ly/3SblYy3'},
+  {name: 'Jilly', avatar: 'https://bit.ly/3yKuBIX'},
+  {name: 'Dizzy', avatar: 'https://bit.ly/3VCgnUE'},
+  {name: 'Mario', avatar: 'https://bit.ly/3zcybw3'},
+  {name: 'Luidgi', avatar: 'https://bit.ly/3T3GVMJ'},
+  {name: 'Nemsy', avatar: 'https://bit.ly/3eIXa2Y'},
+  {name: 'Millhouse', avatar: 'https://bit.ly/3VBJR4J'},
+  {name: 'Aranna', avatar: 'https://bit.ly/3MGOrLh'},
+  {name: 'Tess', avatar: 'https://bit.ly/3VCfb3p'},
+  {name: 'Eddy', avatar: 'https://bit.ly/3Tv9DG3'},
+  {name: 'Hwoarang', avatar: 'https://bit.ly/3eGgoGl'},
+  {name: 'Law', avatar: 'https://bit.ly/3s31m0z'},
+  {name: 'Paul', avatar: 'https://bit.ly/3VEgxuE'},
+  {name: 'Jin', avatar: 'https://bit.ly/3F8oPoT'},
+  {name: 'Nina', avatar: 'https://bit.ly/3yPXKm8'},
+  {name: 'Steve', avatar: 'https://bit.ly/3VDbuuj'},
+  {name: 'Lee', avatar: 'https://bit.ly/3yUfEnR'},
+  {name: 'Diana', avatar: 'https://bit.ly/3CMiQmR'}
+];

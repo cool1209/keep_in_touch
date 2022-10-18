@@ -1,11 +1,7 @@
-import { addDataItemsTotalCount, getTestPosts } from "./dataFunctions";
+import { getTestPosts } from "./DataItemGenerator/generator";
 
-const posts = {
-  items: [],
-  totalCount: null
-};
+const posts = [];
 
-getTestPosts(posts, 40);
-addDataItemsTotalCount(posts);
+getTestPosts(posts, 100);
 
 export default posts;

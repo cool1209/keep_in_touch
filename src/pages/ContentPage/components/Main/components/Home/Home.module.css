@@ -5,88 +5,21 @@
 }
 
 .posts {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-}
-
-.post {
-  display: flex;
-
-  margin-bottom: 15px;
-  padding: 15px;
   max-width: 800px;
   width: 100%;
-
-  background: var(--color-extra-light);
-  border: 1px dashed var(--color-normal);
-  border-radius: 10px;
-
-  word-break: break-word;
-}
-
-.postAuthorAvatar {
-  margin: 0 auto 10px;
-  width: 60px;
-  height: 60px;
-
-  border: 3px solid var(--color-normal);
-  border-radius: 50%;
-}
-
-.postAuthorAvatar img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}
-
-.likeBtn {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
   margin: 0 auto;
-  padding: 4px 10px 4px 4px;
-  width: 100%;
-
-  background: var(--color-extra-normal);
-  border: none;
-  border-radius: 15px;
-  outline: none;
-  cursor: pointer;
 }
 
-.likeIcon {
-  transition: transform var(--transition-behavior);
-}
 
-.likeBtn:hover .likeIcon {
-  transform: scale(1.35);
-}
-
-.likesCounter {
-  font-size: var(--font-size-mini);
-}
-
-.postText {
-  margin-left: 15px;
-}
-
-.postAuthor {
-  margin-bottom: 5px;
-  font-size: var(--font-size-mini);
-  text-decoration: underline;
-  color: var(--color-dark)
-}
 
 @media (max-width: 767px) {
-  .home {
+  .wrapper {
     margin-bottom: 15px;
   }
 }
 
 @media (max-width: 575px) {
-  .home {
+  .wrapper {
     margin-bottom: 10px;
   }
 }

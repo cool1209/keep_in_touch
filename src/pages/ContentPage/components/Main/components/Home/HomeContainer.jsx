@@ -7,8 +7,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setPosts: (publications) => {
-    dispatch(setPostsAC(publications));
+  setPosts: (posts) => {
+    dispatch(setPostsAC(posts));
   }
 });
 

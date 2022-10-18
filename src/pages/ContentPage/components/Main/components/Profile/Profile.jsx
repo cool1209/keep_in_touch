@@ -3,7 +3,7 @@ import ProfileStyles from './Profile.module.css';
 
 import UserInfoContainer from './components/UserInfo/UserInfoContainer';
 import NewPostContainer from './components/NewPost/NewPostContainer';
-import PostsContainer from './components/Posts/PostsContainer';
+import UserPostsContainer from './components/UserPosts/UserPostsContainer';
 
 const Profile = () => {
   return (
@@ -12,7 +12,7 @@ const Profile = () => {
       
       <div className={ProfileStyles.posts}>
         <NewPostContainer/>
-        <PostsContainer />
+        <UserPostsContainer />
       </div>
     </section>
   );

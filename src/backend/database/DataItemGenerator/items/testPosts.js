@@ -1,37 +1,4 @@
-const testCities = [
-  'New York',
-  'Los Angeles',
-  'Shaolin',
-  'Wakanda',
-  'Gotham',
-  'Asgard',
-  'Atlantis'
-];
-
-const testNames = [
-  'Tyrande',
-  'Mukla',
-  'Murky',
-  'Brann',
-  'Cairne',
-  'Cariel',
-  'Cornelius',
-  'Baine',
-  'Smite',
-  'Finley',
-  'Sneed',
-  'Tess',
-  'Vanessa',
-  'Samuro',
-  'Sylvanas',
-  'Aranna',
-  'Millhouse',
-  'Ariorh',
-  'Nemsy',
-  'Rogers'
-];
-
-const testPosts = [
+export const testPosts = [
   'The secret of getting ahead is getting started.',
   'When something is important enough, you do it even if the odds are not in your favor.',
   'If you\'re going through hell, keep going.',
@@ -53,47 +20,3 @@ const testPosts = [
   'When you can\'t make them see the light, make them feel the heat.',
   'Leadership is the capacity to translate vision into reality.'
 ];
-
-const getRandomIndex = (array) => Math.floor(Math.random() * array.length);
-const getRandomItem = (items) => items[getRandomIndex(items)];
-const getRandomNumber = (number) => Math.floor(Math.random() * number);
-
-export const getTestUsers = (users, userCaunter) => {
-  for (let i = 0; i < userCaunter; i++) {
-    const userId = users.items.length + 1;
-    const name = getRandomItem(testNames);
-    const city = getRandomItem(testCities);
-
-    const testUser = {
-      id: userId,
-      login: `user${userId}`,
-      name,
-      nickname: name,
-      status: "Offline",
-      city,
-      about: null,
-      friends: null,
-      avatar: "https://bit.ly/3MqaoOw",
-      wallpaper: "https://bit.ly/3emGlKL"
-    }
-
-    users.items.push(testUser);
-  }
-};
-
-export const getTestPosts = (posts, postCaunter) => {
-  for (let i = 0; i < postCaunter; i++) {
-    const testPost = {
-      id: posts.items.length + 1,
-      userId: getRandomNumber(21) + 1,
-      text: getRandomItem(testPosts),
-      likes: getRandomNumber(20)
-    };
-
-    posts.items.push(testPost)
-  }
-};
-
-export const addDataItemsTotalCount = (data) => {
-  data.totalCount = data.items.length;
-}

@@ -1,7 +1,7 @@
 import React from 'react';
 import server from '../../../../../../backend/server/server';
+import PaginationButtons from '../../../../../shared/PaginationButtons/PaginationButtons';
 import NetworkStyles from './Network.module.css';
-import PageButton from '../../../../../shared/PageButtons/PageButton/PageButton';
 import User from './User/User';
 
 class Network extends React.Component {
@@ -18,7 +18,7 @@ class Network extends React.Component {
   getUsers(page) {
     server.get(`server/api/users?page=${page}`)
     .then(users => {
-      this.props.setUsers(users.items, users.totalCount);
+      this.props.setUsers(users.items, users.totalCount, page);
     })
   }
 
@@ -32,15 +32,12 @@ class Network extends React.Component {
           {title}
         </h2>
   
-        <div className={NetworkStyles.pages}>
-          {pages.map(page => (
-            <PageButton
-              page={page}
-              getUsers={() => this.getUsers(page)}
-              key={page}
-            />
-          ))}
-        </div>
+        <PaginationButtons
+          styles={NetworkStyles.pages}
+          pages={pages}
+          currentPage={this.props.currentPage}
+          getDataPage={this.getUsers.bind(this)}
+        />
 
         <ul className={NetworkStyles.users}>
           {users.map(user => (

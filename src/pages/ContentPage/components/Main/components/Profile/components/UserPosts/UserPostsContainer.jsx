@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { setUserPostsAC } from '../../../../../../../../store/reducers/postsReducer';
-import Posts from './Posts'
+import UserPosts from './UserPosts'
 
 const mapStateToProps = (state) => ({
   posts: state.posts.userPosts,
@@ -13,9 +13,9 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-const PostsContainer = connect(
+const UserPostsContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Posts);
+)(UserPosts);
 
-export default PostsContainer;
+export default UserPostsContainer;

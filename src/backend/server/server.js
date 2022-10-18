@@ -1,17 +1,24 @@
 import users from "../database/users";
 import posts from "../database/posts";
 import dialogs from "../database/dialogs";
+import { getRequest } from "./serverFunctions/general";
+
 import {
-  getDialogs,
-  getRequest,
   getLogInUser,
+  getUsers,
+  setLogoutUser
+} from "./serverFunctions/users";
+
+import {
   getPosts,
   getUserPosts,
-  getUsers,
-  postNewMessage,
-  postNewPost,
-  setLogoutUser
-} from "./serverFunctions";
+  postNewPost
+} from "./serverFunctions/posts";
+
+import {
+  getDialogs,
+  postNewMessage
+} from "./serverFunctions/dialogs";
 
 const server = {
   get: (header) => {
@@ -82,6 +89,13 @@ const server = {
         }
       }, 30000)
     })
+  },
+
+  getLoginUsers: (page) => {
+    const usersForLoginTest = users.slice(0, 15);
+    const start = (page - 1) * 3;
+
+    return usersForLoginTest.slice(start, page * 3);
   }
 };
 

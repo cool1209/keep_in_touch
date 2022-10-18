@@ -4,8 +4,8 @@
   font-size: var(--font-size-mini);
 
   background: var(--color-extra-normal);
-  border: 2px solid transparent;
-  border-radius: 20px;
+  border: 1px solid transparent;
+  border-radius: 8px;
   outline: none;
   cursor: pointer;
 
@@ -13,10 +13,12 @@
 }
 
 .button:focus {
-  border: 2px solid var(--color-normal);
+  background: var(--color-normal);
+  color: var(--color-secondary);
 }
 
-.button:hover {
+.button:hover,
+.isActive {
   background: var(--color-dark);
-  color: var(--color-secondary)
+  color: var(--color-secondary);
 }

@@ -3,6 +3,7 @@ const SET_USERS = 'SET_USERS';
 const initialState = {
   users: [],
   pages: [],
+  currentPage: 0
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -13,10 +14,10 @@ const usersReducer = (state = initialState, action) => {
       const pages = [];
       
       for (let i = 1; i <= totalPages; i++) pages.push(i);
-      
       return {
         users: action.users,
         pages,
+        currentPage: action.currentPage,
       }
 
     default:
@@ -24,10 +25,11 @@ const usersReducer = (state = initialState, action) => {
   };
 }
 
-export const setUsersAC = (users,totalCount) => ({
+export const setUsersAC = (users, totalCount, currentPage) => ({
   type: SET_USERS,
   users,
-  totalCount
+  totalCount,
+  currentPage
 });
 
 export default usersReducer;
