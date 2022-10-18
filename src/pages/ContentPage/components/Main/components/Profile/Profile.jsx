@@ -3,7 +3,7 @@ import ProfileStyles from './Profile.module.css';
 
 import UserInfoContainer from './components/UserInfo/UserInfoContainer';
 import NewPostContainer from './components/NewPost/NewPostContainer';
-import PostsContainer from './components/PostsStyles/PostsContainer';
+import PostsContainer from './components/Posts/PostsContainer';
 
 const Profile = () => {
   return (

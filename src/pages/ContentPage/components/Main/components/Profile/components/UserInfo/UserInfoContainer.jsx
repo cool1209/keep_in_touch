@@ -3,10 +3,7 @@ import { connect } from 'react-redux';
 import { setDialogsAC } from '../../../../../../../../store/reducers/dialogsReducer';
 import { setPostsAC } from '../../../../../../../../store/reducers/postsReducer';
 import { setUserAC } from '../../../../../../../../store/reducers/loginUserReducer';
-import {
-  resetRequiredUsersPageAC,
-  setUsersAC
-} from '../../../../../../../../store/reducers/usersReducer';
+import { setUsersAC } from '../../../../../../../../store/reducers/usersReducer';
 
 const mapStateToProps = (state) => ({
   user: state.loginUser.user
@@ -16,7 +13,6 @@ const mapDispatchToProps = (dispatch) => ({
   setUser: () => {
     dispatch(setUserAC({}));
     dispatch(setUsersAC([]));
-    dispatch(resetRequiredUsersPageAC([]));
     dispatch(setPostsAC([]));
     dispatch(setDialogsAC([]));
   }

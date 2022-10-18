@@ -1,19 +1,16 @@
 import { connect } from "react-redux";
-import { addUsersAC, setUsersAC } from "../../../../../../store/reducers/usersReducer";
+import { setUsersAC } from "../../../../../../store/reducers/usersReducer";
 // import NetworkFn from "./NetworkFn";
 import NetworkClass from "./NetworkClass";
 
 const mapStateToProps = (state) => ({
-  users: state.users.users, 
-  page: state.users.requiredUsersPage
+  users: state.users.users,
+  pages: state.users.pages,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setUsers: (users) => {
-    dispatch(setUsersAC(users));
-  },
-  addUsers: (users) => {
-    dispatch(addUsersAC(users));
+  setUsers: (users, totalCount) => {
+    dispatch(setUsersAC(users, totalCount));
   }
 });
 

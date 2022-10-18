@@ -9,7 +9,7 @@ const Dialogs = ({ user, setDialogs }) => {
   useEffect(() => {
     server.get(`server/api/dialogs?user=${user.id}`)
     .then(dialogs => {
-      setDialogs(dialogs)
+      setDialogs(dialogs.items)
     });
   }, []);
 

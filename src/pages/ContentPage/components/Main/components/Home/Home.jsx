@@ -8,6 +8,7 @@ const Home = ({ posts, setPosts }) => {
   useEffect(() => {
     server.get('server/api/posts')
     .then((posts) => {
+      console.log(posts);
       setPosts(posts);
     });
   }, []);

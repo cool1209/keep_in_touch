@@ -258,7 +258,7 @@ const users = {
   totalCount: null
 }
 
-getTestUsers(users, 1);
+getTestUsers(users, 18);
 addDataItemsTotalCount(users);
 
 export default users;

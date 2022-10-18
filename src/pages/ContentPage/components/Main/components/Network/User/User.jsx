@@ -13,7 +13,7 @@ const User = ({ user }) => {
         className={UserStyles.avatar}
       />
 
-      <h3 className={UserStyles.login}>
+      <h3 className={UserStyles.name}>
         {firstName}
       </h3>
 

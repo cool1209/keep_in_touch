@@ -5,7 +5,7 @@ import {
   getDialogs,
   getRequest,
   getLogInUser,
-  getParsedPosts,
+  getPosts,
   getUserPosts,
   getUsers,
   postNewMessage,
@@ -24,15 +24,15 @@ const server = {
             resolve(getLogInUser(parameter1, users));
             break;
           case 'users':
-            resolve(getUsers(parameter1, users));
+            resolve(getUsers(users, parameter1));
             break;
     
           case 'posts':
-            resolve(getParsedPosts(posts, users));
+            resolve(getPosts(posts, users));
             break;
 
           case 'user-posts':
-            resolve(getUserPosts(parameter1, posts, users));
+            resolve(getUserPosts(posts, users, parameter1));
             break;
 
           case 'dialogs':
@@ -42,7 +42,7 @@ const server = {
           default:
             reject('404 (not found)');
         }
-      }, 1000)
+      }, 332)
     })
   },
 

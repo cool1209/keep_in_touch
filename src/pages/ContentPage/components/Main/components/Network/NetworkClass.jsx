@@ -1,34 +1,30 @@
 import React from 'react';
 import server from '../../../../../../backend/server/server';
 import NetworkStyles from './Network.module.css';
+import PageButton from '../../../../../shared/PageButtons/PageButton/PageButton';
 import User from './User/User';
 
 class Network extends React.Component {
   state = {
     title: 'All users',
-    isBtn: true
   };
 
   componentDidMount() {
     if (!this.props.users.length) {
-      this.getUsers(this.props.setUsers);
+      this.getUsers(1);
     };
   }
 
-  getUsers(propsFn) {
-    server.get(`server/api/users?page=${this.props.page}`)
+  getUsers(page) {
+    server.get(`server/api/users?page=${page}`)
     .then(users => {
-      if (users) {
-        propsFn(users);
-      } else {
-        this.setState({isBtn: false});
-      }
+      this.props.setUsers(users.items, users.totalCount);
     })
   }
 
   render() {
     const { title } = this.state;
-    const { users, addUsers } = this.props;
+    const { users, pages } = this.props;
 
     return (
       <section className={NetworkStyles.wrapper}>
@@ -36,18 +32,21 @@ class Network extends React.Component {
           {title}
         </h2>
   
+        <div className={NetworkStyles.pages}>
+          {pages.map(page => (
+            <PageButton
+              page={page}
+              getUsers={() => this.getUsers(page)}
+              key={page}
+            />
+          ))}
+        </div>
+
         <ul className={NetworkStyles.users}>
           {users.map(user => (
             <User user={user}  key={user.id} />
           ))}
         </ul>
-
-        {this.state.isBtn &&
-          <button
-            className={NetworkStyles.btn}
-            onClick={() => this.getUsers(addUsers)}
-          >Show more...</button>
-        }
       </section>
     )
   }

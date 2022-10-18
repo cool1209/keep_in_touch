@@ -11,7 +11,7 @@ const Posts = ({
   useEffect(() => {
     server.get('server/api/user-posts?user-id=' + user.id)
     .then(posts => {
-      setUserPosts(posts);
+      setUserPosts(posts.items);
     })
   }, []);
 

@@ -36,37 +36,40 @@ export const setLogoutUser = (id, users) => {
   user.status = 'Offline';
 };
 
-export const getUsers = (page = 1, users) => {
-  const pageLength = 10;
-  const usersPages = [];
-  let usersPage = [];
-  let userCounter = 0;
+export const getPage = (data, page = 1, length = 10) => {
+  const pageLength = length;
+  const dataPages = [];
+  let dataPage = [];
+  let dataCounter = 0;
 
-  for (let i = 0; i < users.items.length; i++) {
-    const user = users.items[i];
+  for (let i = 0; i < data.items.length; i++) {
+    const user = data.items[i];
 
-    if (userCounter < pageLength) {
-      usersPage.push(user);
-      userCounter++;
+    if (dataCounter < pageLength) {
+      dataPage.push(user);
+      dataCounter++;
     }
     
-    if (userCounter === pageLength) {
-      usersPages.push(usersPage);
-      usersPage = [];
-      userCounter = 0;
+    if (dataCounter === pageLength) {
+      dataPages.push(dataPage);
+      dataPage = [];
+      dataCounter = 0;
     }
 
-    if (i === users.items.length - 1 && usersPage.length) {
-      usersPages.push(usersPage);
+    if (i === data.items.length - 1 && dataPage.length) {
+      dataPages.push(dataPage);
     }
   }
 
-  return page <= usersPages.length 
-    ? usersPages[page - 1]
+  return page <= dataPages.length 
+    ? {
+        items: dataPages[page - 1],
+        totalCount: data.totalCount
+      }
     : null;
 };
 
-const parsePost = (post, users) => {
+const getParsedPost = (post, users) => {
   const parsedPost = {
     id: post.id,
     userId: post.userId,
@@ -81,18 +84,30 @@ const parsePost = (post, users) => {
   return parsedPost;
 };
 
-export const getParsedPosts = (posts, users) => {
-  return posts.items.map(post => parsePost(post, users));
+export const getUsers = (users, page) => {
+  return getPage(users, page, 10);
 };
 
-export const getUserPosts = (userId, posts, users) => {
-  const userPost = posts.items
+export const getPosts = (posts, users) => {
+  const postsPage = getPage(posts, 1, 4);
+
+  return postsPage.items.map(post => getParsedPost(post, users));
+};
+
+export const getUserPosts = (posts, users, userId) => {
+
+  const userPostsItems = posts.items
   .filter(post => post.userId === +userId)
   .map(post => (
-    parsePost(post, users)
+    getParsedPost(post, users)
   ));
+  
+  const userPosts = {
+    items: userPostsItems,
+    totalCount: userPostsItems.length
+  }
 
-  return userPost
+  return getPage(userPosts, 1, 1);
 };
 
 export const postNewPost = (newPost, posts) => {
@@ -105,30 +120,37 @@ export const postNewPost = (newPost, posts) => {
 };
 
 export const getDialogs = (userId, dialogs, users) => {
-  return dialogs.items
-    .filter(dialog => dialog.membersId.includes(+userId))
-    .map(dialog => ({
-      id: dialog.id,
+  const userDialogsItems = dialogs.items
+  .filter(dialog => dialog.membersId.includes(+userId))
+  .map(dialog => ({
+    id: dialog.id,
 
-      contact: users.items
-      .find(user => user.id === dialog.membersId.find(id => id !== +userId))
-      .nickname,
+    contact: users.items
+    .find(user => user.id === dialog.membersId.find(id => id !== +userId))
+    .nickname,
 
-      contactAvatar: users.items
-      .find(user => user.id === dialog.membersId.find(id => id !== +userId))
+    contactAvatar: users.items
+    .find(user => user.id === dialog.membersId.find(id => id !== +userId))
+    .avatar,
+
+    messages: dialog.messages.map(message => ({
+      id: message.id,
+      authorId: message.authorId,
+
+      authorAvatar: users.items
+      .find(user => user.id === message.authorId)
       .avatar,
 
-      messages: dialog.messages.map(message => ({
-        id: message.id,
-        authorId: message.authorId,
-
-        authorAvatar: users.items
-        .find(user => user.id === message.authorId)
-        .avatar,
-
-        message: message.message
-      }))
+      message: message.message
     }))
+  }));
+
+  const userDialogs = {
+    items: userDialogsItems,
+    totalCount: userDialogsItems.length
+  }
+
+  return getPage(userDialogs, 1, 7);
 };
 
 export const postNewMessage = (message, dialogs) => {
