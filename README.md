@@ -51,15 +51,12 @@ and Redux, Flux architecture, data interaction, etc.
 
  **Added changes:**
  - Changed a way to enter to the network
- - Added user city and network status
- - Changed user description
- - Added Network page
- - Added one more a menu bar
- - Fixed database
- - Fixed reducers
+ - Update backend simulator
+ - Added items generators to backend simulator
+ - Added pagination to "Network" component
+ - Changed some reducers
  - Changed some styles
  - Fixed some bugs
-
 
  **Frameworks dokumentation:** <br>
 - [Getting Started with React](https://reactjs.org/docs/getting-started.html) <br>
