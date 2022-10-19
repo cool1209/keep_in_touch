@@ -1,5 +1,5 @@
 .wrapper {
-  margin: 0 -15px 0 15px;
+  margin: 0 -10px 0 15px;
   padding-right: 11px;
   overflow-y: scroll;
 }
@@ -14,10 +14,10 @@
   color: var(--color-dark)
 }
 
-@media (max-width: 575px) {
+@media (max-width: 767px) {
   .wrapper {
     margin: 0 ;
-    padding-right: 15px;
+    padding: 0 15px;
   }
 
   .hint {

@@ -31,7 +31,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .wrapper {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;

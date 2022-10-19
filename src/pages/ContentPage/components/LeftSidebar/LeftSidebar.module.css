@@ -9,23 +9,23 @@
 
 @media (max-width: 1023px) {
   .wrapper {
-    padding: 25px 0;
-  }
-}
-
-@media (max-width: 767px) {
-  .wrapper {
     order: 2;
     margin: 0 -15px;
-    padding: 15px;
+    padding: 20px 0;
 
     border-radius: 0;
   }
 }
 
+@media (max-width: 767px) {
+  .wrapper {
+    padding: 15px;
+  }
+}
+
 @media (max-width: 575px) {
   .wrapper {
-    padding: 10px 0;
+    padding: 5px 0;
     background-color: var(--color-dark);
   }
 }

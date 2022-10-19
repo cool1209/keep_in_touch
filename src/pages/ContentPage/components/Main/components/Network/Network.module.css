@@ -14,14 +14,14 @@
   flex-wrap: wrap;
   gap: 20px;
 
-  padding-top: 5px;
+  padding: 5px 0;
 
   overflow-y: scroll;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .users {
-    padding-bottom: 15px;;
+    padding-bottom: 15px;
   }
 }
 
@@ -32,5 +32,6 @@
 
   .users {
     gap: 10px;
+    padding-bottom: 10px;
   }
 }

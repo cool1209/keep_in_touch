@@ -2,7 +2,12 @@ import React from 'react';
 import CustomNavLink from '../../../../../../../shared/CustomNavLink/CustomNavLink';
 import ContactsStyles from './Contacts.module.css';
 
-const Contacts = ({ dialogs, isContactSelected, onSetIsContactSelected }) => {
+const Contacts = ({
+  dialogs,
+  isContactSelected,
+  onSetIsContactSelected
+}) => {
+
   return (
     <ul className={isContactSelected
       ? `${ContactsStyles.wrapper} ${ContactsStyles.turnOffContacts}`
@@ -15,6 +20,8 @@ const Contacts = ({ dialogs, isContactSelected, onSetIsContactSelected }) => {
           style={[ContactsStyles.contact, ContactsStyles.activeLink]}
           key={dialog.id}
           onEvent={onSetIsContactSelected}
+          img={dialog.contactAvatar}
+          imgAlt={`Contact avatar`}
         />
       ))}
     </ul>

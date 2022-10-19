@@ -91,7 +91,7 @@
   }
 
   .login {
-    font-size: var(--font-size-desktop);
+    font-size: var(--font-size-normal);
   }
 }
 

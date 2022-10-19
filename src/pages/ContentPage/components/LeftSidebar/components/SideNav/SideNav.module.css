@@ -48,7 +48,7 @@
   color: var(--color-secondary);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .wrapper {
     display: flex;
     flex-direction: row;
@@ -59,7 +59,7 @@
 
   .link {
     margin-bottom: 0;
-    padding: 10px 15px;
+    padding: 10px 35px;
 
     font-weight: 600;
     text-transform: uppercase;
@@ -77,6 +77,14 @@
   .activeLink {
     color: var(--color-normal);
     background: var(--color-secondary);
+  }
+}
+
+@media (max-width: 765px) {
+
+  .link {
+    margin-bottom: 0;
+    padding: 10px 15px;
   }
 }
 
@@ -115,13 +123,5 @@
   .link:hover {
     color: transparent;
     background: transparent;
-  }
-}
-
-@media (max-width: 374px) {
-
-  .link {
-    width: 40px;
-    height: 40px;
   }
 }

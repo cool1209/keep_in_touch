@@ -5,7 +5,7 @@
 .title {
   margin: 0 0 10px;
 
-  font-size: var(--font-size-desktop);
+  font-size: var(--font-size-normal);
   text-align: center;
   color: var(--color-dark)
 }
@@ -52,9 +52,7 @@
     width: 45px;
     height: 45px;
   }
-}
 
-@media (max-width: 767px) {
   .wrapper {
     display: none;
   }

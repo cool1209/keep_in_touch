@@ -2,7 +2,7 @@
   display: flex;
   margin-bottom: 15px;
   padding: 10px;
-  width: 50%;
+  width: 60%;
 
   background: var(--color-very-light);
   border: 1px dashed var(--color-normal);
@@ -33,14 +33,14 @@
   padding-right: 10px;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1279px) {
   .wrapper {
-    width: 70%;
+    width: 75%;
   }
 }
 
 @media (max-width: 575px) {
   .wrapper {
-    width: 90%;
+    width: 100%;
   }
 }

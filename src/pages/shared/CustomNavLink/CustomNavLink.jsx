@@ -17,7 +17,9 @@ const CustomNavLink = ({
     )}
     onClick={props.onEvent}
   >
-    <GetIcon id={props.id} />{name}
+    <GetIcon id={props.id} />
+    <img src={props.img} alt={props.imgAlt} />
+    {name}
   </NavLink>
 );
 

@@ -14,7 +14,7 @@ const assemblePost = (post, users) => {
     id: post.id,
     userId: post.userId,
   
-    author: users.find(user => user.id === post.userId).nickname,
+    author: users.find(user => user.id === post.userId).name,
   
     authorAvatar: users.find(user => user.id === post.userId).avatar,
   

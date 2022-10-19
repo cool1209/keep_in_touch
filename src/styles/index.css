@@ -21,8 +21,8 @@
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
   
-  --font-size-desktop: 16px;
-  --font-size-mobile: 18px;
+  --font-size-large: 18px;
+  --font-size-normal: 16px;
   --font-size-mini: 14px;
 }
 
@@ -32,7 +32,7 @@
 
 html {
   font-family: var(--font-family-text);
-  font-size: var(--font-size-desktop);
+  font-size: var(--font-size-normal);
   line-height: 1.2;
   color: var(--color-main);
 }
@@ -82,7 +82,7 @@ a {
 }
 
 button {
-  font-size: var(--font-size-desktop);
+  font-size: var(--font-size-normal);
 }
 
 ul {
@@ -95,12 +95,6 @@ ul {
   min-width: 320px;
   height: 100vh;
   overflow-y: hidden;
-}
-
-@media (max-width: 767px) {
-  html {
-    font-size: var(--font-size-mobile);
-  }
 }
 
 /* --------------------------------------------- */

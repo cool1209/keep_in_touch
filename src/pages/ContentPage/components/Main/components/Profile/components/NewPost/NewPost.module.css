@@ -8,12 +8,11 @@
 
 .textarea {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   padding: 10px;
-  width: 50%;
   min-height: 80px;
 
-  font-size: var(--font-size-mobile);
+  font-size: var(--font-size-large);
   
   border: 1px solid var(--color-normal);
   border-radius: 8px;
@@ -30,8 +29,13 @@
   color: var(--color-dark);
 }
 
+.textarea,
 .button {
-  padding: 15px 40px;
+  width: 50%;
+}
+
+.button {
+  padding: 15px 0;
 
   font-weight: 600;
 
@@ -58,15 +62,20 @@
   .textarea {
     display: block;
     margin-bottom: 10px;
-    margin: 0 auto 10px;
+    margin: 0 auto 15px;
     padding: 10px;
+  }
+
+  .textarea,
+  .button {
     width: 75%;
   }
 }
 
 @media (max-width: 575px) {
 
-  .textarea {
+  .textarea,
+  .button {
     width: 100%;
   }
 }

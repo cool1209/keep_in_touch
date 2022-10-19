@@ -23,9 +23,9 @@ export const getDialogs = (userId, dialogs, users, length = 21) => {
 
     contact: users
     .find(user => user.id === dialog.membersId.find(id => id !== +userId))
-    .nickname,
+    .name,
 
-    contactavatar: users
+    contactAvatar: users
     .find(user => user.id === dialog.membersId.find(id => id !== +userId))
     .avatar,
 
