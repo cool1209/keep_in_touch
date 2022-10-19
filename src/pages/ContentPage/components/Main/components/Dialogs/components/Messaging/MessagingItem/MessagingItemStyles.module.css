@@ -1,24 +1,4 @@
 .wrapper {
-  margin: 0 -15px 0 15px;
-  padding-right: 11px;
-  overflow-y: scroll;
-}
-
-.hint {
-  position: relative;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-
-  text-align: center;
-  color: var(--color-dark)
-}
-
-.wrapper:has(.container) .hint {
-  display: none;
-}
-
-.container {
   display: grid;
   grid-template-rows: 1fr auto;
   height: 100%;
@@ -90,15 +70,6 @@
 }
 
 @media (max-width: 575px) {
-  .wrapper {
-    margin: 0 ;
-    padding-right: 15px;
-  }
-
-  .hint {
-    display: none;
-  }
-
   .sendMessage {
     grid-template-columns: 3fr 1fr;
   }

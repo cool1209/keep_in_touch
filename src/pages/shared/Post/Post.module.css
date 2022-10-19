@@ -13,7 +13,7 @@
 
 .postAuthor {
   display: inline-block;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
 
   font-size: var(--font-size-mini);
   color: var(--color-dark);

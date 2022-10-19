@@ -19,9 +19,7 @@ const mapDispatchToProps = (dispatch) => ({
     }
   });
 
-const NewPostContainer = connect(
+  export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(NewPost);
-
-export default NewPostContainer;

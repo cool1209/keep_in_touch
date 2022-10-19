@@ -1,8 +1,8 @@
 import React from 'react';
 import SideNavStyles from './SideNav.module.css';
-import CustomNavLink from '../../../../../shared/CustomNavLink';
+import CustomNavLink from '../../../../../shared/CustomNavLink/CustomNavLink';
 
-const SideNav = () => {
+const SideNav = ({ setNoContactSelected }) => {
   const links = [
     {
       path: 'home',
@@ -40,6 +40,7 @@ const SideNav = () => {
           name={link.name}
           id={link.id}
           key={link.id}
+          onEvent={setNoContactSelected}
         />
       ))}
     </nav>

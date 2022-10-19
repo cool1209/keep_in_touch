@@ -2,6 +2,10 @@
   margin-bottom: 20px;
 }
 
+.post h3 {
+  display: none;
+}
+
 @media (max-width: 1023px) {
 
   .title {

@@ -1,5 +1,5 @@
 import React from 'react';
-import GetIcon from '../../../../../../../img/GetIcon';
+import GetIcon from '../../../img/GetIcon';
 import PostStyles from './Post.module.css';
 
 const Post = ({ post }) => {
@@ -25,7 +25,7 @@ const Post = ({ post }) => {
 
       <div className={PostStyles.content}>
         <h3 className={PostStyles.postAuthor}>
-          {post.author}:
+          [{post.author}]
         </h3>
 
         <p>

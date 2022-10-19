@@ -54,13 +54,7 @@
     text-align: center;
   }
 
-  .activeLink {
-    color: var(--color-main);
-    background-color: var(--color-normal);
-  }
-
-  .contacts:has(.activeLink) {
-    height: 0;
-    overflow: hidden;
+  .turnOffContacts {
+    display: none;
   }
 }

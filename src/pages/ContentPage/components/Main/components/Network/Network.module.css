@@ -4,12 +4,6 @@
   overflow: hidden;
 }
 
-.title {
-  font-size: var(--font-size-mobile);
-  text-align: center;
-  margin-bottom: 10px;
-}
-
 .pages {
   margin-bottom: 10px;
 }
@@ -32,6 +26,10 @@
 }
 
 @media (max-width: 575px) {
+  .pages {
+    margin: 10px 0 15px;
+  }
+
   .users {
     gap: 10px;
   }

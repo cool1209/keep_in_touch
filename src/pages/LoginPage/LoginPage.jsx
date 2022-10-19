@@ -1,20 +1,15 @@
-import React, { useState } from 'react';
-import server from '../../backend/server/server';
 import PaginationButtons from '../shared/PaginationButtons/PaginationButtons';
 import LoginPageStyles from './LoginPage.module.css';
 
-const LoginPage = ({ setUser }) => {
-  const [login, setLogin] = useState('');
-  const [curentPage, setCurentPage] = useState(1);
-  const pages = [1, 2, 3, 4, 5];
-  const users = server.getLoginUsers(curentPage);
-
-  const loginUser = (login) => {
-    server.get(`server/api/login?user=${login}`)
-    .then(user => {
-      setUser(user);
-    })
-  }
+const LoginPage = ({
+  users,
+  login,
+  onSetLogin,
+  onLoginUser,
+  curentPage,
+  pages,
+  onSetCurentPage
+}) => {
 
   return (
     <div className={LoginPageStyles.wrapper}>
@@ -41,7 +36,7 @@ const LoginPage = ({ setUser }) => {
           className={LoginPageStyles.btn}
           onClick={() => (
             login
-            ? loginUser(login)
+            ? onLoginUser(login)
             : null
           )}
         >
@@ -60,17 +55,17 @@ const LoginPage = ({ setUser }) => {
             src={user.avatar}
             alt='User avatar'
             key={user.login}
-            onClick={() => setLogin(user.login)}
+            onClick={() => onSetLogin(user.login)}
           />
         ))}
       </div>
 
       <PaginationButtons
-          styles={null}
-          pages={pages}
-          currentPage={curentPage}
-          getDataPage={setCurentPage}
-        />
+        styles={null}
+        pages={pages}
+        currentPage={curentPage}
+        getDataPage={onSetCurentPage}
+      />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import GetIcon from '../../img/GetIcon';
+import GetIcon from '../../../img/GetIcon';
 
 
 const CustomNavLink = ({ 
@@ -15,6 +15,7 @@ const CustomNavLink = ({
       style[0],
       { [style[1]]: isActive }
     )}
+    onClick={props.onEvent}
   >
     <GetIcon id={props.id} />{name}
   </NavLink>

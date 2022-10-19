@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './Button/Button';
+import PaginationButton from './PaginationButton/PaginationButton';
 import PaginationButtonsStyles from './PaginationButtons.module.css'
 
 const PaginationButtons = ({
@@ -12,7 +12,7 @@ const PaginationButtons = ({
   return (
     <div className={`${styles} ${PaginationButtonsStyles.wrapper}`}>
       {pages.map(page => (
-        <Button
+        <PaginationButton
           page={page}
           key={page}
           currentPage={currentPage}

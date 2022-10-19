@@ -1,33 +1,22 @@
-import server from '../../../../../../../../backend/server/server';
-import React, { useEffect } from 'react';
-import UserPost from './UserPost/UserPost';
+import React from 'react';
+import Post from '../../../../../../../shared/Post/Post';
 import UserPostsStyles from './UserPosts.module.css';
 
-const UserPosts = ({
-  posts,
-  setUserPosts,
-  user
-}) => {
-
-  useEffect(() => {
-    server.get('server/api/user-posts?user-id=' + user.id)
-    .then(posts => {
-      setUserPosts(posts.items);
-    })
-  }, []);
-
+const UserPosts = ({ posts }) => {
   return (
-    <section className={UserPostsStyles.wrapper}>
+    <article className={UserPostsStyles.wrapper}>
       <h3 className={UserPostsStyles.title}>
         All my publications:
       </h3>
 
       <div className={UserPostsStyles.inner}>
         {posts.map(post => (
-          <UserPost key={post.id} post={post}/>
+          <div className={UserPostsStyles.post} key={post.id}>
+            <Post post={post}/>
+          </div>
         ))}       
       </div>
-    </section>
+    </article>
   );
 };
 

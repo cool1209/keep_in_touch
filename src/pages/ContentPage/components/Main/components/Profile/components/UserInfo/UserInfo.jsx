@@ -2,15 +2,8 @@ import React from 'react';
 import UserInfoStyles from './UserInfo.module.css';
 import GetIcon from '../../../../../../../../img/GetIcon';
 import classNames from 'classnames';
-import server from '../../../../../../../../backend/server/server';
 
-const UserInfo = ({ user, setUser }) => {
-
-  const logoutUser = (id) => {
-    server.put(`server/api/logout?user=${id}`);
-    setUser();
-  }
-
+const UserInfo = ({ user, logoutUser }) => {
   return (
     <section className={UserInfoStyles.wrapper}>
       <div className={UserInfoStyles.images}>

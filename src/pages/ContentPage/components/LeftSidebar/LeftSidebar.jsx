@@ -2,13 +2,13 @@ import React from 'react';
 import LeftSidebarStyles from './LeftSidebar.module.css';
 
 import SideFriends from './components/SideFriends/SideFriends';
-import SideNav from './components/SideNav/SideNav';
+import SideNavContainer from './components/SideNav/SideNavContainer';
 
 
 const LeftSidebar = () => {
   return (
     <div className={LeftSidebarStyles.wrapper}>
-      <SideNav />
+      <SideNavContainer />
       <SideFriends />
     </div>
   );
