@@ -1,9 +1,11 @@
 import React from 'react';
 import UserInfoStyles from './UserInfo.module.css';
-import GetIcon from '../../../../../../../../assets/img/GetIcon';
 import classNames from 'classnames';
+import LogoutButton from './LogoutButton/LogoutButton';
 
 const UserInfo = ({ user, logoutUser }) => {
+  const isLogoutButton = true;
+
   return (
     <section className={UserInfoStyles.wrapper}>
       <div className={UserInfoStyles.img}>
@@ -21,13 +23,9 @@ const UserInfo = ({ user, logoutUser }) => {
           />
         </div>
 
-        <button
-          className={UserInfoStyles.logoutBtn}
-          onClick={() => logoutUser(user.id)}
-        >
-          Logout
-          <GetIcon id='logout-icon' />
-        </button>
+        {isLogoutButton &&
+          <LogoutButton userId={user.id} logoutUser={logoutUser} />
+        }
       </div>
 
       <div className={UserInfoStyles.info}>

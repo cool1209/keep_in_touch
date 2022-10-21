@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import GetIcon from '../../../assets/img/GetIcon';
 import PostStyles from './Post.module.css';
 
@@ -6,11 +7,13 @@ const Post = ({ post }) => {
   return (
     <article className={PostStyles.wrapper}> 
       <div className={PostStyles.authorInfo}>
-        <img 
-          src={post.authorAvatar}
-          alt='Publication author avatar'
-          className={PostStyles.authorAvatar}
-        />
+        <NavLink to={`/profile/${post.userId}`}>
+          <img 
+            src={post.authorAvatar}
+            alt='Publication author avatar'
+            className={PostStyles.authorAvatar}
+          />
+        </NavLink>
 
         <button className={PostStyles.likeBtn}>
           <span className={PostStyles.likeIcon}>

@@ -4,12 +4,16 @@ import NewPostContainer from './components/NewPost/NewPostContainer';
 import UserPostsContainer from './components/UserPosts/UserPostsContainer';
 
 const Profile = () => {
+  const isAddNewPost = true;
+
   return (
     <section>
       <UserInfoContainer />
       
       <div>
-        <NewPostContainer/>
+        {isAddNewPost &&
+          <NewPostContainer/>
+        }
         <UserPostsContainer />
       </div>
     </section>

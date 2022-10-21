@@ -1,20 +1,21 @@
 import classNames from 'classnames';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import UserStyles from './User.module.css';
 
 const User = ({ user }) => {
-  const firstName = user.name.split(' ')[0];
-  
   return (
     <li className={UserStyles.wrapper}>
-      <img
-        src={user.avatar}
-        alt="User avatar"
-        className={UserStyles.avatar}
-      />
+      <NavLink to={`/profile/${user.id}`}>
+        <img
+          src={user.avatar}
+          alt="User avatar"
+          className={UserStyles.avatar}
+        />
+      </NavLink>
 
       <h3 className={UserStyles.name}>
-        {firstName}
+        {user.name}
       </h3>
 
 
