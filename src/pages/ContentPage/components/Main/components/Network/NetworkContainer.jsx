@@ -1,7 +1,7 @@
 import server from '../../../../../../backend/server/server';
 import React from 'react';
 import { connect } from "react-redux";
-import { setUsersAC } from "../../../../../../store/reducers/usersReducer";
+import { setUsers } from "../../../../../../store/reducers/usersReducer";
 import Network from './Network';
 
 class NetworkContainer extends React.Component {
@@ -55,13 +55,4 @@ const mapStateToProps = (state) => ({
   totalUsers: state.users.totalUsers
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  setUsers: (users, totalCount, currentPage) => {
-    dispatch(setUsersAC(users, totalCount, currentPage));
-  }
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(NetworkContainer);
+export default connect(mapStateToProps, {setUsers})(NetworkContainer);

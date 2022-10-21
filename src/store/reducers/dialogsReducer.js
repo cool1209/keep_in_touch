@@ -82,27 +82,27 @@ const dialogsReducer = (state = initialState, action) => {
   }
 };
 
-export const setDialogsAC = (dialogs, totalDialogs) => ({
+export const setDialogs = (dialogs, totalDialogs) => ({
   type: SET_DIALOGS,
   dialogs,
   totalDialogs
 });
 
-export const setIsContactSelectedAC = () => ({
+export const setIsContactSelected = () => ({
   type: SET_IS_CONTACT_SELECTED
 });
 
-export const setNoContactSelectedAC = () => ({
+export const setNoContactSelected = () => ({
   type: SET_NO_CONTACT_SELECTED
 });
 
-export const sendMessageAC = (dialogId, user) => ({
+export const sendMessage = (dialogId, user) => ({
   type: ADD_MESSAGE,
   dialogId,
   user
 });
 
-export const updateMessageTextAC = (messageText) => ({
+export const updateMessageText = (messageText) => ({
   type: UPDATE_MESSAGE_TEXT,
   messageText
 });

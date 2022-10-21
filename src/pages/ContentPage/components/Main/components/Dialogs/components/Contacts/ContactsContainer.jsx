@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setIsContactSelectedAC } from '../../../../../../../../store/reducers/dialogsReducer';
+import { setIsContactSelected } from '../../../../../../../../store/reducers/dialogsReducer';
 import Contacts from './Contacts';
 
 const mapStateToProps = (state) => ({
@@ -7,13 +7,7 @@ const mapStateToProps = (state) => ({
   isContactSelected: state.dialogs.isContactSelected
 });
 
-const mapDispatchToProps = (dispatc) => ({
-  onSetIsContactSelected: () => {
-    dispatc(setIsContactSelectedAC());
-  }
-});
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {setIsContactSelected}
 )(Contacts);

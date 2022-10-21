@@ -4,8 +4,8 @@ import NewPostStyles from './NewPost.module.css';
 const NewPost = ({
   newPostText,
   user,
-  onUpdatePostText,
-  onAddPost
+  updatePostText,
+  addNewPost
 }) => {
   return (
     <section className={NewPostStyles.wrapper}>
@@ -15,14 +15,14 @@ const NewPost = ({
 
       <textarea
         className={NewPostStyles.textarea}
-        onChange={(e) => onUpdatePostText(e.target.value)}
+        onChange={(e) => updatePostText(e.target.value)}
         placeholder='Write a new post...'
         value={newPostText}
       />
       
       <button
         className={NewPostStyles.button}
-        onClick={() => onAddPost(user.id, user.avatar)}
+        onClick={() => addNewPost(user.id, user.avatar)}
       >
         Add post
       </button>

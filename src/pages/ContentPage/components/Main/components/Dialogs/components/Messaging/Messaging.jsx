@@ -7,11 +7,11 @@ import MessagingItem from './MessagingItem/MessagingItem';
 
 const Messaging = ({
   user,
+  newMessageText,
+  updateMessageText,
+  sendMessage,
   dialogs,
   isContactSelected,
-  newMessageText,
-  onUpdateText,
-  onSendMessage,
 }) => {
 
   return (
@@ -27,8 +27,8 @@ const Messaging = ({
                   dialog={dialog}
                   user={user}
                   newMessageText={newMessageText}
-                  onUpdateText={onUpdateText}
-                  onSendMessage={onSendMessage}
+                  updateMessageText={updateMessageText}
+                  sendMessage={sendMessage}
                 />
               }
             />

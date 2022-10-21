@@ -1,10 +1,10 @@
 import server from '../../../../../../../../backend/server/server';
 import { connect } from 'react-redux';
 import UserInfo from './UserInfo';
-import { setDialogsAC, setNoContactSelectedAC } from '../../../../../../../../store/reducers/dialogsReducer';
-import { setPostsAC, setUserPostsAC } from '../../../../../../../../store/reducers/postsReducer';
-import { setUserAC } from '../../../../../../../../store/reducers/loginUserReducer';
-import { setUsersAC } from '../../../../../../../../store/reducers/usersReducer';
+import { setDialogs, setNoContactSelected } from '../../../../../../../../store/reducers/dialogsReducer';
+import { setPosts, setUserPosts } from '../../../../../../../../store/reducers/postsReducer';
+import { setUser } from '../../../../../../../../store/reducers/loginUserReducer';
+import { setUsers } from '../../../../../../../../store/reducers/usersReducer';
 
 const UserInfoContainer = ({ user, setUser }) => {
 
@@ -27,12 +27,12 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setUser: () => {
-    dispatch(setUserAC({}));
-    dispatch(setUsersAC([]));
-    dispatch(setUserPostsAC([], null));
-    dispatch(setPostsAC([], null));
-    dispatch(setDialogsAC([], null));
-    dispatch(setNoContactSelectedAC());
+    dispatch(setUser({}));
+    dispatch(setUsers([]));
+    dispatch(setUserPosts([], null));
+    dispatch(setPosts([], null));
+    dispatch(setDialogs([], null));
+    dispatch(setNoContactSelected());
   }
 });
 

@@ -19,6 +19,8 @@
 }
 
 .usersContainer {
+  position: relative;
+  
   display: flex;
   flex-direction: column;
 
@@ -28,7 +30,6 @@
 }
 
 .users {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;

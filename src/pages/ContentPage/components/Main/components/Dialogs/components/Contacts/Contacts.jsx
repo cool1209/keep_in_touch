@@ -6,7 +6,7 @@ import ContactsStyles from './Contacts.module.css';
 const Contacts = ({
   dialogs,
   isContactSelected,
-  onSetIsContactSelected
+  setIsContactSelected
 }) => {
 
   return (
@@ -26,7 +26,7 @@ const Contacts = ({
             to={`${dialog.id}`}
             name={dialog.contact}
             style={[ContactsStyles.contact, ContactsStyles.activeLink]}
-            onEvent={onSetIsContactSelected}
+            onEvent={setIsContactSelected}
             img={dialog.contactAvatar}
             imgAlt={`Contact avatar`}
           />

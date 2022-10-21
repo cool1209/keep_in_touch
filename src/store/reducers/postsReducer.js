@@ -64,25 +64,25 @@ const postsReducer = (state = initialState, action) => {
   }
 }
 
-export const setPostsAC = (posts, totalPosts) => ({
+export const setPosts = (posts, totalPosts) => ({
   type: SET_POSTS,
   posts,
   totalPosts
 });
 
-export const setUserPostsAC = (posts, totalUserPosts) => ({
+export const setUserPosts = (posts, totalUserPosts) => ({
   type: SET_USER_POSTS,
   posts,
   totalUserPosts
 });
 
-export const addNewPostAC = (userId, useravatar) => ({
+export const addNewPost = (userId, useravatar) => ({
   type: ADD_NEW_POST,
   userId,
   useravatar
 });
 
-export const updatePostTextAC = (text) => ({
+export const updatePostText = (text) => ({
   type: UPDATE_POST_TEXT,
   text
 });

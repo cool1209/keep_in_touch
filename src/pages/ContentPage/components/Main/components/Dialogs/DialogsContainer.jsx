@@ -1,7 +1,7 @@
 import server from '../../../../../../backend/server/server';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { setDialogsAC } from '../../../../../../store/reducers/dialogsReducer';
+import { setDialogs } from '../../../../../../store/reducers/dialogsReducer';
 import Dialogs from './Dialogs';
 
 const DialogsContainer = ({ user, setDialogs, isDialogs }) => {
@@ -24,13 +24,4 @@ const mapStateToProps = (state) => ({
   isDialogs: state.dialogs.totalDialogs
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  setDialogs: (dialogs, totalDialogs) => {
-    dispatch(setDialogsAC(dialogs, totalDialogs));
-  }
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(DialogsContainer);
+export default connect(mapStateToProps, {setDialogs})(DialogsContainer);

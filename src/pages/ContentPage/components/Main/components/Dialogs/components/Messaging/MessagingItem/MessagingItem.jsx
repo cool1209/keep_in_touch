@@ -6,8 +6,8 @@ const MessagingItem = ({
   dialog,
   user,
   newMessageText,
-  onUpdateText,
-  onSendMessage
+  updateMessageText,
+  sendMessage
 }) => {
   
   return (
@@ -26,13 +26,13 @@ const MessagingItem = ({
         <input
           type="text"
           className={MessagingItemStyles.input}
-          onChange={(e) => onUpdateText(e.target.value)}
+          onChange={(e) => updateMessageText(e.target.value)}
           placeholder="New message..."
           value={newMessageText}
         />
         <button
           className={MessagingItemStyles.btn}
-          onClick={() => onSendMessage(dialog.id, user)}
+          onClick={() => sendMessage(dialog.id, user)}
         >Send</button>
       </div>
   </li>

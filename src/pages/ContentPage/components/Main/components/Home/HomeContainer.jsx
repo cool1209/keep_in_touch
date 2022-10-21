@@ -1,6 +1,6 @@
 import server from '../../../../../../backend/server/server';
 import { connect } from 'react-redux';
-import { setPostsAC } from '../../../../../../store/reducers/postsReducer';
+import { setPosts } from '../../../../../../store/reducers/postsReducer';
 import Home from './Home';
 import { useEffect } from 'react';
 
@@ -28,13 +28,4 @@ const mapStateToProps = (state) => ({
   isPosts: state.posts.totalPosts
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  setPosts: (posts, totalPosts) => {
-    dispatch(setPostsAC(posts, totalPosts));
-  }
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(HomeContainer);
+export default connect(mapStateToProps, {setPosts})(HomeContainer);

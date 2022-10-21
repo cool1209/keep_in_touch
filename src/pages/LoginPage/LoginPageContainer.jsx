@@ -1,7 +1,7 @@
 import server from '../../backend/server/server';
 import { connect } from 'react-redux';
 import { useState } from 'react';
-import { setUserAC } from '../../store/reducers/loginUserReducer';
+import { setUser } from '../../store/reducers/loginUserReducer';
 import LoginPage from './LoginPage';
 import Preloader from '../shared/Preloader/Preloader';
 
@@ -47,13 +47,4 @@ const mapStateToProps = (state) => ({
   currentUser: state.loginUser.user
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  setUser: (user) => {
-    dispatch(setUserAC(user));
-  }
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LoginPageContainer);
+export default connect(mapStateToProps, {setUser})(LoginPageContainer);

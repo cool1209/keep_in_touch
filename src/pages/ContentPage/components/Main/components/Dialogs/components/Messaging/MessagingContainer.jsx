@@ -2,9 +2,8 @@ import { connect } from 'react-redux';
 import Messaging from './Messaging';
 
 import {
-  sendMessageAC,
-  setNoContactSelectedAC,
-  updateMessageTextAC
+  sendMessage,
+  updateMessageText
 } from '../../../../../../../../store/reducers/dialogsReducer';
 
 
@@ -15,21 +14,10 @@ const mapStateToProps = (state) => ({
   newMessageText: state.dialogs.newMessageText
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  onUpdateText: (messageText) => (
-    dispatch(updateMessageTextAC(messageText))
-  ),
-  onSendMessage: (dialogId, user) => (
-    dispatch(sendMessageAC(dialogId, user))
-  ),
-  setNoContactSelected: () => {
-    dispatch(setNoContactSelectedAC());
-  }
-});
-
-const MessagesContainer = connect(
+export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {
+    updateMessageText,
+    sendMessage,
+  }
 )(Messaging);
-
-export default MessagesContainer;

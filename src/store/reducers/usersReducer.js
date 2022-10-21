@@ -32,7 +32,7 @@ const usersReducer = (state = initialState, action) => {
   };
 }
 
-export const setUsersAC = (users, totalUsers, currentPage) => ({
+export const setUsers = (users, totalUsers, currentPage) => ({
   type: SET_USERS,
   users,
   totalUsers,

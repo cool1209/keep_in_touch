@@ -1,7 +1,7 @@
 import server from '../../../../../../../../backend/server/server';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { setUserPostsAC } from '../../../../../../../../store/reducers/postsReducer';
+import { setUserPosts } from '../../../../../../../../store/reducers/postsReducer';
 import UserPosts from './UserPosts'
 
 const UserPostsContainer = ({
@@ -31,13 +31,7 @@ const mapStateToProps = (state) => ({
   isPosts: state.posts.totalUserPosts
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  setUserPosts: (posts, totalPosts) => {
-    dispatch(setUserPostsAC(posts, totalPosts));
-  }
-});
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {setUserPosts}
 )(UserPostsContainer);

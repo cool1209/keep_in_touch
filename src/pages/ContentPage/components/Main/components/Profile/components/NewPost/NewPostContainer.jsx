@@ -1,6 +1,6 @@
 import {
-  addNewPostAC,
-  updatePostTextAC
+  addNewPost,
+  updatePostText
 } from '../../../../../../../../store/reducers/postsReducer';
 import { connect } from 'react-redux';
 import NewPost from './NewPost';
@@ -10,16 +10,10 @@ const mapStateToProps = (state) => ({
   user: state.loginUser.user 
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    onUpdatePostText: (text) => {
-      dispatch(updatePostTextAC(text));
-    },
-    onAddPost: (userId, useravatar) => {
-      dispatch(addNewPostAC(userId, useravatar));
-    }
-  });
-
-  export default connect(
+export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {
+    updatePostText,
+    addNewPost
+  }
 )(NewPost);

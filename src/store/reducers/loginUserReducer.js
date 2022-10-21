@@ -17,7 +17,7 @@ const loginUserReducer = (state = initialState, action) => {
   };
 }
 
-export const setUserAC = (user) => ({
+export const setUser = (user) => ({
   type: SET_USER,
   user
 });
