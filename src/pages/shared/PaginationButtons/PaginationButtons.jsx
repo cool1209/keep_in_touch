@@ -6,17 +6,19 @@ const PaginationButtons = ({
   styles,
   pages,
   currentPage,
-  getDataPage
+  onEvent,
+  isDisabled
 }) => {
 
   return (
     <div className={`${styles} ${PaginationButtonsStyles.wrapper}`}>
-      {pages.map(page => (
+      {pages.length > 1 && pages.map(page => (
         <PaginationButton
           page={page}
           key={page}
           currentPage={currentPage}
-          getDataPage={getDataPage}
+          onEvent={onEvent}
+          isDisabled={isDisabled}
         />
       ))}
     </div>

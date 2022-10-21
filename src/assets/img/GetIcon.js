@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ImagesStyles.module.css';
+import GetIconStyles from './imgStyles.module.css';
 import logout from './icons/logout.png';
 import like from './icons/like.ico';
 import home from './icons/home.png';
@@ -15,7 +15,7 @@ const GetIcon = ({ id }) => {
         <img
           src={logout}
           alt='Logout icon'
-          className={styles.logoutIcon}
+          className={GetIconStyles.logoutIcon}
         />
       );
 
@@ -24,7 +24,7 @@ const GetIcon = ({ id }) => {
         <img
           src={like}
           alt='Like icon'
-          className={styles.likeIcon}
+          className={GetIconStyles.likeIcon}
         />
       );
     
@@ -33,7 +33,7 @@ const GetIcon = ({ id }) => {
         <img
           src={profile}
           alt='Profile icon'
-          className={styles.profileIcon}
+          className={GetIconStyles.profileIcon}
         />
       );
 
@@ -42,7 +42,7 @@ const GetIcon = ({ id }) => {
         <img
           src={dialogs}
           alt='Dialogs icon'
-          className={styles.dialogsIcon}
+          className={GetIconStyles.dialogsIcon}
         />
       );
      
@@ -51,7 +51,7 @@ const GetIcon = ({ id }) => {
         <img
           src={home}
           alt='Home icon'
-          className={styles.homeIcon}
+          className={GetIconStyles.homeIcon}
         />
       );
 
@@ -60,7 +60,7 @@ const GetIcon = ({ id }) => {
         <img
           src={network}
           alt='Network icon'
-          className={styles.networkIcon}
+          className={GetIconStyles.networkIcon}
         />
       );
 
@@ -69,7 +69,7 @@ const GetIcon = ({ id }) => {
         <img
           src={music}
           alt='Music icon'
-          className={styles.musicIcon}
+          className={GetIconStyles.musicIcon}
         />
       );
          

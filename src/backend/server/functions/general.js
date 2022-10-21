@@ -56,5 +56,8 @@ export const getDataPage = (data, page, length) => {
         items: dataPages[page - 1],
         totalCount: data.length
       }
-    : null;
+    : {
+        items: [],
+        totalCount: data.length
+      };
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import GetIcon from '../../../img/GetIcon';
+import GetIcon from '../../../assets/img/GetIcon';
 import PostStyles from './Post.module.css';
 
 const Post = ({ post }) => {

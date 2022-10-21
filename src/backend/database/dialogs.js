@@ -17,22 +17,6 @@ const dialogs = [
   },
   { 
     id: 2,
-    membersId: [1, 3],
-    messages: [
-      {
-        id: 1,
-        authorId: 1,
-        message: 'Hello, There! How are you?',
-      },
-      {
-        id: 2,
-        authorId: 3,
-        message: 'Hi! I\'m fine. What about you?',
-      }
-    ]
-  },
-  { 
-    id: 3,
     membersId: [1, 4],
     messages: [
       {
@@ -48,7 +32,7 @@ const dialogs = [
     ]
   },
   { 
-    id: 4,
+    id: 3,
     membersId: [1, 5],
     messages: [
       {
@@ -64,23 +48,7 @@ const dialogs = [
     ]
   },
   { 
-    id: 5,
-    membersId: [1, 6],
-    messages: [
-      {
-        id: 1,
-        authorId: 1,
-        message: 'Hello, There! How are you?',
-      },
-      {
-        id: 2,
-        authorId: 6,
-        message: 'Hi! I\'m fine. What about you?',
-      }
-    ]
-  },
-  { 
-    id: 6,
+    id: 4,
     membersId: [1, 7],
     messages: [
       {
@@ -96,7 +64,7 @@ const dialogs = [
     ]
   },
   { 
-    id: 7,
+    id: 5,
     membersId: [1, 8],
     messages: [
       {
@@ -112,23 +80,7 @@ const dialogs = [
     ]
   },
   { 
-    id: 8,
-    membersId: [1, 9],
-    messages: [
-      {
-        id: 1,
-        authorId: 1,
-        message: 'Hello, There! How are you?',
-      },
-      {
-        id: 2,
-        authorId: 9,
-        message: 'Hi! I\'m fine. What about you?',
-      }
-    ]
-  },
-  { 
-    id: 9,
+    id: 6,
     membersId: [1, 10],
     messages: [
       {
@@ -144,7 +96,7 @@ const dialogs = [
     ]
   },
   { 
-    id: 10,
+    id: 7,
     membersId: [1, 11],
     messages: [
       {
@@ -160,23 +112,7 @@ const dialogs = [
     ]
   },
   { 
-    id: 11,
-    membersId: [1, 12],
-    messages: [
-      {
-        id: 1,
-        authorId: 1,
-        message: 'Hello, There! How are you?',
-      },
-      {
-        id: 2,
-        authorId: 12,
-        message: 'Hi! I\'m fine. What about you?',
-      }
-    ]
-  },
-  { 
-    id: 12,
+    id: 8,
     membersId: [1, 13],
     messages: [
       {
@@ -192,55 +128,23 @@ const dialogs = [
     ]
   },
   { 
-    id: 13,
-    membersId: [1, 12],
-    messages: [
-      {
-        id: 1,
-        authorId: 12,
-        message: 'Hello, There! How are you?',
-      },
-      {
-        id: 2,
-        authorId: 1,
-        message: 'Hi! I\'m fine. What about you?',
-      }
-    ]
-  },
-  { 
-    id: 14,
-    membersId: [1, 13],
-    messages: [
-      {
-        id: 1,
-        authorId: 1,
-        message: 'Hello, There! How are you?',
-      },
-      {
-        id: 2,
-        authorId: 13,
-        message: 'Hi! I\'m fine. What about you?',
-      }
-    ]
-  },
-  { 
-    id: 15,
+    id: 9,
     membersId: [1, 14],
     messages: [
       {
         id: 1,
-        authorId: 1,
+        authorId: 14,
         message: 'Hello, There! How are you?',
       },
       {
         id: 2,
-        authorId: 14,
+        authorId: 1,
         message: 'Hi! I\'m fine. What about you?',
       }
     ]
   },
   { 
-    id: 16,
+    id: 10,
     membersId: [1, 15],
     messages: [
       {
@@ -255,6 +159,166 @@ const dialogs = [
       }
     ]
   },
+  { 
+    id: 11,
+    membersId: [1, 16],
+    messages: [
+      {
+        id: 1,
+        authorId: 16,
+        message: 'Hello, There! How are you?',
+      },
+      {
+        id: 2,
+        authorId: 1,
+        message: 'Hi! I\'m fine. What about you?',
+      }
+    ]
+  },
+  { 
+    id: 12,
+    membersId: [1, 17],
+    messages: [
+      {
+        id: 1,
+        authorId: 17,
+        message: 'Hello, There! How are you?',
+      },
+      {
+        id: 2,
+        authorId: 1,
+        message: 'Hi! I\'m fine. What about you?',
+      }
+    ]
+  },
+  { 
+    id: 13,
+    membersId: [1, 18],
+    messages: [
+      {
+        id: 1,
+        authorId: 18,
+        message: 'Hello, There! How are you?',
+      },
+      {
+        id: 2,
+        authorId: 1,
+        message: 'Hi! I\'m fine. What about you?',
+      }
+    ]
+  },
+  { 
+    id: 14,
+    membersId: [1, 19],
+    messages: [
+      {
+        id: 1,
+        authorId: 19,
+        message: 'Hello, There! How are you?',
+      },
+      {
+        id: 2,
+        authorId: 1,
+        message: 'Hi! I\'m fine. What about you?',
+      }
+    ]
+  },
+  { 
+    id: 15,
+    membersId: [1, 20],
+    messages: [
+      {
+        id: 1,
+        authorId: 20,
+        message: 'Hello, There! How are you?',
+      },
+      {
+        id: 2,
+        authorId: 1,
+        message: 'Hi! I\'m fine. What about you?',
+      }
+    ]
+  },
+  { 
+    id: 16,
+    membersId: [1, 21],
+    messages: [
+      {
+        id: 1,
+        authorId: 21,
+        message: 'Hello, There! How are you?',
+      },
+      {
+        id: 2,
+        authorId: 1,
+        message: 'Hi! I\'m fine. What about you?',
+      }
+    ]
+  },
+  { 
+    id: 17,
+    membersId: [1, 22],
+    messages: [
+      {
+        id: 1,
+        authorId: 22,
+        message: 'Hello, There! How are you?',
+      },
+      {
+        id: 2,
+        authorId: 1,
+        message: 'Hi! I\'m fine. What about you?',
+      }
+    ]
+  },
+  { 
+    id: 18,
+    membersId: [1, 23],
+    messages: [
+      {
+        id: 1,
+        authorId: 23,
+        message: 'Hello, There! How are you?',
+      },
+      {
+        id: 2,
+        authorId: 1,
+        message: 'Hi! I\'m fine. What about you?',
+      }
+    ]
+  },
+  { 
+    id: 19,
+    membersId: [1, 24],
+    messages: [
+      {
+        id: 1,
+        authorId: 24,
+        message: 'Hello, There! How are you?',
+      },
+      {
+        id: 2,
+        authorId: 1,
+        message: 'Hi! I\'m fine. What about you?',
+      }
+    ]
+  },
+  { 
+    id: 20,
+    membersId: [1, 25],
+    messages: [
+      {
+        id: 1,
+        authorId: 25,
+        message: 'Hello, There! How are you?',
+      },
+      {
+        id: 2,
+        authorId: 1,
+        message: 'Hi! I\'m fine. What about you?',
+      }
+    ]
+  }
 ]
 
 export default dialogs;

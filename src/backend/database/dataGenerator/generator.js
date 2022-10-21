@@ -5,7 +5,7 @@ import { testWallpapers } from "./items/testWallpaper";
 
 const getRandomIndex = (array) => Math.floor(Math.random() * array.length);
 const getRandomItem = (items) => items[getRandomIndex(items)];
-const getRandomNumber = (number) => Math.floor(Math.random() * number);
+export const getRandomNumber = (number) => Math.floor(Math.random() * number);
 
 export const getTestUsers = (usersData) => {
   const users = testUsers.map((testUser, index) => ({

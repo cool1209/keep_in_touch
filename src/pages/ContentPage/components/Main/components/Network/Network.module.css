@@ -1,6 +1,16 @@
 .wrapper {
   display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.inner {
+  display: flex;
   flex-direction: column;
+
+  height: 100%;
   overflow: hidden;
 }
 
@@ -8,29 +18,60 @@
   margin-bottom: 10px;
 }
 
+.usersContainer {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+
+  overflow: hidden;
+}
+
 .users {
+  position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 20px;
-
+  
   padding: 5px 0;
 
   overflow-y: scroll;
 }
 
+.users_loading {
+  overflow-y: hidden;
+}
+
+.usersBlure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+
+  display: grid;
+
+  background: rgba(255, 255, 255, 0.75);
+}
+
 @media (max-width: 1023px) {
+
   .users {
     padding-bottom: 15px;
   }
 }
 
 @media (max-width: 575px) {
+
   .pages {
     margin: 10px 0 15px;
   }
 
   .users {
+    
     gap: 10px;
     padding-bottom: 10px;
   }

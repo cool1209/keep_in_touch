@@ -7,7 +7,9 @@ const UPDATE_POST_TEXT = 'UPDATE_POST_TEXT';
 
 const initialState = {
   userPosts: [],
+  totalUserPosts: null,
   posts: [],
+  totalPosts: null,
   newPostText: ''
 }
 
@@ -17,12 +19,14 @@ const postsReducer = (state = initialState, action) => {
       return {
         ...state,
         userPosts: action.posts,
+        totalUserPosts: action.totalUserPosts
       }
 
     case SET_POSTS:
       return {
         ...state,
         posts: action.posts,
+        totalPosts: action.totalPosts
       }
 
     case ADD_NEW_POST:
@@ -60,14 +64,16 @@ const postsReducer = (state = initialState, action) => {
   }
 }
 
-export const setPostsAC = (posts) => ({
+export const setPostsAC = (posts, totalPosts) => ({
   type: SET_POSTS,
-  posts
+  posts,
+  totalPosts
 });
 
-export const setUserPostsAC = (posts) => ({
+export const setUserPostsAC = (posts, totalUserPosts) => ({
   type: SET_USER_POSTS,
-  posts
+  posts,
+  totalUserPosts
 });
 
 export const addNewPostAC = (userId, useravatar) => ({

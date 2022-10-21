@@ -1,7 +1,6 @@
 .wrapper {
   display: flex;
 
-  margin-bottom: 15px;
   padding: 15px;
 
   background: var(--color-extra-light);
@@ -71,4 +70,11 @@
 
 .content {
   margin-left: 15px;
+}
+
+@media (max-width: 374px) {
+
+  .content {
+    font-size: var(--font-size-mini);
+  }
 }

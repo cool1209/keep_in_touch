@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import GetIcon from '../../../img/GetIcon';
+import GetIcon from '../../../assets/img/GetIcon';
 
 
 const CustomNavLink = ({ 

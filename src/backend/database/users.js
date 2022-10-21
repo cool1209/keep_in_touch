@@ -1,4 +1,4 @@
-import { getTestUsers } from "./DataItemGenerator/generator";
+import { getTestUsers } from "./dataGenerator/generator";
 
 const users = [];
 

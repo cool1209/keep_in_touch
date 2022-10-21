@@ -2,30 +2,31 @@ import server from '../../../../../../backend/server/server';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { setDialogsAC } from '../../../../../../store/reducers/dialogsReducer';
-import Messages from './Dialogs';
+import Dialogs from './Dialogs';
 
-const DialogsContainer = ({ user, setDialogs }) => {
+const DialogsContainer = ({ user, setDialogs, isDialogs }) => {
   useEffect(() => {
     server.get(`server/api/dialogs?user=${user.id}`)
-    .then(messages => {
-      if (messages) {
-        setDialogs(messages.items);
+    .then(dialogs => {
+      if (dialogs) {
+        setDialogs(dialogs.items, dialogs.tottalCount);
       }
     });
   }, []);
 
   return (
-    <Messages />
+    <Dialogs isDialogs={isDialogs} />
   );
 };
 
 const mapStateToProps = (state) => ({
   user: state.loginUser.user,
+  isDialogs: state.dialogs.totalDialogs
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setDialogs: (messages) => {
-    dispatch(setDialogsAC(messages));
+  setDialogs: (dialogs, totalDialogs) => {
+    dispatch(setDialogsAC(dialogs, totalDialogs));
   }
 });
 

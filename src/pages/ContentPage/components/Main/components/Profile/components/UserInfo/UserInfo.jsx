@@ -1,12 +1,12 @@
 import React from 'react';
 import UserInfoStyles from './UserInfo.module.css';
-import GetIcon from '../../../../../../../../img/GetIcon';
+import GetIcon from '../../../../../../../../assets/img/GetIcon';
 import classNames from 'classnames';
 
 const UserInfo = ({ user, logoutUser }) => {
   return (
     <section className={UserInfoStyles.wrapper}>
-      <div className={UserInfoStyles.images}>
+      <div className={UserInfoStyles.img}>
         <img
           src={user.wallpaper}
           alt='User profile wallpaper'
@@ -48,7 +48,7 @@ const UserInfo = ({ user, logoutUser }) => {
         </div>
 
         <div
-          className={`${UserInfoStyles.city} ${UserInfoStyles.infoItemTitle}`}
+          className={`${UserInfoStyles.city} ${UserInfoStyles.infoItem}`}
         >
           <h4>
             Lives in:
@@ -58,7 +58,7 @@ const UserInfo = ({ user, logoutUser }) => {
         </div>
 
         <div
-          className={`${UserInfoStyles.about} ${UserInfoStyles.infoItemTitle}`}
+          className={`${UserInfoStyles.about} ${UserInfoStyles.infoItem}`}
         >
           <h4>
             About me:

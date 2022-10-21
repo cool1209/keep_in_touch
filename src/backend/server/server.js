@@ -1,24 +1,24 @@
 import users from "../database/users";
 import posts from "../database/posts";
 import dialogs from "../database/dialogs";
-import { getRequest } from "./serverFunctions/general";
+import { getRequest } from "./functions/general";
 
 import {
   getLogInUser,
   getUsers,
   setLogoutUser
-} from "./serverFunctions/users";
+} from "./functions/users";
 
 import {
   getPosts,
   getUserPosts,
   postNewPost
-} from "./serverFunctions/posts";
+} from "./functions/posts";
 
 import {
   getDialogs,
   postNewMessage
-} from "./serverFunctions/dialogs";
+} from "./functions/dialogs";
 
 const server = {
   get: (header) => {
@@ -49,7 +49,7 @@ const server = {
           default:
             reject('404 (not found)');
         }
-      }, 332)
+      }, 1000)
     })
   },
 

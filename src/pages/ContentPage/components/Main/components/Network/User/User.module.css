@@ -79,7 +79,7 @@
   color: var(--color-secondary)
 }
 
-@media (max-width: 1399px) {
+@media (max-width: 1023px) {
   .wrapper {
     padding: 10px;
     width:165px;

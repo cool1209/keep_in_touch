@@ -19,7 +19,7 @@ const MessagingItem = ({
             user={user}
             key={message.id}
           />
-        ))}
+        )).reverse()}
       </ul>
 
       <div className={MessagingItemStyles.sendMessage}>

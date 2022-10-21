@@ -1,7 +1,7 @@
-import { getTestPosts } from "./DataItemGenerator/generator";
+import { getRandomNumber, getTestPosts } from "./dataGenerator/generator";
 
 const posts = [];
 
-getTestPosts(posts, 100);
+getTestPosts(posts, getRandomNumber(100));
 
 export default posts;

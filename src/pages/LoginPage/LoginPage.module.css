@@ -10,31 +10,40 @@
   border: 20px solid var(--color-normal);
 }
 
+.topBlock {
+  display: grid;
+  grid-template-rows: 1fr repeat(2, auto);
+  justify-items: center;
+  align-items: end;
+  gap: 20px;
+  flex-basis: 50%;
+}
+
+.bottomBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  flex-basis: 50%;
+}
+
 .title {
-  margin-bottom: 20px;
-  
+  text-align: center;
   font-weight: bold;
   font-size: 42px;
   line-height: 1;
-  text-align: center;
 }
 
-
-.titlePart {
-  display: block;
-
-}
-
-.socialNetworkName {
+.mainTitle {
   position: relative;
   display: inline-block;
-  margin-bottom: 15px;
 
   font-size: 80px;
   color: var(--color-dark);
 }
 
-.socialNetworkName:after {
+.mainTitle:after {
   content: "Keep in touch";
   position: absolute;
   left: 0;
@@ -46,7 +55,6 @@
 }
 
 .description {
-  margin-bottom: 20px;
   max-width: 400px;
 
   text-align: center;
@@ -54,7 +62,6 @@
 
 .loginField {
   display: flex;
-  margin-bottom: 20px;
 }
 
 .input {
@@ -80,24 +87,25 @@
 .btn {
   margin-left: -1px;
   padding: 0 15px;
+
   font-size: 16px;
+
   background: var(--color-normal);
   border: 1px solid var(--color-тщкьфд);
   border-radius: 0 10px 10px 0;
   outline: none;
-  cursor: pointer;
 
+  cursor: pointer;
   transition: all var(--transition-behavior);
 }
 
 .btn:focus,
 .btn:hover {
+  color: var(--color-secondary);
   background-color: var(--color-dark);
-  color: var(--color-secondary)
 }
 
 .hint {
-  margin-bottom: 20px;
   padding: 0 10px;
   max-width: 400px;
   text-align: center;
@@ -107,9 +115,8 @@
 
 .users {
   display: flex;
+  justify-content: center;
   gap: 10px;
-
-  margin-bottom: 20px;
 }
 
 .user {
@@ -138,16 +145,15 @@
     font-size: 32px;
   }
 
-  .socialNetworkName {
+  .mainTitle {
     font-size: 44px;
   }
   
-  .socialNetworkName:after {
+  .mainTitle:after {
     font-size: 42px;
   }
 
   .description {
-    margin-bottom: 15px;
     width: 300px;
   }
 
@@ -173,14 +179,13 @@
 
   .title {
     font-size: 28px;
-    margin-bottom: 0;
   }
 
-  .socialNetworkName {
+  .mainTitle {
     font-size: 44px;
   }
   
-  .socialNetworkName:after {
+  .mainTitle:after {
     font-size: 42px;
   }
 

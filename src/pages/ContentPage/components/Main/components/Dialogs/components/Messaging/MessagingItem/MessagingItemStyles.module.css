@@ -2,11 +2,15 @@
   display: grid;
   grid-template-rows: 1fr auto;
   height: 100%;
+  overflow: hidden;
 }
 
 .dialogMessages {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
+  padding-top: 1px;
+
+  overflow-y: scroll;
 }
 
 .sendMessage {
@@ -22,13 +26,12 @@
 .sendMessage:after {
   content: "";
   position: absolute;
-  top: 0;
+  top: -2px;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: -1;
   background: var(--color-secondary);
-  border-radius: 12px 12px 0 0
 }
 
 .input {

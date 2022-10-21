@@ -13,13 +13,13 @@
   transition: all var(--transition-behavior);
 }
 
-.button:focus {
-  background: var(--color-normal);
+.button:not([disabled]):hover,
+.button:not([disabled]):focus {
+  background: var(--color-dark);
   color: var(--color-secondary);
 }
 
-.button:hover,
 .isActive {
-  background: var(--color-dark);
+  background: var(--color-normal);
   color: var(--color-secondary);
 }

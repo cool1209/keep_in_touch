@@ -1,5 +1,7 @@
+import classNames from 'classnames';
 import React from 'react';
 import PaginationButtons from '../../../../../shared/PaginationButtons/PaginationButtons';
+import Preloader from '../../../../../shared/Preloader/Preloader';
 import NetworkStyles from './Network.module.css';
 import User from './User/User';
 
@@ -7,24 +9,44 @@ const Network = ({
   pages,
   currentPage,
   users,
-  getUsers
+  getUsers,
+  pageIsLoaded,
+  usersPageIsLoading
 }) => {
-  
   return (
-      <section className={NetworkStyles.wrapper}>
-        <PaginationButtons
-          styles={NetworkStyles.pages}
-          pages={pages}
-          currentPage={currentPage}
-          getDataPage={getUsers}
-        />
+    <div className={NetworkStyles.wrapper}>
+      {pageIsLoaded
+      ? <section className={NetworkStyles.inner}>
+          <PaginationButtons
+            isDisabled={usersPageIsLoading}
+            styles={NetworkStyles.pages}
+            pages={pages}
+            currentPage={currentPage}
+            onEvent={getUsers}
+            />
 
-        <ul className={NetworkStyles.users}>
-          {users.map(user => (
-            <User user={user}  key={user.id} />
-          ))}
-        </ul>
-      </section>
+          <div className={NetworkStyles.usersContainer}>
+            <ul className={classNames(
+              NetworkStyles.users,
+              {[NetworkStyles.users_loading]: usersPageIsLoading}
+            )}>         
+
+              {users.map(user => (
+                <User user={user}  key={user.id} />
+              ))}
+            </ul>
+
+            {usersPageIsLoading &&
+              <div className={NetworkStyles.usersBlure}>
+                <Preloader />
+              </div>
+            }
+          </div>
+        </section>
+
+      : <Preloader />
+      } 
+    </div>
   )
 };
 

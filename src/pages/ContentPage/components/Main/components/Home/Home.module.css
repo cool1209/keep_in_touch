@@ -1,10 +1,17 @@
 .wrapper {
-  padding: 15px 15px 0;
-  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  
+  padding: 15px;
+  border-radius: var(--border-radius-block);
   background: var(--color-very-light);
 }
 
 .posts {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
   max-width: 800px;
   width: 100%;
   margin: 0 auto;

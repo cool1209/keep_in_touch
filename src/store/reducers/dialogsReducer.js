@@ -8,6 +8,7 @@ const SET_NO_CONTACT_SELECTED = 'SET_NO_CONTACT_SELECTED';
 
 const initialState = {
   dialogs: [],
+  totalDialogs: null,
   isContactSelected: false,
   newMessageText: '',
 };
@@ -18,6 +19,7 @@ const dialogsReducer = (state = initialState, action) => {
       return {
         ...state,
         dialogs: action.dialogs,
+        totalDialogs: action.totalDialogs
       }
     
     case SET_IS_CONTACT_SELECTED:
@@ -80,9 +82,10 @@ const dialogsReducer = (state = initialState, action) => {
   }
 };
 
-export const setDialogsAC = (dialogs) => ({
+export const setDialogsAC = (dialogs, totalDialogs) => ({
   type: SET_DIALOGS,
-  dialogs
+  dialogs,
+  totalDialogs
 });
 
 export const setIsContactSelectedAC = () => ({

@@ -37,7 +37,7 @@ const Messaging = ({
 
       : <div className={MessagingStyles.hint}>
           {dialogs.length
-            ? <WithNoData message={'Please select a contact'} />
+            ? <WithNoData message={"Please select a contact"} />
             : <WithNoData message={"You don't have any dialogue..."} />
           }
         </div>

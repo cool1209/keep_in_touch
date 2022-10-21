@@ -2,7 +2,7 @@ import server from '../../../../../../../../backend/server/server';
 import { connect } from 'react-redux';
 import UserInfo from './UserInfo';
 import { setDialogsAC, setNoContactSelectedAC } from '../../../../../../../../store/reducers/dialogsReducer';
-import { setPostsAC } from '../../../../../../../../store/reducers/postsReducer';
+import { setPostsAC, setUserPostsAC } from '../../../../../../../../store/reducers/postsReducer';
 import { setUserAC } from '../../../../../../../../store/reducers/loginUserReducer';
 import { setUsersAC } from '../../../../../../../../store/reducers/usersReducer';
 
@@ -29,8 +29,9 @@ const mapDispatchToProps = (dispatch) => ({
   setUser: () => {
     dispatch(setUserAC({}));
     dispatch(setUsersAC([]));
-    dispatch(setPostsAC([]));
-    dispatch(setDialogsAC([]));
+    dispatch(setUserPostsAC([], null));
+    dispatch(setPostsAC([], null));
+    dispatch(setDialogsAC([], null));
     dispatch(setNoContactSelectedAC());
   }
 });

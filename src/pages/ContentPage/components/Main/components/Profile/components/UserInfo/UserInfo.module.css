@@ -1,11 +1,14 @@
 .wrapper {
   margin-bottom: 40px;
+  padding-bottom: 40px;
+
+  border-bottom: 4px double var(--color-extra-normal);
 }
 
-.images {
+.img {
   position: relative;
 
-  margin-bottom: 60px;
+  margin-bottom: 45px;
 
   border-radius: 10px;
 }
@@ -35,12 +38,13 @@
   height: 350px;
   object-fit: cover;
 
-  border-radius: 8px 8px 0 50px;
+  border-radius: 8px 8px 0 0;
 }
 
 .avatarContainer {
   position: absolute;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: -40px;
 
   display: flex;
@@ -62,22 +66,29 @@
 }
 
 .info {
-  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+
+  width: var(--width-profile-content-desctop);
+  margin: 0 auto;
 }
 
 .name {
-  margin-bottom: 15px;
+  font-size: 36px;
 }
 
-.infoItemTitle {
+.infoItem {
+  text-align: center;
   font-style: italic;
   font-family: var(--font-family-text);
 }
 
 .status {
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
   line-height: 1;
 }
 
@@ -101,24 +112,33 @@
 .city {
   display: flex;
   gap: 8px;
-  margin-bottom: 15px;
 }
 
 .about {
-  width: 50%;
+  padding: 10px 15px 20px;
+
+  background: var(--color-very-light);
+  border-radius: var(--border-radius-block);
+}
+
+.about p {
+  text-align: left;
+}
+
+@media (max-width: 1279px) {
+
+  .info {
+    width: var(--width-profile-content-laptop);
+  }
 }
 
 @media (max-width: 1023px) {
 
   .wallpaper {
-    border-radius: 8px 8px 0 0;
     height: 250px;
   }
 
-  .avatarContainer {
-    left: 50%;
-    transform: translateX(-50%);
-  
+  .avatarContainer {  
     width: 160px;
     height: 160px;
   }
@@ -129,17 +149,24 @@
   }
 
   .name {
-    margin-bottom: 10px;
     padding-left: 0;
     text-align: center;
   }
+}
 
-  .status {
-    justify-content: center;
+@media (max-width: 767px) {
+
+  .wrapper {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
   }
 
-  .about {
-    width: 100%;;
+  .name {
+    font-size: 32px;
+  }
+
+  .info {
+    width: var(--width-profile-content-tablet);
   }
 }
 
@@ -162,5 +189,13 @@
   .avatar {
     width: 100px;
     height: 100px;
+  }
+
+  .name {
+    font-size: 28px;
+  }
+
+  .info {
+    width: var(--width-profile-content-mobile);
   }
 }

@@ -1,22 +1,29 @@
 import React from 'react';
 import Post from '../../../../../../../shared/Post/Post';
+import Preloader from '../../../../../../../shared/Preloader/Preloader';
 import UserPostsStyles from './UserPosts.module.css';
 
-const UserPosts = ({ posts }) => {
+const UserPosts = ({ posts, isPosts }) => {
   return (
-    <article className={UserPostsStyles.wrapper}>
-      <h3 className={UserPostsStyles.title}>
-        All my publications:
-      </h3>
-
-      <div className={UserPostsStyles.inner}>
-        {posts.map(post => (
-          <div className={UserPostsStyles.post} key={post.id}>
-            <Post post={post}/>
+    <>
+      {posts.length
+      ? <article className={UserPostsStyles.wrapper}>
+          <h3 className={UserPostsStyles.title}>
+            All my publications:
+          </h3>
+    
+          <div className={UserPostsStyles.inner}>
+            {posts.map(post => (
+              <div className={UserPostsStyles.post} key={post.id}>
+                <Post post={post}/>
+              </div>
+            ))}       
           </div>
-        ))}       
-      </div>
-    </article>
+        </article>
+
+      : isPosts === null && <Preloader />
+      }
+    </>
   );
 };
 
