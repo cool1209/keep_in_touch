@@ -55,7 +55,7 @@ const server = {
           default:
             reject('404 (not found)');
         }
-      }, 1000)
+      }, 778)
     })
   },
 

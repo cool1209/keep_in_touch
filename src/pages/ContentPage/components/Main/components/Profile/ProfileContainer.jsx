@@ -18,27 +18,27 @@ const ProfileContainer = ({
 
   const params = useParams();
   const userId = params.userId;
-  const isAuthorizedUser = authorizedUser.id === currentUser.id;
+  const isAuthorizedUser = +userId === authorizedUser.id;
 
   const getCurrentUser = (id) => {
-    if (userId === authorizedUser.id) {
-      setCurrentUser(authorizedUser);
-    } else {
-      server.get(`server/api/user?id=${id}`)
-      .then(user => {
-        setCurrentUser(user);
-      })
-    }
+    server.get(`server/api/user?id=${id}`)
+    .then(user => {
+      setCurrentUser(user);
+    })
   }
 
   useEffect(() => {
-    getCurrentUser(userId);
-
+    if (isAuthorizedUser) {
+      setCurrentUser(authorizedUser);
+    } else {
+      getCurrentUser(userId);
+    }
+    
     return () => {
       setCurrentUser({});
       setUserPosts([], null);
     }
-  }, [userId])
+  }, [userId]);
 
   return (
     <>

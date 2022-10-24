@@ -10,7 +10,6 @@ const UserPostsContainer = ({
   currentUser,
   isPosts
 }) => {
-
   useEffect(() => {
     server.get('server/api/user-posts?user-id=' + currentUser.id)
     .then(posts => {
@@ -18,7 +17,7 @@ const UserPostsContainer = ({
         setUserPosts(posts.items, posts.totalCount);
       }
     })
-  }, []);
+  }, [currentUser]);
 
   return (
     <UserPosts posts={posts} isPosts={isPosts} />
