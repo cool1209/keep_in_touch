@@ -7,7 +7,7 @@ import NewPost from './NewPost';
 
 const mapStateToProps = (state) => ({
   newPostText: state.posts.newPostText,
-  user: state.loginUser.user 
+  user: state.user.authorizedUser
 });
 
 export default connect(

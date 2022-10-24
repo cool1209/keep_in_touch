@@ -1,8 +1,13 @@
 import { getDataPage } from "./general";
 
-export const getLogInUser = (login,  users) => {
+export const getAuthorizedUser = (login,  users) => {
   const user = users.find(user => user.login === login);
   user.status = 'Online';
+  return user;
+};
+
+export const getUser = (id,  users) => {
+  const user = users.find(user => user.id === +id);
   return user;
 };
 

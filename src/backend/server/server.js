@@ -4,7 +4,8 @@ import dialogs from "../database/dialogs";
 import { getRequest } from "./functions/general";
 
 import {
-  getLogInUser,
+  getAuthorizedUser,
+  getUser,
   getUsers,
   setLogoutUser
 } from "./functions/users";
@@ -28,8 +29,13 @@ const server = {
       setTimeout(() => {
         switch(action) {
           case 'login':
-            resolve(getLogInUser(parameter1, users));
+            resolve(getAuthorizedUser(parameter1, users));
             break;
+
+          case 'user':
+            resolve(getUser(parameter1, users));
+            break;
+
           case 'users':
             resolve(getUsers(users, parameter1));
             break;

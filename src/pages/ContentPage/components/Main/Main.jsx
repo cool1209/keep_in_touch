@@ -6,7 +6,7 @@ import HomeContainer from './components/Home/HomeContainer';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import NetworkContainer from './components/Network/NetworkContainer';
 import Music from './components/Music/Music';
-import Profile from './components/Profile/Profile';
+import ProfileContainer from './components/Profile/ProfileContainer';
 
 
 const Main = () => {
@@ -18,7 +18,7 @@ const Main = () => {
         <Route path='dialogs/*' element={ <DialogsContainer /> } />
         <Route path='network' element={ <NetworkContainer /> } />
         <Route path='music' element={ <Music /> } />
-        <Route path='profile' element={ <Profile /> } />
+        <Route path='profile/:userId' element={ <ProfileContainer /> } />
       </Routes>
     </main>
   );

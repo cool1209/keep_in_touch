@@ -1,4 +1,5 @@
 import PaginationButtons from '../shared/PaginationButtons/PaginationButtons';
+import Preloader from '../shared/Preloader/Preloader';
 import LoginPageStyles from './LoginPage.module.css';
 
 const LoginPage = ({
@@ -10,7 +11,6 @@ const LoginPage = ({
   pages,
   onSetCurentPage,
   isLoading,
-  getIsLoading,
 }) => {
   return (
     
@@ -29,7 +29,7 @@ const LoginPage = ({
 
       <div className={LoginPageStyles.bottomBlock}>
         {isLoading
-        ? getIsLoading()
+        ? <Preloader />
         : <>
             <div className={LoginPageStyles.loginField}>
               <input

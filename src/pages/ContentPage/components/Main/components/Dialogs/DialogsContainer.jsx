@@ -4,9 +4,14 @@ import { connect } from 'react-redux';
 import { setDialogs } from '../../../../../../store/reducers/dialogsReducer';
 import Dialogs from './Dialogs';
 
-const DialogsContainer = ({ user, setDialogs, isDialogs }) => {
+const DialogsContainer = ({
+  authorizedUser,
+  setDialogs,
+  isDialogs
+}) => {
+  
   useEffect(() => {
-    server.get(`server/api/dialogs?user=${user.id}`)
+    server.get(`server/api/dialogs?user=${authorizedUser.id}`)
     .then(dialogs => {
       if (dialogs) {
         setDialogs(dialogs.items, dialogs.tottalCount);
@@ -20,7 +25,7 @@ const DialogsContainer = ({ user, setDialogs, isDialogs }) => {
 };
 
 const mapStateToProps = (state) => ({
-  user: state.loginUser.user,
+  authorizedUser: state.user.authorizedUser,
   isDialogs: state.dialogs.totalDialogs
 });
 

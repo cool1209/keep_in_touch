@@ -4,7 +4,7 @@ import MessagingItemStyles from './MessagingItemStyles.module.css';
 
 const MessagingItem = ({
   dialog,
-  user,
+  authorizedUser,
   newMessageText,
   updateMessageText,
   sendMessage
@@ -16,7 +16,7 @@ const MessagingItem = ({
         {dialog.messages.map(message => (
           <Message 
             message={message}
-            user={user}
+            authorizedUser={authorizedUser}
             key={message.id}
           />
         )).reverse()}
@@ -32,7 +32,7 @@ const MessagingItem = ({
         />
         <button
           className={MessagingItemStyles.btn}
-          onClick={() => sendMessage(dialog.id, user)}
+          onClick={() => sendMessage(dialog.id, authorizedUser)}
         >Send</button>
       </div>
   </li>

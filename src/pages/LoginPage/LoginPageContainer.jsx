@@ -1,11 +1,10 @@
 import server from '../../backend/server/server';
 import { connect } from 'react-redux';
 import { useState } from 'react';
-import { setUser } from '../../store/reducers/loginUserReducer';
+import { setAuthorizedUser } from '../../store/reducers/userReducer';
 import LoginPage from './LoginPage';
-import Preloader from '../shared/Preloader/Preloader';
 
-const LoginPageContainer = ({ setUser, currentUser }) => {
+const LoginPageContainer = ({ setAuthorizedUser }) => {
   const [login, setLogin] = useState('');
   const [curentPage, setCurentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
@@ -13,18 +12,11 @@ const LoginPageContainer = ({ setUser, currentUser }) => {
   const users = server.getLoginUsers(curentPage);
 
   const loginUser = (login) => {
-    setIsLoading(!isLoading)
+    setIsLoading(true);
     server.get(`server/api/login?user=${login}`)
     .then(user => {
-      setUser(user);
+      setAuthorizedUser(user);
     })
-  }
-
-
-  const getIsLoading = () => {
-    if (!currentUser.id) {
-      return <Preloader />
-    }
   }
 
   return (
@@ -37,14 +29,15 @@ const LoginPageContainer = ({ setUser, currentUser }) => {
       pages={pages}
       onSetCurentPage={setCurentPage}
       isLoading={isLoading}
-      getIsLoading={getIsLoading}
-      setIsLoading={setIsLoading}
     />
   );
 };
 
 const mapStateToProps = (state) => ({
-  currentUser: state.loginUser.user
+  authorizedUser: state.user.authorizedUser,
 });
 
-export default connect(mapStateToProps, {setUser})(LoginPageContainer);
+export default connect(
+  mapStateToProps,
+  {setAuthorizedUser}
+)(LoginPageContainer);

@@ -2,7 +2,7 @@ import React from 'react';
 import SideNavStyles from './SideNav.module.css';
 import CustomNavLink from '../../../../../shared/CustomNavLink/CustomNavLink';
 
-const SideNav = ({ setNoContactSelected }) => {
+const SideNav = ({ userId, setNoContactSelected }) => {
   const links = [
     {
       path: 'home',
@@ -25,7 +25,7 @@ const SideNav = ({ setNoContactSelected }) => {
       id: 'music-icon'
     },
     {
-      path: 'profile',
+      path: `profile/` + userId,
       name: 'Profile',
       id: 'profile-icon'
     }

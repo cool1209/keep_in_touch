@@ -6,7 +6,7 @@ import MessagingItem from './MessagingItem/MessagingItem';
 
 
 const Messaging = ({
-  user,
+  authorizedUser,
   newMessageText,
   updateMessageText,
   sendMessage,
@@ -25,7 +25,7 @@ const Messaging = ({
               element={
                 <MessagingItem 
                   dialog={dialog}
-                  user={user}
+                  authorizedUser={authorizedUser}
                   newMessageText={newMessageText}
                   updateMessageText={updateMessageText}
                   sendMessage={sendMessage}

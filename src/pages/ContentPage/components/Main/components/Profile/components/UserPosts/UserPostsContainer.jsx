@@ -7,12 +7,12 @@ import UserPosts from './UserPosts'
 const UserPostsContainer = ({
   posts,
   setUserPosts,
-  user,
+  currentUser,
   isPosts
 }) => {
 
   useEffect(() => {
-    server.get('server/api/user-posts?user-id=' + user.id)
+    server.get('server/api/user-posts?user-id=' + currentUser.id)
     .then(posts => {
       if (posts) {
         setUserPosts(posts.items, posts.totalCount);
@@ -26,7 +26,7 @@ const UserPostsContainer = ({
 }
 
 const mapStateToProps = (state) => ({
-  user: state.loginUser.user,
+  currentUser: state.user.currentUser,
   posts: state.posts.userPosts,
   isPosts: state.posts.totalUserPosts
 });

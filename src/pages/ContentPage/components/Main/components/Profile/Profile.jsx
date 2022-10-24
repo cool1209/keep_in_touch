@@ -1,21 +1,23 @@
 import React from 'react';
+import UserLogoutButtonContainer from './components/UserLogoutButton/UserLogoutButtonContainer';
 import UserInfoContainer from './components/UserInfo/UserInfoContainer';
 import NewPostContainer from './components/NewPost/NewPostContainer';
 import UserPostsContainer from './components/UserPosts/UserPostsContainer';
 
-const Profile = () => {
-  const isAddNewPost = true;
+const Profile = ({ isAuthorizedUser }) => {
 
   return (
     <section>
       <UserInfoContainer />
-      
-      <div>
-        {isAddNewPost &&
+
+      {isAuthorizedUser &&
+        <>
+          <UserLogoutButtonContainer />
           <NewPostContainer/>
-        }
-        <UserPostsContainer />
-      </div>
+        </>
+      }
+
+      <UserPostsContainer />
     </section>
   );
 };
