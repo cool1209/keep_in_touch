@@ -5,13 +5,13 @@ import { setDialogs } from '../../../../../../store/reducers/dialogsReducer';
 import Dialogs from './Dialogs';
 
 const DialogsContainer = ({
-  authorizedUser,
+  authUser,
   setDialogs,
   isDialogs
 }) => {
   
   useEffect(() => {
-    server.get(`server/api/dialogs?user=${authorizedUser.id}`)
+    server.get(`server/api/dialogs?user=${authUser.id}`)
     .then(dialogs => {
       if (dialogs) {
         setDialogs(dialogs.items, dialogs.tottalCount);
@@ -25,7 +25,7 @@ const DialogsContainer = ({
 };
 
 const mapStateToProps = (state) => ({
-  authorizedUser: state.user.authorizedUser,
+  authUser: state.auth.authUser,
   isDialogs: state.dialogs.totalDialogs
 });
 

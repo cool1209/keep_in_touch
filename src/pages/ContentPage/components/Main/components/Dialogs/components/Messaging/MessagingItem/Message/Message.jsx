@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import MessageStyles from './Message.module.css';
 import { NavLink } from 'react-router-dom';
 
-const Message = ({ message, authorizedUser }) => {
-  const loginUser = message.authorId === authorizedUser.id;
+const Message = ({ message, authUser }) => {
+  const loginUser = message.authorId === authUser.id;
 
   return (
     <article className={

@@ -3,7 +3,7 @@ import NewPostStyles from './NewPost.module.css';
 
 const NewPost = ({
   newPostText,
-  user,
+  authUser,
   updatePostText,
   addNewPost
 }) => {
@@ -22,7 +22,7 @@ const NewPost = ({
       
       <button
         className={NewPostStyles.button}
-        onClick={() => addNewPost(user.id, user.avatar)}
+        onClick={() => addNewPost(authUser.id, authUser.avatar)}
       >
         Add post
       </button>

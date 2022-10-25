@@ -1,10 +1,13 @@
 import LoginPageContainer from './pages/LoginPage/LoginPageContainer';
 import ContentPage from './pages/ContentPage/ContentPage';
+import { useSelector } from 'react-redux';
 
-const App = ({ isUser }) => {
+const App = () => {
+  const isAuth = useSelector(state => state.auth.isAuth);
+
   return (
     <div className="app">
-      {isUser
+      {isAuth
         ? <ContentPage />
         : <LoginPageContainer />
       }

@@ -13,7 +13,7 @@ const renderThree = () => {
     <React.StrictMode>
       <HashRouter>
         <Provider store={store}>
-          <App isUser={store.getState().user.authorizedUser.id} />
+          <App />
         </Provider>
       </HashRouter>
     </React.StrictMode>

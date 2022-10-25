@@ -3,7 +3,7 @@ import { setNoContactSelected } from "../../../../../../store/reducers/dialogsRe
 import SideNav from "./SideNav";
 
 const mapStateToProps = (state) => ({
-  userId: state.user.authorizedUser.id
+  userId: state.auth.authUser.id
 })
 
 export default connect(

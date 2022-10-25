@@ -1,10 +1,10 @@
 import server from '../../backend/server/server';
 import { connect } from 'react-redux';
 import { useState } from 'react';
-import { setAuthorizedUser } from '../../store/reducers/userReducer';
+import { setAuthUser } from '../../store/reducers/authReducer';
 import LoginPage from './LoginPage';
 
-const LoginPageContainer = ({ setAuthorizedUser }) => {
+const LoginPageContainer = ({ setAuthUser }) => {
   const [login, setLogin] = useState('');
   const [curentPage, setCurentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
@@ -15,7 +15,7 @@ const LoginPageContainer = ({ setAuthorizedUser }) => {
     setIsLoading(true);
     server.get(`server/api/login?user=${login}`)
     .then(user => {
-      setAuthorizedUser(user);
+      setAuthUser(user);
     })
   }
 
@@ -34,10 +34,10 @@ const LoginPageContainer = ({ setAuthorizedUser }) => {
 };
 
 const mapStateToProps = (state) => ({
-  authorizedUser: state.user.authorizedUser,
+  authUser: state.user.authUser,
 });
 
 export default connect(
   mapStateToProps,
-  {setAuthorizedUser}
+  {setAuthUser}
 )(LoginPageContainer);

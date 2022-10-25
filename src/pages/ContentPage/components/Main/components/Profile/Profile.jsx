@@ -4,13 +4,13 @@ import UserInfoContainer from './components/UserInfo/UserInfoContainer';
 import NewPostContainer from './components/NewPost/NewPostContainer';
 import UserPostsContainer from './components/UserPosts/UserPostsContainer';
 
-const Profile = ({ isAuthorizedUser }) => {
+const Profile = ({ isAuthUser }) => {
 
   return (
     <section>
       <UserInfoContainer />
 
-      {isAuthorizedUser &&
+      {isAuthUser &&
         <>
           <UserLogoutButtonContainer />
           <NewPostContainer/>

@@ -10,7 +10,7 @@ import Profile from './Profile';
 import Preloader from '../../../../../shared/Preloader/Preloader';
 
 const ProfileContainer = ({
-  authorizedUser,
+  authUser,
   currentUser,
   setCurrentUser,
   setUserPosts
@@ -18,7 +18,7 @@ const ProfileContainer = ({
 
   const params = useParams();
   const userId = params.userId;
-  const isAuthorizedUser = +userId === authorizedUser.id;
+  const isAuthUser = +userId === authUser.id;
 
   const getCurrentUser = (id) => {
     server.get(`server/api/user?id=${id}`)
@@ -28,8 +28,8 @@ const ProfileContainer = ({
   }
 
   useEffect(() => {
-    if (isAuthorizedUser) {
-      setCurrentUser(authorizedUser);
+    if (isAuthUser) {
+      setCurrentUser(authUser);
     } else {
       getCurrentUser(userId);
     }
@@ -43,7 +43,7 @@ const ProfileContainer = ({
   return (
     <>
       {currentUser.id
-      ? <Profile isAuthorizedUser={isAuthorizedUser} />
+      ? <Profile isAuthUser={isAuthUser} />
       : <Preloader />
       }
     </>
@@ -51,7 +51,7 @@ const ProfileContainer = ({
 };
 
 const mapStateToProps = (state) => ({
-  authorizedUser: state.user.authorizedUser,
+  authUser: state.auth.authUser,
   currentUser: state.user.currentUser
 });
 

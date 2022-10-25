@@ -2,7 +2,8 @@ import server from '../../../../../../../../backend/server/server';
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { setAuthorizedUser, setCurrentUser } from '../../../../../../../../store/reducers/userReducer';
+import { setAuthUser } from '../../../../../../../../store/reducers/authReducer';
+import { setCurrentUser } from '../../../../../../../../store/reducers/userReducer';
 import { setUsers } from '../../../../../../../../store/reducers/usersReducer';
 import { setPosts, setUserPosts } from '../../../../../../../../store/reducers/postsReducer';
 import { setDialogs, setNoContactSelected } from '../../../../../../../../store/reducers/dialogsReducer';
@@ -10,13 +11,13 @@ import { setDialogs, setNoContactSelected } from '../../../../../../../../store/
 import UserLogoutButton from './UserLogoutButton';
 
 const UserLogoutButtonContainer = ({
-  logoutAuthorizedUser,
-  authorizedUserId
+  logoutauthUser,
+  authUserId
 }) => {
 
   const logoutUser = () => {
-    server.put(`server/api/logout?user=${authorizedUserId}`);
-    logoutAuthorizedUser();
+    server.put(`server/api/logout?user=${authUserId}`);
+    logoutauthUser();
   }
 
   return (
@@ -25,12 +26,12 @@ const UserLogoutButtonContainer = ({
 };
 
 const mapStateToProps = (state) => ({
-  authorizedUserId: state.user.authorizedUser.id
+  authUserId: state.auth.authUser.id
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  logoutAuthorizedUser: () => {
-    dispatch(setAuthorizedUser({}));
+  logoutauthUser: () => {
+    dispatch(setAuthUser({}));
     dispatch(setCurrentUser({}));
     dispatch(setUsers([]));
     dispatch(setUserPosts([], null));
