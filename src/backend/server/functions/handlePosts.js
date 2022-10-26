@@ -11,7 +11,7 @@ export const postNewPost = (newPost, posts) => {
   return {status: '200'};
 };
 
-const assemblePost = (post, users) => {
+const handlePost = (post, users) => {
   const assembledPost = {
     id: post.id,
     userId: post.userId,
@@ -31,16 +31,32 @@ export const getUserPosts = (userId, posts, users, length = 6) => {
   const userPosts = posts
   .filter(post => post.userId === +userId)
   .map(post => (
-    assemblePost(post, users)
+    handlePost(post, users)
   ));
   
   return getDataPage(userPosts, 1, length);
 };
 
-export const getPosts = (page, posts, users, length = 12) => {
-  const postsPage =  getDataPage(posts, page, length);
+export const getPosts = (
+  userId,
+  page,
+  posts,
+  followings,
+  users,
+  length
+) => {
+  const userFollowings = followings.find(userFollowings => (
+    userFollowings.userId === userId
+  )).followings
 
-  postsPage.items = postsPage.items.map(post => assemblePost(post, users));
+  const handledPosts = posts
+  .filter(post => (
+    [...userFollowings, userId].includes(post.userId)
+  ));
+    console.log(posts);
+  const postsPage =  getDataPage(handledPosts, page, length);
+
+  postsPage.items = postsPage.items.map(post => handlePost(post, users));
   
   return postsPage;
 };

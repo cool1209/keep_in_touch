@@ -26,9 +26,9 @@ export const getTestPosts = (posts, postCaunter) => {
   for (let i = 0; i < postCaunter; i++) {
     const testPost = {
       id: posts.length + 1,
-      userId: getRandomNumber(21) + 1,
+      userId: getRandomNumber(testUsers.length) + 1,
       text: getRandomItem(testPosts),
-      likes: getRandomNumber(20)
+      likes: getRandomNumber(testUsers.length)
     };
 
     posts.push(testPost)

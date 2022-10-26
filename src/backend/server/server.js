@@ -1,6 +1,7 @@
 import users from "../database/users";
 import posts from "../database/posts";
 import dialogs from "../database/dialogs";
+import followings from "../database/followings";
 
 import {
   getAuthUser,
@@ -20,6 +21,8 @@ import {
   postNewMessage
 } from "./functions/handleDialogs";
 
+import { getFollowings } from "./functions/handleFollowings";
+
 const server = {
   get: (action, payload) => {
     return new Promise((resolve, reject) => {
@@ -38,7 +41,9 @@ const server = {
             break;
     
           case 'all-posts':
-            resolve(getPosts(1, posts, users));
+            const { userId } = payload;
+            
+            resolve(getPosts(userId, 1, posts, followings, users, 12));
             break;
 
           case 'user-posts':
@@ -49,10 +54,14 @@ const server = {
             resolve(getDialogs(payload, dialogs, users));
             break;
 
+          case 'user-followings':
+            resolve(getFollowings(payload, followings, users, 1, 10));
+            break;
+
           default:
             reject('404 (not found)');
         }
-      }, 778);
+      }, 534);
     })
   },
 

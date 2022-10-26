@@ -5,12 +5,13 @@ import Home from './Home';
 import { useEffect } from 'react';
 
 const HomeContainer = ({
+  authUserId,
   posts,
   setPosts,
   isPosts
 }) => {
   useEffect(() => {
-    server.get('all-posts')
+    server.get('all-posts', {userId: authUserId})
     .then((posts) => {
       if(posts) {
         setPosts(posts.items, posts.totalCount);
@@ -24,6 +25,7 @@ const HomeContainer = ({
 };
 
 const mapStateToProps = (state) => ({
+  authUserId: state.auth.authUser.id,
   posts: state.posts.posts,
   isPosts: state.posts.totalPosts
 });

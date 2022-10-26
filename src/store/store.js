@@ -4,6 +4,7 @@ import dialogsReducer from "./reducers/dialogsReducer";
 import usersReducer from "./reducers/usersReducer";
 import userReducer from "./reducers/userReducer";
 import authReducer from "./reducers/authReducer";
+import followingReducer from "./reducers/followingReducer";
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   users: usersReducer,
   posts: postsReducer,
   dialogs: dialogsReducer,
+  followings: followingReducer
 });
 
 const store = createStore(rootReducer);

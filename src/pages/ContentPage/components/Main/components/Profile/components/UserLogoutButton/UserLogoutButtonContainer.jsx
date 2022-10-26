@@ -7,6 +7,7 @@ import { setCurrentUser } from '../../../../../../../../store/reducers/userReduc
 import { setUsers } from '../../../../../../../../store/reducers/usersReducer';
 import { setPosts, setUserPosts } from '../../../../../../../../store/reducers/postsReducer';
 import { setDialogs, setNoContactSelected } from '../../../../../../../../store/reducers/dialogsReducer';
+import { setFollowings } from '../../../../../../../../store/reducers/followingReducer';
 
 import UserLogoutButton from './UserLogoutButton';
 
@@ -38,6 +39,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(setPosts([], null));
     dispatch(setDialogs([], null));
     dispatch(setNoContactSelected());
+    dispatch(setFollowings([], null, 0));
   }
 });
 

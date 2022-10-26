@@ -11,11 +11,11 @@ export const getUser = (id,  users) => {
   return user;
 };
 
+export const getUsers = (page, users, length = 10) => {
+  return getDataPage(users, page, length);
+};
+
 export const removeUserSession = (id, users) => {
   const user = users.find(user => user.id === +id);
   user.status = 'Offline';
-};
-
-export const getUsers = (page, users, length = 10) => {
-  return getDataPage(users, page, length);
 };
