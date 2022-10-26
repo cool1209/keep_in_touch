@@ -11,7 +11,7 @@ export const getUser = (id,  users) => {
   return user;
 };
 
-export const setLogoutUser = (id, users) => {
+export const removeUserSession = (id, users) => {
   const user = users.find(user => user.id === +id);
   user.status = 'Offline';
 };

@@ -11,13 +11,13 @@ import { setDialogs, setNoContactSelected } from '../../../../../../../../store/
 import UserLogoutButton from './UserLogoutButton';
 
 const UserLogoutButtonContainer = ({
-  logoutauthUser,
+  removeUserSession,
   authUserId
 }) => {
 
   const logoutUser = () => {
-    server.put(`server/api/logout?user=${authUserId}`);
-    logoutauthUser();
+    server.removeSession('remove-session', authUserId);
+    removeUserSession();
   }
 
   return (
@@ -30,10 +30,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  logoutauthUser: () => {
+  removeUserSession: () => {
     dispatch(setAuthUser({}));
     dispatch(setCurrentUser({}));
-    dispatch(setUsers([]));
+    dispatch(setUsers([], null, 0));
     dispatch(setUserPosts([], null));
     dispatch(setPosts([], null));
     dispatch(setDialogs([], null));

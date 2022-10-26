@@ -6,19 +6,19 @@ import {
   getAuthUser,
   getUser,
   getUsers,
-  setLogoutUser
-} from "./functions/users";
+  removeUserSession
+} from "./functions/handleUsers";
 
 import {
   getPosts,
   getUserPosts,
   postNewPost
-} from "./functions/posts";
+} from "./functions/handlePosts";
 
 import {
   getDialogs,
   postNewMessage
-} from "./functions/dialogs";
+} from "./functions/handleDialogs";
 
 const server = {
   get: (action, payload) => {
@@ -75,12 +75,12 @@ const server = {
     })
   },
 
-  put: (action, payload) => {
+  removeSession: (action, payload) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         switch(action) {
-          case 'logout':
-            resolve(setLogoutUser(payload, users));
+          case 'remove-session':
+            resolve(removeUserSession(payload, users));
             break;
 
           default:
