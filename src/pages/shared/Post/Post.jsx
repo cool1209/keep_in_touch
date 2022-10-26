@@ -28,7 +28,7 @@ const Post = ({ post }) => {
 
       <div className={PostStyles.content}>
         <h3 className={PostStyles.postAuthor}>
-          [ {post.author} ]
+          [{post.author}]
         </h3>
 
         <p>
