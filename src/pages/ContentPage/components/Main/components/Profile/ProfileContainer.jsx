@@ -17,8 +17,8 @@ const ProfileContainer = ({
 }) => {
 
   const params = useParams();
-  const userId = params.userId;
-  const isAuthUser = +userId === authUser.id;
+  const userId = +params.userId;
+  const isAuthUser = userId === authUser.id;
 
   const getCurrentUser = (id) => {
     server.get(`user`, id)

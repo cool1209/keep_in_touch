@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import SmallUserAvatar from '../../../../../shared/SmallUserAvatar/SmallUserAvatar';
 import styles from './SideFollowing.module.css';
 
 const SideFollowing = ({ followings }) => {
@@ -12,10 +13,10 @@ const SideFollowing = ({ followings }) => {
           .map(following => (
             <NavLink to={`profile/${following.id}`} key={following.id}>
               <button className={styles.button}>
-                <img
-                  className={styles.avatar}
+                <SmallUserAvatar
                   src={following.avatar}
                   alt="Following avatar"
+                  styles={styles.avatar}
                 />
               </button>
             </NavLink>

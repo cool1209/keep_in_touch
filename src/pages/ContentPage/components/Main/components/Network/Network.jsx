@@ -3,7 +3,7 @@ import React from 'react';
 import PaginationButtons from '../../../../../shared/PaginationButtons/PaginationButtons';
 import Preloader from '../../../../../shared/Preloader/Preloader';
 import NetworkStyles from './Network.module.css';
-import User from './User/User';
+import User from './User/UserContainer';
 
 const Network = ({
   pages,

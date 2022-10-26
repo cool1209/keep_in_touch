@@ -1,4 +1,4 @@
-import { getDataPage } from "./general";
+import { getDataPage, getUser } from "./general";
 
 export const getAuthUser = (login,  users) => {
   const user = users.find(user => user.login === login);
@@ -6,10 +6,7 @@ export const getAuthUser = (login,  users) => {
   return user;
 };
 
-export const getUser = (id,  users) => {
-  const user = users.find(user => user.id === +id);
-  return user;
-};
+export const getCurrentUser = (id, users) => getUser(id, users);
 
 export const getUsers = (page, users, length = 10) => {
   return getDataPage(users, page, length);

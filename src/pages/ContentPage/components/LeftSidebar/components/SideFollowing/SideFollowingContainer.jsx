@@ -25,7 +25,7 @@ const SideFollowingContainer = ({
 
   return (
     <>
-      { isFollowings && <SideFollowing followings={followings} /> }
+      { isFollowings && <SideFollowing followings={followings.slice(0, 3)} /> }
     </>
   );
 };

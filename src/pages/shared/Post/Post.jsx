@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import GetIcon from '../../../assets/img/GetIcon';
+import SmallUserAvatar from '../SmallUserAvatar/SmallUserAvatar';
 import PostStyles from './Post.module.css';
 
 const Post = ({ post }) => {
@@ -8,10 +9,9 @@ const Post = ({ post }) => {
     <article className={PostStyles.wrapper}> 
       <div className={PostStyles.authorInfo}>
         <NavLink to={`/profile/${post.userId}`}>
-          <img 
+          <SmallUserAvatar
             src={post.authorAvatar}
             alt='Publication author avatar'
-            className={PostStyles.authorAvatar}
           />
         </NavLink>
 

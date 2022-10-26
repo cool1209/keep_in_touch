@@ -1,3 +1,7 @@
+export const getUser = (userId, users) => (
+  users.find(user => (user.id === userId))
+);
+
 export const getDataPage = (data, page, length) => {
   const reversedData = [ ...data ].reverse();
   const pageLength = length;

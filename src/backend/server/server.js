@@ -1,11 +1,10 @@
 import users from "../database/users";
 import posts from "../database/posts";
 import dialogs from "../database/dialogs";
-import followings from "../database/followings";
 
 import {
   getAuthUser,
-  getUser,
+  getCurrentUser,
   getUsers,
   removeUserSession
 } from "./functions/handleUsers";
@@ -33,7 +32,7 @@ const server = {
             break;
 
           case 'user':
-            resolve(getUser(payload, users));
+            resolve(getCurrentUser(payload, users));
             break;
 
           case 'all-users':
@@ -42,8 +41,8 @@ const server = {
     
           case 'all-posts':
             const { userId } = payload;
-            
-            resolve(getPosts(userId, 1, posts, followings, users, 12));
+
+            resolve(getPosts(userId, 1, posts, users, 12));
             break;
 
           case 'user-posts':
@@ -55,7 +54,7 @@ const server = {
             break;
 
           case 'user-followings':
-            resolve(getFollowings(payload, followings, users, 1, 10));
+            resolve(getFollowings(payload, users, 1, 10));
             break;
 
           default:
