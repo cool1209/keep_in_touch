@@ -1,37 +1,37 @@
 import React from 'react';
-import UserInfoStyles from './UserInfo.module.css';
+import styles from './UserInfo.module.css';
 import classNames from 'classnames';
 
 const UserInfo = ({ currentUser }) => {
 
   return (
-    <section className={UserInfoStyles.wrapper}>
-      <div className={UserInfoStyles.img}>
+    <section className={styles.wrapper}>
+      <div className={styles.img}>
         <img
           src={currentUser.wallpaper}
           alt='User profile wallpaper'
-          className={UserInfoStyles.wallpaper}
+          className={styles.wallpaper}
         />
 
-        <div className={UserInfoStyles.avatarContainer}>
+        <div className={styles.avatarContainer}>
           <img
             src={currentUser.avatar}
             alt='User avatar'
-            className={UserInfoStyles.avatar}
+            className={styles.avatar}
           />
         </div>
       </div>
 
-      <div className={UserInfoStyles.info}>
-        <h2 className={UserInfoStyles.name}>
+      <div className={styles.info}>
+        <h2 className={styles.name}>
           {currentUser.name}
         </h2>
 
-        <div className={UserInfoStyles.status}>
+        <div className={styles.status}>
           <span className={classNames(
-            `${UserInfoStyles.statusIndicator} ${UserInfoStyles.statusIndicator_offline}`,
+            `${styles.statusIndicator} ${styles.statusIndicator_offline}`,
             {
-              [UserInfoStyles.statusIndicator_online]: currentUser.status === 'Online'
+              [styles.statusIndicator_online]: currentUser.status === 'Online'
             }
             )}
           ></span>
@@ -40,7 +40,7 @@ const UserInfo = ({ currentUser }) => {
         </div>
 
         <div
-          className={`${UserInfoStyles.city} ${UserInfoStyles.infoItem}`}
+          className={`${styles.city} ${styles.infoItem}`}
         >
           <h4>
             Lives in:
@@ -50,7 +50,7 @@ const UserInfo = ({ currentUser }) => {
         </div>
 
         <div
-          className={`${UserInfoStyles.about} ${UserInfoStyles.infoItem}`}
+          className={`${styles.about} ${styles.infoItem}`}
         >
           <h4>
             About me:

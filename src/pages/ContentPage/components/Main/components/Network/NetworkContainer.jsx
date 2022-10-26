@@ -17,7 +17,7 @@ class NetworkContainer extends React.Component {
 
   getUsers(page) {
     this.setState({ usersPageIsLoading: true });
-    server.get(`server/api/users?page=${page}`)
+    server.get(`all-users`, page)
     .then(users => {
       if (users) {
         this.props.setUsers(users.items, users.totalCount, page);

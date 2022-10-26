@@ -1,10 +1,9 @@
 import users from "../database/users";
 import posts from "../database/posts";
 import dialogs from "../database/dialogs";
-import { getRequest } from "./functions/general";
 
 import {
-  getauthUser,
+  getAuthUser,
   getUser,
   getUsers,
   setLogoutUser
@@ -22,78 +21,72 @@ import {
 } from "./functions/dialogs";
 
 const server = {
-  get: (header) => {
-    const [ action, parameter1 ] = getRequest(header);
-
+  get: (action, payload) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         switch(action) {
-          case 'login':
-            resolve(getauthUser(parameter1, users));
+          case 'auth':
+            resolve(getAuthUser(payload, users));
             break;
 
           case 'user':
-            resolve(getUser(parameter1, users));
+            resolve(getUser(payload, users));
             break;
 
-          case 'users':
-            resolve(getUsers(users, parameter1));
+          case 'all-users':
+            resolve(getUsers(payload, users));
             break;
     
-          case 'posts':
-            resolve(getPosts(posts, users));
+          case 'all-posts':
+            resolve(getPosts(1, posts, users));
             break;
 
           case 'user-posts':
-            resolve(getUserPosts(posts, users, parameter1));
+            resolve(getUserPosts(payload, posts, users));
             break;
 
-          case 'dialogs':
-            resolve(getDialogs(parameter1, dialogs, users));
+          case 'user-dialogs':
+            resolve(getDialogs(payload, dialogs, users));
             break;
 
           default:
             reject('404 (not found)');
         }
-      }, 778)
+      }, 778);
     })
   },
 
-  post: (header, body) => {
-    const [ action ] = getRequest(header);
-        
+  post: (action, payload) => {  
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         switch(action) {
-          case 'post':
-            resolve(postNewPost(body, posts));
+          case 'new-post':
+            resolve(postNewPost(payload, posts));
             break;
 
-          case 'message':
-            resolve(postNewMessage(body, dialogs));
+          case 'new-message':
+            resolve(postNewMessage(payload, dialogs));
             break;
 
           default:
             reject('404 (not found)');
         }
-      }, 100)
+      }, 554);
     })
   },
 
-  put: (header) => {
-    const [ action, parameter1 ] = getRequest(header);
-    
+  put: (action, payload) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         switch(action) {
           case 'logout':
-            resolve(setLogoutUser(parameter1, users));
+            resolve(setLogoutUser(payload, users));
             break;
 
           default:
             reject('404 (not found)');
         }
-      }, 30000)
+      }, 30000);
     })
   },
 

@@ -21,7 +21,7 @@ const ProfileContainer = ({
   const isAuthUser = +userId === authUser.id;
 
   const getCurrentUser = (id) => {
-    server.get(`server/api/user?id=${id}`)
+    server.get(`user`, id)
     .then(user => {
       setCurrentUser(user);
     })

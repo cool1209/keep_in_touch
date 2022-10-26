@@ -10,7 +10,7 @@ const HomeContainer = ({
   isPosts
 }) => {
   useEffect(() => {
-    server.get('server/api/posts')
+    server.get('all-posts')
     .then((posts) => {
       if(posts) {
         setPosts(posts.items, posts.totalCount);

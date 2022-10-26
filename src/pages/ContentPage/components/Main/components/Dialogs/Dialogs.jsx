@@ -1,5 +1,5 @@
 import React from 'react';
-import DialogsStyles from './Dialogs.module.css';
+import styles from './Dialogs.module.css';
 import ContactsContainer from './components/Contacts/ContactsContainer';
 import MessagesContainer from './components/Messaging/MessagingContainer';
 import Preloader from '../../../../../shared/Preloader/Preloader';
@@ -10,7 +10,7 @@ const Dialogs = ({ isDialogs }) => {
       {isDialogs === null
         ? <Preloader />
 
-        : <section className={DialogsStyles.wrapper}>
+        : <section className={styles.wrapper}>
             <ContactsContainer />
             <MessagesContainer />            
           </section>

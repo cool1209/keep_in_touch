@@ -7,6 +7,8 @@ export const postNewPost = (newPost, posts) => {
     text: newPost.text,
     likes: 0,
   });
+
+  return {status: '200'};
 };
 
 const assemblePost = (post, users) => {
@@ -25,7 +27,7 @@ const assemblePost = (post, users) => {
   return assembledPost;
 };
 
-export const getUserPosts = (posts, users, userId, length = 6) => {
+export const getUserPosts = (userId, posts, users, length = 6) => {
   const userPosts = posts
   .filter(post => post.userId === +userId)
   .map(post => (
@@ -35,7 +37,7 @@ export const getUserPosts = (posts, users, userId, length = 6) => {
   return getDataPage(userPosts, 1, length);
 };
 
-export const getPosts = (posts, users, page = 1, length = 12) => {
+export const getPosts = (page, posts, users, length = 12) => {
   const postsPage =  getDataPage(posts, page, length);
 
   postsPage.items = postsPage.items.map(post => assemblePost(post, users));

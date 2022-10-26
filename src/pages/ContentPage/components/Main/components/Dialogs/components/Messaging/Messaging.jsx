@@ -1,41 +1,29 @@
 import React from 'react';
-import MessagingStyles from './Messaging.module.css';
+import styles from './Messaging.module.css';
 import { Route, Routes } from 'react-router-dom';
 import WithNoData from '../../../../../../../shared/WithNoData/WithNoData';
-import MessagingItem from './MessagingItem/MessagingItem';
+import MessagingItemContainer from './MessagingItem/MessagingItemContainer';
 
 
 const Messaging = ({
-  authUser,
-  newMessageText,
-  updateMessageText,
-  sendMessage,
   dialogs,
   isContactSelected,
 }) => {
 
   return (
-    <ul className={MessagingStyles.wrapper}>
+    <ul className={styles.wrapper}>
       {isContactSelected
       ? <Routes>
           {dialogs.map(dialog => (
             <Route
               path={`${dialog.id}`}
               key={dialog.id} 
-              element={
-                <MessagingItem 
-                  dialog={dialog}
-                  authUser={authUser}
-                  newMessageText={newMessageText}
-                  updateMessageText={updateMessageText}
-                  sendMessage={sendMessage}
-                />
-              }
+              element={ <MessagingItemContainer dialog={dialog} /> }
             />
           ))}
         </Routes>
 
-      : <div className={MessagingStyles.hint}>
+      : <div className={styles.hint}>
           {dialogs.length
             ? <WithNoData message={"Please select a contact"} />
             : <WithNoData message={"You don't have any dialogue..."} />

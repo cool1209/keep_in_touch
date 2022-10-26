@@ -1,30 +1,3 @@
-export const getRequest = (header) => {
-  const serverAddress = 'server/api';
-
-  const headerParts = header.split('?');
-  const requestAdressParts = headerParts[0].split('/');
-  const requestAdress = requestAdressParts[0] + '/' + requestAdressParts[1];
-
-  if (serverAddress === requestAdress) {
-    const endpoint = requestAdressParts[2];
-    const action = endpoint;
-    
-    if (headerParts[1]) {
-      const parameters = headerParts[1].split('&')
-      .map(parametr => parametr.split('=')[1]);
-
-      return [
-        action,
-        ...parameters
-      ];
-    }
-    return [ action ];
-  } else {
-    const action = 'error';
-    return [ action ]
-  }
-};
-
 export const getDataPage = (data, page, length) => {
   const reversedData = [ ...data ].reverse();
   const pageLength = length;

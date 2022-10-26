@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import MessageStyles from './Message.module.css';
+import styles from './Message.module.css';
 import { NavLink } from 'react-router-dom';
 
 const Message = ({ message, authUser }) => {
@@ -9,23 +9,23 @@ const Message = ({ message, authUser }) => {
   return (
     <article className={
       classNames(
-        MessageStyles.wrapper, 
-        {[MessageStyles.wrapper_loginUser]: loginUser}
+        styles.wrapper, 
+        {[styles.wrapper_loginUser]: loginUser}
       )}
     >
       <NavLink to={`/profile/${message.authorId}`}>
         <img 
           src={message.authorAvatar} 
           alt='User avatar' 
-          className={MessageStyles.authorAvatar}
+          className={styles.authorAvatar}
         />
       </NavLink>
 
       <div 
         className={
           classNames(
-            MessageStyles.text,
-            {[MessageStyles.text_loginUser]: loginUser}
+            styles.text,
+            {[styles.text_loginUser]: loginUser}
         )}
       >
         {message.message}

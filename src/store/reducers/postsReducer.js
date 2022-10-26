@@ -1,5 +1,3 @@
-import server from "../../backend/server/server";
-
 const SET_POSTS = 'SET_POSTS';
 const SET_USER_POSTS = 'SET_USER_POSTS';
 const ADD_NEW_POST = 'ADD_NEW_POST';
@@ -8,9 +6,10 @@ const UPDATE_POST_TEXT = 'UPDATE_POST_TEXT';
 const initialState = {
   userPosts: [],
   totalUserPosts: null,
+  newPostText: '',
+
   posts: [],
-  totalPosts: null,
-  newPostText: ''
+  totalPosts: null
 }
 
 const postsReducer = (state = initialState, action) => {
@@ -30,27 +29,9 @@ const postsReducer = (state = initialState, action) => {
       }
 
     case ADD_NEW_POST:
-      if (state.newPostText.trim()) {
-        const newPost = {
-          id: state.userPosts.length + 1,
-          userId: action.userId,
-          authorAvatar: action.useravatar,
-          text: state.newPostText.trim(),
-          likes: 0,
-        }
-        
-        server.post('server/api/post', newPost);
-
-        return {
-          ...state,
-          userPosts: [ newPost, ...state.userPosts ],
-          newPostText: ''
-        }
-      }
-
       return {
         ...state,
-        newPostText: ''
+        userPosts: [ action.newPost, ...state.userPosts ],
       }
       
     case UPDATE_POST_TEXT:
@@ -76,10 +57,9 @@ export const setUserPosts = (posts, totalUserPosts) => ({
   totalUserPosts
 });
 
-export const addNewPost = (userId, useravatar) => ({
+export const addNewPost = (newPost) => ({
   type: ADD_NEW_POST,
-  userId,
-  useravatar
+  newPost
 });
 
 export const updatePostText = (text) => ({

@@ -1,5 +1,3 @@
-import server from "../../backend/server/server";
-
 const SET_DIALOGS = 'SET_DIALOGS';
 const ADD_MESSAGE = 'ADD_MESSAGE';
 const UPDATE_MESSAGE_TEXT = 'UPDATE_MESSAGE_TEXT';
@@ -43,33 +41,16 @@ const dialogsReducer = (state = initialState, action) => {
         return state;
 
     case ADD_MESSAGE:
-      if (state.newMessageText.trim()) {
-        const currentDialogMessages = state.dialogs
-        .find(dialog => dialog.id === action.dialogId)
-        .messages;
+      const currentDialogId = action.newMessage.dialogId;
+      const currentDialogMessages = state.dialogs
+      .find(dialog => dialog.id === currentDialogId)
+      .messages;
 
-        const newMessage = {
-          id: currentDialogMessages.length + 1,
-          dialogId: action.dialogId,
-          authorId: action.user.id,
-          authorAvatar: action.user.avatar,
-          message: state.newMessageText.trim(),
-        }
+      currentDialogMessages.push(action.newMessage);
 
-        server.post('server/api/message', newMessage);
+      const stateCopy = JSON.parse(JSON.stringify(state));
 
-        currentDialogMessages.push(newMessage);
-
-        return {
-          ...state,
-          newMessageText: ''
-        }
-      }
-
-      return {
-        ...state,
-        newMessageText: ''
-      }
+      return { ...stateCopy };
 
     case UPDATE_MESSAGE_TEXT:
       return {
@@ -96,10 +77,9 @@ export const setNoContactSelected = () => ({
   type: SET_NO_CONTACT_SELECTED
 });
 
-export const sendMessage = (dialogId, user) => ({
+export const addMessage = (newMessage) => ({
   type: ADD_MESSAGE,
-  dialogId,
-  user
+  newMessage
 });
 
 export const updateMessageText = (messageText) => ({

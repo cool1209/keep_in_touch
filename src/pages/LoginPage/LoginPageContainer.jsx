@@ -13,7 +13,7 @@ const LoginPageContainer = ({ setAuthUser }) => {
 
   const loginUser = (login) => {
     setIsLoading(true);
-    server.get(`server/api/login?user=${login}`)
+    server.get('auth', login)
     .then(user => {
       setAuthUser(user);
     })

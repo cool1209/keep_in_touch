@@ -21,12 +21,12 @@ const dialogs = [
     messages: [
       {
         id: 1,
-        authorId: 1,
+        authorId: 4,
         message: 'Hello, There! How are you?',
       },
       {
         id: 2,
-        authorId: 4,
+        authorId: 1,
         message: 'Hi! I\'m fine. What about you?',
       }
     ]
@@ -37,12 +37,12 @@ const dialogs = [
     messages: [
       {
         id: 1,
-        authorId: 5,
+        authorId: 1,
         message: 'Hello, There! How are you?',
       },
       {
         id: 2,
-        authorId: 1,
+        authorId: 5,
         message: 'Hi! I\'m fine. What about you?',
       }
     ]
@@ -101,12 +101,12 @@ const dialogs = [
     messages: [
       {
         id: 1,
-        authorId: 11,
+        authorId: 1,
         message: 'Hello, There! How are you?',
       },
       {
         id: 2,
-        authorId: 1,
+        authorId: 11,
         message: 'Hi! I\'m fine. What about you?',
       }
     ]
@@ -117,12 +117,12 @@ const dialogs = [
     messages: [
       {
         id: 1,
-        authorId: 1,
+        authorId: 13,
         message: 'Hello, There! How are you?',
       },
       {
         id: 2,
-        authorId: 13,
+        authorId: 1,
         message: 'Hi! I\'m fine. What about you?',
       }
     ]
@@ -133,12 +133,12 @@ const dialogs = [
     messages: [
       {
         id: 1,
-        authorId: 14,
+        authorId: 1,
         message: 'Hello, There! How are you?',
       },
       {
         id: 2,
-        authorId: 1,
+        authorId: 14,
         message: 'Hi! I\'m fine. What about you?',
       }
     ]
@@ -165,12 +165,12 @@ const dialogs = [
     messages: [
       {
         id: 1,
-        authorId: 16,
+        authorId: 1,
         message: 'Hello, There! How are you?',
       },
       {
         id: 2,
-        authorId: 1,
+        authorId: 16,
         message: 'Hi! I\'m fine. What about you?',
       }
     ]
@@ -197,12 +197,12 @@ const dialogs = [
     messages: [
       {
         id: 1,
-        authorId: 18,
+        authorId: 1,
         message: 'Hello, There! How are you?',
       },
       {
         id: 2,
-        authorId: 1,
+        authorId: 18,
         message: 'Hi! I\'m fine. What about you?',
       }
     ]
@@ -229,12 +229,12 @@ const dialogs = [
     messages: [
       {
         id: 1,
-        authorId: 20,
+        authorId: 1,
         message: 'Hello, There! How are you?',
       },
       {
         id: 2,
-        authorId: 1,
+        authorId: 20,
         message: 'Hi! I\'m fine. What about you?',
       }
     ]
@@ -261,12 +261,12 @@ const dialogs = [
     messages: [
       {
         id: 1,
-        authorId: 22,
+        authorId: 1,
         message: 'Hello, There! How are you?',
       },
       {
         id: 2,
-        authorId: 1,
+        authorId: 22,
         message: 'Hi! I\'m fine. What about you?',
       }
     ]
@@ -293,12 +293,12 @@ const dialogs = [
     messages: [
       {
         id: 1,
-        authorId: 24,
+        authorId: 1,
         message: 'Hello, There! How are you?',
       },
       {
         id: 2,
-        authorId: 1,
+        authorId: 24,
         message: 'Hi! I\'m fine. What about you?',
       }
     ]

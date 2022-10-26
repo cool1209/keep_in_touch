@@ -1,38 +1,38 @@
 import React from 'react';
+import styles from './MessagingItemStyles.module.css';
 import Message from './Message/Message';
-import MessagingItemStyles from './MessagingItemStyles.module.css';
 
 const MessagingItem = ({
-  dialog,
   authUser,
+  dialog,
   newMessageText,
-  updateMessageText,
-  sendMessage
+  onUpdateMessageText,
+  onSendMessage
 }) => {
-  
+
   return (
-    <li className={MessagingItemStyles.wrapper}>
-      <ul className={MessagingItemStyles.dialogMessages}>
+    <li className={styles.wrapper}>
+      <ul className={styles.dialogMessages}>
         {dialog.messages.map(message => (
           <Message 
-            message={message}
             authUser={authUser}
+            message={message}
             key={message.id}
           />
         )).reverse()}
       </ul>
 
-      <div className={MessagingItemStyles.sendMessage}>
+      <div className={styles.sendMessage}>
         <input
           type="text"
-          className={MessagingItemStyles.input}
-          onChange={(e) => updateMessageText(e.target.value)}
+          className={styles.input}
+          onChange={(e) => onUpdateMessageText(e.target.value)}
           placeholder="New message..."
           value={newMessageText}
         />
         <button
-          className={MessagingItemStyles.btn}
-          onClick={() => sendMessage(dialog.id, authUser)}
+          className={styles.btn}
+          onClick={onSendMessage}
         >Send</button>
       </div>
   </li>

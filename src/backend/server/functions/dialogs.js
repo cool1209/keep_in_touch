@@ -13,6 +13,8 @@ export const postNewMessage = (message, dialogs) => {
   }
 
   currentDialog.messages.push(newMessage);
+
+  return {status: '200'};
 };
 
 export const getDialogs = (userId, dialogs, users, length = 21) => {
