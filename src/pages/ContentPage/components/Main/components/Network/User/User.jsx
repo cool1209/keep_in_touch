@@ -1,9 +1,12 @@
 import classNames from 'classnames';
 import React from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import UserStyles from './User.module.css';
 
 const User = ({ user }) => {
+  const [isFollowing, setIsFollowing] = useState(false);
+
   return (
     <li className={UserStyles.wrapper}>
       <NavLink to={`/profile/${user.id}`}>
@@ -34,8 +37,14 @@ const User = ({ user }) => {
         {user.city}
       </div>
 
-      <button className={UserStyles.btn}>
-        Add friend
+      <button 
+        className={classNames(
+          UserStyles.btn,
+          {[UserStyles.btn_unfollow]: isFollowing}
+        )}
+        onClick={() => setIsFollowing(!isFollowing)}
+      >
+        {isFollowing ? 'Unfollow' : 'Follow'}
       </button>
 
       <button className={UserStyles.btn}>

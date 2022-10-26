@@ -69,13 +69,17 @@
   transition: all var(--transition-behavior);
 }
 
-.btn:focus {
-  border: 2px solid var(--color-normal);
-}
-
 .btn:hover {
   background: var(--color-dark);
   color: var(--color-secondary)
+}
+
+.btn_unfollow {
+  background: var(--color-extra-normal);
+}
+
+.btn_unfollow:hover {
+  background: var(--color-extra-dark);
 }
 
 @media (max-width: 1023px) {

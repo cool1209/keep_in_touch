@@ -10,7 +10,8 @@
   --color-dark: #1a5170;
 
   --color-extra-light: #f0e3c2;
-  --color-extra-normal: #cecece;
+  --color-extra-normal: #b8b8b8;
+  --color-extra-dark: #7a7a7a;
   
   --transition-behavior: 0.1s linear;
   --text-shadow: 0 0 4px var(--color-main);

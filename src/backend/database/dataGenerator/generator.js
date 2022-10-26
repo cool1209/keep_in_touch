@@ -15,7 +15,7 @@ export const getTestUsers = (usersData) => {
     status: "Offline",
     city: getRandomItem(testCities),
     about: `Let's imagine that there should be information about ${testUser.name}, but since this is a test description of the character, there is only this simple text.`,
-    friends: [],
+    followings: [],
     avatar: testUser.avatar,
     wallpaper: getRandomItem(testWallpapers)
   }))
