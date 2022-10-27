@@ -32,6 +32,7 @@ const postsReducer = (state = initialState, action) => {
       return {
         ...state,
         userPosts: [ action.newPost, ...state.userPosts ],
+        newPostText: ''
       }
       
     case UPDATE_POST_TEXT:

@@ -18,6 +18,7 @@ const SideFollowingContainer = ({
     server.get('user-followings', authUserId)
     .then(followings => {
       if (followings) {
+        console.log('server',followings);
         setFollowings(followings.items, followings.totalCount);
       }
     });

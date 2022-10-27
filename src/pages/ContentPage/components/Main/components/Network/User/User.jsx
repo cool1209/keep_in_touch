@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import React from 'react';
-import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import UserStyles from './User.module.css';
 
@@ -8,8 +7,8 @@ const User = ({
   user,
   onFollow,
   onUnfollow,
+  isFollowing
 }) => {
-  const [isFollowing, setIsFollowing] = useState(false);
 
   return (
     <li className={UserStyles.wrapper}>
@@ -48,7 +47,6 @@ const User = ({
         )}
         onClick={() => {
           isFollowing ? onUnfollow() : onFollow();
-          setIsFollowing(!isFollowing);
         }}
       >
         {isFollowing ? 'Unfollow' : 'Follow'}
