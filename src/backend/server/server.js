@@ -1,6 +1,7 @@
 import users from "../database/users";
 import posts from "../database/posts";
 import dialogs from "../database/dialogs";
+import followings from "../database/followings";
 
 import {
   getAuthUser,
@@ -20,7 +21,7 @@ import {
   postNewMessage
 } from "./functions/handleDialogs";
 
-import { getFollowings } from "./functions/handleFollowings";
+import { deleteFollowing, getFollowings, postFollowing } from "./functions/handleFollowings";
 
 const server = {
   get: (action, payload) => {
@@ -42,7 +43,7 @@ const server = {
           case 'all-posts':
             const { userId } = payload;
 
-            resolve(getPosts(userId, 1, posts, users, 12));
+            resolve(getPosts(userId, 1, posts, followings, users, 12));
             break;
 
           case 'user-posts':
@@ -54,7 +55,7 @@ const server = {
             break;
 
           case 'user-followings':
-            resolve(getFollowings(payload, users, 1, 10));
+            resolve(getFollowings(payload, followings, users, 1, 10));
             break;
 
           default:
@@ -76,10 +77,33 @@ const server = {
             resolve(postNewMessage(payload, dialogs));
             break;
 
+          case 'follow':
+            const {userId, newFollowing} = payload;
+
+            resolve(postFollowing(userId, newFollowing, followings));
+            break;
+
           default:
             reject('404 (not found)');
         }
       }, 554);
+    })
+  },
+
+  delete: (action, payload) => {  
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        switch(action) {
+          case 'unfollow':
+            const {userId, unfollow} = payload;
+
+            resolve(deleteFollowing(userId, unfollow, followings));
+            break;
+
+          default:
+            reject('404 (not found)');
+        }
+      }, 998);
     })
   },
 

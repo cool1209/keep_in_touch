@@ -7,7 +7,7 @@ import UserStyles from './User.module.css';
 const User = ({
   user,
   onFollow,
-  onUnfollow
+  onUnfollow,
 }) => {
   const [isFollowing, setIsFollowing] = useState(false);
 

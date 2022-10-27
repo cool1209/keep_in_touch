@@ -17,7 +17,6 @@ export const getTestUsers = (usersData) => {
     about: `Let's imagine that there should be information about ${testUser.name}, but since this is a test description of the character, there is only this simple text.`,
     avatar: testUser.avatar,
     wallpaper: getRandomItem(testWallpapers),
-    followings: []
   }))
 
   return usersData.push(...users);

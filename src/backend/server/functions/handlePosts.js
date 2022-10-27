@@ -1,4 +1,4 @@
-import { getDataPage, getUser } from "./general";
+import { getDataPage } from "./general";
 
 export const postNewPost = (newPost, posts) => {
   posts.push({
@@ -41,16 +41,24 @@ export const getPosts = (
   userId,
   page,
   posts,
+  followings,
   users,
   length
 ) => {
-  const userFollowings = getUser(userId, users).followings;
+  let userFollowings = followings
+  .find(userFollowings => userFollowings.userId === userId);
+
+  if (userFollowings) {
+    userFollowings = userFollowings.followings
+  } else {
+    userFollowings = [];
+  }
 
   const handledPosts = posts
   .filter(post => (
     [...userFollowings, userId].includes(post.userId)
   ));
-
+    
   const postsPage =  getDataPage(handledPosts, page, length);
 
   postsPage.items = postsPage.items.map(post => handlePost(post, users));

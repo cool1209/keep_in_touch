@@ -1,10 +1,17 @@
-import { getDataPage, getUser } from "./general";
+import { getDataPage } from "./general";
 
-const getUserFollowings = (userId, users) => {
-  const userFollowings = getUser(userId, users).followings;
+const getUserFollowings = (userId, followings) => (
+  followings.find(userFollowings => (
+    userFollowings.userId === userId
+  ))
+);
+
+const getHandledUserFollowings = (userId, followings, users) => {
+  const userFollowings = getUserFollowings(userId, followings);
 
   if (userFollowings) {
     const handledUserFollowings = userFollowings
+    .followings
     .map(following => (
       users.find(user => user.id === following)
     ));
@@ -17,23 +24,36 @@ const getUserFollowings = (userId, users) => {
 
 export const getFollowings = (
   userId,
+  followings,
   users,
   page,
   length
 ) => {
-  const userFollowings = getUserFollowings(userId, users);
+  const userFollowings = getHandledUserFollowings(userId, followings, users);
 
   if (userFollowings) {
     return getDataPage(userFollowings, page, length);
   }
 
-  return null;
+  return null
 };
 
-export const postFollowing = (newFollowing) => {
+export const postFollowing = (userId, newFollowing, followings) => {
+  const userFollowings = getUserFollowings(userId, followings);
 
+  if (userFollowings) {
+    userFollowings.followings.push(newFollowing);
+  } else {
+
+  }
+
+  return {status: '200'};
 };
 
-export const deleteFollowing = (following) => {
+export const deleteFollowing = (userId, unfollow, followings) => {
+  const userFollowings = getUserFollowings(userId, followings);
+  userFollowings.followings = userFollowings.followings
+  .filter(following => following !== unfollow);
 
+  return {status: '200'};
 };

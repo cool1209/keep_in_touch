@@ -1,15 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import server from '../../../../../../../backend/server/server';
 
 import User from './User';
 
-const UserContainer = ({ user }) => {
+const UserContainer = ({
+  user,
+  authUserId
+}) => {
   const follow = () => {
-    console.log('Follow');
+    server.post('follow', {userId: authUserId, newFollowing: user.id})
+    .then(response => {
+      console.log('follow');
+      console.log(response);
+    });
   };
 
   const unfollow = () => {
-    console.log('Unfollow');
+    server.delete('unfollow', {userId: authUserId, unfollow: user.id})
+    .then(response => {
+      console.log('unfollow');
+      console.log(response);
+    });
   };
 
   return (
@@ -21,4 +33,9 @@ const UserContainer = ({ user }) => {
   );
 };
 
-export default connect()(UserContainer);
+const mapStateToProps = (state) => ({
+  authUserId: state.auth.authUser.id,
+  followings: state.followings.followings
+});
+
+export default connect(mapStateToProps)(UserContainer);
