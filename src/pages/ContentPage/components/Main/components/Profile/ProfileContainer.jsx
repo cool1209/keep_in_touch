@@ -27,11 +27,7 @@ const ProfileContainer = ({
   }
 
   useEffect(() => {
-    if (isAuthUser) {
-      setCurrentUser(authUser);
-    } else {
-      getCurrentUser(userId);
-    }
+    getCurrentUser(userId);
     
     return () => {
       setCurrentUser({});
