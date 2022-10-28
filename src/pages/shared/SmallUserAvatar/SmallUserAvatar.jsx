@@ -3,13 +3,12 @@ import SmallUserAvatarStyles from './SmallUserAvatar.module.css';
 
 const SmallUserAvatar = ({
   src,
-  alt,
   styles
 }) => {
   return (
     <img 
       src={src}
-      alt={alt}
+      alt='User avatar'
       className={`${SmallUserAvatarStyles.avatar} ${styles}`}
     />
   );

@@ -1,5 +1,3 @@
-import server from '../../../../../../backend/server/server';
-
 import React from 'react';
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
@@ -8,6 +6,7 @@ import { setCurrentUser } from '../../../../../../store/reducers/userReducer';
 import { setUserPosts } from '../../../../../../store/reducers/postsReducer';
 import Profile from './Profile';
 import Preloader from '../../../../../shared/Preloader/Preloader';
+import { getUser } from '../../../../../../api/api';
 
 const ProfileContainer = ({
   authUser,
@@ -21,7 +20,7 @@ const ProfileContainer = ({
   const isAuthUser = userId === authUser.id;
 
   const getCurrentUser = (id) => {
-    server.get(`user`, id)
+    getUser(id)
     .then(user => {
       setCurrentUser(user);
     })

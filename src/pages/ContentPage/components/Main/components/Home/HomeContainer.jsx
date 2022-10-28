@@ -1,8 +1,8 @@
-import server from '../../../../../../backend/server/server';
 import { connect } from 'react-redux';
 import { setPosts } from '../../../../../../store/reducers/postsReducer';
 import Home from './Home';
 import { useEffect } from 'react';
+import { getPosts } from '../../../../../../api/api';
 
 const HomeContainer = ({
   authUserId,
@@ -11,7 +11,7 @@ const HomeContainer = ({
   isPosts
 }) => {
   useEffect(() => {
-    server.get('all-posts', {userId: authUserId})
+    getPosts({userId: authUserId})
     .then((posts) => {
       if(posts) {
         setPosts(posts.items, posts.totalCount);

@@ -1,6 +1,6 @@
-import server from '../../../../../../backend/server/server';
 import React from 'react';
 import { connect } from "react-redux";
+import { getUsers } from '../../../../../../api/api';
 import { setUsers } from "../../../../../../store/reducers/usersReducer";
 import Network from './Network';
 
@@ -17,7 +17,7 @@ class NetworkContainer extends React.Component {
 
   getUsers(page) {
     this.setState({ usersPageIsLoading: true });
-    server.get(`all-users`, page)
+    getUsers(page)
     .then(users => {
       if (users) {
         this.props.setUsers(users.items, users.totalCount, page);

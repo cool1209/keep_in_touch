@@ -20,14 +20,12 @@ const followingReducer = (state = initialState, action) => {
       }
 
     case ADD_FOLLOWING:
-      console.log('state',state.followings);
       return {
         ...state,
-        followings: [ action.following, ...state.followings ]
+        followings: [ action.user, ...state.followings ]
       }
 
     case REMOVE_FOLLOWING:
-
       return {
         ...state,
         followings: state.followings
@@ -50,9 +48,9 @@ export const setFollowings = (
   currentPage
 });
 
-export const addFollowing = (following) => ({
+export const addFollowing = (user) => ({
   type: ADD_FOLLOWING,
-  following
+  user
 });
 
 export const removeFollowing = (userId) => ({

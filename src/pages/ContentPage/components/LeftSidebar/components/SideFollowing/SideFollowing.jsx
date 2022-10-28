@@ -15,7 +15,6 @@ const SideFollowing = ({ followings }) => {
               <button className={styles.button}>
                 <SmallUserAvatar
                   src={following.avatar}
-                  alt="Following avatar"
                   styles={styles.avatar}
                 />
               </button>

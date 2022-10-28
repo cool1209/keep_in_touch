@@ -1,7 +1,7 @@
-import server from '../../../../../../../../backend/server/server';
-import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { setUserPosts } from '../../../../../../../../store/reducers/postsReducer';
+import { getUserPosts } from '../../../../../../../../api/api';
+import { useEffect } from 'react';
 import UserPosts from './UserPosts'
 
 const UserPostsContainer = ({
@@ -10,14 +10,15 @@ const UserPostsContainer = ({
   currentUser,
   isPosts
 }) => {
+
   useEffect(() => {
-    server.get('user-posts', currentUser.id)
+    getUserPosts(currentUser.id)
     .then(posts => {
       if (posts) {
         setUserPosts(posts.items, posts.totalCount);
       }
     })
-  }, [currentUser]);
+  }, []);
 
   return (
     <UserPosts posts={posts} isPosts={isPosts} />

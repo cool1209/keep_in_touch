@@ -11,7 +11,6 @@ const Post = ({ post }) => {
         <NavLink to={`/profile/${post.userId}`}>
           <SmallUserAvatar
             src={post.authorAvatar}
-            alt='Publication author avatar'
           />
         </NavLink>
 

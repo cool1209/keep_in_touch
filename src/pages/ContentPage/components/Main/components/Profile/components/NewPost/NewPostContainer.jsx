@@ -1,11 +1,10 @@
-import server from '../../../../../../../../backend/server/server';
-
 import {
   addNewPost,
   updatePostText
 } from '../../../../../../../../store/reducers/postsReducer';
 import { connect } from 'react-redux';
 import NewPost from './NewPost';
+import { postNewPost } from '../../../../../../../../api/api';
 
 const NewPostContainer = ({
   authUser,
@@ -29,9 +28,9 @@ const NewPostContainer = ({
     if (newPostText.trim()) {
       const newPost = createNewPost();
   
-      server.post('new-post', newPost)
-      .then(response => {
-        if (+response.status === 200) {
+      postNewPost(newPost)
+      .then(status => {
+        if (status === 200) {
           addNewPost(newPost);
         }
       });

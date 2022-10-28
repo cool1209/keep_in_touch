@@ -1,5 +1,3 @@
-import server from '../../../../../../../../backend/server/server';
-
 import React from 'react';
 import { connect } from 'react-redux';
 import { setAuthUser } from '../../../../../../../../store/reducers/authReducer';
@@ -10,6 +8,7 @@ import { setDialogs, setNoContactSelected } from '../../../../../../../../store/
 import { setFollowings } from '../../../../../../../../store/reducers/followingReducer';
 
 import UserLogoutButton from './UserLogoutButton';
+import { closeAuth } from '../../../../../../../../api/api';
 
 const UserLogoutButtonContainer = ({
   removeUserSession,
@@ -17,7 +16,7 @@ const UserLogoutButtonContainer = ({
 }) => {
 
   const logoutUser = () => {
-    server.removeSession('remove-session', authUserId);
+    closeAuth(authUserId)
     removeUserSession();
   }
 

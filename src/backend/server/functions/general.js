@@ -38,3 +38,25 @@ export const getDataPage = (data, page, length) => {
         totalCount: data.length
       };
 };
+
+export const handlePost = (post, users) => {
+  const handledPost = {
+    id: post.id,
+    userId: post.userId,
+  
+    author: users.find(user => user.id === post.userId).name,
+  
+    authorAvatar: users.find(user => user.id === post.userId).avatar,
+  
+    text: post.text,
+    likes: post.likes,
+  }
+
+  return handledPost;
+};
+
+export const getUserFollowings = (userId, followings) => (
+  followings.find(userFollowings => (
+    userFollowings.userId === userId
+  ))
+);

@@ -1,22 +1,5 @@
 import { getDataPage } from "./general";
 
-export const postNewMessage = (message, dialogs) => {
-  const dialogId = message.dialogId;
-  const currentDialog = dialogs
-    .find(dialog => dialog.id === dialogId);
-
-  const newMessageId = currentDialog.messages.length + 1;
-  const newMessage = {
-    id: newMessageId,
-    authorId: message.authorId,
-    message: message.message,
-  }
-
-  currentDialog.messages.push(newMessage);
-
-  return {status: '200'};
-};
-
 export const getDialogs = (userId, dialogs, users, length = 21) => {
   const userDialogs = dialogs
   .filter(dialog => dialog.membersId.includes(+userId))
@@ -43,5 +26,8 @@ export const getDialogs = (userId, dialogs, users, length = 21) => {
     }))
   }));
 
-  return getDataPage(userDialogs, 1, length);
+  return {
+    data: getDataPage(userDialogs, 1, length),
+    status: 200
+  };
 };

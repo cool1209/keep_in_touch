@@ -20,7 +20,7 @@ export const testUsers = [
   {name: 'Ryu', avatar: 'https://bit.ly/3TXGhk7'},
   {name: 'Iron-man', avatar: 'https://bit.ly/3RGqLZ0'},
   {name: 'Hulk', avatar: 'https://bit.ly/3SJU50S'},
-  {name: 'Chun-Li', avatar: 'https://bit.ly/3guahoX'},
+  {name: 'Chun-Li', avatar: 'https://bit.ly/3gR7CpM'},
   {name: 'Liu-Kang', avatar: 'https://bit.ly/3ROrWVA'},
   {name: 'Alisa', avatar: 'https://bit.ly/3EZdWFw'},
   {name: 'Kung-Lao', avatar: 'https://bit.ly/3TEcGvz'},

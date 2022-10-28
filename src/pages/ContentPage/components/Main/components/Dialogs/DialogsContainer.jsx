@@ -1,8 +1,8 @@
-import server from '../../../../../../backend/server/server';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { setDialogs } from '../../../../../../store/reducers/dialogsReducer';
 import Dialogs from './Dialogs';
+import { getUserDialogs } from '../../../../../../api/api';
 
 const DialogsContainer = ({
   authUserId,
@@ -11,7 +11,7 @@ const DialogsContainer = ({
 }) => {
   
   useEffect(() => {
-    server.get(`user-dialogs`, authUserId)
+    getUserDialogs(authUserId)
     .then(dialogs => {
       if (dialogs) {
         setDialogs(dialogs.items, dialogs.tottalCount);

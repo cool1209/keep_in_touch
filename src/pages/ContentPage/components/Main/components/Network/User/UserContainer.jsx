@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import server from '../../../../../../../backend/server/server';
+import { deleteFollow, postFollow } from '../../../../../../../api/api';
 import { addFollowing, removeFollowing } from '../../../../../../../store/reducers/followingReducer';
 
 import User from './User';
@@ -34,23 +34,21 @@ const UserContainer = ({
   }
   
   const follow = async () => {
-    const response = await server.post(
-      'follow',
+    const status = await postFollow(
       {userId: authUserId, newFollowing: user.id}
     );
 
-    if (response.status === '200') {
+    if (status === 200) {
       addFollowing(user);
     }
   };
 
   const unfollow = async () => {
-    const response = await server.delete(
-      'unfollow',
+    const status = await deleteFollow(
       {userId: authUserId, unfollow: user.id}
     );
 
-    if (response.status === '200') {
+    if (status === 200) {
       removeFollowing(user.id);
     }
   };

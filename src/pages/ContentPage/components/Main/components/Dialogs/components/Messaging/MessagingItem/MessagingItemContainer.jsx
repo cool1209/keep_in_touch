@@ -1,9 +1,8 @@
-import server from '../../../../../../../../../backend/server/server';
-
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateMessageText, addMessage } from '../../../../../../../../../store/reducers/dialogsReducer';
 import MessagingItem from './MessagingItem';
+import { postNewMessage } from '../../../../../../../../../api/api';
 
 const MessagingItemContainer = ({
   dialog,
@@ -27,9 +26,9 @@ const MessagingItemContainer = ({
     if (newMessageText.trim()) {
       const newMessage = createNewMessage();
       
-      server.post('new-message', newMessage)
-      .then(response => {
-        if (+response.status === 200) {
+      postNewMessage(newMessage)
+      .then(status => {
+        if (status === 200) {
           addMessage(newMessage);
         }
       });

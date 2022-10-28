@@ -1,8 +1,7 @@
-import server from '../../../../../../backend/server/server';
-
 import React from 'react';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { getFollowings } from '../../../../../../api/api';
 
 import { setFollowings } from '../../../../../../store/reducers/followingReducer';
 import SideFollowing from './SideFollowing';
@@ -15,10 +14,8 @@ const SideFollowingContainer = ({
 }) => {
   
   useEffect(() => {
-    server.get('user-followings', authUserId)
-    .then(followings => {
+    getFollowings(authUserId).then(followings => {
       if (followings) {
-        console.log('server',followings);
         setFollowings(followings.items, followings.totalCount);
       }
     });
