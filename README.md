@@ -32,41 +32,43 @@ and Redux, Flux architecture, data interaction, etc.
 >- You can choose a user for entering the social network (choose a user and click the `logIn` button).
 >
 > **2. Home page:** 
->- On this page you can view the publications of all users.
+>- On this page, you can view your posts and the posts of all the users you follow. It is possible to visit a user's profile by clicking on his avatar on a post.
 >
 > **3. Dialogs page:**
-> - It is possible to select a contact and write a message (then you can switch 
-> to the account of the person to whom the message was sent and read it).
+> - It is possible to select a contact and write a message (then you can switch to the account of the person to whom the message was sent and read it).
 >
 > **4. Network page:**
->- On this page, you can view the users of this network.
+>- On this page you can view the users of this network. Visit a user's profile by clicking on their avatar, you can also follow any of them.
 >
 > **5. Music page:**
 >- Content is temporarily unavailable...
 >
 > **6. Profile page:**
->- You can logout from your account (in the upper right corner of the wallpaper).
 >- You can view user information.
 >- You can add a new publication.
+>- You can view all of the user's posts
+>- You can logout from your account (in the upper right corner of the wallpaper).
 
  **Added changes:**
- - Changed a way to enter to the network
- - Update backend simulator
- - Added items generators to backend simulator
- - Added pagination to "Network" component
- - Changed some reducers
+ - Added preload spinner
+ - Added the ability to visit the profile of other users
+ - Added the ability to follow to other users
+ - Updated backend simulator
  - Changed some styles
- - Fixed some bugs
+ - Fixed some small bugs
 
  **Frameworks dokumentation:** <br>
 - [Getting Started with React](https://reactjs.org/docs/getting-started.html) <br>
 - [Getting Started with Redux](https://redux.js.org/introduction/getting-started)
+- [Quick Start REACT ROUTER](https://v5.reactrouter.com/web/example/basic)
 
  **The npm commands used to install the required node modules:**
 - `npx create-react-app my-app`
 - `npm i gh-pages --save-dev`
 - `npm i redux`
 - `npm i react-redux`
+- `npm i react-router-dom`
+- `npm i classnames`
 
 ## Developers
 
