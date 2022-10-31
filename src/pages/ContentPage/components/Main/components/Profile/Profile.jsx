@@ -1,23 +1,23 @@
 import React from 'react';
-import UserLogoutButtonContainer from './components/UserLogoutButton/UserLogoutButtonContainer';
-import UserInfoContainer from './components/UserInfo/UserInfoContainer';
-import NewPostContainer from './components/NewPost/NewPostContainer';
-import UserPostsContainer from './components/UserPosts/UserPostsContainer';
+import LogoutButton from './components/LogoutButton/LogoutButtonContainer';
+import UserInfo from './components/UserInfo/UserInfoContainer';
+import NewPost from './components/NewPost/NewPostContainer';
+import UserPosts from './components/UserPosts/UserPostsContainer';
 
 const Profile = ({ isAuthUser }) => {
 
   return (
     <section>
-      <UserInfoContainer />
+      <UserInfo />
 
       {isAuthUser &&
         <>
-          <UserLogoutButtonContainer />
-          <NewPostContainer/>
+          <LogoutButton />
+          <NewPost/>
         </>
       }
 
-      <UserPostsContainer />
+      <UserPosts />
     </section>
   );
 };

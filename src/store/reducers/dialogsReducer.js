@@ -1,3 +1,5 @@
+import { dialogsAPI } from "../../api/api";
+
 const SET_DIALOGS = 'SET_DIALOGS';
 const ADD_MESSAGE = 'ADD_MESSAGE';
 const UPDATE_MESSAGE_TEXT = 'UPDATE_MESSAGE_TEXT';
@@ -86,5 +88,41 @@ export const updateMessageText = (messageText) => ({
   type: UPDATE_MESSAGE_TEXT,
   messageText
 });
+
+export const getDialogs = (userId) => (dispatch) => {
+  dialogsAPI.getUserDialogs(userId)
+  .then(response => {
+    if (response.status === 200) {
+      const { items, totalCount } = response.data
+      dispatch(setDialogs(items, totalCount));
+    }
+  });
+};
+
+export const sendMessage = (
+  messageText,
+  dialog,
+  authUser
+) => (dispatch) => {
+  
+  if (messageText.trim()) {
+    const newMessage = {
+      id: dialog.messages.length + 1,
+      dialogId: dialog.id,
+      authorId: authUser.id,
+      authorAvatar: authUser.avatar,
+      message: messageText.trim(),
+    };
+    
+    dialogsAPI.postNewMessage(newMessage)
+    .then(response => {
+      if (response.status === 200) {
+        dispatch(addMessage(newMessage));
+      }
+    });
+  } 
+  
+  dispatch(updateMessageText(''));
+};
 
 export default dialogsReducer;

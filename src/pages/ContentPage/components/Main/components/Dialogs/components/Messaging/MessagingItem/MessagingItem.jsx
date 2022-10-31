@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './MessagingItemStyles.module.css';
+import styles from './MessagingItem.module.css';
 import Message from './Message/Message';
 
 const MessagingItem = ({

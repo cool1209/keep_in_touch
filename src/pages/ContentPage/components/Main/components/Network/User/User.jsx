@@ -4,10 +4,12 @@ import { NavLink } from 'react-router-dom';
 import UserStyles from './User.module.css';
 
 const User = ({
+  authUserId,
   user,
   onFollow,
   onUnfollow,
-  isFollowing
+  isFollowing,
+  checkFollowingProcess
 }) => {
 
   return (
@@ -45,9 +47,14 @@ const User = ({
           UserStyles.btn,
           {[UserStyles.btn_unfollow]: isFollowing}
         )}
+
         onClick={() => {
-          isFollowing ? onUnfollow() : onFollow();
+          isFollowing
+          ? onUnfollow(authUserId, user)
+          : onFollow(authUserId, user);
         }}
+
+        disabled={checkFollowingProcess(user.id)}
       >
         {isFollowing ? 'Unfollow' : 'Follow'}
       </button>

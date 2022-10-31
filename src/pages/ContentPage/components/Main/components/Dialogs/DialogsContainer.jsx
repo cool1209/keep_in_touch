@@ -1,22 +1,16 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { setDialogs } from '../../../../../../store/reducers/dialogsReducer';
+import { getDialogs } from '../../../../../../store/reducers/dialogsReducer';
 import Dialogs from './Dialogs';
-import { getUserDialogs } from '../../../../../../api/api';
 
 const DialogsContainer = ({
   authUserId,
-  setDialogs,
+  getDialogs,
   isDialogs
 }) => {
   
   useEffect(() => {
-    getUserDialogs(authUserId)
-    .then(dialogs => {
-      if (dialogs) {
-        setDialogs(dialogs.items, dialogs.tottalCount);
-      }
-    });
+    getDialogs(authUserId);
   }, []);
 
   return (
@@ -29,4 +23,4 @@ const mapStateToProps = (state) => ({
   isDialogs: state.dialogs.totalDialogs
 });
 
-export default connect(mapStateToProps, {setDialogs})(DialogsContainer);
+export default connect(mapStateToProps, {getDialogs})(DialogsContainer);

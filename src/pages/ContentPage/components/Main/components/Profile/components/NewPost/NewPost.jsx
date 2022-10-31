@@ -4,7 +4,7 @@ import styles from './NewPost.module.css';
 const NewPost = ({
   newPostText,
   updatePostText,
-  sendNewPost
+  onSendNewPost
 }) => {
   return (
     <section className={styles.wrapper}>
@@ -21,7 +21,7 @@ const NewPost = ({
       
       <button
         className={styles.button}
-        onClick={sendNewPost}
+        onClick={onSendNewPost}
       >
         Add post
       </button>

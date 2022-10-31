@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import GetIcon from '../../../../../../../../assets/img/GetIcon';
-import styles from './UserLogoutButton.module.css';
+import styles from './LogoutButton.module.css';
 
-const UserLogoutButton = ({ onLogoutUser }) => {
+const LogoutButton = ({ onLogoutUser }) => {
   return (
       <NavLink to='/'>
         <button
@@ -17,4 +17,4 @@ const UserLogoutButton = ({ onLogoutUser }) => {
     );
 };
 
-export default UserLogoutButton;
+export default LogoutButton;

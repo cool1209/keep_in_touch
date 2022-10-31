@@ -1,10 +1,14 @@
+import { usersAPI } from "../../api/api";
+
 const SET_USERS = 'SET_USERS';
+const SET_IS_LOADING_PROCESS = 'SET_IS_LOADING_PROCESS';
 
 const initialState = {
   users: [],
   totalUsers: null,
   pages: [],
-  currentPage: 0
+  currentPage: 0,
+  isPageLoadingProcess: false
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -27,6 +31,12 @@ const usersReducer = (state = initialState, action) => {
         currentPage: action.currentPage,
       }
 
+    case SET_IS_LOADING_PROCESS:
+      return {
+        ...state,
+        isPageLoadingProcess: action.isPageLoadingProcess
+      }
+
     default:
       return state;
   };
@@ -38,5 +48,24 @@ export const setUsers = (users, totalUsers, currentPage) => ({
   totalUsers,
   currentPage
 });
+
+export const setIsPageLoadingProcess = (isPageLoadingProcess) => ({
+type: SET_IS_LOADING_PROCESS,
+isPageLoadingProcess
+});
+
+export const getUsersPage = (page) => (dispatch) => {
+  dispatch(setIsPageLoadingProcess(true));
+
+  usersAPI.getUsers(page)
+  .then(response => {
+    if (response.status === 200) {
+      const { items, totalCount } = response.data
+      dispatch(setUsers(items, totalCount, page));
+    };
+
+    dispatch(setIsPageLoadingProcess(false));
+  });
+}
 
 export default usersReducer;

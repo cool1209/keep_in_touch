@@ -2,42 +2,33 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { setCurrentUser } from '../../../../../../store/reducers/userReducer';
-import { setUserPosts } from '../../../../../../store/reducers/postsReducer';
-import Profile from './Profile';
+import { getCurrentUser } from '../../../../../../store/reducers/profileReducer';
 import Preloader from '../../../../../shared/Preloader/Preloader';
-import { getUser } from '../../../../../../api/api';
+import Profile from './Profile';
+import { getUserPosts } from '../../../../../../store/reducers/postsReducer';
 
 const ProfileContainer = ({
   authUser,
-  currentUser,
-  setCurrentUser,
-  setUserPosts
+  isCurrentUser,
+  getCurrentUser,
+  getUserPosts
 }) => {
-
   const params = useParams();
-  const userId = +params.userId;
-  const isAuthUser = userId === authUser.id;
+  const currentUserId = +params.userId;
+  const isAuthUser = currentUserId === authUser.id;
 
-  const getCurrentUser = (id) => {
-    getUser(id)
-    .then(user => {
-      setCurrentUser(user);
-    })
-  }
+  const setProfile = () => {
+    getCurrentUser(currentUserId, authUser);
+    getUserPosts(currentUserId);
+  };
 
   useEffect(() => {
-    getCurrentUser(userId);
-    
-    return () => {
-      setCurrentUser({});
-      setUserPosts([], null);
-    }
-  }, [userId]);
+    setProfile();
+  }, [currentUserId]);
 
   return (
     <>
-      {currentUser.id
+      {isCurrentUser
       ? <Profile isAuthUser={isAuthUser} />
       : <Preloader />
       }
@@ -47,13 +38,13 @@ const ProfileContainer = ({
 
 const mapStateToProps = (state) => ({
   authUser: state.auth.authUser,
-  currentUser: state.user.currentUser
+  isCurrentUser: state.user.currentUser.id
 });
 
 export default connect(
   mapStateToProps,
   {
-    setCurrentUser,
-    setUserPosts
+    getCurrentUser,
+    getUserPosts
   }
 )(ProfileContainer)

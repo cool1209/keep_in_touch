@@ -1,24 +1,23 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getFollowings } from '../../../../../../api/api';
-
-import { setFollowings } from '../../../../../../store/reducers/followingReducer';
+import { getFollowings, setFollowings } from '../../../../../../store/reducers/followingReducer';
 import SideFollowing from './SideFollowing';
 
 const SideFollowingContainer = ({
   authUserId,
   followings,
   isFollowings,
+  getFollowings,
   setFollowings
 }) => {
   
   useEffect(() => {
-    getFollowings(authUserId).then(followings => {
-      if (followings) {
-        setFollowings(followings.items, followings.totalCount);
-      }
-    });
+    getFollowings(authUserId);
+
+    return () => {
+      setFollowings([], null);
+    }
   }, []);
 
   return (
@@ -36,5 +35,5 @@ const mapStatetoProps = (state) => ({
 
 export default connect(
   mapStatetoProps,
-  {setFollowings}
+  {getFollowings, setFollowings}
 )(SideFollowingContainer);

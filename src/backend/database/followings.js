@@ -2,12 +2,12 @@ const followings = [
   {
     id: 1,
     userId: 1,
-    followings: [14]
+    followings: [49]
   },
   {
     id: 2,
     userId: 2,
-    followings: [10, 21, 36, 48]
+    followings: [5, 41, 48, 43, 1]
   }
 ];
 

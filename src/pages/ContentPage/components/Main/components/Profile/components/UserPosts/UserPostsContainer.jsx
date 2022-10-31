@@ -1,37 +1,23 @@
 import { connect } from 'react-redux';
-import { setUserPosts } from '../../../../../../../../store/reducers/postsReducer';
-import { getUserPosts } from '../../../../../../../../api/api';
-import { useEffect } from 'react';
-import UserPosts from './UserPosts'
+import Preloader from '../../../../../../../shared/Preloader/Preloader';
+import UserPosts from './UserPosts';
 
-const UserPostsContainer = ({
-  posts,
-  setUserPosts,
-  currentUser,
-  isPosts
-}) => {
-
-  useEffect(() => {
-    getUserPosts(currentUser.id)
-    .then(posts => {
-      if (posts) {
-        setUserPosts(posts.items, posts.totalCount);
-      }
-    })
-  }, []);
+const UserPostsContainer = ({ totalUserPosts, userPosts }) => {
+  const isUserPostsLoaded = totalUserPosts !== null;
 
   return (
-    <UserPosts posts={posts} isPosts={isPosts} />
+    <>
+      {isUserPostsLoaded
+      ? <UserPosts userPosts={userPosts} />
+      : <Preloader />
+      }
+    </>
   );
 }
 
 const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
-  posts: state.posts.userPosts,
-  isPosts: state.posts.totalUserPosts
+  userPosts: state.posts.userPosts,
+  totalUserPosts: state.posts.totalUserPosts
 });
 
-export default connect(
-  mapStateToProps,
-  {setUserPosts}
-)(UserPostsContainer);
+export default connect(mapStateToProps)(UserPostsContainer);

@@ -1,3 +1,5 @@
+import { postsAPI } from "../../api/api";
+
 const SET_POSTS = 'SET_POSTS';
 const SET_USER_POSTS = 'SET_USER_POSTS';
 const ADD_NEW_POST = 'ADD_NEW_POST';
@@ -67,5 +69,52 @@ export const updatePostText = (text) => ({
   type: UPDATE_POST_TEXT,
   text
 });
+
+export const getPosts = (userId) => (dispatch) => {
+  postsAPI.getPosts({userId: userId})
+  .then(response => {
+    if (response.status === 200) {
+      const posts = response.data;
+      dispatch(setPosts(posts.items, posts.totalCount));
+    }
+  });
+};
+
+export const getUserPosts = (currentUserId) => (dispatch) => {
+  postsAPI.getUserPosts(currentUserId)
+  .then(response => {
+    if (response.status === 200) {
+      const { items, totalCount } = response.data;
+
+      dispatch(setUserPosts(items, totalCount));
+    }
+  });
+};
+
+export const sendNewPost = (
+  postText,
+  authUser,
+  userPosts
+) => (dispatch) => {
+
+  if (postText.trim()) {
+    const newPost = {
+      id: userPosts.length + 1,
+      userId: authUser.id,
+      authorAvatar: authUser.avatar,
+      text: postText.trim(),
+      likes: 0,
+    };
+
+    postsAPI.sendNewPost(newPost)
+    .then(response => {
+      if (response.status === 200) {
+        dispatch(addNewPost(newPost));
+      }
+    });
+  }
+  
+  dispatch(updatePostText(''));
+}
 
 export default postsReducer;

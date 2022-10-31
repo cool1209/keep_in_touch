@@ -6,7 +6,7 @@ const LoginPage = ({
   users,
   login,
   onSetLogin,
-  onLoginUser,
+  onGetAuthUser,
   curentPage,
   pages,
   onSetCurentPage,
@@ -44,7 +44,7 @@ const LoginPage = ({
                 className={LoginPageStyles.btn}
                 onClick={() => (
                   login
-                  ? onLoginUser(login)
+                  ? onGetAuthUser(login)
                   : null
                 )}
               >

@@ -1,49 +1,24 @@
-import {
-  addNewPost,
-  updatePostText
-} from '../../../../../../../../store/reducers/postsReducer';
 import { connect } from 'react-redux';
+import { sendNewPost, updatePostText } from '../../../../../../../../store/reducers/postsReducer';
 import NewPost from './NewPost';
-import { postNewPost } from '../../../../../../../../api/api';
 
 const NewPostContainer = ({
   authUser,
   userPosts,
+  sendNewPost,
   newPostText,
-  updatePostText,
-  addNewPost
+  updatePostText
 }) => {
 
-  const createNewPost = () => {
-    return {
-      id: userPosts.length + 1,
-      userId: authUser.id,
-      authorAvatar: authUser.avatar,
-      text: newPostText.trim(),
-      likes: 0,
-    }
-  };
-
-  const sendNewPost = () => {
-    if (newPostText.trim()) {
-      const newPost = createNewPost();
-  
-      postNewPost(newPost)
-      .then(status => {
-        if (status === 200) {
-          addNewPost(newPost);
-        }
-      });
-    }
-    
-    updatePostText('');
+  const onSendNewPost = () => {
+    sendNewPost(newPostText, authUser, userPosts);
   }
 
   return (
     <NewPost 
       newPostText={newPostText}
       updatePostText={updatePostText}
-      sendNewPost={sendNewPost}
+      onSendNewPost={onSendNewPost}
     />
   );
 };
@@ -58,6 +33,6 @@ export default connect(
   mapStateToProps,
   {
     updatePostText,
-    addNewPost
+    sendNewPost
   }
 )(NewPostContainer);

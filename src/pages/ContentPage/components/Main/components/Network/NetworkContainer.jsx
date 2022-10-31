@@ -1,30 +1,18 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { getUsers } from '../../../../../../api/api';
-import { setUsers } from "../../../../../../store/reducers/usersReducer";
+import { getUsersPage } from "../../../../../../store/reducers/usersReducer";
 import Network from './Network';
 
 class NetworkContainer extends React.Component {
-  state = {
-    usersPageIsLoading: false
+  setStartUserPage() {
+    const startPage = 1;
+    this.props.getUsersPage(startPage);
   }
   
   componentDidMount() {
     if (!this.props.users.length) {
-      this.getUsers(1);
+      this.setStartUserPage();
     };
-  }
-
-  getUsers(page) {
-    this.setState({ usersPageIsLoading: true });
-    getUsers(page)
-    .then(users => {
-      if (users) {
-        this.props.setUsers(users.items, users.totalCount, page);
-      };
-
-      this.setState({ usersPageIsLoading: false });
-    });
   }
 
   render() {
@@ -40,9 +28,9 @@ class NetworkContainer extends React.Component {
         pages={pages}
         currentPage={currentPage}
         users={users}
-        getUsers={this.getUsers.bind(this)}
+        getUsers={this.props.getUsersPage.bind(this)}
         pageIsLoaded={!!totalUsers}
-        usersPageIsLoading={this.state.usersPageIsLoading}
+        usersPageIsLoading={this.props.usersPageIsLoading}
       />
     )
   }
@@ -52,7 +40,8 @@ const mapStateToProps = (state) => ({
   users: state.users.users,
   pages: state.users.pages,
   currentPage: state.users.currentPage,
-  totalUsers: state.users.totalUsers
+  totalUsers: state.users.totalUsers,
+  usersPageIsLoading: state.users.isPageLoadingProcess
 });
 
-export default connect(mapStateToProps, {setUsers})(NetworkContainer);
+export default connect(mapStateToProps, {getUsersPage})(NetworkContainer);

@@ -32,5 +32,8 @@ export const getFollowings = (
     };
   }
 
-  return null
+  return {
+    status: 404,
+    message: 'Not found'
+  };
 };
