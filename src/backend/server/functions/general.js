@@ -1,6 +1,4 @@
-export const getUser = (userId, users) => (
-  users.find(user => (user.id === userId))
-);
+import users from "../../data/users";
 
 export const getDataPage = (data, page, length) => {
   const reversedData = [ ...data ].reverse();
@@ -39,7 +37,7 @@ export const getDataPage = (data, page, length) => {
       };
 };
 
-export const handlePost = (post, users) => {
+export const handlePost = (post) => {
   const handledPost = {
     id: post.id,
     userId: post.userId,
@@ -54,9 +52,3 @@ export const handlePost = (post, users) => {
 
   return handledPost;
 };
-
-export const getUserFollowings = (userId, followings) => (
-  followings.find(userFollowings => (
-    userFollowings.userId === userId
-  ))
-);

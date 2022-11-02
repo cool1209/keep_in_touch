@@ -1,0 +1,26 @@
+.online {
+  display: flex;
+  align-items: center;
+}
+
+.indicator {
+  display: inline-block;
+  margin-right: 4px;
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid var(--color-normal);
+  border-radius: 50%;
+}
+
+.indicator_offline {
+  background: #ff1212;
+}
+
+.indicator_online {
+  background: #50ff50;
+}
+
+.onlineText {
+  font-size: var(--font-size-mini);   
+}

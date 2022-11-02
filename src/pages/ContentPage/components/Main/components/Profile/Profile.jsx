@@ -1,23 +1,23 @@
 import React from 'react';
-import LogoutButton from './components/LogoutButton/LogoutButtonContainer';
-import UserInfo from './components/UserInfo/UserInfoContainer';
-import NewPost from './components/NewPost/NewPostContainer';
-import UserPosts from './components/UserPosts/UserPostsContainer';
+import LogoutButtonContainer from './components/LogoutButton/LogoutButtonContainer';
+import UserInfoContainer from './components/UserInfo/UserInfoContainer';
+import NewPostContainer from './components/NewPost/NewPostContainer';
+import UserPostsContainer from './components/UserPosts/UserPostsContainer';
 
-const Profile = ({ isAuthUser }) => {
+const Profile = ({ isAuthUserProfile }) => {
 
   return (
     <section>
-      <UserInfo />
+      <UserInfoContainer />
 
-      {isAuthUser &&
+      {isAuthUserProfile &&
         <>
-          <LogoutButton />
-          <NewPost/>
+          <LogoutButtonContainer />
+          <NewPostContainer/>
         </>
       }
 
-      <UserPosts />
+      <UserPostsContainer />
     </section>
   );
 };

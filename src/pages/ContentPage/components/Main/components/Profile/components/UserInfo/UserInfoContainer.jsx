@@ -1,15 +1,18 @@
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import UserInfo from './UserInfo';
 
-const UserInfoContainer = ({ currentUser }) => {
+const UserInfoContainer = ({ profile }) => {
 
   return (
-    <UserInfo currentUser={currentUser} />
+    <UserInfo profile={profile} />
   )
 }
 
 const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser
+  profile: state.profile.profile
 });
 
-export default connect(mapStateToProps)(UserInfoContainer);
+export default compose(
+  connect(mapStateToProps)
+)(UserInfoContainer);

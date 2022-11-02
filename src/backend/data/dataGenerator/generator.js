@@ -1,5 +1,6 @@
 import { testCities } from "./items/testCities";
 import { testPosts } from "./items/testPosts";
+import { testStatuses } from "./items/testStatuses";
 import { testUsers } from "./items/testUsers";
 import { testWallpapers } from "./items/testWallpaper";
 
@@ -12,7 +13,7 @@ export const getTestUsers = (usersData) => {
     id: index + 1,
     login: `user${index + 1}`,
     name: testUser.name,
-    status: "Offline",
+    online: false,
     city: getRandomItem(testCities),
     about: `Let's imagine that there should be information about ${testUser.name}, but since this is a test description of the character, there is only this simple text.`,
     avatar: testUser.avatar,
@@ -22,15 +23,29 @@ export const getTestUsers = (usersData) => {
   return usersData.push(...users);
 };
 
-export const getTestPosts = (posts, postCaunter) => {
+export const getTestPosts = (postsData, postCaunter) => {
   for (let i = 0; i < postCaunter; i++) {
     const testPost = {
-      id: posts.length + 1,
+      id: postsData.length + 1,
       userId: getRandomNumber(testUsers.length) + 1,
       text: getRandomItem(testPosts),
       likes: getRandomNumber(testUsers.length)
     };
 
-    posts.push(testPost)
+    postsData.push(testPost)
+  }
+};
+
+export const getTestStatuses = (stasusesData, StatusesNumber) => {
+  
+  for (let i = 0; i < StatusesNumber; i++) {
+    const unitId = i + 1
+    const profileStatus = {
+      id: unitId,
+      userId: unitId,
+      status: getRandomItem(testStatuses)
+    };
+
+    stasusesData.push(profileStatus);
   }
 };

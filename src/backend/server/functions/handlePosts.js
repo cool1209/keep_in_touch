@@ -1,12 +1,12 @@
+import users from "../../data/users";
+import posts from "../../data/posts";
+import followings from "../../data/followings";
 import { getDataPage, handlePost } from "./general";
 
 export const getPosts = (
   userId,
-  page,
-  posts,
-  followings,
-  users,
-  length
+  page = 1,
+  length = 12
 ) => {
   let userFollowings = followings
   .find(userFollowings => userFollowings.userId === userId);
@@ -30,4 +30,28 @@ export const getPosts = (
     data: postsPage,
     status: 200
   }
+};
+
+export const getProfilePosts = (userId, length = 6) => {
+  const userPosts = posts
+  .filter(post => post.userId === +userId)
+  .map(post => (
+    handlePost(post, users)
+  ));
+  
+  return {
+    data: getDataPage(userPosts, 1, length),
+    status: 200
+  }
+};
+
+export const postNewPost = (newPost) => {
+  posts.push({
+    id: posts.length + 1,
+    userId: newPost.userId,
+    text: newPost.text,
+    likes: 0,
+  });
+
+  return {status: 200};
 };

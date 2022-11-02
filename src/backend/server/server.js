@@ -1,54 +1,68 @@
-import users from "../database/users";
-import posts from "../database/posts";
-import dialogs from "../database/dialogs";
-import followings from "../database/followings";
-
 import {
-  closeAuthUserSession,
   getAuthUsers,
-  openAuthUserSession
+  openAuthUserSession,
+  closeAuthUserSession
 } from "./functions/handleAuthUserSession";
 
-import { getCurrentUser } from "./functions/handleCurrentUser";
+import {
+  getPosts,
+  getProfilePosts,
+  postNewPost
+} from "./functions/handlePosts";
+
+import {
+  getFollowings,
+  postFollowing,
+  deleteFollowing
+} from "./functions/handleFollowings";
+
+import {
+  getProfile,
+  getProfileStatus,
+  putProfileStatus
+} from "./functions/handleProfile";
+
+import {
+  getDialogs,
+  postNewMessage
+} from "./functions/handleDialogs";
+
 import { getUsers } from "./functions/handleUsers";
-import { postNewPost } from "./functions/handleNewPost";
-import { getPosts } from "./functions/handlePosts";
-import { getUserPosts } from "./functions/handleUserPosts";
-import { getFollowings } from "./functions/handleFollowings";
-import { postFollowing } from "./functions/handlePostFollowing";
-import { deleteFollowing } from "./functions/handleDeleteFollowing";
-import { postNewMessage } from "./functions/handleNewMessage";
-import { getDialogs } from "./functions/handleDialogs";
+
 
 const server = {
   get: (action, payload) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         switch(action) {
-          case 'user':
-            resolve(getCurrentUser(payload, users));
+          case 'profile':
+            resolve(getProfile(payload));
             break;
 
           case 'users':
-            resolve(getUsers(payload, users));
+            resolve(getUsers(payload));
             break;
     
           case 'posts':
             const { userId } = payload;
 
-            resolve(getPosts(userId, 1, posts, followings, users, 12));
+            resolve(getPosts(userId));
+            break;
+
+          case 'profile-status':
+            resolve(getProfileStatus(payload));
             break;
 
           case 'user-posts':
-            resolve(getUserPosts(payload, posts, users));
+            resolve(getProfilePosts(payload));
             break;
 
           case 'dialogs':
-            resolve(getDialogs(payload, dialogs, users));
+            resolve(getDialogs(payload));
             break;
 
           case 'followings':
-            resolve(getFollowings(payload, followings, users, 1, 10));
+            resolve(getFollowings(payload));
             break;
 
           default:
@@ -63,22 +77,39 @@ const server = {
       setTimeout(() => {
         switch(action) {
           case 'new-post':
-            resolve(postNewPost(payload, posts));
+            resolve(postNewPost(payload));
             break;
 
           case 'new-message':
-            resolve(postNewMessage(payload, dialogs));
+            resolve(postNewMessage(payload));
             break;
 
           case 'follow':
             const {userId, newFollowing} = payload;
-            resolve(postFollowing(userId, newFollowing, followings));
+            resolve(postFollowing(userId, newFollowing));
             break;
 
           default:
             reject('404 (not found)');
         }
       }, 332);
+    })
+  },
+
+  put: (action, payload) => {  
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        switch(action) {
+          case 'profile-status':
+            const { userId, status } = payload;
+
+            resolve(putProfileStatus(userId, status));
+            break;
+
+          default:
+            reject('404 (not found)');
+        }
+      }, 378);
     })
   },
 
@@ -89,7 +120,7 @@ const server = {
           case 'unfollow':
             const {userId, unfollow} = payload;
 
-            resolve(deleteFollowing(userId, unfollow, followings));
+            resolve(deleteFollowing(userId, unfollow));
             break;
 
           default:
@@ -104,11 +135,11 @@ const server = {
       setTimeout(() => {
         switch(action) {
           case 'open-session':
-            resolve(openAuthUserSession(payload, users));
+            resolve(openAuthUserSession(payload));
             break;
 
           case 'close-session':
-            resolve(closeAuthUserSession(payload, users));
+            resolve(closeAuthUserSession(payload));
             break;
 
           default:
@@ -119,7 +150,7 @@ const server = {
   },
 
   getAuthUsers(payload) {
-    return getAuthUsers(payload, users);
+    return getAuthUsers(payload);
   }
 };
 

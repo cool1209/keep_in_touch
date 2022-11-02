@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
+import { compose } from 'redux';
 import { getUsersPage } from "../../../../../../store/reducers/usersReducer";
 import Network from './Network';
 
@@ -44,4 +45,6 @@ const mapStateToProps = (state) => ({
   usersPageIsLoading: state.users.isPageLoadingProcess
 });
 
-export default connect(mapStateToProps, {getUsersPage})(NetworkContainer);
+export default compose(
+  connect(mapStateToProps, {getUsersPage})
+)(NetworkContainer);

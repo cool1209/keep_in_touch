@@ -1,0 +1,39 @@
+.userStatus__input {
+  min-width: 280px;
+  height: 36px;
+  padding: 0 15px;
+  
+  line-height: 1;
+
+  background: var(--color-light);
+  border-radius: var(--border-radius-block);
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.userStatus__input::placeholder {
+  color: var(--color-dark);
+}
+
+.userStatus__input:focus {
+  border: 1px solid var(--color-dark);
+}
+
+.userStatus__value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 36px;
+  padding: 0 15px;
+
+  line-height: 1;
+  background: var(--color-very-light);
+  border-radius: var(--border-radius-block);
+
+}
+
+.authUserStatus__value:hover {
+  background: var(--color-light);
+  cursor: pointer;
+}

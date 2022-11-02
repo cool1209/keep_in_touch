@@ -1,7 +1,8 @@
-import classNames from 'classnames';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import UserStyles from './User.module.css';
+import FollowingButton from '../../../../../../shared/FollowingButton/FollowingButton';
+import ProfileOnlineStatus from '../../../../../../shared/ProfileOnlineStatus/ProfileOnlineStatus';
+import styles from './User.module.css';
 
 const User = ({
   authUserId,
@@ -11,55 +12,39 @@ const User = ({
   isFollowing,
   checkFollowingProcess
 }) => {
+  const followingToggler = () => {
+    isFollowing
+    ? onUnfollow(authUserId, user)
+    : onFollow(authUserId, user);
+  };
 
   return (
-    <li className={UserStyles.wrapper}>
+    <li className={styles.wrapper}>
       <NavLink to={`/profile/${user.id}`}>
         <img
           src={user.avatar}
           alt="User avatar"
-          className={UserStyles.avatar}
+          className={styles.avatar}
         />
       </NavLink>
 
-      <h3 className={UserStyles.name}>
+      <h3 className={styles.name}>
         {user.name}
       </h3>
 
+      <ProfileOnlineStatus onlineStatus={user.online} />
 
-      <div className={UserStyles.status}>
-        <span className={classNames(
-          `${UserStyles.indicator} ${UserStyles.indicator_offline}`,
-            {
-              [UserStyles.indicator_online]: user.status === 'Online'
-            }
-          )}></span>
-          
-        <em className={UserStyles.statusText}>{user.status}</em>
-      </div> 
-
-      <div className={UserStyles.city}>
+      <div className={styles.city}>
         {user.city}
       </div>
 
-      <button 
-        className={classNames(
-          UserStyles.btn,
-          {[UserStyles.btn_unfollow]: isFollowing}
-        )}
+      <FollowingButton
+        isFollowing={isFollowing}
+        followingToggler={followingToggler}
+        disabledState={checkFollowingProcess(user.id)}
+      />
 
-        onClick={() => {
-          isFollowing
-          ? onUnfollow(authUserId, user)
-          : onFollow(authUserId, user);
-        }}
-
-        disabled={checkFollowingProcess(user.id)}
-      >
-        {isFollowing ? 'Unfollow' : 'Follow'}
-      </button>
-
-      <button className={UserStyles.btn}>
+      <button className={styles.btn}>
         Message
       </button>
     </li>

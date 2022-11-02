@@ -1,6 +1,8 @@
+import users from '../../data/users';
+import dialogs from '../../data/dialogs';
 import { getDataPage } from "./general";
 
-export const getDialogs = (userId, dialogs, users, length = 21) => {
+export const getDialogs = (userId, length = 21) => {
   const userDialogs = dialogs
   .filter(dialog => dialog.membersId.includes(+userId))
   .map(dialog => ({
@@ -30,4 +32,21 @@ export const getDialogs = (userId, dialogs, users, length = 21) => {
     data: getDataPage(userDialogs, 1, length),
     status: 200
   };
+};
+
+export const postNewMessage = (message) => {
+  const dialogId = message.dialogId;
+  const currentDialog = dialogs
+    .find(dialog => dialog.id === dialogId);
+
+  const newMessageId = currentDialog.messages.length + 1;
+  const newMessage = {
+    id: newMessageId,
+    authorId: message.authorId,
+    message: message.message,
+  }
+
+  currentDialog.messages.push(newMessage);
+
+  return {status: 200};
 };

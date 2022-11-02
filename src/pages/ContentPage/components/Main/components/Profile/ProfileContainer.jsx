@@ -2,34 +2,43 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getCurrentUser } from '../../../../../../store/reducers/profileReducer';
+import {
+  getProfile,
+  setIsAuthUserProfile,
+  getProfileStatus
+} from '../../../../../../store/reducers/profileReducer';
 import Preloader from '../../../../../shared/Preloader/Preloader';
 import Profile from './Profile';
-import { getUserPosts } from '../../../../../../store/reducers/postsReducer';
+import { getProfilePosts } from '../../../../../../store/reducers/postsReducer';
+import { compose } from 'redux';
 
 const ProfileContainer = ({
   authUser,
-  isCurrentUser,
-  getCurrentUser,
-  getUserPosts
+  isProfile,
+  getProfile,
+  getProfilePosts,
+  setIsAuthUserProfile,
+  getProfileStatus
 }) => {
   const params = useParams();
-  const currentUserId = +params.userId;
-  const isAuthUser = currentUserId === authUser.id;
+  const profileId = +params.userId;
+  const isAuthUserProfile = profileId === authUser.id;
 
   const setProfile = () => {
-    getCurrentUser(currentUserId, authUser);
-    getUserPosts(currentUserId);
+    setIsAuthUserProfile(isAuthUserProfile);
+    getProfile(profileId);
+    getProfileStatus(profileId);
+    getProfilePosts(profileId);
   };
 
   useEffect(() => {
     setProfile();
-  }, [currentUserId]);
+  }, [profileId]);
 
   return (
     <>
-      {isCurrentUser
-      ? <Profile isAuthUser={isAuthUser} />
+      {isProfile
+      ? <Profile isAuthUserProfile={isAuthUserProfile} />
       : <Preloader />
       }
     </>
@@ -38,13 +47,11 @@ const ProfileContainer = ({
 
 const mapStateToProps = (state) => ({
   authUser: state.auth.authUser,
-  isCurrentUser: state.user.currentUser.id
+  isProfile: state.profile.profile.id
 });
 
-export default connect(
-  mapStateToProps,
-  {
-    getCurrentUser,
-    getUserPosts
-  }
-)(ProfileContainer)
+export default compose(
+  connect(
+    mapStateToProps,
+    {getProfile, getProfilePosts, setIsAuthUserProfile, getProfileStatus})
+)(ProfileContainer);

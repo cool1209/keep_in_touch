@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { getDialogs } from '../../../../../../store/reducers/dialogsReducer';
 import Dialogs from './Dialogs';
 
@@ -23,4 +24,6 @@ const mapStateToProps = (state) => ({
   isDialogs: state.dialogs.totalDialogs
 });
 
-export default connect(mapStateToProps, {getDialogs})(DialogsContainer);
+export default compose(
+  connect(mapStateToProps, {getDialogs})
+)(DialogsContainer);

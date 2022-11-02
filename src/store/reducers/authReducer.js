@@ -1,8 +1,9 @@
 import { authAPI } from "../../api/api";
+
 import { setDialogs, updateMessageText } from "./dialogsReducer";
 import { setFollowings } from "./followingReducer";
 import { setPosts, setUserPosts } from "./postsReducer";
-import { setCurrentUser } from "./profileReducer";
+import { setProfile, setProfileStatus } from "./profileReducer";
 import { setUsers } from "./usersReducer";
 
 const SET_AUTH_USER = 'SET_AUTH_USER';
@@ -48,9 +49,13 @@ export const openAuthUserSession = (login) => (dispatch) => {
   dispatch(setIsLoadingProcess(true));
 
   authAPI.openAuth(login)
-  .then(user => {
-    dispatch(setAuthUser(user));
-    dispatch(setIsLoadingProcess(false));
+  .then(response => {
+    if (+response.status === 200) {
+      const user = response.data;
+
+      dispatch(setAuthUser(user));
+      dispatch(setIsLoadingProcess(false));
+    }
   });
 }
 
@@ -62,8 +67,9 @@ export const closeAuthUserSession = (userId) => (dispatch) => {
   dispatch(setDialogs([], null));
   dispatch(updateMessageText(''));
   dispatch(setUsers([], null, 0));
-  dispatch(setCurrentUser({}));
+  dispatch(setProfile({}));
   dispatch(setUserPosts([], null));
+  dispatch(setProfileStatus(''));
 }
 
 export default authReducer;

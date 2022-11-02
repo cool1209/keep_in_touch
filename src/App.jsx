@@ -1,6 +1,6 @@
-import LoginPageContainer from './pages/LoginPage/LoginPageContainer';
-import ContentPage from './pages/ContentPage/ContentPage';
 import { useSelector } from 'react-redux';
+import ContentPage from './pages/ContentPage/ContentPage';
+import LoginPage from './pages/LoginPage/LoginPageContainer';
 
 const App = () => {
   const isAuth = useSelector(state => state.auth.isAuth);
@@ -9,7 +9,7 @@ const App = () => {
     <div className="app">
       {isAuth
         ? <ContentPage />
-        : <LoginPageContainer />
+        : <LoginPage />
       }
     </div>
   );

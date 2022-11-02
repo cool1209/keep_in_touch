@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { openAuthUserSession } from '../../store/reducers/authReducer';
 import { authAPI } from '../../api/api';
 import LoginPage from './LoginPage';
+import { compose } from 'redux';
 
 const LoginPageContainer = ({ openAuthUserSession, isLoading }) => {
   const [login, setLogin] = useState('');
@@ -30,7 +31,6 @@ const mapStateToProps = (state) => ({
   isLoading: state.auth.isLoadingProcess
 });
 
-export default connect(
-  mapStateToProps,
-  {openAuthUserSession}
+export default compose(
+  connect(mapStateToProps, {openAuthUserSession})
 )(LoginPageContainer);

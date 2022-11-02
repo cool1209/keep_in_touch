@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import Preloader from '../../../../../../../shared/Preloader/Preloader';
 import UserPosts from './UserPosts';
 
@@ -20,4 +21,6 @@ const mapStateToProps = (state) => ({
   totalUserPosts: state.posts.totalUserPosts
 });
 
-export default connect(mapStateToProps)(UserPostsContainer);
+export default compose(
+  connect(mapStateToProps)
+)(UserPostsContainer);

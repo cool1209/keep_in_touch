@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import Messaging from './Messaging';
 
 const mapStateToProps = (state) => ({
@@ -6,4 +7,6 @@ const mapStateToProps = (state) => ({
   isContactSelected: state.dialogs.isContactSelected,
 });
 
-export default connect(mapStateToProps)(Messaging);
+export default compose(
+  connect(mapStateToProps)
+)(Messaging);

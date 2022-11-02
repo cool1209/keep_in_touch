@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { follow, unfollow } from '../../../../../../../store/reducers/followingReducer';
 
 import User from './User';
@@ -37,10 +38,6 @@ const mapStateToProps = (state) => ({
   isFollowingProcesses: state.followings.isFollowingProcesses
 });
 
-export default connect(
-  mapStateToProps,
-  {
-    follow,
-    unfollow
-  }
+export default compose(
+  connect(mapStateToProps, {follow, unfollow})
 )(UserContainer);

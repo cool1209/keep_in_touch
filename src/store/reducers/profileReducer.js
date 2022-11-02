@@ -1,19 +1,35 @@
-import { usersAPI } from "../../api/api";
-import { getUserPosts, setUserPosts } from "./postsReducer";
+import { profileAPI } from "../../api/api";
 
-const SET_CURRENT_USER = 'SET_CURRENT_USER';
+const SET_PROFILE = 'SET_PROFILE';
+const SET_PROFILE_STATUS = 'UPDATE_PROFILE_STATUS';
+const SET_IS_AUTH_USER_PROFILE = 'SET_IS_AUTH_USER_PROFILE';
 
 const initialState = {
-  currentUser: {}
+  profile: {},
+  profileStatus: '',
+  authUserProfile: '',
+  isAuthUserProfile: true
 };
 
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
 
-    case SET_CURRENT_USER:
+    case SET_PROFILE:
       return {
         ...state,
-        currentUser: action.user,
+        profile: action.user,
+      }
+
+    case SET_IS_AUTH_USER_PROFILE:
+      return {
+        ...state,
+        isAuthUserProfile: action.isAuthUserProfile,
+      }
+
+    case SET_PROFILE_STATUS:
+      return {
+        ...state,
+        profileStatus: action.profileStatus
       }
     
     default:
@@ -21,26 +37,50 @@ const profileReducer = (state = initialState, action) => {
   };
 }
 
-export const setCurrentUser = (user) => ({
-  type: SET_CURRENT_USER,
+export const setProfile = (user) => ({
+  type: SET_PROFILE,
   user
 });
 
-export const getCurrentUser = (userId, authUser) => (dispatch) => {
-  dispatch(setCurrentUser({}));
+export const setIsAuthUserProfile = (isAuthUserProfile) => ({
+  type: SET_IS_AUTH_USER_PROFILE,
+  isAuthUserProfile
+});
 
-  if (userId === authUser.id) {
-    dispatch(setCurrentUser(authUser));
-  } else {
-    usersAPI.getCurrentUser(userId)
-    .then(response => {
-      if (response.status === 200) {
-        const user = response.data;
-        
-        dispatch(setCurrentUser(user));
-      }
-    });
-  };
+export const getProfile = (userId) => (dispatch) => {
+  dispatch(setProfile({}));
+
+  profileAPI.getProfile(userId)
+  .then(response => {
+    if (response.status === 200) {
+      const user = response.data;
+      
+      dispatch(setProfile(user));
+    }
+  });
 };
+
+export const setProfileStatus = (profileStatus) => ({
+  type: SET_PROFILE_STATUS,
+  profileStatus
+});
+
+export const getProfileStatus = (userId) => (dispatch) => {
+  profileAPI.getProfileStatus(userId)
+  .then(response => {
+    if (+response.status === 200) {
+      dispatch(setProfileStatus(response.profileStatus));
+    }
+  });
+}
+
+export const putProfileStatus = (userId, status) => (dispatch) => {
+  profileAPI.putProfileStatus({userId, status})
+  .then(response => {
+    if (+response.status === 200) {
+      dispatch(setProfileStatus(status));
+    }
+  });
+}
 
 export default profileReducer;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { closeAuthUserSession } from '../../../../../../../../store/reducers/authReducer';
 import LogoutButton from './LogoutButton';
 
@@ -16,7 +17,6 @@ const mapStateToProps = (state) => ({
   authUserId: state.auth.authUser.id
 });
 
-export default connect(
-  mapStateToProps,
-  {closeAuthUserSession}
+export default compose(
+  connect(mapStateToProps, {closeAuthUserSession})
 )(LogoutButtonContainer);

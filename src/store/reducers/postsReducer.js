@@ -80,8 +80,8 @@ export const getPosts = (userId) => (dispatch) => {
   });
 };
 
-export const getUserPosts = (currentUserId) => (dispatch) => {
-  postsAPI.getUserPosts(currentUserId)
+export const getProfilePosts = (profileId) => (dispatch) => {
+  postsAPI.getProfilePosts(profileId)
   .then(response => {
     if (response.status === 200) {
       const { items, totalCount } = response.data;

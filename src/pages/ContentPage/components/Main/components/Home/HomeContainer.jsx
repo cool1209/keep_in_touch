@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { useEffect } from 'react';
 import { getPosts, setPosts } from '../../../../../../store/reducers/postsReducer';
 import Home from './Home';
+import { compose } from 'redux';
 
 const HomeContainer = ({
   authUserId,
@@ -30,7 +31,6 @@ const mapStateToProps = (state) => ({
   isPosts: state.posts.totalPosts
 });
 
-export default connect(
-  mapStateToProps,
-  {getPosts, setPosts}
+export default compose(
+  connect(mapStateToProps, {getPosts, setPosts})
 )(HomeContainer);

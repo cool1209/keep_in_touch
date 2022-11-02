@@ -1,21 +1,21 @@
 import React from 'react';
 import styles from './UserInfo.module.css';
-import classNames from 'classnames';
+import ProfileOnlineStatus from '../../../../../../../shared/ProfileOnlineStatus/ProfileOnlineStatus';
+import ProfileStatusContainer from './ProfileStatus/ProfileStatusContainer';
 
-const UserInfo = ({ currentUser }) => {
-
+const UserInfo = ({ profile }) => {
   return (
     <section className={styles.wrapper}>
       <div className={styles.img}>
         <img
-          src={currentUser.wallpaper}
+          src={profile.wallpaper}
           alt='User profile wallpaper'
           className={styles.wallpaper}
         />
 
         <div className={styles.avatarContainer}>
           <img
-            src={currentUser.avatar}
+            src={profile.avatar}
             alt='User avatar'
             className={styles.avatar}
           />
@@ -24,20 +24,11 @@ const UserInfo = ({ currentUser }) => {
 
       <div className={styles.info}>
         <h2 className={styles.name}>
-          {currentUser.name}
+          {profile.name}
         </h2>
 
-        <div className={styles.status}>
-          <span className={classNames(
-            `${styles.statusIndicator} ${styles.statusIndicator_offline}`,
-            {
-              [styles.statusIndicator_online]: currentUser.status === 'Online'
-            }
-            )}
-          ></span>
-            
-          <em>{currentUser.status}</em>
-        </div>
+        <ProfileStatusContainer profileId ={profile.id} />
+        <ProfileOnlineStatus onlineStatus={profile.online} />
 
         <div
           className={`${styles.city} ${styles.infoItem}`}
@@ -46,7 +37,7 @@ const UserInfo = ({ currentUser }) => {
             Lives in:
           </h4>
 
-          {currentUser.city}
+          {profile.city}
         </div>
 
         <div
@@ -56,7 +47,7 @@ const UserInfo = ({ currentUser }) => {
             About me:
           </h4>
           
-          <p>{currentUser.about}</p>
+          <p>{profile.about}</p>
         </div>
       </div>
     </section>

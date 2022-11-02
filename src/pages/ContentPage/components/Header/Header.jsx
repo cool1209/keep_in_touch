@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className={HeaderStyles.wrapper}>
       <div className={HeaderStyles.inner}>
-        <NavLink to="/profile">
+        <NavLink to="/">
           <GetImg id={'header-logo'} />
         </NavLink>
         

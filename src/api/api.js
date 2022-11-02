@@ -1,4 +1,4 @@
-import server from "../backend/server/simpleServerSimulator";
+import server from "../backend/server/server";
 
 export const authAPI = {
   getUsersForAuth(page) {
@@ -17,10 +17,20 @@ export const authAPI = {
 export const usersAPI = {
   getUsers(page) {
     return server.get(`users`, page);
+  }
+};
+
+export const profileAPI = {
+  getProfile(userId) {
+    return server.get(`profile`, userId);
   },
 
-  getCurrentUser(userId) {
-    return server.get(`user`, userId)
+  getProfileStatus(userId) {
+    return server.get('profile-status', userId);
+  },
+
+  putProfileStatus(payload) {
+    return server.put('profile-status', payload);
   }
 };
 
@@ -29,7 +39,7 @@ export const postsAPI = {
     return server.get('posts', payload);
   },
 
-  getUserPosts(userId) {
+  getProfilePosts(userId) {
     return server.get('user-posts', userId)
   },
 

@@ -28,34 +28,11 @@
   text-align: center;
 }
 
-.status {
-  display: flex;
-  align-items: center;
-}
-
-.indicator {
-  display: inline-block;
-  margin-right: 4px;
-  width: 16px;
-  height: 16px;
-
-  border: 2px solid var(--color-normal);
-  border-radius: 50%;
-}
-
-.indicator_offline {
-  background: #ff1212;
-}
-
-.indicator_online {
-  background: #50ff50;
-}
-
-.city,
-.statusText {
+.city {
   font-size: var(--font-size-mini);   
 }
 
+/* -------------------------------------------------- */
 .btn {
   padding: 8px 0;
   width: 100%;
@@ -81,7 +58,7 @@
 .btn_unfollow:hover {
   background: var(--color-extra-dark);
 }
-
+/* -------------------------------------------------- */
 @media (max-width: 1023px) {
   .wrapper {
     padding: 10px;

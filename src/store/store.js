@@ -9,7 +9,7 @@ import thunk from "redux-thunk";
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  user: profileReducer,
+  profile: profileReducer,
   users: usersReducer,
   posts: postsReducer,
   dialogs: dialogsReducer,

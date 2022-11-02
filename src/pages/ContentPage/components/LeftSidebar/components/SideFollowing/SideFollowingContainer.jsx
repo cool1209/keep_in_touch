@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { getFollowings, setFollowings } from '../../../../../../store/reducers/followingReducer';
 import SideFollowing from './SideFollowing';
 
@@ -33,7 +34,6 @@ const mapStatetoProps = (state) => ({
   isFollowings: !!state.followings.followings.length
 });
 
-export default connect(
-  mapStatetoProps,
-  {getFollowings, setFollowings}
+export default compose(
+  connect(mapStatetoProps, {getFollowings, setFollowings})
 )(SideFollowingContainer);

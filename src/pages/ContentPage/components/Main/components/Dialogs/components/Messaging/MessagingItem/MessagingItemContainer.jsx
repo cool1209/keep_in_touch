@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { updateMessageText, sendMessage } from '../../../../../../../../../store/reducers/dialogsReducer';
 import MessagingItem from './MessagingItem';
 
@@ -31,10 +32,6 @@ const mapStatetoProps =(state) => ({
   newMessageText: state.dialogs.newMessageText,
 });
 
-export default connect(
-  mapStatetoProps,
-  {
-    updateMessageText,
-    sendMessage
-  }
-  )(MessagingItemContainer);
+export default compose(
+  connect(mapStatetoProps, {updateMessageText, sendMessage})
+)(MessagingItemContainer);

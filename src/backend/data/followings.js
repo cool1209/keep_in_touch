@@ -2,7 +2,7 @@ const followings = [
   {
     id: 1,
     userId: 1,
-    followings: [49]
+    followings: [49, 2]
   },
   {
     id: 2,

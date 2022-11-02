@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { sendNewPost, updatePostText } from '../../../../../../../../store/reducers/postsReducer';
 import NewPost from './NewPost';
 
@@ -29,10 +30,6 @@ const mapStateToProps = (state) => ({
   newPostText: state.posts.newPostText
 });
 
-export default connect(
-  mapStateToProps,
-  {
-    updatePostText,
-    sendNewPost
-  }
+export default compose(
+  connect(mapStateToProps, {updatePostText, sendNewPost})
 )(NewPostContainer);
