@@ -1,0 +1,71 @@
+@import '../../../../../styles/utils/vars';
+@import '../../../../../styles/utils/mixins';
+
+.messageForm {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  grid-template-rows: 40px;
+
+  position: sticky;
+  bottom: 0;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: $color-secondary;
+  }
+
+  @include sm {
+    grid-template-columns: 3fr 1fr;
+    margin-bottom: 15px;
+  }
+  
+  @include xs {
+    grid-template-columns: 3fr 1fr;
+    margin-bottom: 0;
+  }
+
+  &__input {
+    position: relative;
+    padding: 5px 10px;
+    width: 100%;
+  
+    font-size: $font-size-large;
+    
+    border: 1px solid $color-normal;
+    border-radius: 10px 0 0 10px;
+    outline: none;
+  }
+  
+  &__input::placeholder {
+    color: $color-normal;
+  }
+  
+  &__input:focus.messagingItem__input::placeholder {
+    color: $color-dark;
+  }
+  
+  &__button {
+    font-weight: bold;
+    font-size: 16px;
+    background: $color-normal;
+    border: 1px solid $color-normal;
+    border-radius: 0 10px 10px 0;
+    outline: none;
+    cursor: pointer;
+  
+    transition: all $transition-behavior;
+  
+    &:focus,
+    &:hover {
+      background-color: $color-dark;
+      color: $color-secondary;
+    }
+  }
+}

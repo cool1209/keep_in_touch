@@ -1,13 +1,14 @@
 import { postsAPI } from "../../api/api";
+import authUserInStorage from "../functions/handleSessionStorage";
 
 const SET_POSTS = 'SET_POSTS';
-const SET_USER_POSTS = 'SET_USER_POSTS';
+const SET_PROFILE_POSTS = 'SET_PROFILE_POSTS';
 const ADD_NEW_POST = 'ADD_NEW_POST';
-const UPDATE_POST_TEXT = 'UPDATE_POST_TEXT';
+const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 
 const initialState = {
-  userPosts: [],
-  totalUserPosts: null,
+  profilePosts: [],
+  totalProfilePosts: null,
   newPostText: '',
 
   posts: [],
@@ -16,11 +17,11 @@ const initialState = {
 
 const postsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_USER_POSTS:
+    case SET_PROFILE_POSTS:
       return {
         ...state,
-        userPosts: action.posts,
-        totalUserPosts: action.totalUserPosts
+        profilePosts: action.posts,
+        totalProfilePosts: action.totalProfilePosts
       }
 
     case SET_POSTS:
@@ -33,11 +34,11 @@ const postsReducer = (state = initialState, action) => {
     case ADD_NEW_POST:
       return {
         ...state,
-        userPosts: [ action.newPost, ...state.userPosts ],
+        profilePosts: [ action.newPost, ...state.profilePosts ],
         newPostText: ''
       }
       
-    case UPDATE_POST_TEXT:
+    case UPDATE_NEW_POST_TEXT:
       return {
         ...state,
         newPostText: action.text
@@ -54,10 +55,10 @@ export const setPosts = (posts, totalPosts) => ({
   totalPosts
 });
 
-export const setUserPosts = (posts, totalUserPosts) => ({
-  type: SET_USER_POSTS,
+export const setProfilePosts = (posts, totalProfilePosts) => ({
+  type: SET_PROFILE_POSTS,
   posts,
-  totalUserPosts
+  totalProfilePosts
 });
 
 export const addNewPost = (newPost) => ({
@@ -65,13 +66,13 @@ export const addNewPost = (newPost) => ({
   newPost
 });
 
-export const updatePostText = (text) => ({
-  type: UPDATE_POST_TEXT,
+export const updateNewPostText = (text) => ({
+  type: UPDATE_NEW_POST_TEXT,
   text
 });
 
-export const getPosts = (userId) => (dispatch) => {
-  postsAPI.getPosts({userId: userId})
+export const getPosts = () => (dispatch) => {
+  postsAPI.getPosts()
   .then(response => {
     if (response.status === 200) {
       const posts = response.data;
@@ -86,35 +87,24 @@ export const getProfilePosts = (profileId) => (dispatch) => {
     if (response.status === 200) {
       const { items, totalCount } = response.data;
 
-      dispatch(setUserPosts(items, totalCount));
+      dispatch(setProfilePosts(items, totalCount));
     }
   });
 };
 
-export const sendNewPost = (
-  postText,
-  authUser,
-  userPosts
-) => (dispatch) => {
+export const sendNewPost = (newPostText) => (dispatch) => {
+  if (newPostText.trim()) {
+    const handledNewPostText = newPostText.trim();
 
-  if (postText.trim()) {
-    const newPost = {
-      id: userPosts.length + 1,
-      userId: authUser.id,
-      authorAvatar: authUser.avatar,
-      text: postText.trim(),
-      likes: 0,
-    };
-
-    postsAPI.sendNewPost(newPost)
+    postsAPI.sendNewPost(handledNewPostText)
     .then(response => {
       if (response.status === 200) {
-        dispatch(addNewPost(newPost));
+        dispatch(getProfilePosts(authUserInStorage.getId()));
       }
     });
   }
   
-  dispatch(updatePostText(''));
+  dispatch(updateNewPostText(''));
 }
 
 export default postsReducer;

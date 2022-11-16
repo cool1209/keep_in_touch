@@ -1,0 +1,57 @@
+@import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
+
+.auth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  padding: 20px 0;
+
+  border: 20px solid $color-normal;
+
+  @include xs {
+    border-width: 12px;
+  }
+
+  @include xs-landscape {
+    justify-content: start;
+    padding-top: 12px;
+    border-width: 12px;
+  
+    overflow-y: scroll;
+  }
+
+  &__topBlock {
+    display: grid;
+    grid-template-rows: 1fr repeat(2, auto);
+    justify-items: center;
+    align-items: end;
+    gap: 20px;
+    flex-basis: 50%;
+  }
+  
+  &__bottomBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  
+    flex-basis: 50%;
+  }
+
+  &__description {
+    max-width: 400px;
+  
+    color: $color-dark;
+    font-weight: bold;
+    text-align: center;
+    font-style: italic;
+  
+    @include xs {
+      width: 300px;
+    }
+  }
+}

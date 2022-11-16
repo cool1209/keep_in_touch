@@ -1,0 +1,45 @@
+@import '../../../../../styles/utils/vars.scss';
+@import '../../../../../styles/utils/mixins.scss';
+
+.message {
+  display: flex;
+  margin-bottom: 15px;
+  padding: 10px;
+  max-width: 60%;
+  width: max-content;
+
+  background: $color-very-light;
+  border: 1px dashed $color-normal;
+  border-radius: 10px;
+  word-break: break-word;
+
+  @include xl {
+    max-width: 70%;
+  }
+  
+  @include xs {
+    max-width: 85%;
+  }
+
+  &_isAuthUser {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-self: end;
+    background-color: $color-extra-light;
+  }
+
+  &__author {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  &__text {
+    padding-left: 12px;
+  
+    &_isAuthUser {
+      padding-left: 0;
+      padding-right: 12px;
+    }
+  }
+}

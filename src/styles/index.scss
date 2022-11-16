@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+@import './utils/vars';
+@import './utils/mixins';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $font-family-text;
+  font-size: $font-size-normal;
+  line-height: 1.2;
+  color: $color-main;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $color-extra-normal;
+  border-radius: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: $font-family-title;
+  font-weight: 400;
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: $color-main;
+}
+
+button {
+  font-size: $font-size-normal;
+}
+
+ul {
+ margin: 0;
+ padding: 0;
+ list-style: none;
+}
+
+.app {
+  min-width: 320px;
+  height: 100vh;
+  overflow-y: hidden;
+}

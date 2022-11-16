@@ -1,0 +1,25 @@
+@import '../../../../../styles/utils/vars';
+@import '../../../../../styles/utils/mixins';
+
+.statusValue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 300px;
+  min-height: 48px;
+  padding: 12px;
+
+  font-size: inherit;
+  line-height: 1;
+  word-break: break-word;
+
+  background: $color-very-light;
+  border-radius: $border-radius-block;
+  border: 1px solid transparent;
+}
+
+.authUserStatusValue:hover {
+  background: $color-light;
+  cursor: pointer;
+}

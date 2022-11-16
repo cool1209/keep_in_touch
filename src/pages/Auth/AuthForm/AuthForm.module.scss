@@ -1,0 +1,95 @@
+@import "../../../styles/utils/vars";
+@import "../../../styles/utils/mixins";
+
+.AuthForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__input {
+    width: 240px;
+    height: 36px;
+    padding: 0 12px;
+
+    font-size: $font-size-large;
+    color: $color-dark;
+
+    border: 1px solid $color-normal;
+    border-radius: 12px;
+    outline: none;
+
+    transition: all $transition-behavior;
+
+    &::placeholder {
+      font-size: $font-size-normal;
+      color: $color-normal;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: $color-dark;
+    }
+
+    &:focus::placeholder {
+      color: $color-dark;
+    }
+  }
+
+  &__checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: $color-normal;
+
+    &:hover {
+      color: $color-dark;
+    }
+  }
+
+  &__checkboxLabel,
+  &__checkbox {
+    cursor: pointer;
+  }
+
+  &__checkbox {
+    width: 16px;
+    height: 16px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__button {
+    height: 36px;
+    padding: 0 20px;
+
+    font-size: 16px;
+
+    background: $color-normal;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+
+    cursor: pointer;
+    transition: all $transition-behavior;
+
+    &:focus,
+    &:hover {
+      color: $color-secondary;
+      background-color: $color-dark;
+    }
+  }
+}

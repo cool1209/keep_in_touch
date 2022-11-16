@@ -1,0 +1,47 @@
+@import '../../../../styles/utils/vars';
+@import '../../../../styles/utils/mixins';
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 250px;
+  height: 60px;
+  margin: 1px 1px 10px 1px;
+  padding: 0 10px;
+
+  background-color: $color-normal;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+
+  transition: all $transition-behavior;
+
+  @include sm {
+    width: 100%;
+    margin: 0;
+
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  @include xs {
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &:focus,
+  &:hover,
+  &_active {
+    background-color: $color-light;
+  }
+
+  &_active {
+    border: 2px solid $color-dark;
+  }
+}

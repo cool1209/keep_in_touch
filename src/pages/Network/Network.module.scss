@@ -1,0 +1,75 @@
+@import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
+
+.network {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  overflow: hidden;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+  
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  &__pages {
+    margin-bottom: 10px;
+
+    @include xs {
+      margin: 10px 0 15px;
+    }
+  }
+  
+  &__usersContainer {
+    position: relative;
+    
+    display: flex;
+    flex-direction: column;
+  
+    height: 100%;
+  
+    overflow: hidden;
+  }
+
+  &__users {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    
+    padding: 5px 0;
+  
+    overflow-y: scroll;
+
+    @include md {
+      padding-bottom: 15px;
+    }
+
+    @include xs {
+      gap: 10px;
+      padding-bottom: 10px;
+    }
+  }
+  
+  &__users_loading {
+    overflow-y: hidden;
+  }
+  
+  &__usersBlure {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+  
+    display: grid;
+  
+    background: rgba(255, 255, 255, 0.75);
+  }
+}

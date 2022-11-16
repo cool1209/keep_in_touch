@@ -1,0 +1,30 @@
+@import '../../styles/utils/vars';
+
+.onlineStatus {
+  display: flex;
+  align-items: center;
+
+  &__indicator {
+    display: inline-block;
+    margin-right: 4px;
+    width: 16px;
+    height: 16px;
+  
+    border: 2px solid $color-normal;
+    border-radius: 50%;
+
+    &_offline {
+      background: #ff1212;
+    }
+    
+    &_online {
+      background: #50ff50;
+    }
+  }
+
+  &__text {
+    font-size: $font-size-mini;   
+  }
+}
+
+

@@ -1,0 +1,55 @@
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/mixins';
+
+.authTitle {
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+  font-weight: bold;
+  font-size: 42px;
+  line-height: 1;
+
+  @include xs {
+    font-size: 32px;
+  }
+
+  @include xs-landscape {
+    font-size: 28px;
+  }
+
+  &__decorate {
+    position: relative;
+    display: inline-block;
+
+    font-size: 80px;
+    color: $color-dark;
+
+    @include xs {
+      font-size: 44px;
+    }
+
+    @include xs-landscape {
+      font-size: 44px;
+    }
+
+    &:after {
+      content: "Keep in touch";
+      position: absolute;
+      left: 0;
+      width: 100%;
+
+      font-size: 77px;
+      font-weight: 400;
+      color: $color-light;
+
+      @include xs {
+        font-size: 42px;
+      }
+
+      @include xs-landscape {
+        font-size: 42px;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/mixins';
+
+.logoutBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 15px;
+  height: 40px;
+
+  font-size: $font-size-mini;
+  letter-spacing: 0.5px;
+  color: $color-main;
+
+  background: $color-extra-normal;
+  border-radius: 0 6px 0 10px;
+  border: none;
+  cursor: pointer;
+
+  @include xs {
+    padding: 0 10px;
+    height: 35px;
+  }
+}
+

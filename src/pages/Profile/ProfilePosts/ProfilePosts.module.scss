@@ -1,0 +1,44 @@
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/mixins';
+
+.posts {
+  padding: 30px 0 15px;
+  background: $color-very-light;
+  border-radius: $border-radius-block;
+
+  @include md {
+    padding-bottom: 15px;
+  }
+  
+  &__title {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  &__inner {
+    width: $width-profile-content-desctop;
+    margin: 0 auto;
+    padding-top: 15px;
+
+    @include xl {
+      width: $width-profile-content-laptop;
+    }
+
+    @include sm {
+      width: $width-profile-content-tablet;
+    }
+
+    @include xs {
+      width: $width-profile-content-mobile;
+      padding: 0 5px;
+    }
+  }
+  
+  &__post h3 {
+    display: none;
+  }
+  
+  &__post {
+    margin-bottom: 15px;
+  }
+}

@@ -1,18 +1,15 @@
 import { authAPI } from "../../api/api";
+import { getInitialAuthUser } from "../functions/getInitialAuthUser";
+import authUserInStorage from "../functions/handleSessionStorage";
 
-import { setDialogs, updateMessageText } from "./dialogsReducer";
-import { setFollowings } from "./followingReducer";
-import { setPosts, setUserPosts } from "./postsReducer";
-import { setProfile, setProfileStatus } from "./profileReducer";
-import { setUsers } from "./usersReducer";
-
-const SET_AUTH_USER = 'SET_AUTH_USER';
-const SET_IS_LOADING_PROCESS = 'SET_IS_LOADING_PROCESS';
+const SET_AUTH_USER = "SET_AUTH_USER";
+const SET_IS_LOADING_PROCESS = "SET_IS_LOADING_PROCESS";
+const SET_IS_AUTH_ERROR = "SET_IS_AUTH_ERROR";
 
 const initialState = {
-  authUser: {},
-  isAuth: false,
-  isLoadingProcess: false
+  authUser: getInitialAuthUser(),
+  isLoadingProcess: false,
+  isAuthError: false
 };
 
 const authReducer = (state = initialState, action) => {
@@ -20,56 +17,66 @@ const authReducer = (state = initialState, action) => {
     case SET_IS_LOADING_PROCESS:
       return {
         ...state,
-        isLoadingProcess: action.isProcess
-      }
+        isLoadingProcess: action.isProcess,
+      };
 
     case SET_AUTH_USER:
       return {
         ...state,
         authUser: action.user,
-        isAuth: !state.isAuth
-      }
+      };
     
+    case SET_IS_AUTH_ERROR:
+      return {
+        ...state,
+        isAuthError: action.isError
+      }
+
     default:
       return state;
-  };
-}
+  }
+};
 
 export const setAuthUser = (user) => ({
   type: SET_AUTH_USER,
-  user
+  user,
 });
 
 export const setIsLoadingProcess = (isProcess) => ({
   type: SET_IS_LOADING_PROCESS,
-  isProcess
-})
+  isProcess,
+});
 
-export const openAuthUserSession = (login) => (dispatch) => {
-  dispatch(setIsLoadingProcess(true));
+export const setIsAuthError = (isError) => ({
+  type: SET_IS_AUTH_ERROR,
+  isError
+});
 
-  authAPI.openAuth(login)
-  .then(response => {
-    if (+response.status === 200) {
-      const user = response.data;
+export const loginUser = (form) => (dispatch) => {
+  if (!authUserInStorage.present()) {
+    dispatch(setIsLoadingProcess(true));
+    const { login, password } = form;
+    const requestAuth = { login, password }
+  
+    authAPI.getAuth(requestAuth).then((response) => {
+      if (response.status === 200) {
+        const user = response.data;
+  
+        dispatch(setAuthUser(user));
+        dispatch(setIsLoadingProcess(false));
+        dispatch(setIsAuthError(false));
+        
+        authUserInStorage.set(user);
+      } else {
+        dispatch(setIsAuthError(true));
+        dispatch(setIsLoadingProcess(false));
 
-      dispatch(setAuthUser(user));
-      dispatch(setIsLoadingProcess(false));
-    }
-  });
-}
-
-export const closeAuthUserSession = (userId) => (dispatch) => {
-  authAPI.closeAuth(userId)
-  dispatch(setAuthUser({}));
-  dispatch(setFollowings([], null, 0));
-  dispatch(setPosts([], null));
-  dispatch(setDialogs([], null));
-  dispatch(updateMessageText(''));
-  dispatch(setUsers([], null, 0));
-  dispatch(setProfile({}));
-  dispatch(setUserPosts([], null));
-  dispatch(setProfileStatus(''));
-}
+        setTimeout(() => {
+          dispatch(setIsAuthError(false));
+        }, 1000);
+      }
+    });
+  }
+};
 
 export default authReducer;

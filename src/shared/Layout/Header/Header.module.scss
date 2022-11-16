@@ -1,0 +1,39 @@
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/mixins';
+
+.header {
+  grid-area: header;
+  background-color: $color-normal;
+
+  @include xs {
+    background-color: $color-dark;
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: auto 1fr 60px;
+    align-items: center;
+    padding: 5px 16px;
+
+    @include xs {
+      grid-template-columns: auto 1fr 45px;
+      padding: 5px 12px;
+    }
+  }
+  
+  &__title {
+    width: 100%;
+  
+    font-size: 36px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: $color-secondary;
+    text-shadow: $text-shadow;
+
+    @include xs {
+      font-size: 26px;
+    }
+  }
+}
+
+

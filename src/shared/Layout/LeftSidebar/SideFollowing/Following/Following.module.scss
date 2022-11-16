@@ -1,0 +1,26 @@
+@import '../../../../../styles/utils/vars';
+@import '../../../../../styles/utils/mixins';
+
+.following {
+  padding: 0;
+
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+
+  transition: transform $transition-behavior;
+
+  &:focus,
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &__avatar {
+    @include md {
+      width: 45px;
+      height: 45px;
+    }
+  }
+}

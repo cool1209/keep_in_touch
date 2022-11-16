@@ -1,0 +1,32 @@
+@import "../../../styles/utils/vars";
+@import "../../../styles/utils/mixins";
+
+.authHint {
+  position: relative;
+
+  @include login-page-hint;
+
+  color: $color-dark;
+  background: $color-extra-light;
+  user-select: none;
+
+  &__error {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    @include login-page-hint;
+    color: $color-main;
+    background: $color-error;
+
+    opacity: 0;
+
+    transition: opacity 2s linear;
+
+    &_isActive {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
+
+.button {
+  @include button;
+
+  &_unfollow {
+    background: $color-extra-normal;
+  }
+  
+  &_unfollow:hover {
+    background: $color-extra-dark;
+  }
+}

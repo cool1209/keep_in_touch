@@ -1,0 +1,23 @@
+@import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
+
+.home {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  
+  height: 100%;
+  padding: 16px;
+  border-radius: $border-radius-block;
+  background: $color-very-light;
+  
+  &__posts {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}

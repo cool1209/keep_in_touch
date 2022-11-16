@@ -1,0 +1,63 @@
+@import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
+
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr 250px;
+  grid-template-rows: auto 1fr auto;
+  gap: 16px;
+  grid-template-areas: 
+    "header header header"
+    "leftSidebar main rightSidebar"
+    "footer footer footer";
+
+  height: 100vh;
+  overflow: hidden;
+
+  @include xl {
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 16px;
+    grid-template-areas: 
+      "header header"
+      "leftSidebar rightSidebar"
+      "leftSidebar main"
+      "footer footer";
+  }
+
+  @include md {
+    grid-template-columns: 200px 1fr;
+  }
+  
+  @include md {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 0;
+    grid-template-areas: 
+      "header"
+      "main"
+      "leftSidebar ";
+  }
+
+  &__main {
+    display: grid;
+
+    border-radius: 12px;
+      
+    overflow-y: scroll;
+
+    @include xl {
+      margin-right: 16px;
+    }
+
+    @include md {
+      margin: 16px;
+    }
+
+    @include xs {
+      margin: 8px;
+    }
+  }
+}
+
+

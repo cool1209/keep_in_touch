@@ -1,73 +1,72 @@
-import server from "../backend/server/server";
+import server from "../mockBackend/mockServer/mockServer";
+import authUserInStorage from "../store/functions/handleSessionStorage";
+
+const getUserKey = () => authUserInStorage.getId();
 
 export const authAPI = {
-  getUsersForAuth(page) {
-    return server.getAuthUsers(page);
-  },
-
-  openAuth(login) {
-    return server.getAuthSessionHandler('open-session', login);
-  },
-
-  closeAuth(userId) {
-    return server.getAuthSessionHandler('close-session', userId);
+  getAuth(loginInfo) {
+    return server.get('login', loginInfo, getUserKey());
   }
 };
 
 export const usersAPI = {
   getUsers(page) {
-    return server.get(`users`, page);
+    return server.get(`users`, { page }, getUserKey());
   }
 };
 
 export const profileAPI = {
-  getProfile(userId) {
-    return server.get(`profile`, userId);
+  getProfile(profileId) {
+    return server.get(`profile`, { profileId }, getUserKey());
   },
 
-  getProfileStatus(userId) {
-    return server.get('profile-status', userId);
+  getOnlineStatus(profileId) {
+    return server.get('online', { profileId }, getUserKey());
   },
 
-  putProfileStatus(payload) {
-    return server.put('profile-status', payload);
-  }
+  putProfileStatus(status) {
+    return server.put('status', { status }, getUserKey());
+  },
 };
 
 export const postsAPI = {
-  getPosts(payload) {
-    return server.get('posts', payload);
+  getPosts() {
+    return server.get('posts', {}, getUserKey());
   },
 
-  getProfilePosts(userId) {
-    return server.get('user-posts', userId)
+  getProfilePosts(profileId) {
+    return server.get('profile-posts', { profileId }, getUserKey());
   },
 
-  sendNewPost(newPost) {
-    return server.post('new-post', newPost)
+  sendNewPost(newPostText) {
+    const newPost = {
+      text: newPostText
+    };
+
+    return server.post('post', newPost, getUserKey());
   }
 };
 
 export const dialogsAPI = {
-  getUserDialogs(userId) {
-    return server.get(`dialogs`, userId)
+  getDialogs() {
+    return server.get(`dialogs`, {}, getUserKey());
   },
   
-  postNewMessage(newMessage) {
-    return server.post('new-message', newMessage)
+  postNewMessage(newMessageInfo) {
+    return server.post('message', newMessageInfo, getUserKey())
   }
 };
 
 export const followingsAPI = {
-  getFollowings(authUserId) {
-    return server.get('followings', authUserId)
+  getFollowings() {
+    return server.get('followings', {}, getUserKey())
   },
 
-  postFollow(payload) {
-    return server.post('follow', payload)
+  follow(followInfo) {
+    return server.post('follow', followInfo, getUserKey());
   },
   
-  deleteFollow(payload) {
-    return server.delete('unfollow', payload)
+  unfollow(unfollowInfo) {
+    return server.delete('unfollow', unfollowInfo, getUserKey());
   }
 };

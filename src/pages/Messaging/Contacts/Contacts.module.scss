@@ -1,0 +1,46 @@
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/mixins';
+
+.contacts {
+
+  padding-right: 15px;
+  border-right: 3px solid $color-normal;
+
+  overflow-y: scroll;
+
+  @include sm {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 60px;
+    gap: 16px;
+
+    padding: 0 15px 0;
+    border-right: none;
+  }
+    
+  @include xs {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  &__hint {
+    display: none;
+
+    @include sm {
+      display: block;
+    }
+  }
+}
+
+.turnOffContacts {
+
+  @include sm {
+    display: none;
+  }
+
+  @include xs {
+    display: none;
+  }
+}

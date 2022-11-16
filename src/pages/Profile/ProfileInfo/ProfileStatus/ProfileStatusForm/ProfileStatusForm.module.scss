@@ -1,0 +1,20 @@
+@import '../../../../../styles/utils/vars';
+@import '../../../../../styles/utils/mixins';
+
+.statusInputField {
+  width: 300px;
+  min-height: 48px;
+  padding: 12px;
+
+  font-size: inherit;
+
+  background: $color-light;
+  border-radius: $border-radius-block;
+  border: 1px solid transparent;
+  outline: none;
+  
+  &::placeholder {
+    color: $color-dark;
+  }
+}
+

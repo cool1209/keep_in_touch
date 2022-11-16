@@ -1,0 +1,66 @@
+@import '../../../../styles/utils/vars';
+@import '../../../../styles/utils/mixins';
+
+.newPostForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  
+  &__textarea {
+    display: block;
+    width: 100%;
+    min-height: 150px;
+    padding: 10px;
+  
+    font-size: $font-size-large;
+    
+    border: 1px solid $color-normal;
+    border-radius: 8px;
+    outline: none;
+    resize: vertical;
+
+    @include md {
+      display: block;
+      padding: 10px;
+    }
+
+    @include xs {
+      min-height: 100px;
+    }
+  }
+  
+  &__textarea::placeholder {
+    font-family: sans-serif;
+    color: $color-normal;
+  }
+  
+  &__textarea:focus.textarea::placeholder {
+    color: $color-dark;
+  }
+  
+  &__button {
+    width: 240px;
+    margin: 0 auto;
+    padding: 15px 0;
+  
+    font-weight: 600;
+  
+    background-color: $color-normal;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+  
+    cursor: pointer;
+    transition: all $transition-behavior;
+
+    @include xs {
+      width: 100%;
+    }
+  }
+  
+  &__button:focus,
+  &__button:hover {
+    color: $color-secondary;
+    background-color: $color-dark;
+  }
+}

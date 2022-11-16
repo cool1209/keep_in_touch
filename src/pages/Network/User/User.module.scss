@@ -1,0 +1,53 @@
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/mixins';
+
+.user {
+  display: grid;
+  grid-template-rows: repeat(6, auto);
+  justify-items: center;
+  gap: 8px;
+
+  padding: 15px;
+  width: 165px;
+
+  background-color: $color-very-light;
+  border: 1px solid $color-normal;
+  border-radius: 10px;
+
+  transition: box-shadow $transition-behavior;
+
+  @include md {
+    padding: 10px;
+  }
+
+  @include xs {
+    max-width: 145px;
+  }
+
+  &:hover {
+    box-shadow: $box-shadow;
+  }
+  
+  &__avatar {
+    border-radius: 6px;
+    width: 100px;
+    height: 100px;
+
+    @include xs {
+      width: 80px;
+      height: 80px;
+    }
+  }
+  
+  &__name {
+    text-align: center;
+  }
+  
+  &__city {
+    font-size: $font-size-mini;   
+  }
+  
+  &__button {
+    @include button;
+  }
+}

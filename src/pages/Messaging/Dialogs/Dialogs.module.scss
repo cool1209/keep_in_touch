@@ -1,0 +1,27 @@
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/mixins';
+
+.dialogs {
+  margin: 0 -10px 0 15px;
+  padding-right: 11px;
+  overflow-y: scroll;
+
+  @include sm {
+    margin: 0 ;
+    padding: 0;
+  }
+
+  &__hint {
+    position: relative;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  
+    text-align: center;
+    color: $color-dark;
+
+    @include sm {
+      display: none;
+    }
+  }
+}

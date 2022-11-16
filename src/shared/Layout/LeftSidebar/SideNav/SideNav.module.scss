@@ -1,0 +1,22 @@
+@import '../../../../styles/utils/vars';
+@import '../../../../styles/utils/mixins';
+
+.sidenav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include md {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
+
+  @include xs {
+    justify-content: space-evenly;
+    gap: 0;
+    padding: 0 8px;
+  }
+}

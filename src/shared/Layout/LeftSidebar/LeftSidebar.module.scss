@@ -1,0 +1,28 @@
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/mixins';
+
+.leftSidebar {
+  grid-area: leftSidebar;
+  margin-left: 16px;
+  padding: 35px 0;
+
+  background: $color-normal;
+  border-radius: 12px;
+  
+  @include md {
+    order: 2;
+    margin: 0 -16px;
+    padding: 20px 0;
+  
+    border-radius: 0;
+  }
+  
+  @include sm {
+    padding: 16px;
+  }
+  
+  @include xs {
+    padding: 5px 0;
+    background-color: $color-dark;
+  }
+}

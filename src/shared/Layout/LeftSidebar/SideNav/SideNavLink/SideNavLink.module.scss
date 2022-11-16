@@ -1,0 +1,86 @@
+@import '../../../../../styles/utils/vars';
+@import '../../../../../styles/utils/mixins';
+
+.link {
+  position: relative;
+
+  width: 100px;
+  margin-bottom: 8px;
+  padding: 4px;
+
+  text-align: center;
+  font-weight: 600;
+
+  outline: none;
+  transition: all $transition-behavior;
+
+  @include md {
+    margin-bottom: 0;
+    padding: 12px 35px;
+
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $color-secondary;
+
+    border: 1px solid $color-secondary;
+    border-radius: 12px;
+  }
+
+  @include sm {
+    padding: 12px 16px;
+  }
+
+  @include xs {
+    display: flex;
+    padding: 0;
+    width: 45px;
+    height: 45px;
+    font-size: 0;
+    color: $color-secondary;
+    border: none;
+    transition: none;
+  }
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  &:focus,
+  &:hover {
+    color: $color-secondary;
+
+    @include md {
+      color: $color-normal;
+      background: $color-secondary;
+    }
+
+    @include xs {
+      color: transparent;
+      background: transparent;
+    }
+  }
+
+  &_active {
+    color: $color-secondary;
+
+    @include md {
+      color: $color-normal;
+      background: $color-secondary;
+    }
+
+    @include xs {
+      position: relative;
+      border-radius: 0;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -12px;
+        left: -12px;
+        right: -12px;
+        bottom: -12px;
+        background: $color-secondary;
+      }
+    }
+  }
+}

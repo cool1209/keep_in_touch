@@ -1,0 +1,71 @@
+@import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
+
+.post {
+  display: flex;
+
+  padding: 16px;
+
+  background: $color-extra-light;
+  border: 1px dashed $color-normal;
+  border-radius: 12px;
+
+  word-break: break-word;
+
+  &__authorContainer {
+    display: block;
+    margin: 0 auto 12px;
+  }
+
+  &__author {
+    display: inline-block;
+    margin-bottom: 5px;
+  
+    font-size: $font-size-mini;
+    color: $color-dark;
+  }
+
+  &__likeBtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    margin: 0 auto;
+    padding: 4px 6px 4px 4px;
+    width: 100%;
+  
+    background: $color-extra-normal;
+    border: none;
+    border-radius: 16px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  &__likeIcon {
+    transition: transform $transition-behavior;
+  }
+  
+  &__likeBtn:hover &__likeIcon {
+    transform: scale(1.35);
+  }
+  
+  &__likesCounter {
+    font-size: $font-size-mini;
+  }
+
+  &__content {
+    margin-left: 16px;
+  }
+  
+  &__authorName {
+    margin-bottom: 5px;
+    font-size: $font-size-mini;
+    color: $color-dark;
+
+    transition: color $transition-behavior;
+
+    &:hover {
+      color: $color-normal;
+    }
+  }
+}

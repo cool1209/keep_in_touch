@@ -1,0 +1,66 @@
+@mixin xl {
+  @media (max-width: 1399px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin xs {
+  @media (max-width: 575px) {
+    @content;
+  }
+}
+
+@mixin xs-landscape {
+  @media (orientation: landscape) and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin login-page-hint {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  max-width: 400px;
+  padding: 12px;
+
+  text-align: center;
+
+  border-radius: 12px;
+}
+
+@mixin button {
+  padding: 8px 0;
+  width: 100%;
+
+  background: $color-normal;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+
+  transition: all $transition-behavior;
+  
+  &:hover {
+    background: $color-dark;
+    color: $color-secondary;
+  }
+}

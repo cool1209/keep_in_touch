@@ -79,13 +79,13 @@ export const setIsFollowingProcess = (isProcess, userId) => ({
 })
 
 
-export const getFollowings = (userId) => (dispatch) => {
-  followingsAPI.getFollowings(userId)
+export const getFollowings = () => (dispatch) => {
+  followingsAPI.getFollowings()
   .then(response => {
     if (response.status === 200) {
-      const followings = response.data;
+      const { items, totalCount } = response.data;
       
-      dispatch(setFollowings(followings.items, followings.totalCount));
+      dispatch(setFollowings(items, totalCount));
     }
   });
 }
@@ -93,7 +93,7 @@ export const getFollowings = (userId) => (dispatch) => {
 export const follow = (authUserId, followingUser) => (dispatch) => {
   dispatch(setIsFollowingProcess(true, followingUser.id));
 
-  followingsAPI.postFollow(
+  followingsAPI.follow(
     {userId: authUserId, newFollowing: followingUser.id}
     )
     .then(response => {
@@ -110,7 +110,7 @@ export const follow = (authUserId, followingUser) => (dispatch) => {
 export const unfollow = (authUserId, followingUser) => (dispatch) => {
   dispatch(setIsFollowingProcess(true, followingUser.id));
 
-  followingsAPI.deleteFollow(
+  followingsAPI.unfollow(
     {userId: authUserId, unfollow: followingUser.id}
   )
   .then(response => {
@@ -120,7 +120,6 @@ export const unfollow = (authUserId, followingUser) => (dispatch) => {
 
     dispatch(setIsFollowingProcess(false, followingUser.id));
   });
-
 };
 
 export default followingReducer;

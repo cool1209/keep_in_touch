@@ -54,13 +54,14 @@ type: SET_IS_LOADING_PROCESS,
 isPageLoadingProcess
 });
 
-export const getUsersPage = (page) => (dispatch) => {
+export const getUsers = (page) => (dispatch) => {
   dispatch(setIsPageLoadingProcess(true));
 
   usersAPI.getUsers(page)
   .then(response => {
     if (response.status === 200) {
-      const { items, totalCount } = response.data
+      const { items, totalCount } = response.data;
+      
       dispatch(setUsers(items, totalCount, page));
     };
 

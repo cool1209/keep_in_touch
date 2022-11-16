@@ -1,0 +1,28 @@
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/mixins';
+
+.footer {
+  grid-area: footer;
+
+  padding: 16px 0;
+
+  font-size: 14px;
+  text-align: center;
+  color: $color-secondary;
+  background-color: $color-normal;
+
+  @include md {
+    display: none;
+  }
+
+  &__performer {
+    padding-left: 6px;
+    font-family: $font-family-title;
+    color: $color-secondary;
+    transition: color $transition-behavior;
+  }
+  
+  &__performer:hover {
+    color: $color-dark;
+  }
+}

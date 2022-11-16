@@ -1,0 +1,30 @@
+@import '../../../../styles/utils/vars';
+@import '../../../../styles/utils/mixins';
+
+.sideFollowing {
+  margin-top: 60px;
+
+  @include md {
+    display: none;
+  }
+
+  &__title {
+    margin: 0 0 12px;
+  
+    font-size: $font-size-normal;
+    text-align: center;
+    color: $color-dark;
+  }
+  
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    
+    border-radius: 12px;
+
+    @include md {
+      gap: 12px;
+    }
+  }
+}

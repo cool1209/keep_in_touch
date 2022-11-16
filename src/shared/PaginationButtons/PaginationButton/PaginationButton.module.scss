@@ -1,0 +1,27 @@
+@import '../../../styles/utils/vars';
+
+.button {
+  width: 40px;
+  padding: 4px 0;
+
+  font-size: $font-size-mini;
+
+  background: $color-extra-normal;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+
+  transition: all $transition-behavior;
+
+  &:not([disabled]):hover,
+  &:not([disabled]):focus {
+    background: $color-dark;
+    color: $color-secondary;
+  }
+}
+
+.isActive {
+  background: $color-normal;
+  color: $color-secondary;
+}

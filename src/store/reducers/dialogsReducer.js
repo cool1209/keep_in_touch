@@ -1,8 +1,6 @@
 import { dialogsAPI } from "../../api/api";
 
 const SET_DIALOGS = 'SET_DIALOGS';
-const ADD_MESSAGE = 'ADD_MESSAGE';
-const UPDATE_MESSAGE_TEXT = 'UPDATE_MESSAGE_TEXT';
 const SET_IS_CONTACT_SELECTED = 'SET_IS_CONTACT_SELECTED';
 const SET_NO_CONTACT_SELECTED = 'SET_NO_CONTACT_SELECTED';
 
@@ -10,7 +8,6 @@ const initialState = {
   dialogs: [],
   totalDialogs: null,
   isContactSelected: false,
-  newMessageText: '',
 };
 
 const dialogsReducer = (state = initialState, action) => {
@@ -42,24 +39,6 @@ const dialogsReducer = (state = initialState, action) => {
   
         return state;
 
-    case ADD_MESSAGE:
-      const currentDialogId = action.newMessage.dialogId;
-      const currentDialogMessages = state.dialogs
-      .find(dialog => dialog.id === currentDialogId)
-      .messages;
-
-      currentDialogMessages.push(action.newMessage);
-
-      const stateCopy = JSON.parse(JSON.stringify(state));
-
-      return { ...stateCopy };
-
-    case UPDATE_MESSAGE_TEXT:
-      return {
-        ...state,
-        newMessageText: action.messageText
-      }
-
     default:
       return state;
   }
@@ -79,18 +58,8 @@ export const setNoContactSelected = () => ({
   type: SET_NO_CONTACT_SELECTED
 });
 
-export const addMessage = (newMessage) => ({
-  type: ADD_MESSAGE,
-  newMessage
-});
-
-export const updateMessageText = (messageText) => ({
-  type: UPDATE_MESSAGE_TEXT,
-  messageText
-});
-
-export const getDialogs = (userId) => (dispatch) => {
-  dialogsAPI.getUserDialogs(userId)
+export const getDialogs = () => (dispatch) => {
+  dialogsAPI.getDialogs()
   .then(response => {
     if (response.status === 200) {
       const { items, totalCount } = response.data
@@ -99,30 +68,14 @@ export const getDialogs = (userId) => (dispatch) => {
   });
 };
 
-export const sendMessage = (
-  messageText,
-  dialog,
-  authUser
-) => (dispatch) => {
+export const sendMessage = (newMessageInfo) => (dispatch) => {
   
-  if (messageText.trim()) {
-    const newMessage = {
-      id: dialog.messages.length + 1,
-      dialogId: dialog.id,
-      authorId: authUser.id,
-      authorAvatar: authUser.avatar,
-      message: messageText.trim(),
-    };
-    
-    dialogsAPI.postNewMessage(newMessage)
-    .then(response => {
-      if (response.status === 200) {
-        dispatch(addMessage(newMessage));
-      }
-    });
-  } 
-  
-  dispatch(updateMessageText(''));
+  dialogsAPI.postNewMessage(newMessageInfo)
+  .then(response => {
+    if (response.status === 200) {
+        dispatch(getDialogs());
+    }
+  });
 };
 
 export default dialogsReducer;

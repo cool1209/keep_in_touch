@@ -1,14 +1,14 @@
 import { profileAPI } from "../../api/api";
 
 const SET_PROFILE = 'SET_PROFILE';
-const SET_PROFILE_STATUS = 'UPDATE_PROFILE_STATUS';
+const SET_PROFILE_STATUS = 'SET_PROFILE_STATUS';
+const SET_ONLINE_STATUS = 'SET_ONLINE_STATUS';
 const SET_IS_AUTH_USER_PROFILE = 'SET_IS_AUTH_USER_PROFILE';
 
 const initialState = {
   profile: {},
-  profileStatus: '',
-  authUserProfile: '',
-  isAuthUserProfile: true
+  onlineStatus: false,
+  isAuthUserProfile: false,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -17,7 +17,7 @@ const profileReducer = (state = initialState, action) => {
     case SET_PROFILE:
       return {
         ...state,
-        profile: action.user,
+        profile: action.profile,
       }
 
     case SET_IS_AUTH_USER_PROFILE:
@@ -29,7 +29,13 @@ const profileReducer = (state = initialState, action) => {
     case SET_PROFILE_STATUS:
       return {
         ...state,
-        profileStatus: action.profileStatus
+        profile: { ...state.profile, status: action.profileStatus}
+      }
+
+    case SET_ONLINE_STATUS:
+      return {
+        ...state,
+        onlineStatus: action.onlineStatus
       }
     
     default:
@@ -37,9 +43,9 @@ const profileReducer = (state = initialState, action) => {
   };
 }
 
-export const setProfile = (user) => ({
+export const setProfile = (profile) => ({
   type: SET_PROFILE,
-  user
+  profile
 });
 
 export const setIsAuthUserProfile = (isAuthUserProfile) => ({
@@ -53,9 +59,9 @@ export const getProfile = (userId) => (dispatch) => {
   profileAPI.getProfile(userId)
   .then(response => {
     if (response.status === 200) {
-      const user = response.data;
+      const profile = response.data;
       
-      dispatch(setProfile(user));
+      dispatch(setProfile(profile));
     }
   });
 };
@@ -65,20 +71,28 @@ export const setProfileStatus = (profileStatus) => ({
   profileStatus
 });
 
-export const getProfileStatus = (userId) => (dispatch) => {
-  profileAPI.getProfileStatus(userId)
+export const setOnlineStatus = (onlineStatus) => ({
+  type: SET_ONLINE_STATUS,
+  onlineStatus
+});
+export const getOnlineStatus = (profileId) => (dispatch) => {
+  profileAPI.getOnlineStatus(profileId)
   .then(response => {
-    if (+response.status === 200) {
-      dispatch(setProfileStatus(response.profileStatus));
+    if (response.status === 200) {
+      const onlineStatus = response.data;
+
+      dispatch(setOnlineStatus(onlineStatus));
     }
   });
-}
+};
 
-export const putProfileStatus = (userId, status) => (dispatch) => {
-  profileAPI.putProfileStatus({userId, status})
+export const putProfileStatus = (status) => (dispatch) => {
+  profileAPI.putProfileStatus(status)
   .then(response => {
-    if (+response.status === 200) {
-      dispatch(setProfileStatus(status));
+    if (response) {
+      if (response.status === 200) {
+        dispatch(setProfileStatus(status));
+      }
     }
   });
 }

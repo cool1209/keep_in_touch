@@ -1,0 +1,19 @@
+@import '../../styles/utils/mixins';
+
+.logoutIcon {
+  margin: 2px 0 0 6px;
+  width: 14px;
+}
+
+.likeIcon {
+  width: 20px;
+}
+
+.sideNavIcon {
+  display: none;
+
+  @include xs {
+    z-index: 1;
+    display: block;
+  }
+}

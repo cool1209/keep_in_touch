@@ -1,0 +1,61 @@
+@import "../../../../styles/utils/vars";
+@import "../../../../styles/utils/mixins";
+
+.images {
+  position: relative;
+
+  margin-bottom: 45px;
+
+  border-radius: 10px;
+
+  &__wallpaper {
+    height: 400px;
+    object-fit: cover;
+  
+    border-radius: 8px 8px 0 0;
+
+    @include xl {
+      height: 300px;
+    }
+  
+    @include xs {
+      height: 200px;
+    }
+  }
+  
+  &__avatarContainer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -40px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    width: 160px;
+    height: 160px;
+    padding: 4px;
+  
+    background-color: $color-secondary;
+    border: 4px double $color-dark;
+    border-radius: 50%;
+  
+    @include md {
+      width: 140px;
+      height: 140px;
+    }
+  
+    @include xs {
+      width: 110px;
+      height: 110px;
+    }
+  }
+  
+  &__avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+}
+

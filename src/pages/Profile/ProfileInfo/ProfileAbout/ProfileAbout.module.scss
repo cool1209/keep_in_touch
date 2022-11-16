@@ -1,0 +1,21 @@
+@import '../../../../styles/utils/vars';
+@import '../../../../styles/utils/mixins';
+
+.userAbout {
+  padding: 12px 16px 16px;
+
+  background: $color-very-light;
+  border-radius: $border-radius-block;
+
+  text-align: center;
+  font-style: italic;
+  font-family: $font-family-text;
+
+  &__title {
+    margin-bottom: 4px;
+  }
+
+  &__text {
+    text-align: left;
+  }
+}
