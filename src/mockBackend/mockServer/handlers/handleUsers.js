@@ -4,11 +4,14 @@ import { checkOnlineStatus, updateOnlineStatus } from "./handleOnlineStatus";
 
 export const getUser = (id) => users.find((user) => user.id === id);
 
-export const getUsers = (body, userId) => {
+export const getUsers = (userId, page) => {
   updateOnlineStatus(userId);
 
-  const { page, length = 10 } = body;
-  const handledUsers = users.map(user => ({
+  const length = 10;
+
+  const handledUsers = users
+  .filter(user => user.id !== userId)
+  .map(user => ({
     id: user.id,
     name: user.name,
     avatar: user.avatar,
@@ -17,7 +20,7 @@ export const getUsers = (body, userId) => {
   }));
 
   return {
-    data: handleDataPage(handledUsers, page, length),
-    status: 200
+    data: handleDataPage(handledUsers, +page, length),
+    statusCode: 200
   }
 };

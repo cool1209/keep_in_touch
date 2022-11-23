@@ -4,13 +4,13 @@ import { compose } from 'redux';
 import withAuthUser from '../../hocs/withAuthUser';
 
 import withLayout from '../../hocs/withLayout';
-import { getUsers } from "../../store/reducers/usersReducer";
+import { fetchUsers } from "../../store/reducers/usersReducer";
 import Network from './Network';
 
 class NetworkContainer extends React.Component {
   setStartUserPage() {
     const startPage = 1;
-    this.props.getUsers(startPage);
+    this.props.fetchUsers(startPage);
   }
   
   componentDidMount() {
@@ -32,7 +32,7 @@ class NetworkContainer extends React.Component {
         pages={pages}
         currentPage={currentPage}
         users={users}
-        getUsers={this.props.getUsers.bind(this)}
+        getUsers={this.props.fetchUsers.bind(this)}
         pageIsLoaded={!!totalUsers}
         usersPageIsLoading={this.props.usersPageIsLoading}
       />
@@ -49,7 +49,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapStateToDispatch = {
-  getUsers
+  fetchUsers
 };
 
 export default compose(

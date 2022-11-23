@@ -4,7 +4,7 @@ const getUserByLogin = (login) => {
   return users.find(user => user.login === login);
 }
 
-export const getAuth = (body, userId) => {
+export const handleAuth = (body) => {
   const { login, password } = body;
   const user = getUserByLogin(login);
 
@@ -17,13 +17,13 @@ export const getAuth = (body, userId) => {
       };
 
       return {
-        status: 200,
+        statusCode: 200,
         data: authUser,
       };
     }
 
-    return { status: 403, text: "Invalid user password" };
+    return { statusCode: 403, text: "Forbidden" };
   }
 
-  return { status: 401, text: "Invalid user login" };
+  return { statusCode: 403, text: "Forbidden" };
 };

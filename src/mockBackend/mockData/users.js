@@ -29,7 +29,7 @@ const users = [
     avatar: "https://bit.ly/3F8oPoT",
     city: "Los Angeles",
     status: "this is character's test status",
-    wallpaper: "https://bit.ly/3EO7X6x",
+    wallpaper: "https://bit.ly/3V34p5z",
     about: `Let's imagine that there should be information about this user, but since this is a test description of the character, there is only this simple text.`,
   },
   {
@@ -169,10 +169,10 @@ const users = [
     login: "16",
     password: "111",
     name: "Loki",
-    avatar: "https://bit.ly/3CLHi8M",
+    avatar: "https://bit.ly/3i1lj61",
     city: "New York",
     status: "this is character's test status",
-    wallpaper: "https://bit.ly/3s52XCK",
+    wallpaper: "https://bit.ly/3TVoxFz",
     about: `Let's imagine that there should be information about this user, but since this is a test description of the character, there is only this simple text.`,
   },
   {
@@ -538,6 +538,17 @@ const users = [
     wallpaper: "https://bit.ly/3MJ4W9F",
     about: `Let's imagine that there should be information about this user, but since this is a test description of the character, there is only this simple text.`,
   },
+  {
+    id: 50,
+    login: "50",
+    password: "111",
+    name: "Adam",
+    avatar: "https://bit.ly/3ALbEHj",
+    city: "Gotham",
+    status: "this is character's test status",
+    wallpaper: "https://bit.ly/3VeqnCL",
+    about: `Let's imagine that there should be information about this user, but since this is a test description of the character, there is only this simple text.`,
+  }
 ];
 
 export default users;

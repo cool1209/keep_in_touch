@@ -4,7 +4,7 @@ import styles from './FollowingButton.module.scss';
 
 const FollowingButton = ({
   isFollowing,
-  followingToggler,
+  onFollowingToggler,
   disabledState
 }) => {
   return (
@@ -14,7 +14,7 @@ const FollowingButton = ({
         {[styles.button_unfollow]: isFollowing}
       )}
 
-      onClick={followingToggler}
+      onClick={onFollowingToggler}
 
       disabled={disabledState}
     >

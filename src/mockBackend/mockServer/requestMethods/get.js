@@ -1,45 +1,44 @@
-import { getAuth } from "../handlers/handleAuth";
 import { getDialogs } from "../handlers/handleDialogs";
-import { getFollowings } from "../handlers/handleFollowings";
+import { getUserFollowingsPage } from "../handlers/handleFollowings";
 import { getOnlineStatus } from "../handlers/handleOnlineStatus";
 import { getPosts, getProfilePosts } from "../handlers/handlePosts";
 import { getProfile } from "../handlers/handleProfile";
 import { getUsers } from "../handlers/handleUsers";
 
-const methodGet = (request, body, userKey) => {
+const methodGet = (requestQuery, userKey) => {
+  const requestQueryParts = requestQuery.split('/');
+  const endpoint = requestQueryParts[0];
+  const queryParameters = requestQueryParts.slice(1);
+
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      switch (request) {
-        case "login":
-          resolve(getAuth(body, userKey));
-          break;
-
+      switch (endpoint) {
         case "profile":
-          resolve(getProfile(body, userKey));
+          resolve(getProfile(userKey, ...queryParameters));
           break;
 
         case "users":
-          resolve(getUsers(body, userKey));
+          resolve(getUsers(userKey, ...queryParameters));
           break;
 
         case "posts":
-          resolve(getPosts(body, userKey));
+          resolve(getPosts(userKey, ...queryParameters));
           break;
 
-        case "profile-posts":
-          resolve(getProfilePosts(body, userKey));
+        case "profilePosts":
+          resolve(getProfilePosts(userKey, ...queryParameters));
           break;
 
         case "dialogs":
-          resolve(getDialogs(body, userKey));
+          resolve(getDialogs(userKey, ...queryParameters));
           break;
 
         case "followings":
-          resolve(getFollowings(body, userKey));
+          resolve(getUserFollowingsPage(userKey, ...queryParameters));
           break;
 
         case "online":
-          resolve(getOnlineStatus(body, userKey));
+          resolve(getOnlineStatus(...queryParameters));
           break;
 
         default:

@@ -1,4 +1,4 @@
-import { authAPI } from "../../api/api";
+import { authAPI } from "../../api/authAPI";
 import { getInitialAuthUser } from "../functions/getInitialAuthUser";
 import authUserInStorage from "../functions/handleSessionStorage";
 
@@ -52,14 +52,15 @@ export const setIsAuthError = (isError) => ({
   isError
 });
 
-export const loginUser = (form) => (dispatch) => {
+export const userAuth = (form) => (dispatch) => {
   if (!authUserInStorage.present()) {
     dispatch(setIsLoadingProcess(true));
+
     const { login, password } = form;
-    const requestAuth = { login, password }
+    const authInfo = { login, password }
   
-    authAPI.getAuth(requestAuth).then((response) => {
-      if (response.status === 200) {
+    authAPI.authorization(authInfo).then((response) => {
+      if (response.statusCode === 200) {
         const user = response.data;
   
         dispatch(setAuthUser(user));

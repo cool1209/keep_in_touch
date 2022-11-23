@@ -20,10 +20,8 @@ export const handlePost = (post) => {
   return handledPost;
 };
 
-export const getPosts = (body, userId) => {
+export const getPosts = (userId, page = 1, length = 12) => {
   updateOnlineStatus(userId);
-
-  const { page = 1, length = 12 } = body;
 
   let userFollowings = followings
   .find(userFollowings => userFollowings.userId === userId);
@@ -45,14 +43,13 @@ export const getPosts = (body, userId) => {
   
   return {
     data: postsPage,
-    status: 200
+    statusCode: 200
   }
 };
 
-export const getProfilePosts = (body, userId) => {
+export const getProfilePosts = (userId, profileId, length = 6) => {
   updateOnlineStatus(userId);
 
-  const { profileId, length = 6 } = body;
   const profilePosts = posts
   .filter(post => post.userId === +profileId)
   .map(post => (
@@ -61,11 +58,11 @@ export const getProfilePosts = (body, userId) => {
   
   return {
     data: handleDataPage(profilePosts, 1, length),
-    status: 200
+    statusCode: 200
   }
 };
 
-export const postNewPost = (body, userId) => {
+export const postNewPost = (userId, body) => {
   updateOnlineStatus(userId);
 
   const { text } = body;
@@ -78,5 +75,5 @@ export const postNewPost = (body, userId) => {
 
   posts.push(newPost);
 
-  return {status: 200};
+  return {statusCode: 200};
 };

@@ -5,7 +5,7 @@ const methodPut = (request, body, userKey) => {
     setTimeout(() => {
       switch (request) {
         case "status":
-          resolve(putProfileStatus(body, userKey));
+          resolve(putProfileStatus(userKey, body));
           break;
 
         default:

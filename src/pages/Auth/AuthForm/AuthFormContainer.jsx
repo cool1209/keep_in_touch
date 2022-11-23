@@ -2,10 +2,10 @@ import { connect } from 'react-redux';
 import { useState } from 'react';
 import { compose } from 'redux';
 
-import { loginUser } from '../../../store/reducers/authReducer'
+import { userAuth } from '../../../store/reducers/authReducer'
 import AuthForm from './AuthForm';
 
-const AuthFormContainer = ({ loginUser }) => {
+const AuthFormContainer = ({ userAuth }) => {
   const [form, setForm] = useState({
     login: '',
     password: '',
@@ -15,7 +15,7 @@ const AuthFormContainer = ({ loginUser }) => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    loginUser(form);
+    userAuth(form);
   }
 
   const handleChange = (e) => {
@@ -41,6 +41,10 @@ const mapStateToProps = (state) => ({
   isLoading: state.auth.isLoadingProcess
 });
 
+const mapStateToDispatch = {
+  userAuth
+};
+
 export default compose(
-  connect(mapStateToProps, {loginUser}),
+  connect(mapStateToProps, mapStateToDispatch),
 )(AuthFormContainer);

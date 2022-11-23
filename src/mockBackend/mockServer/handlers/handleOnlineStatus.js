@@ -35,8 +35,6 @@ export const updateOnlineStatus = (userId) => {
   }
 };
 
-export const getOnlineStatus = (body) => {
-  const { profileId } = body;
-
-  return {status: 200, data: checkOnlineStatus(profileId)};
+export const getOnlineStatus = (profileId) => {
+  return {statusCode: 200, data: checkOnlineStatus(+profileId)};
 }

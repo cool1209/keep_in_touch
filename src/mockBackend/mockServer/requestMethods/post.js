@@ -1,3 +1,4 @@
+import { handleAuth } from "../handlers/handleAuth";
 import { postNewMessage } from "../handlers/handleDialogs";
 import { postFollowing } from "../handlers/handleFollowings";
 import { postNewPost } from "../handlers/handlePosts";
@@ -6,16 +7,20 @@ const methodPost = (request, body, userKey) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       switch (request) {
+        case "auth":
+          resolve(handleAuth(body));
+          break;
+
         case "post":
-          resolve(postNewPost(body, userKey));
+          resolve(postNewPost(userKey, body));
           break;
 
         case "message":
-          resolve(postNewMessage(body, userKey));
+          resolve(postNewMessage(userKey, body));
           break;
 
         case "follow":
-          resolve(postFollowing(body, userKey));
+          resolve(postFollowing(userKey, body));
           break;
 
         default:

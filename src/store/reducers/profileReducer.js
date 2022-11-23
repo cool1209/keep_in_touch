@@ -1,4 +1,4 @@
-import { profileAPI } from "../../api/api";
+import { profileAPI } from "../../api/profileAPI";
 
 const SET_PROFILE = 'SET_PROFILE';
 const SET_PROFILE_STATUS = 'SET_PROFILE_STATUS';
@@ -53,19 +53,6 @@ export const setIsAuthUserProfile = (isAuthUserProfile) => ({
   isAuthUserProfile
 });
 
-export const getProfile = (userId) => (dispatch) => {
-  dispatch(setProfile({}));
-
-  profileAPI.getProfile(userId)
-  .then(response => {
-    if (response.status === 200) {
-      const profile = response.data;
-      
-      dispatch(setProfile(profile));
-    }
-  });
-};
-
 export const setProfileStatus = (profileStatus) => ({
   type: SET_PROFILE_STATUS,
   profileStatus
@@ -75,26 +62,40 @@ export const setOnlineStatus = (onlineStatus) => ({
   type: SET_ONLINE_STATUS,
   onlineStatus
 });
-export const getOnlineStatus = (profileId) => (dispatch) => {
-  profileAPI.getOnlineStatus(profileId)
+
+export const putProfileStatus = (status) => (dispatch) => {
+  profileAPI.putProfileStatus(status)
   .then(response => {
-    if (response.status === 200) {
+    if (response) {
+      if (response.statusCode === 200) {
+        dispatch(setProfileStatus(status));
+      }
+    }
+  });
+};
+
+export const fetchProfile = (userId) => (dispatch) => {
+  dispatch(setProfile({}));
+
+  profileAPI.fetchProfile(userId)
+  .then(response => {
+    if (response.statusCode === 200) {
+      const profile = response.data;
+      
+      dispatch(setProfile(profile));
+    }
+  });
+};
+
+export const fetchOnlineStatus = (profileId) => (dispatch) => {
+  profileAPI.fetchOnlineStatus(profileId)
+  .then(response => {
+    if (response.statusCode === 200) {
       const onlineStatus = response.data;
 
       dispatch(setOnlineStatus(onlineStatus));
     }
   });
 };
-
-export const putProfileStatus = (status) => (dispatch) => {
-  profileAPI.putProfileStatus(status)
-  .then(response => {
-    if (response) {
-      if (response.status === 200) {
-        dispatch(setProfileStatus(status));
-      }
-    }
-  });
-}
 
 export default profileReducer;

@@ -4,34 +4,40 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import SideFollowing from './SideFollowing';
-import { getFollowings } from '../../../../store/reducers/followingReducer';
+import { fetchFollowings } from '../../../../store/reducers/followingReducer';
 
 const SideFollowingContainer = ({
-  authUserId,
   followings,
   isFollowings,
-  getFollowings,
+  fetchFollowings,
 }) => {
+
+  const getThreeFollowings = () => {
+    return followings.slice(0, 3);
+  }
   
   useEffect(() => {
-    getFollowings(authUserId);
+    fetchFollowings();
   }, []);
 
   return (
     <>
       { isFollowings &&
-        <SideFollowing followings={followings.slice(0, 3)} />
+        <SideFollowing followings={getThreeFollowings()} />
       }
     </>
   );
 };
 
 const mapStatetoProps = (state) => ({
-  authUserId: state.auth.authUser.id,
   followings: state.followings.followings,
   isFollowings: !!state.followings.followings.length
 });
 
+const mapStateToDispatch = {
+  fetchFollowings
+};
+
 export default compose(
-  connect(mapStatetoProps, {getFollowings})
+  connect(mapStatetoProps, mapStateToDispatch)
 )(SideFollowingContainer);

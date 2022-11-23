@@ -1,4 +1,4 @@
-import { postsAPI } from "../../api/api";
+import { postsAPI } from "../../api/postsAPI";
 import authUserInStorage from "../functions/handleSessionStorage";
 
 const SET_POSTS = 'SET_POSTS';
@@ -71,20 +71,20 @@ export const updateNewPostText = (text) => ({
   text
 });
 
-export const getPosts = () => (dispatch) => {
-  postsAPI.getPosts()
+export const fetchPosts = () => (dispatch) => {
+  postsAPI.fetchPosts()
   .then(response => {
-    if (response.status === 200) {
+    if (response.statusCode === 200) {
       const posts = response.data;
       dispatch(setPosts(posts.items, posts.totalCount));
     }
   });
 };
 
-export const getProfilePosts = (profileId) => (dispatch) => {
-  postsAPI.getProfilePosts(profileId)
+export const fetchProfilePosts = (profileId) => (dispatch) => {
+  postsAPI.fetchProfilePosts(profileId)
   .then(response => {
-    if (response.status === 200) {
+    if (response.statusCode === 200) {
       const { items, totalCount } = response.data;
 
       dispatch(setProfilePosts(items, totalCount));
@@ -98,8 +98,8 @@ export const sendNewPost = (newPostText) => (dispatch) => {
 
     postsAPI.sendNewPost(handledNewPostText)
     .then(response => {
-      if (response.status === 200) {
-        dispatch(getProfilePosts(authUserInStorage.getId()));
+      if (response.statusCode === 200) {
+        dispatch(fetchProfilePosts(authUserInStorage.getId()));
       }
     });
   }

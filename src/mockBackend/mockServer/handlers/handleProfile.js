@@ -1,9 +1,8 @@
 import { updateOnlineStatus } from "./handleOnlineStatus";
 import { getUser } from "./handleUsers";
 
-export const getProfile = (body, userId) => {
-  const { profileId } = body;
-  const user = getUser(profileId);
+export const getProfile = (userId, profileId) => {
+  const user = getUser(+profileId);
 
   if (user) {
     updateOnlineStatus(userId);
@@ -19,11 +18,11 @@ export const getProfile = (body, userId) => {
       wallpaper
     }
       
-    return {data: profile, status: 200};
+    return {data: profile, statusCode: 200};
   }
 };
 
-export const putProfileStatus = (body, userId) => {
+export const putProfileStatus = (userId, body) => {
   const { status } = body;
   const user = getUser(userId);
 
@@ -32,6 +31,6 @@ export const putProfileStatus = (body, userId) => {
 
     user.status = status;
   
-    return {status: 200};
+    return {statusCode: 200};
   }
 };

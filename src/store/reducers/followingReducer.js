@@ -1,8 +1,6 @@
-import { followingsAPI } from "../../api/api";
+import { followingsAPI } from "../../api/followingsAPI";
 
 const SET_FOLLOWINGS = 'SET_FOLLOWINGS';
-const ADD_FOLLOWING = 'ADD_FOLLOWING';
-const REMOVE_FOLLOWING = 'REMOVE_FOLLOWING';
 const SET_IS_FOLLOWING_PROCESS = 'SET_IS_FOLLOWING_PROCESS';
 
 const initialState = {
@@ -21,20 +19,6 @@ const followingReducer = (state = initialState, action) => {
         followings: action.followings,
         totalFollowings: action.totalFollowings,
         currentPage: action.currentPage,
-      }
-
-    case ADD_FOLLOWING:
-
-    return {
-        ...state,
-        followings: [ action.user, ...state.followings ]
-      }
-
-    case REMOVE_FOLLOWING:
-      return {
-        ...state,
-        followings: state.followings
-        .filter(followin => followin.id !== action.userId)
       }
 
     case SET_IS_FOLLOWING_PROCESS:
@@ -62,16 +46,6 @@ export const setFollowings = (
   currentPage
 });
 
-export const addFollowing = (user) => ({
-  type: ADD_FOLLOWING,
-  user
-});
-
-export const removeFollowing = (userId) => ({
-  type: REMOVE_FOLLOWING,
-  userId
-});
-
 export const setIsFollowingProcess = (isProcess, userId) => ({
   type: SET_IS_FOLLOWING_PROCESS,
   isProcess,
@@ -79,10 +53,10 @@ export const setIsFollowingProcess = (isProcess, userId) => ({
 })
 
 
-export const getFollowings = () => (dispatch) => {
-  followingsAPI.getFollowings()
+export const fetchFollowings = () => (dispatch) => {
+  followingsAPI.fetchFollowings()
   .then(response => {
-    if (response.status === 200) {
+    if (response.statusCode === 200) {
       const { items, totalCount } = response.data;
       
       dispatch(setFollowings(items, totalCount));
@@ -90,35 +64,31 @@ export const getFollowings = () => (dispatch) => {
   });
 }
 
-export const follow = (authUserId, followingUser) => (dispatch) => {
-  dispatch(setIsFollowingProcess(true, followingUser.id));
+export const follow = (followingUserId) => (dispatch) => {
+  dispatch(setIsFollowingProcess(true, followingUserId));
 
-  followingsAPI.follow(
-    {userId: authUserId, newFollowing: followingUser.id}
-    )
+  followingsAPI.follow({newFollowing: followingUserId})
     .then(response => {
-      if (response.status === 200) {
-        dispatch(addFollowing(followingUser));
+      if (response.statusCode === 200) {
+        dispatch(fetchFollowings());
       };
 
-      dispatch(setIsFollowingProcess(false, followingUser.id));
+      dispatch(setIsFollowingProcess(false, followingUserId));
     }
   );
 
 };
 
-export const unfollow = (authUserId, followingUser) => (dispatch) => {
-  dispatch(setIsFollowingProcess(true, followingUser.id));
+export const unfollow = (followingUserId) => (dispatch) => {
+  dispatch(setIsFollowingProcess(true, followingUserId));
 
-  followingsAPI.unfollow(
-    {userId: authUserId, unfollow: followingUser.id}
-  )
+  followingsAPI.unfollow(followingUserId)
   .then(response => {
-    if (response.status === 200) {
-      dispatch(removeFollowing(followingUser.id));
+    if (response.statusCode === 200) {
+      dispatch(fetchFollowings());
     }
 
-    dispatch(setIsFollowingProcess(false, followingUser.id));
+    dispatch(setIsFollowingProcess(false, followingUserId));
   });
 };
 

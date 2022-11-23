@@ -19,27 +19,27 @@ const getUserFollowings = (userId) => {
   const userFollowingsId = getUserFollowingsId(userId);
 
   if (userFollowingsId) {
-    const handledUserFollowings = userFollowingsId
-    .map(followingId => (
-      users.find(user => user.id === followingId)
-    ));
-  
-    return handledUserFollowings;
+    return users
+    .filter(user => userFollowingsId.includes(user.id))
+    .map(user => ({
+      id: user.id,
+      name: user.name,
+      avatar: user.avatar
+    }));
   }
 
   return null;
 }
 
-export const getFollowings = (body, userId) => {
+export const getUserFollowingsPage = (userId, page = 1, length = 10) => {
   updateOnlineStatus(userId);
 
-  const{ page = 1, length = 10 } = body;
   const userFollowings = getUserFollowings(userId);
 
   if (userFollowings) {
     return {
       data: handleDataPage(userFollowings, page, length),
-      status: 200
+      statusCode: 200
     };
   }
 
@@ -49,7 +49,7 @@ export const getFollowings = (body, userId) => {
   };
 };
 
-export const postFollowing = (body, userId) => {
+export const postFollowing = (userId, body) => {
   updateOnlineStatus(userId);
 
   const { newFollowing } = body;
@@ -57,6 +57,7 @@ export const postFollowing = (body, userId) => {
 
   if (followingsId) {
     followingsId.push(newFollowing);
+
   } else {
     const newUserFollowings = {
       id: 1,
@@ -67,20 +68,23 @@ export const postFollowing = (body, userId) => {
     followings.push(newUserFollowings);
   }
 
-  return {status: 200};
+  return {statusCode: 200};
 };
 
-export const deleteFollowing = (body, userId) => {
+export const deleteFollowing = (userId, unfollowId) => {
   updateOnlineStatus(userId);
-  
-  const { unfollow } = body;
-  let followingsId = getUserFollowingsId(userId);
+
+  const followingsId = getUserFollowingsId(userId);
 
   if (followingsId) {
-    followingsId = followingsId.filter(id => id !== unfollow);
+    const unfollowIdIndex = followingsId.indexOf(+unfollowId);
 
-    return {status: 200};
+    if (unfollowIdIndex !== -1) {
+      followingsId.splice(unfollowIdIndex, 1);
+    }
+
+    return {statusCode: 200};
   }
 
-  return {status: 404}
+  return {statusCode: 404}
 };

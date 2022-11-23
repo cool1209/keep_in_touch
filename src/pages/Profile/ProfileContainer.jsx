@@ -5,11 +5,11 @@ import { useParams } from 'react-router-dom';
 import { compose } from 'redux';
 
 import {
-  getOnlineStatus,
-  getProfile,
+  fetchOnlineStatus,
+  fetchProfile,
   setIsAuthUserProfile
 } from '../../store/reducers/profileReducer';
-import { getProfilePosts } from '../../store/reducers/postsReducer';
+import { fetchProfilePosts } from '../../store/reducers/postsReducer';
 import Preloader from '../../shared/Preloader/Preloader';
 import Profile from './Profile';
 import withLayout from '../../hocs/withLayout';
@@ -18,10 +18,10 @@ import withAuthUser from '../../hocs/withAuthUser';
 const ProfileContainer = ({
   authUserId,
   isProfile,
-  getProfile,
-  getProfilePosts,
+  fetchProfile,
+  fetchProfilePosts,
   setIsAuthUserProfile,
-  getOnlineStatus
+  fetchOnlineStatus
 }) => {
   const params = useParams();
   const profileId = +params.userId;
@@ -29,9 +29,9 @@ const ProfileContainer = ({
 
   const setProfile = () => {
     setIsAuthUserProfile(isAuthUserProfile)
-    getProfile(profileId);
-    getOnlineStatus(profileId);
-    getProfilePosts(profileId);
+    fetchProfile(profileId);
+    fetchOnlineStatus(profileId);
+    fetchProfilePosts(profileId);
   };
 
   useEffect(() => {
@@ -54,10 +54,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapStateToDispatch = {
-  getProfile,
-  getProfilePosts,
+  fetchProfile,
+  fetchProfilePosts,
   setIsAuthUserProfile,
-  getOnlineStatus
+  fetchOnlineStatus
 };
 
 export default compose(

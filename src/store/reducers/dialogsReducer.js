@@ -1,4 +1,4 @@
-import { dialogsAPI } from "../../api/api";
+import { dialogsAPI } from "../../api/dialogsAPI";
 
 const SET_DIALOGS = 'SET_DIALOGS';
 const SET_IS_CONTACT_SELECTED = 'SET_IS_CONTACT_SELECTED';
@@ -58,10 +58,10 @@ export const setNoContactSelected = () => ({
   type: SET_NO_CONTACT_SELECTED
 });
 
-export const getDialogs = () => (dispatch) => {
-  dialogsAPI.getDialogs()
+export const fetchDialogs = () => (dispatch) => {
+  dialogsAPI.fetchDialogs()
   .then(response => {
-    if (response.status === 200) {
+    if (response.statusCode === 200) {
       const { items, totalCount } = response.data
       dispatch(setDialogs(items, totalCount));
     }
@@ -70,10 +70,10 @@ export const getDialogs = () => (dispatch) => {
 
 export const sendMessage = (newMessageInfo) => (dispatch) => {
   
-  dialogsAPI.postNewMessage(newMessageInfo)
+  dialogsAPI.sendNewMessage(newMessageInfo)
   .then(response => {
-    if (response.status === 200) {
-        dispatch(getDialogs());
+    if (response.statusCode === 200) {
+        dispatch(fetchDialogs());
     }
   });
 };

@@ -7,18 +7,12 @@ import OnlineStatus from '../../../shared/OnlineStatus/OnlineStatus';
 import styles from './User.module.scss';
 
 const User = ({
-  authUserId,
   user,
-  onFollow,
-  onUnfollow,
+  onFollowingToggler,
   isFollowing,
   checkFollowingProcess
 }) => {
-  const followingToggler = () => {
-    isFollowing
-    ? onUnfollow(authUserId, user)
-    : onFollow(authUserId, user);
-  };
+
 
   return (
     <li className={styles.user}>
@@ -42,7 +36,7 @@ const User = ({
 
       <FollowingButton
         isFollowing={isFollowing}
-        followingToggler={followingToggler}
+        onFollowingToggler={onFollowingToggler}
         disabledState={checkFollowingProcess(user.id)}
       />
 

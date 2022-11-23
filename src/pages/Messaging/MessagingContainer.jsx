@@ -4,13 +4,13 @@ import { compose } from 'redux';
 
 import withLayout from '../../hocs/withLayout';
 import withAuthUser from '../../hocs/withAuthUser';
-import { getDialogs } from '../../store/reducers/dialogsReducer';
+import { fetchDialogs } from '../../store/reducers/dialogsReducer';
 import Messaging from './Messaging';
 
-const MessagingContainer = ({ getDialogs, totalDialogs }) => {
+const MessagingContainer = ({ fetchDialogs, totalDialogs }) => {
   
   useEffect(() => {
-    getDialogs();
+    fetchDialogs();
   }, []);
 
   return (
@@ -23,7 +23,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapStateToDispatch = {
-  getDialogs
+  fetchDialogs
 };
 
 export default compose(

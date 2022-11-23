@@ -1,4 +1,4 @@
-import { usersAPI } from "../../api/api";
+import { usersAPI } from "../../api/usersAPI";
 
 const SET_USERS = 'SET_USERS';
 const SET_IS_LOADING_PROCESS = 'SET_IS_LOADING_PROCESS';
@@ -54,12 +54,12 @@ type: SET_IS_LOADING_PROCESS,
 isPageLoadingProcess
 });
 
-export const getUsers = (page) => (dispatch) => {
+export const fetchUsers = (page) => (dispatch) => {
   dispatch(setIsPageLoadingProcess(true));
 
-  usersAPI.getUsers(page)
+  usersAPI.fetchUsers(page)
   .then(response => {
-    if (response.status === 200) {
+    if (response.statusCode === 200) {
       const { items, totalCount } = response.data;
       
       dispatch(setUsers(items, totalCount, page));

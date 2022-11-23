@@ -19,7 +19,7 @@ const AuthHint = ({ isAuthError }) => {
       </div>
 
       <p>
-        Enter from <b>1</b> to <b>49</b> to field <b>"login"</b>
+        Enter from <b>1</b> to <b>50</b> to field <b>"login"</b>
       </p>
 
       <p>

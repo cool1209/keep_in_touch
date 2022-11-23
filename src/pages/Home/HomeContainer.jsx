@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { useEffect } from 'react';
 import { compose } from 'redux';
 
-import { getPosts, setPosts } from '../../store/reducers/postsReducer';
+import { fetchPosts, setPosts } from '../../store/reducers/postsReducer';
 import Home from './Home';
 import withLayout from '../../hocs/withLayout';
 import withAuthUser from '../../hocs/withAuthUser';
@@ -10,13 +10,13 @@ import withAuthUser from '../../hocs/withAuthUser';
 const HomeContainer = ({
   authUserId,
   posts,
-  getPosts,
+  fetchPosts,
   setPosts,
   isPosts
 }) => {
 
   useEffect(() => {
-    getPosts(authUserId)
+    fetchPosts(authUserId)
 
     return () => {
       setPosts([], null);
@@ -34,8 +34,13 @@ const mapStateToProps = (state) => ({
   isPosts: state.posts.totalPosts
 });
 
+const mapStateToDispatch = {
+  fetchPosts,
+  setPosts
+};
+
 export default compose(
   withAuthUser,
   withLayout,
-  connect(mapStateToProps, {getPosts, setPosts})
+  connect(mapStateToProps, mapStateToDispatch)
 )(HomeContainer);

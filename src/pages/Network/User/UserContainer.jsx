@@ -8,7 +8,6 @@ import User from './User';
 
 const UserContainer = ({
   user,
-  authUserId,
   followings,
   follow,
   unfollow,
@@ -21,12 +20,18 @@ const UserContainer = ({
     isFollowingProcesses.some(process => process === userId)
   );
 
+  const followingToggler = () => {
+    if (isFollowing) {
+      unfollow(user.id)
+    } else {
+      follow(user.id);
+    } 
+  };
+
   return (
     <User
-      authUserId={authUserId}
       user={user}
-      onFollow={follow}
-      onUnfollow={unfollow}
+      onFollowingToggler={followingToggler}
       isFollowing={isFollowing}
       checkFollowingProcess={checkFollowingProcess}
     />
@@ -34,11 +39,15 @@ const UserContainer = ({
 };
 
 const mapStateToProps = (state) => ({
-  authUserId: state.auth.authUser.id,
   followings: state.followings.followings,
   isFollowingProcesses: state.followings.isFollowingProcesses
 });
 
+const mapStateToDispatch = {
+  follow,
+  unfollow
+};
+
 export default compose(
-  connect(mapStateToProps, {follow, unfollow})
+  connect(mapStateToProps, mapStateToDispatch)
 )(UserContainer);
