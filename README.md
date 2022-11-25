@@ -16,7 +16,7 @@
 
 <p align="center">
   <a href="https://ik-web.github.io/keep-in-touch/">
-    ⮚⮚ DEMO LINK ⮘⮘
+    >> DEMO LINK <<
   </a> 
 </p>
 
@@ -28,13 +28,13 @@ and Redux, Flux architecture, data interaction, etc.
 ```
 ## Documentation
 
-> **1. Login page:** 
+> **1. Auth page:** 
 >- You can choose a user for entering the social network (choose a user and click the `logIn` button).
 >
 > **2. Home page:** 
 >- On this page, you can view your posts and the posts of all the users you follow. It is possible to visit a user's profile by clicking on his avatar on a post.
 >
-> **3. Dialogs page:**
+> **3. Messaging page:**
 > - It is possible to select a contact and write a message (then you can switch to the account of the person to whom the message was sent and read it).
 >
 > **4. Network page:**
@@ -50,10 +50,12 @@ and Redux, Flux architecture, data interaction, etc.
 >- You can logout from your account (in the upper right corner of the wallpaper).
 
  **Added changes:**
- - Added preload spinner
- - Added the ability to visit the profile of other users
- - Added the ability to follow to other users
- - Updated backend simulator
+ - Added the ability to add user status on the profile page
+ - The method of authorization has been changed
+ - Changed CSS to SCSS
+ - The Login page has been renamed to the Auth page
+ - The Dialogs page has been renamed to the Messaging page
+ - The structure of the project has been changed
  - Changed some styles
  - Fixed some small bugs
 
@@ -66,9 +68,11 @@ and Redux, Flux architecture, data interaction, etc.
 - `npx create-react-app my-app`
 - `npm i gh-pages --save-dev`
 - `npm i redux`
+- `npm i redux-thunk`
 - `npm i react-redux`
 - `npm i react-router-dom`
 - `npm i classnames`
+- `npm i sass`
 
 ## Developers
 
