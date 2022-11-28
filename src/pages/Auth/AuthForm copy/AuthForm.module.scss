@@ -43,15 +43,7 @@
     }
 
     &:focus::placeholder {
-      border-color: $color-dark;
-    }
-
-    &_required.AuthForm__input::placeholder,
-    &_required.AuthForm__input:hover,
-    &_required.AuthForm__input:focus,
-    &_required {
-      color: $color-error;
-      border-color: $color-error;
+      color: $color-dark;
     }
   }
 
