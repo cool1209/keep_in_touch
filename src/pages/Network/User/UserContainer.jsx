@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { follow, unfollow } from '../../../store/reducers/followingReducer';
+import { getFollowings, getIsFollowingProcesses } from '../../../store/selectors/followingsSelectors';
 
 import User from './User';
 
@@ -39,8 +40,8 @@ const UserContainer = ({
 };
 
 const mapStateToProps = (state) => ({
-  followings: state.followings.followings,
-  isFollowingProcesses: state.followings.isFollowingProcesses
+  followings: getFollowings(state),
+  isFollowingProcesses: getIsFollowingProcesses(state)
 });
 
 const mapStateToDispatch = {

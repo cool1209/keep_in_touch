@@ -52,7 +52,7 @@ export const setIsAuthError = (isError) => ({
   isError
 });
 
-export const userAuth = (form) => (dispatch) => {
+export const fetchUserAuth = (form) => (dispatch) => {
   if (!authUserInStorage.present()) {
     dispatch(setIsLoadingProcess(true));
 

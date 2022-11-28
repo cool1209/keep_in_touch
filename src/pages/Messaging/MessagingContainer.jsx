@@ -6,6 +6,7 @@ import withLayout from '../../hocs/withLayout';
 import withAuthUser from '../../hocs/withAuthUser';
 import { fetchDialogs } from '../../store/reducers/dialogsReducer';
 import Messaging from './Messaging';
+import { getTotalDialogs } from '../../store/selectors/dialogsSelectors';
 
 const MessagingContainer = ({ fetchDialogs, totalDialogs }) => {
   
@@ -19,7 +20,7 @@ const MessagingContainer = ({ fetchDialogs, totalDialogs }) => {
 };
 
 const mapStateToProps = (state) => ({
-  totalDialogs: state.dialogs.totalDialogs
+  totalDialogs: getTotalDialogs(state)
 });
 
 const mapStateToDispatch = {

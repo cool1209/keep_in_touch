@@ -6,6 +6,8 @@ import { fetchPosts, setPosts } from '../../store/reducers/postsReducer';
 import Home from './Home';
 import withLayout from '../../hocs/withLayout';
 import withAuthUser from '../../hocs/withAuthUser';
+import { getAuthUserId } from '../../store/selectors/authSelectors';
+import { getIsPostsPosts, getPosts } from '../../store/selectors/postsSelectors';
 
 const HomeContainer = ({
   authUserId,
@@ -29,9 +31,9 @@ const HomeContainer = ({
 };
 
 const mapStateToProps = (state) => ({
-  authUserId: state.auth.authUser.id,
-  posts: state.posts.posts,
-  isPosts: state.posts.totalPosts
+  authUserId: getAuthUserId(state),
+  posts: getPosts(state),
+  isPosts: getIsPostsPosts(state)
 });
 
 const mapStateToDispatch = {

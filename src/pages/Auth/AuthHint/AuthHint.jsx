@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { connect } from "react-redux";
+import { getIsAuthError } from "../../../store/selectors/authSelectors";
 import styles from "./AuthHint.module.scss";
 
 const AuthHint = ({ isAuthError }) => {
@@ -30,7 +31,7 @@ const AuthHint = ({ isAuthError }) => {
 };
 
 const mapStateToProps = (state) => ({
-  isAuthError: state.auth.isAuthError
+  isAuthError: getIsAuthError(state)
 });
 
 export default connect(mapStateToProps)(AuthHint);

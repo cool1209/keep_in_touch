@@ -2,6 +2,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Preloader from '../../../shared/Preloader/Preloader';
+import { getProfilePosts, getTotalProfilePosts } from '../../../store/selectors/postsSelectors';
+import { getIsAuthUserProfile } from '../../../store/selectors/profileSelectors';
 import ProfilePosts from './ProfilePosts';
 
 const ProfilePostsContainer = ({
@@ -26,9 +28,9 @@ const ProfilePostsContainer = ({
 }
 
 const mapStateToProps = (state) => ({
-  profilePosts: state.posts.profilePosts,
-  totalProfilePosts: state.posts.totalProfilePosts,
-  isAuthUserProfile: state.profile.isAuthUserProfile
+  profilePosts: getProfilePosts(state),
+  totalProfilePosts: getTotalProfilePosts(state),
+  isAuthUserProfile: getIsAuthUserProfile(state)
 });
 
 export default compose(

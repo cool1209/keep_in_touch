@@ -5,6 +5,7 @@ import { compose } from 'redux';
 
 import SideFollowing from './SideFollowing';
 import { fetchFollowings } from '../../../../store/reducers/followingReducer';
+import { getFollowings, getIsFollowings } from '../../../../store/selectors/followingsSelectors';
 
 const SideFollowingContainer = ({
   followings,
@@ -30,8 +31,8 @@ const SideFollowingContainer = ({
 };
 
 const mapStatetoProps = (state) => ({
-  followings: state.followings.followings,
-  isFollowings: !!state.followings.followings.length
+  followings: getFollowings(state),
+  isFollowings: getIsFollowings(state)
 });
 
 const mapStateToDispatch = {

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { getProfile, getProfileOnlineStatus } from '../../../store/selectors/profileSelectors';
 import ProfileInfo from './ProfileInfo';
 
 const ProfileInfoContainer = ({ profile, onlineStatus }) => {
@@ -9,8 +10,8 @@ const ProfileInfoContainer = ({ profile, onlineStatus }) => {
 }
 
 const mapStateToProps = (state) => ({
-  profile: state.profile.profile,
-  onlineStatus: state.profile.onlineStatus
+  profile: getProfile(state),
+  onlineStatus: getProfileOnlineStatus(state)
 });
 
 export default compose(

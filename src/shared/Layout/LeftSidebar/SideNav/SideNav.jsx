@@ -1,9 +1,13 @@
 import React from 'react';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
 
+import { setNoContactSelected } from "../../../../store/reducers/dialogsReducer";
 import SideNavLink from './SideNavLink/SideNavLink';
 import styles from './SideNav.module.scss';
+import { getAuthUserId } from '../../../../store/selectors/authSelectors';
 
-const SideNav = ({ userId, setNoContactSelected }) => {
+const SideNav = ({ authUserId, setNoContactSelected }) => {
   const links = [
     {
       path: '/home',
@@ -26,7 +30,7 @@ const SideNav = ({ userId, setNoContactSelected }) => {
       id: 'music-icon'
     },
     {
-      path: `/profile/` + userId,
+      path: `/profile/${authUserId}`,
       name: 'Profile',
       id: 'profile-icon'
     }
@@ -45,4 +49,14 @@ const SideNav = ({ userId, setNoContactSelected }) => {
   );
 };
 
-export default SideNav;
+const mapStateToProps = (state) => ({
+  authUserId: getAuthUserId(state)
+})
+
+const mapStateToDispatch = {
+  setNoContactSelected
+};
+
+export default compose(
+  connect(mapStateToProps, mapStateToDispatch)
+)(SideNav);

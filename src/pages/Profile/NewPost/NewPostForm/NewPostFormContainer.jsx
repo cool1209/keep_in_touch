@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { sendNewPost, updateNewPostText } from '../../../../store/reducers/postsReducer';
+import { getNewPostText } from '../../../../store/selectors/postsSelectors';
 import NewPostForm from './NewPostForm';
 
 const NewPostFormContainer = ({
@@ -29,7 +30,7 @@ const NewPostFormContainer = ({
 };
 
 const mapStateToProps = (state) => ({
-  newPostText: state.posts.newPostText
+  newPostText: getNewPostText(state)
 });
 
 export default compose(

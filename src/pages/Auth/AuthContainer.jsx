@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { compose } from "redux";
+import { getAuthLoadingProcess, getIsAuth } from "../../store/selectors/authSelectors";
 
 import Auth from "./Auth";
 
@@ -16,8 +17,8 @@ const AuthContainer = ({ isLoading, isAuth }) => {
 };
 
 const mapStateToProps = (state) => ({
-  isLoading: state.auth.isLoadingProcess,
-  isAuth: state.auth.authUser.id
+  isLoading: getAuthLoadingProcess(state),
+  isAuth: getIsAuth(state)
 });
 
 export default compose(

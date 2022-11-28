@@ -3,6 +3,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 import Dialog from './Dialog';
+import { getAuthUser } from '../../../../store/selectors/authSelectors';
 
 const DialogContainer = ({
   dialog,
@@ -17,7 +18,7 @@ const DialogContainer = ({
 };
 
 const mapStatetoProps =(state) => ({
-  authUser: state.auth.authUser,
+  authUser: getAuthUser(state),
 });
 
 export default compose(

@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { getDialogs, getIsContactSelected } from '../../../store/selectors/dialogsSelectors';
 import Dialogs from './Dialogs';
 
 const mapStateToProps = (state) => ({
-  dialogs: state.dialogs.dialogs,
-  isContactSelected: state.dialogs.isContactSelected,
+  dialogs: getDialogs(state),
+  isContactSelected: getIsContactSelected(state)
 });
 
 export default compose(

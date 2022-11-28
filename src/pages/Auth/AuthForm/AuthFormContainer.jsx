@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { userAuth } from '../../../store/reducers/authReducer'
+import { fetchUserAuth } from '../../../store/reducers/authReducer'
 import AuthForm from './AuthForm';
 
-const AuthFormContainer = ({ userAuth }) => {
+const AuthFormContainer = ({ fetchUserAuth }) => {
 
   const onSubmit = (e) => {
-    userAuth(e);
+    fetchUserAuth(e);
   }
 
   const required = value => value ? undefined : true;
@@ -21,7 +21,7 @@ const AuthFormContainer = ({ userAuth }) => {
 };
 
 const mapStateToDispatch = {
-  userAuth
+  fetchUserAuth
 };
 
 export default compose(
