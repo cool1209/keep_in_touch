@@ -10,7 +10,6 @@ import { getAuthUserId } from '../../store/selectors/authSelectors';
 import { getIsPostsPosts, getPosts } from '../../store/selectors/postsSelectors';
 
 const HomeContainer = ({
-  authUserId,
   posts,
   fetchPosts,
   setPosts,
@@ -18,7 +17,7 @@ const HomeContainer = ({
 }) => {
 
   useEffect(() => {
-    fetchPosts(authUserId)
+    fetchPosts()
 
     return () => {
       setPosts([], null);

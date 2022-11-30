@@ -1,14 +1,11 @@
-import React from 'react';
-import SmallUserAvatarStyles from './SmallUserAvatar.module.scss';
+import React from "react";
+import SmallUserAvatarStyles from "./SmallUserAvatar.module.scss";
 
-const SmallUserAvatar = ({
-  src,
-  styles
-}) => {
+const SmallUserAvatar = ({ src, styles }) => {
   return (
-    <img 
+    <img
       src={src}
-      alt='User avatar'
+      alt="User avatar"
       className={`${SmallUserAvatarStyles.avatar} ${styles}`}
     />
   );

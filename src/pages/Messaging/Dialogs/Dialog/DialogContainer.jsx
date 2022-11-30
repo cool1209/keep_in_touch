@@ -5,10 +5,7 @@ import { connect } from 'react-redux';
 import Dialog from './Dialog';
 import { getAuthUser } from '../../../../store/selectors/authSelectors';
 
-const DialogContainer = ({
-  dialog,
-  authUser
-}) => {
+const DialogContainer = ({ dialog,authUser }) => {
   return (
     <Dialog
       authUser={authUser}

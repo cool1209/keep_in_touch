@@ -10,7 +10,6 @@ const Contacts = ({
   isSelected,
   setIsContactSelected
 }) => {
-
   return (
     <ul className={classNames(
       styles.contacts,

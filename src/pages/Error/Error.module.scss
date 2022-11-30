@@ -1,0 +1,41 @@
+@import "../../styles/utils/vars";
+@import "../../styles/utils/mixins";
+
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+
+  border: 20px solid $color-normal;
+
+  @include xs {
+    border-width: 12px;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+
+    font-size: 80px;
+    line-height: 1;
+    color: $color-dark;
+
+    @include xs {
+      font-size: 40px;
+    }
+  }
+
+  &__subtitle {
+    display: flex;
+    flex-direction: column;
+
+    font-size: $font-size-large;
+    text-align: center;
+  }
+
+  @include xs {
+    font-size: $font-size-normal;
+  }
+}

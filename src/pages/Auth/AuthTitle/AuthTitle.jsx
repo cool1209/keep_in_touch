@@ -1,3 +1,5 @@
+import React from 'react';
+
 import styles from './AuthTitle.module.scss';
 
 const AuthTitle = () => {
@@ -10,4 +12,4 @@ const AuthTitle = () => {
     );
 };
 
-export default AuthTitle;
+export default React.memo(AuthTitle);

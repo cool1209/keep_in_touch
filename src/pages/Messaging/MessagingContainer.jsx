@@ -9,7 +9,6 @@ import Messaging from './Messaging';
 import { getTotalDialogs } from '../../store/selectors/dialogsSelectors';
 
 const MessagingContainer = ({ fetchDialogs, totalDialogs }) => {
-  
   useEffect(() => {
     fetchDialogs();
   }, []);

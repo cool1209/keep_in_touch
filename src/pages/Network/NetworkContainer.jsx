@@ -1,50 +1,45 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { compose } from 'redux';
-import withAuthUser from '../../hocs/withAuthUser';
+import { compose } from "redux";
+import withAuthUser from "../../hocs/withAuthUser";
 
-import withLayout from '../../hocs/withLayout';
+import withLayout from "../../hocs/withLayout";
 import { fetchUsers } from "../../store/reducers/usersReducer";
 import {
   getCurrentPageOfUsers,
   getPagesOfUsers,
   getTotalUsers,
   getUsers,
-  getUsersPageIsLoading
-} from '../../store/selectors/usersSelectors';
-import Network from './Network';
+  getUsersPageIsLoading,
+} from "../../store/selectors/usersSelectors";
+import Network from "./Network";
 
-class NetworkContainer extends React.Component {
-  setStartUserPage() {
-    const startPage = 1;
-    this.props.fetchUsers(startPage);
-  }
+const NetworkContainer = ({
+  users,
+  pages,
+  currentPage,
+  totalUsers,
+  usersPageIsLoading,
+  fetchUsers
+}) => {
   
-  componentDidMount() {
-    if (!this.props.users.length) {
-      this.setStartUserPage();
-    };
-  }
+  useEffect(() => {
+    if (!users.length) {
+      const startPage = 1;
+      fetchUsers(startPage);
+    }
+  }, []);
 
-  render() {
-    const {
-      users,
-      pages,
-      currentPage,
-      totalUsers
-    } = this.props;
-
-    return (
-      <Network 
-        pages={pages}
-        currentPage={currentPage}
-        users={users}
-        getUsers={this.props.fetchUsers.bind(this)}
-        pageIsLoaded={!!totalUsers}
-        usersPageIsLoading={this.props.usersPageIsLoading}
-      />
-    )
-  }
+  return (
+    <Network
+      pages={pages}
+      currentPage={currentPage}
+      users={users}
+      fetchUsers={fetchUsers}
+      pageIsLoaded={!!totalUsers}
+      usersPageIsLoading={usersPageIsLoading}
+    />
+  );
 };
 
 const mapStateToProps = (state) => ({
@@ -52,7 +47,7 @@ const mapStateToProps = (state) => ({
   pages: getPagesOfUsers(state),
   currentPage: getCurrentPageOfUsers(state),
   totalUsers: getTotalUsers(state),
-  usersPageIsLoading: getUsersPageIsLoading(state)
+  usersPageIsLoading: getUsersPageIsLoading(state),
 });
 
 const mapStateToDispatch = {

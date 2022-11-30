@@ -14,18 +14,15 @@ const AuthForm = ({ required, onSubmit }) => {
                 const isInvalid = meta.touched && meta.error;
 
                 return (
-                  <div>
-                    <input
+                  <input
                     type="text"
                     {...input}
-                    placeholder={isInvalid ? 'Enter your login' : 'Login'}
-                    className={classNames(
-                      styles.AuthForm__input,
-                      {[styles.AuthForm__input_required]: isInvalid}
-                    )}
+                    placeholder={isInvalid ? "Enter your login" : "Login"}
+                    className={classNames(styles.AuthForm__input, {
+                      [styles.AuthForm__input_required]: isInvalid,
+                    })}
                   />
-                  </div>
-                )
+                );
               }}
             </Field>
 
@@ -34,18 +31,15 @@ const AuthForm = ({ required, onSubmit }) => {
                 const isInvalid = meta.touched && meta.error;
 
                 return (
-                  <div>
-                    <input
+                  <input
                     type="text"
                     {...input}
-                    placeholder={isInvalid ? 'Enter your password' : 'Password'}
-                    className={classNames(
-                      styles.AuthForm__input,
-                      {[styles.AuthForm__input_required]: isInvalid}
-                    )}
+                    placeholder={isInvalid ? "Enter your password" : "Password"}
+                    className={classNames(styles.AuthForm__input, {
+                      [styles.AuthForm__input_required]: isInvalid,
+                    })}
                   />
-                  </div>
-                )
+                );
               }}
             </Field>
           </div>
@@ -57,13 +51,17 @@ const AuthForm = ({ required, onSubmit }) => {
                 name="remember"
                 component="input"
                 className={styles.AuthForm__checkbox}
-              />Remember me</label>
+              />
+              Remember me
+            </label>
 
             <button
               className={styles.AuthForm__button}
               type="submit"
               disabled={submitting}
-            >LogIn</button>
+            >
+              LogIn
+            </button>
           </div>
         </form>
       )}

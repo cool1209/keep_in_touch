@@ -1,9 +1,10 @@
 import { profileAPI } from "../../api/profileAPI";
+import { changeState } from "../functions/changeState";
 
-const SET_PROFILE = 'SET_PROFILE';
-const SET_PROFILE_STATUS = 'SET_PROFILE_STATUS';
-const SET_ONLINE_STATUS = 'SET_ONLINE_STATUS';
-const SET_IS_AUTH_USER_PROFILE = 'SET_IS_AUTH_USER_PROFILE';
+const SET_PROFILE = "profile/SET_PROFILE";
+const SET_PROFILE_STATUS = "profile/SET_PROFILE_STATUS";
+const SET_ONLINE_STATUS = "profile/SET_ONLINE_STATUS";
+const SET_IS_AUTH_USER_PROFILE = "profile/SET_IS_AUTH_USER_PROFILE";
 
 const initialState = {
   profile: {},
@@ -13,89 +14,73 @@ const initialState = {
 
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
-
     case SET_PROFILE:
-      return {
-        ...state,
-        profile: action.profile,
-      }
+      return changeState(state, action, "profile");
 
     case SET_IS_AUTH_USER_PROFILE:
-      return {
-        ...state,
-        isAuthUserProfile: action.isAuthUserProfile,
-      }
+      return changeState(state, action, "isAuthUserProfile");
 
     case SET_PROFILE_STATUS:
-      return {
-        ...state,
-        profile: { ...state.profile, status: action.profileStatus}
-      }
+      return changeState(state, action,"profile", 'status', true);
 
     case SET_ONLINE_STATUS:
-      return {
-        ...state,
-        onlineStatus: action.onlineStatus
-      }
-    
+      return changeState(state, action, "onlineStatus");
+
     default:
       return state;
-  };
-}
-
-export const setProfile = (profile) => ({
-  type: SET_PROFILE,
-  profile
-});
-
-export const setIsAuthUserProfile = (isAuthUserProfile) => ({
-  type: SET_IS_AUTH_USER_PROFILE,
-  isAuthUserProfile
-});
-
-export const setProfileStatus = (profileStatus) => ({
-  type: SET_PROFILE_STATUS,
-  profileStatus
-});
-
-export const setOnlineStatus = (onlineStatus) => ({
-  type: SET_ONLINE_STATUS,
-  onlineStatus
-});
-
-export const putProfileStatus = (status) => (dispatch) => {
-  profileAPI.putProfileStatus(status)
-  .then(response => {
-    if (response) {
-      if (response.statusCode === 200) {
-        dispatch(setProfileStatus(status));
-      }
-    }
-  });
+  }
 };
 
-export const fetchProfile = (userId) => (dispatch) => {
+export const setProfile = (payload) => ({
+  type: SET_PROFILE,
+  payload,
+});
+
+export const setIsAuthUserProfile = (payload) => ({
+  type: SET_IS_AUTH_USER_PROFILE,
+  payload,
+});
+
+export const setProfileStatus = (payload) => ({
+  type: SET_PROFILE_STATUS,
+  payload,
+});
+
+export const setOnlineStatus = (payload) => ({
+  type: SET_ONLINE_STATUS,
+  payload,
+});
+
+export const putProfileStatus = (status) => async (dispatch) => {
+  const response = await profileAPI.putProfileStatus(status);
+
+  if (response) {
+    if (response.statusCode === 200) {
+      dispatch(setProfileStatus(status));
+    }
+  }
+};
+
+export const fetchProfile = (userId) => async (dispatch) => {
   dispatch(setProfile({}));
 
-  profileAPI.fetchProfile(userId)
-  .then(response => {
-    if (response.statusCode === 200) {
-      const profile = response.data;
-      
-      dispatch(setProfile(profile));
-    }
-  });
+  const response = await profileAPI.fetchProfile(userId);
+
+  if (response.statusCode === 200) {
+    const profile = response.data;
+
+    dispatch(setProfile(profile));
+  }
 };
 
-export const fetchOnlineStatus = (profileId) => (dispatch) => {
-  profileAPI.fetchOnlineStatus(profileId)
-  .then(response => {
-    if (response.statusCode === 200) {
-      const onlineStatus = response.data;
+export const fetchOnlineStatus = (profileId) => async (dispatch) => {
+  const response = await profileAPI.fetchOnlineStatus(profileId);
 
-      dispatch(setOnlineStatus(onlineStatus));
-    }
-  });
+  if (response.statusCode === 200) {
+    const onlineStatus = response.data;
+
+    dispatch(setOnlineStatus(onlineStatus));
+  }
 };
 
 export default profileReducer;
