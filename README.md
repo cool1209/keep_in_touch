@@ -10,8 +10,6 @@
   <img src="https://img.shields.io/badge/-redux-blueviolet" alt="redux"> <br>
   <!-- <img src="https://img.shields.io/badge/-typescript-blue" alt="typescript"> -->
   <!-- <img src="https://img.shields.io/badge/-nodejs-brightgreen" alt="node.js"> -->
-  <!-- <img src="https://img.shields.io/badge/-bootstrap-blueviolet" alt="bootstrap"> -->
-  <!-- <img src="https://img.shields.io/badge/-bulma-brightgreen" alt="bulma"> -->
 </p>
 
 <p align="center">
@@ -40,7 +38,7 @@ and Redux, Flux architecture, data interaction, etc.
 > **4. Network page:**
 >- On this page you can view the users of this network. Visit a user's profile by clicking on their avatar, you can also follow any of them.
 >
-> **5. Music page:**
+> **5. Community page:**
 >- Content is temporarily unavailable...
 >
 > **6. Profile page:**
@@ -48,31 +46,35 @@ and Redux, Flux architecture, data interaction, etc.
 >- You can add a new publication.
 >- You can view all of the user's posts
 >- You can logout from your account (in the upper right corner of the wallpaper).
+>
+> **7. Error page:**
+>- The page that appears in the event of a page request error.
 
  **Added changes:**
- - Added the ability to add user status on the profile page
- - The method of authorization has been changed
- - Changed CSS to SCSS
- - The Login page has been renamed to the Auth page
- - The Dialogs page has been renamed to the Messaging page
- - The structure of the project has been changed
+ - Added simple validation to Auth page
+ - Added selectors to store
+ - Added error 404 page
+ - Changed Music page to Community page
  - Changed some styles
  - Fixed some small bugs
 
- **Frameworks dokumentation:** <br>
+ **Frameworks / libs dokumentation:** <br>
 - [Getting Started with React](https://reactjs.org/docs/getting-started.html) <br>
 - [Getting Started with Redux](https://redux.js.org/introduction/getting-started)
 - [Quick Start REACT ROUTER](https://v5.reactrouter.com/web/example/basic)
+- [REACT FINAL FORM](https://final-form.org/docs/react-final-form/getting-started)
 
- **The npm commands used to install the required node modules:**
-- `npx create-react-app my-app`
-- `npm i gh-pages --save-dev`
-- `npm i redux`
-- `npm i redux-thunk`
-- `npm i react-redux`
-- `npm i react-router-dom`
-- `npm i classnames`
-- `npm i sass`
+ **The frameworks/libraries/modules used in the project**
+- React `npx create-react-app my-app`
+- React Router `npm i react-router-dom`
+- React-Redux `npm i react-redux`
+- Redux `npm i redux`
+- Redux thunk `npm i redux-thunk`
+- Redux devtools `npm i redux-devtools-extension`
+- ClassNames `npm i classnames`
+- SaSS/SCSS `npm i sass`
+- REACT FINAL FORM `npm i --save final-form react-final-form`
+- gh-pages `npm i gh-pages --save-dev`
 
 ## Developers
 
