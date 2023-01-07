@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import AuthContainer from "./pages/Auth/AuthContainer";
 import HomeContainer from "./pages/Home/HomeContainer";
 import NetworkContainer from "./pages/Network/NetworkContainer";
-import MusicContainer from "./pages/Music/MusicContainer";
+import CommunityContainer from "./pages/Community/CommunityContainer";
 import ProfileContainer from "./pages/Profile/ProfileContainer";
 import MessagingContainer from "./pages/Messaging/MessagingContainer";
 import Error from "./pages/Error/Error";
@@ -20,7 +20,7 @@ const App = () => {
         <Route path="/home" element={<HomeContainer />} />
         <Route path="/messaging/*" element={<MessagingContainer />} />
         <Route path="/network" element={<NetworkContainer />} />
-        <Route path="/music" element={<MusicContainer />} />
+        <Route path="/community" element={<CommunityContainer />} />
         <Route path="/profile/:userId" element={<ProfileContainer />} />
         <Route
           path="/profile"

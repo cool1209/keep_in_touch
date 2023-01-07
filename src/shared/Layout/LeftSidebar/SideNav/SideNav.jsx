@@ -20,14 +20,14 @@ const SideNav = ({ authUserId, setNoContactSelected }) => {
       id: 'dialogs-icon'
     },
     {
+      path: '/community',
+      name: 'Community',
+      id: 'community-icon'
+    },
+    {
       path: '/network',
       name: 'Network',
       id: 'network-icon'
-    },
-    {
-      path: '/music',
-      name: 'Music',
-      id: 'music-icon'
     },
     {
       path: `/profile/${authUserId}`,

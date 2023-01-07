@@ -6,7 +6,7 @@ import like from './icons/like.ico';
 import home from './icons/home.png';
 import dialogs from './icons/dialogs.ico';
 import network from './icons/network.ico';
-import music from './icons/music.png';
+import community from './icons/community.png';
 import profile from './icons/profile.ico';
 
 const GetIcon = ({ id }) => {
@@ -65,11 +65,11 @@ const GetIcon = ({ id }) => {
         />
       );
 
-    case 'music-icon':
+    case 'community-icon':
       return (
         <img
-          src={music}
-          alt='Music icon'
+          src={community}
+          alt='Community icon'
           className={styles.sideNavIcon}
         />
       );
