@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Preloader from '../../shared/Preloader/Preloader';
 import LoginHint from './AuthHint/AuthHint';
 import AuthTitle from './AuthTitle/AuthTitle';

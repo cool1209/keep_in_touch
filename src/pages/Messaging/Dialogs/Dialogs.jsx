@@ -10,7 +10,6 @@ const Dialogs = ({
   dialogs,
   isContactSelected,
 }) => {
-
   return (
     <ul className={styles.dialogs}>
       {isContactSelected

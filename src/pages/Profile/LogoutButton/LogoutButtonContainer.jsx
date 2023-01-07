@@ -10,6 +10,10 @@ const LogoutButtonContainer = ({ resetState }) => {
   );
 };
 
+const mapStateToDispatch = {
+  resetState
+}
+
 export default compose(
-  connect(null, {resetState})
+  connect(null, mapStateToDispatch)
 )(LogoutButtonContainer);

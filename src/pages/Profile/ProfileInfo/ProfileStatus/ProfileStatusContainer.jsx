@@ -6,6 +6,7 @@ import { compose } from "redux";
 import ProfileStatus from "./ProfileStatus";
 import { putProfileStatus } from "../../../../store/reducers/profileReducer";
 import { useState } from "react";
+import { getIsAuthUserProfile, getProfileStatus } from "../../../../store/selectors/profileSelectors";
 
 const ProfileStatusContainer = ({
   profileStatus,
@@ -51,8 +52,8 @@ const ProfileStatusContainer = ({
 };
 
 const mapStateToProps = (state) => ({
-  profileStatus: state.profile.profile.status,
-  isAuthUserProfile: state.profile.isAuthUserProfile
+  profileStatus: getProfileStatus(state),
+  isAuthUserProfile: getIsAuthUserProfile(state)
 });
 
 const mapStateToDispatch = { putProfileStatus };

@@ -1,28 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { HashRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { HashRouter } from "react-router-dom";
+import { Provider } from "react-redux";
 
-import App from './App';
-import store from './store/store.js';
-import './styles/index.scss';
+import App from "./App";
+import store from "./store/store.js";
+import "./styles/index.scss";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const renderThree = () => {
-  root.render(
-    <React.StrictMode>
-      <HashRouter>
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </HashRouter>
-    </React.StrictMode>
-  );
-};
-
-renderThree();
-
-store.subscribe(() => {
-  renderThree();
-});
+root.render(
+  <React.StrictMode>
+    <HashRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </HashRouter>
+  </React.StrictMode>
+);

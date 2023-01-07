@@ -19,11 +19,11 @@
 
     @include login-page-hint;
     color: $color-main;
-    background: $color-error;
+    background: $color-error-light;
 
     opacity: 0;
 
-    transition: opacity 2s linear;
+    transition: opacity 0.5s linear;
 
     &_isActive {
       opacity: 1;

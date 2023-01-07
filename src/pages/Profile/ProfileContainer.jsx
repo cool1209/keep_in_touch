@@ -14,6 +14,8 @@ import Preloader from '../../shared/Preloader/Preloader';
 import Profile from './Profile';
 import withLayout from '../../hocs/withLayout';
 import withAuthUser from '../../hocs/withAuthUser';
+import { getAuthUserId } from '../../store/selectors/authSelectors';
+import { getIsProfile } from '../../store/selectors/profileSelectors';
 
 const ProfileContainer = ({
   authUserId,
@@ -49,8 +51,8 @@ const ProfileContainer = ({
 };
 
 const mapStateToProps = (state) => ({
-  authUserId: state.auth.authUser.id,
-  isProfile: state.profile.profile.id
+  authUserId: getAuthUserId(state),
+  isProfile: getIsProfile(state)
 });
 
 const mapStateToDispatch = {

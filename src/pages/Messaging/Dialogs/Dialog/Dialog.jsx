@@ -8,7 +8,6 @@ const Dialog = ({
   authUser,
   dialog
 }) => {
-
   return (
     <li className={styles.dialog}>
       <ul className={styles.dialog__messages}>

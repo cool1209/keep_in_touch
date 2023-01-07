@@ -1,56 +1,71 @@
+import classNames from "classnames";
+import { Field, Form } from "react-final-form";
 import styles from "./AuthForm.module.scss";
 
-const AuthForm = ({
-  form,
-  onHandleChange,
-  onHandleFormSubmit
-}) => {
+const AuthForm = ({ required, onSubmit }) => {
   return (
-    <form
-      className={styles.AuthForm}
-      onSubmit={onHandleFormSubmit}
-    >
-      <div className={styles.AuthForm__top}>
-        <input
-          className={styles.AuthForm__input}
-          type="text"
-          name="login"
-          placeholder="Login..."
-          onChange={onHandleChange}
-          value={form.login}
-          required
-        />
+    <Form
+      onSubmit={onSubmit}
+      render={({ handleSubmit, submitting }) => (
+        <form className={styles.AuthForm} onSubmit={handleSubmit}>
+          <div className={styles.AuthForm__top}>
+            <Field name="login" validate={required}>
+              {({ input, meta }) => {
+                const isInvalid = meta.touched && meta.error;
 
-        <input
-          className={styles.AuthForm__input}
-          type="password"
-          name='password'
-          placeholder="Password..."
-          onChange={onHandleChange}
-          value={form.password}
-          required
-        />
-      </div>
+                return (
+                  <input
+                    type="text"
+                    {...input}
+                    placeholder={isInvalid ? "Enter your login" : "Login"}
+                    className={classNames(styles.AuthForm__input, {
+                      [styles.AuthForm__input_required]: isInvalid,
+                    })}
+                  />
+                );
+              }}
+            </Field>
 
-      <div className={styles.AuthForm__bottom}>
-        <label htmlFor="checkbox" className={styles.AuthForm__checkboxLabel}>
-          <input
-            type="checkbox"
-            name="remember"
-            id="checkbox"
-            className={styles.AuthForm__checkbox}
-            onChange={onHandleChange}
-            checked={form.remember}
-          />
-          Remember me
-        </label>
+            <Field name="password" validate={required}>
+              {({ input, meta }) => {
+                const isInvalid = meta.touched && meta.error;
 
-        <button
-          className={styles.AuthForm__button}
-          type='submit'
-        >LogIn</button>
-      </div>
-    </form>
+                return (
+                  <input
+                    type="text"
+                    {...input}
+                    placeholder={isInvalid ? "Enter your password" : "Password"}
+                    className={classNames(styles.AuthForm__input, {
+                      [styles.AuthForm__input_required]: isInvalid,
+                    })}
+                  />
+                );
+              }}
+            </Field>
+          </div>
+
+          <div className={styles.AuthForm__bottom}>
+            <label className={styles.AuthForm__checkboxLabel}>
+              <Field
+                type="checkbox"
+                name="remember"
+                component="input"
+                className={styles.AuthForm__checkbox}
+              />
+              Remember me
+            </label>
+
+            <button
+              className={styles.AuthForm__button}
+              type="submit"
+              disabled={submitting}
+            >
+              LogIn
+            </button>
+          </div>
+        </form>
+      )}
+    />
   );
 };
 

@@ -3,11 +3,11 @@ import { compose } from 'redux';
 
 import withAuthUser from '../../hocs/withAuthUser';
 import withLayout from '../../hocs/withLayout';
-import Music from './Music';
+import Community from './Community';
 
-const MusicContainer = () => <Music />
+const CommunityContainer = () => <Community />
 
 export default compose(
   withAuthUser,
   withLayout
-)(MusicContainer);
+)(CommunityContainer);

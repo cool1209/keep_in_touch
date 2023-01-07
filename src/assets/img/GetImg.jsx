@@ -3,7 +3,7 @@ import React from 'react';
 import GetImgStyles from './GetImg.module.scss'
 import headerLogo from './header/logo.png';
 import spinner from './spinner/spinner.svg';
-import note from './music/note.gif';
+import community from './community/community.png';
 
 export const GetImg = ({ id, ...props }) => {
   switch (id) {
@@ -28,9 +28,9 @@ export const GetImg = ({ id, ...props }) => {
     case 'note':
       return (
         <img
-          src={note}
-          alt='Note'
-          className={`${GetImgStyles.note} ${props.styles}`}
+          src={community}
+          alt='Community'
+          className={`${GetImgStyles.community} ${props.styles}`}
         />
       );
 
